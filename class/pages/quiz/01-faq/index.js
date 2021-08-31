@@ -1,4 +1,8 @@
-import { ArrowRight, Profile, Underbar_icon, Underbar_letter, Homeicon, Mapicon, Loveicon, Myicon, Home, Map, Love, My,Time, Bar, Name, Search, Title, Category, Notice, Event, Frequent, Main, Question, Qlist, Qline, One, Two, Three, Four, Five, Six, First, Second, Third, Fourth, Fifth, Sixth, Arrow, Afirst, Asecond, Afthird, Afourth, Afifth, Asixth, Group, Wrapper } from '../../../styles/01-faq'
+import { Underline, ArrowRight, Profile, Underbar_icon, Underbar_letter, Homeicon, Mapicon, 
+        Loveicon, Myicon, Home, Map, Love, My,Time, Bar, Name, Search, Title, Category, Notice, Event, 
+        Frequent, Main, Question, Qlist, Qline, One, Two, Three, Four, Five, Six, First, Second, Third, 
+        Fourth, Fifth, Sixth, Arrow, Afirst, Asecond, Afthird, Afourth, 
+        Afifth, Asixth, Group, Wrapper } from '../../../styles/01-faq'
 
 
 export default function FaqPage(){
@@ -10,18 +14,18 @@ export default function FaqPage(){
                 <Time>12:30</Time>
             </Bar>
             <Search>
-                <img src="/images/searchicon.png"/>
+                <img src="/images/searchicon.png" width="22" height="22"/>
             </Search>
             <Group>
                 <Title>마이</Title>
-                <Profile><img src ="/images/profile.png"/></Profile>
+                <Profile><img src ="/images/profile.png" width="38" height="38"/></Profile>
                 <Name>임정아</Name>
-                <ArrowRight><img src ="/images/arrow right.png"/></ArrowRight>
+                <ArrowRight><img src ="/images/arrow right.png" width="20" height="20"/></ArrowRight>
             </Group>
             <Category>
                 <Notice>공지사항</Notice>
                 <Event>이벤트</Event>
-                <Frequent>FAQ</Frequent>
+                <Frequent>FAQ<Underline/></Frequent>
                 <Question>Q&A</Question>
             </Category>
             <Main>
@@ -53,18 +57,18 @@ export default function FaqPage(){
                 </Qlist>
                 <Arrow>
                     <Afirst><img src="/images/arrow down.png" width="35" height="35"/></Afirst>
-                    <Asecond><img src="/images/arrow down.png" width="30" height="30"/></Asecond>
-                    <Afthird><img src="/images/arrow down.png" width="30" height="30"/></Afthird>
-                    <Afourth><img src="/images/arrow down.png" width="30" height="30"/></Afourth>
-                    <Afifth><img src="/images/arrow down.png" width="30" height="30"/></Afifth>
-                    <Asixth><img src="/images/arrow down.png" width="30" height="30"/></Asixth>
+                    <Asecond><img src="/images/arrow down.png" width="35" height="35"/></Asecond>
+                    <Afthird><img src="/images/arrow down.png" width="35" height="35"/></Afthird>
+                    <Afourth><img src="/images/arrow down.png" width="35" height="35"/></Afourth>
+                    <Afifth><img src="/images/arrow down.png" width="35" height="35"/></Afifth>
+                    <Asixth><img src="/images/arrow down.png" width="35" height="35"/></Asixth>
                 </Arrow>
             </Main>     
             <Underbar_icon>
-                <Homeicon><img src="/images/home.png"/></Homeicon>
-                <Mapicon><img src="/images/map.png"/></Mapicon>
-                <Loveicon><img src="/images/love.png"/></Loveicon>
-                <Myicon><img src="/images/my.png"/></Myicon>
+                <Homeicon><img src="/images/home.png" width="40" height="40"/></Homeicon>
+                <Mapicon><img src="/images/map.png" width="40" height="40"/></Mapicon>
+                <Loveicon><img src="/images/love.png" width="40" height="40"/></Loveicon>
+                <Myicon><img src="/images/my.png" width="40" height="40"/></Myicon>
             </Underbar_icon>
             <Underbar_letter>
                 <Home>홈</Home>
