@@ -6,7 +6,7 @@ export default function HelloStatePage(){
     const [ aaa, setAaa ] = useState("안녕하세요")
 
     function zzz(){
-        setAaa("반갑습니다")
+        setAaa("반갑습니다.")
         
     }
 
