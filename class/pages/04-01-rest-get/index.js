@@ -8,7 +8,7 @@ export default function RestGetPage(){
     }
 
     return (
-        <button onCilck={zzz}> REST-API 요청하기!!</button>
+        <button onClick={zzz}> REST-API 요청하기!!</button>
 
     )
 

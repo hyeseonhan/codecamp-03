@@ -2,7 +2,7 @@ import { Underline, ArrowRight, Profile, Underbar_icon, Underbar_letter, Homeico
         Loveicon, Myicon, Home, Map, Love, My,Time, Bar, Name, Search, Title, Category, Notice, Event, 
         Frequent, Main, Question, Qlist, Qline, One, Two, Three, Four, Five, Six, First, Second, Third, 
         Fourth, Fifth, Sixth, Arrow, Afirst, Asecond, Afthird, Afourth, 
-        Afifth, Asixth, Group, Wrapper } from '../../../../styles/quiz/week1/01-faq'
+        Afifth, Asixth, Group, Wrapper } from '../../../../../styles/quiz/week1/01-faq'
 
 
 export default function FaqPage(){
