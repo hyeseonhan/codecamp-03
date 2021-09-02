@@ -62,6 +62,4 @@ export default function GraphqlMutationProductPage(){
             <button onClick={onClickSubmit}>상품등록하기</button>
         </>
     )
-
-
 }
