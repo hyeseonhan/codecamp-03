@@ -10,8 +10,6 @@ const CREATE_BOARD = gql`
     }
 `
 
-
-
 export default function GraphqlMutaionBoard3Page(){
     const [ creatBoard ] = useMutation(CREATE_BOARD)
     const [myWriter, setMyWriter] = useState('')
@@ -35,8 +33,7 @@ export default function GraphqlMutaionBoard3Page(){
             variables: { writer : myWriter, title: myTitle, contents: myContents}
         })
         console.log(result)
-        console.log(result.data.creatBoard)
-            
+        console.log(result.data.creatBoard)      
     }
   
     return (
@@ -47,5 +44,4 @@ export default function GraphqlMutaionBoard3Page(){
             <button onClick={aaa}>GRAPQL-API 요청하기!!!</button>
         </>
     )
-
 }
