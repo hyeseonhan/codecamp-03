@@ -1,5 +1,7 @@
 import {useMutation, gql} from '@apollo/client'
 import { useState } from 'react';
+import { useRouter} from 'next/router'
+
 import {
     Error,
     Address,
@@ -38,7 +40,9 @@ import {
       }
     
   `
-  export default function BoardNewPage() {
+  export default function BoardRouter_DetailPage() {
+    const router = useRouter()
+
     const [ createBoard] = useMutation(CREATE_BOARD)
     const [writer, setWriter] = useState('')
     const [password, setPassword] = useState('')
@@ -79,34 +83,41 @@ import {
     }
 
     async function onClickSubmit(){
-      if(writer === ""){
-        setWriterError("작성자를 입력해주세요.")
-      }
-      if(password === ""){
-        setPasswordError("비밀번호를 입력해주세요.")
-      }
-      if(title === ""){
-        setTitleError("제목을 입력해주세요.")
-      }
-      if(contents === ""){
-        setContentsError("내용을 입력해주세요.")
-      }
-      if(writer !== "" && password !== "" && title !== "" && contents !== ""){
-          alert('게시물을 등록합니다~')
-      }
-      const result = await createBoard({
-        variables:{
-            createBoardInput:{
-                writer:writer,
-                title:title,
-                contents:contents,
-                password:password
-            }
+      try{
+        if(writer === ""){
+          setWriterError("작성자를 입력해주세요.")
         }
-      })
-      console.log(result)
-        
-    }
+        if(password === ""){
+          setPasswordError("비밀번호를 입력해주세요.")
+        }
+        if(title === ""){
+          setTitleError("제목을 입력해주세요.")
+        }
+        if(contents === ""){
+          setContentsError("내용을 입력해주세요.")
+        }
+        if(writer !== "" && password !== "" && title !== "" && contents !== ""){
+            alert('게시물을 등록합니다~')
+        }
+        const result = await createBoard({
+          variables:{
+              createBoardInput:{
+                  writer:writer,
+                  title:title,
+                  contents:contents,
+                  password:password
+              }
+          }
+        })
+        console.log(result)
+        console.log(result.data.createBoard._id)
+        router.push(`/boards/router_detail_read/${result.data.createBoard._id}`)
+      }
+      catch(error){
+        console.log(error)
+      }
+    }  
+    
     
     return (
       <Wrapper>
