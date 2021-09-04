@@ -1,11 +1,13 @@
 import { useQuery, gql } from "@apollo/client";
 import { useRouter } from "next/router";
-import { InputWrapper, Wrapper } from "../../../../styles/router_detail";
 
-import {
+import { Wrapper, WriterWrapper, WriterWrapperLeft, WriterWrapperRight, ProfilImage, 
+          WriterDate, Location, Address1, Address2, Icon, FileIcon, MapIcon,
+        Writer, Date, InputWrapper, Title, Contents, Like, 
+        LikeImage, LikeCount, Dislike, DislikeImage, DislikeCount,
+        } from '../../../../styles/router_detail_read'
 
- } from '../../../../styles/router_detail_read'
-
+import '@fortawesome/fontawesome-free/js/all.js';
 
 const FETCH_BOARD =gql`
     query fetchBoard($boardId: ID!){
@@ -27,17 +29,29 @@ export default function BoardRouter_DetailRead() {
     return(
         <Wrapper>
             <WriterWrapper>
-                <ProfilImage>
-                    <img src="  "/>
-                </ProfilImage>
-                <WriterDate>
-                    <Writer>{data?.fetchBoard.writer}</Writer>
-                    <Date>Date : 2021.02.18</Date>
-                </WriterDate>
+                <WriterWrapperLeft>
+                    <ProfilImage>
+                    <i class="fas fa-user-circle fa-2x"></i>
+                    </ProfilImage>
+                    <WriterDate>
+                        <Writer>{data?.fetchBoard.writer}</Writer>
+                        <Date>Date : 2021.02.18</Date>
+                    </WriterDate>
+                </WriterWrapperLeft>
+                <WriterWrapperRight>
+                    <Location>
+                        <Address1>서울특별 영등포구 양산로 200</Address1>
+                        <Address2>(영등포동5가,영등포시장역)영등포 타임스퀘어 2층</Address2>
+                        <Icon>
+                            <FileIcon><img src="  "/></FileIcon>
+                            <MapIcon><img src="  "/></MapIcon>
+                        </Icon>
+                    </Location>
+                </WriterWrapperRight>  
             </WriterWrapper>
             <InputWrapper>
                 <Title>{data?.fetchBoard.title}</Title>
-                <img src="" />
+                <img src="/posty.jpeg" />
                 <Contents>{data?.fetchBoard.contents}</Contents>
             </InputWrapper>
             <InputWrapper>
@@ -50,7 +64,7 @@ export default function BoardRouter_DetailRead() {
                 </Like>
                 <Dislike>
                     <DislikeImage><img src="  "/></DislikeImage>
-                    <DislkeCount>1920</DislkeCount>
+                    <DislikeCount>1920</DislikeCount>
                 </Dislike>
             </InputWrapper>
         </Wrapper>
@@ -58,6 +72,7 @@ export default function BoardRouter_DetailRead() {
         
     )
 }    
+
 
 
 
