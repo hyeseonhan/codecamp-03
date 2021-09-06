@@ -73,11 +73,11 @@ export const Location = styled.div`
 export const Triangle = styled.div`
     width: 0px;
     height: 0px;
-    border-top: 6px solid #898989;
-    border-right: 8px solid #898989;
-    border-bottom: 6px solid transparent;
-    border-left: 8px solid transparent;
-    margin-left: 352px;
+    /* border-top: 6px solid #898989; */
+    border-right: 15px solid #898989;
+    border-bottom: 15px solid transparent;
+    /* border-left: 8px solid transparent; */
+    margin-left: 353px;
 `
 
 export const Address1 = styled.div`
