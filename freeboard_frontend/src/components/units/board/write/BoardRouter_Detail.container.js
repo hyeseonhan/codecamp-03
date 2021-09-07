@@ -91,18 +91,18 @@ export default function DetailWrite(){
                 alert('게시물을 등록합니다~')
             }
             const result = await createBoard({
-            variables:{
-                createBoardInput:{
-                    writer:writer,
-                    title:title,
-                    contents:contents,
-                    password:password
+                variables:{
+                    createBoardInput:{
+                        writer:writer,
+                        title:title,
+                        contents:contents,
+                        password:password
+                    }
                 }
-            }
             })
             console.log(result)
-            console.log(result.data.createBoard.number)
-            router.push(`/boards/detail_container_presenter_read/${result.data.createBoard.number}`)
+            console.log(result.data.createBoard._id)
+            router.push(`/boards/detail_container_presenter_read/${result.data.createBoard._id}`)
             }
         catch(error){
             console.log(error)
