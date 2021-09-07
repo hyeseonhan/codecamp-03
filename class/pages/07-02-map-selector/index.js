@@ -44,7 +44,7 @@ export default function MapSelectorPage(){
     return (
         <div>
             {data?.fetchBoards.map((el, index) =>(
-                <Row key={el.number}>
+                <Row key={el.nu}>
                     <Column>
                         <input type="checkbox"/>
                     </Column> 
