@@ -137,34 +137,43 @@ export const SearchButton = styled.div`
 export const BoardList = styled.div`
     width: 1200px;
     height: 583px;
-    border: 1px solid black;
-    padding-top:40px;
+   margin-top: 40px;
 
 `
 
 export const Row = styled.div`
     display: flex;
     flex-direction: row;
-    border-bottom: 1px solid #bdbdbd;
-    
-    
-`
-
-export const Column = styled.div`
-    width: 20%;
-
-`
-
-export const ListName = styled.div`
-    border: 1px solid red;
-    width: 100%;
     height: 52px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 40px;
+    line-height: 52px;
+    border-bottom: 1px solid #bdbdbd;
 `
 
-export const Name = styled.div`
+export const ListTop = styled.div`
+   border-top: 2px solid gray;
+`
 
+export const HeaderName = styled.div`
+    width: 10%;
+    text-align: center;
+`
+
+
+export const TitleName = styled.div`
+    width: 70%;
+    text-align: center;
+`
+
+export const ColumnBasic = styled.div`
+    width: 10%;
+    text-align: center;
+`
+
+export const ColumnTitle = styled.div`
+    width: 70%;
+    text-align: center;
+`
+
+export const ListBottom = styled.div`
+    border-top: 2px solid gray;
 `

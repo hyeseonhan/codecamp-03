@@ -1,11 +1,11 @@
 import {Wrapper, WriterWrapper, WriterWrapperLeft, WriterWrapperRight,   
     ProfilImage, WriterDate, Location, Triangle, Address1, Address2, Icon, FileIcon, 
     MapIcon, Writer, Date, InputWrapper, Title, ContentsImage, Contents,Youtube, LikeWrapper, ButtonWrapper, Button, 
-    Like, LikeImage, LikeCount, Dislike, DislikeImage, DislikeCount,} from "./BoardRouter_Detail_read.styles"
+    Like, LikeImage, LikeCount, Dislike, DislikeImage, DislikeCount,} from "./BoardDetail.styles"
 import '@fortawesome/fontawesome-free/js/all.js';    
 
 
-export default function DetailReadUI(props){
+export default function BoardReadUI(props){
     return(
         <Wrapper>
             <WriterWrapper>
@@ -49,9 +49,9 @@ export default function DetailReadUI(props){
                 </Dislike>
             </LikeWrapper>
             <ButtonWrapper>
-                <Button>목록으로</Button>
-                <Button>수정하기</Button>
-                <Button onClick={onClickDelete}>삭제하기</Button>
+                <Button onClick={props.onClickMoveToList}>목록으로</Button>
+                <Button onClick={props.onClickMoveToEdit}>수정하러</Button>
+                <Button onClick={props.onClickDelete}>삭제하기</Button>
             </ButtonWrapper>
         </Wrapper>
 

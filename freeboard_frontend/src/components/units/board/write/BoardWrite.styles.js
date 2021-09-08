@@ -171,3 +171,15 @@ export const Error = styled.div`
 	font-size: 14px;
 	color: red;
 `
+
+export const EditButton = styled.button`
+	width: 179px;
+	height: 52px;
+	background-color: ${(props)=>(props.color === true ? 'yellow' : 'gray' )};
+	border: none;
+	font-size: 16px;
+	font-weight: 500;
+	margin-left: 12px;
+	margin-right: 12px;
+	cursor: pointer;
+`

@@ -20,9 +20,10 @@ import {
     Youtube,
     Zipcode,
     ZipcodeWrapper,
- } from "./BoardRouter_Detail.styles"
+    EditButton,
+ } from "./BoardWrite.styles"
 
-export default function DetailWriteUI(props){
+export default function BoardlWriteUI(props){
 
     return (
         <Wrapper>
@@ -86,6 +87,9 @@ export default function DetailWriteUI(props){
             <SubmitButton onClick={props.onClickSubmit} color={props.color}>
               등록하기
             </SubmitButton>
+            <EditButton onClick={props.onClickEdit} color={props.color}>
+              수정하기
+            </EditButton>
           </ButtonWrapper>
         </Wrapper>
       );

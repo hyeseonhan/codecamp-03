@@ -19,10 +19,12 @@ import { Wrapper,
     SearchButton,
     BoardList,
     Row,
-    Column,
-    ListName,
-    Name
-    
+    ListTop,
+    HeaderName,
+    TitleName,
+    ColumnBasic,
+    ColumnTitle,
+    ListBottom,
 } from "../list/Mainlist.styles";
 
 
@@ -101,25 +103,27 @@ export default function MainListUI(props) {
                     </CardPost>
                 </Header>  
             <MiddleWrapper>
-                <SearchTitle type={text} placeholder="제목을 검색해주세요."/>
+                <SearchTitle type="text" placeholder="제목을 검색해주세요."/>
                 <SearchCreatedAt name="searchcreatedat" placeholder="YYYY.MM.DD ~ YYYY.MM.DD"/>
                 <SearchButton>검색하기</SearchButton>
             </MiddleWrapper>
-            <ListName>
-                <Name>번호</Name>
-                <Name>제목</Name>
-                <Name>작성자</Name>
-                <Name>날짜</Name>
-            </ListName>
             <BoardList>
+                <ListTop />
+                <Row>    
+                    <HeaderName>번호</HeaderName>
+                    <TitleName>제목</TitleName>
+                    <HeaderName>작성자</HeaderName>
+                    <HeaderName>날짜</HeaderName>
+                </Row>
                 {props.data?.fetchBoards.map((el, index) =>(
                     <Row key={el._id}>
-                        <Column>{index}</Column>
-                        <Column>{el.title}</Column>
-                        <Column>{el.writer}</Column>
-                        <Column>{el.createdAt}</Column>
+                        <ColumnBasic>{10 - index}</ColumnBasic>
+                        <ColumnTitle>{el.title}</ColumnTitle>
+                        <ColumnBasic>{el.writer}</ColumnBasic>
+                        <ColumnBasic>{el.createdAt}</ColumnBasic>
                     </Row>
                 ))}
+                <ListBottom />
             </BoardList>    
         </Wrapper>
     )

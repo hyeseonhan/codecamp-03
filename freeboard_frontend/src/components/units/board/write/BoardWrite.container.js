@@ -1,14 +1,16 @@
-import DetailWriteUI from "./BoardRouter_Detail.presenter"
+import BoardWriteUI from "./BoardWrite.presenter"
 import { useState } from "react"
 import { useMutation } from "@apollo/client"
 import { useRouter } from "next/router"
-import {CREATE_BOARD} from "./BoardRouter_Detail.queries"
+import {CREATE_BOARD} from "./BoardWrite.queries"
 
-export default function DetailWrite(){
+export default function BoardWrite(){
 
     const router = useRouter()
 
-    const [ createBoard] = useMutation(CREATE_BOARD)
+    const [ createBoard ] = useMutation(CREATE_BOARD)
+    const [ updateBoard ] = useMutation(UPDATE_BOARD)
+
     const [writer, setWriter] = useState('')
     const [password, setPassword] = useState('')
     const [title, setTitle] = useState('')
@@ -102,15 +104,20 @@ export default function DetailWrite(){
             })
             console.log(result)
             console.log(result.data.createBoard._id)
-            router.push(`/boards/detail_container_presenter_read/${result.data.createBoard._id}`)
+            router.push(`/boards/board-post-detail/${result.data.createBoard._id}`)
             }
         catch(error){
             console.log(error)
         }
     }  
 
+    async function onClickEdit(){
+
+
+    }
+
     return (
-        <DetailWriteUI
+        <BoardWriteUI
             writerError={writerError}
             passwordError={passwordError}
             titleError={titleError}
@@ -120,6 +127,7 @@ export default function DetailWrite(){
             onChangeTitle={onChangeTitle}
             onChangeContents={onChangeContents}
             onClickSubmit={onClickSubmit}
+            onClickEdit={onClickEdit}
             color={color}
         />    
     )
