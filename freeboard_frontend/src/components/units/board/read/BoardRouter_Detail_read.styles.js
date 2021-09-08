@@ -140,7 +140,7 @@ export const Youtube = styled.div`
     padding-top: 120px;
 `
 
-export const ButtonWrapper = styled.div`
+export const LikeWrapper = styled.div`
     padding-top: 162px;
     display: flex;
     flex-direction: row;
@@ -183,4 +183,25 @@ export const DislikeCount = styled.div`
     font-weight: 400;
     font-style: normal;
     line-height: 26.64px;
+`
+
+export const ButtonWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 80px;
+`
+
+export const Button = styled.div`
+    width: 179px;
+    height: 45px;
+    border: 1px solid #BDBDBD;
+    margin: 0px 12px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 23.68px;
 `

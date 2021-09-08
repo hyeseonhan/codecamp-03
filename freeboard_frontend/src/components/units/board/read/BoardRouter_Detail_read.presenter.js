@@ -1,6 +1,6 @@
 import {Wrapper, WriterWrapper, WriterWrapperLeft, WriterWrapperRight,   
     ProfilImage, WriterDate, Location, Triangle, Address1, Address2, Icon, FileIcon, 
-    MapIcon, Writer, Date, InputWrapper, Title, ContentsImage, Contents,Youtube,ButtonWrapper, 
+    MapIcon, Writer, Date, InputWrapper, Title, ContentsImage, Contents,Youtube, LikeWrapper, ButtonWrapper, Button, 
     Like, LikeImage, LikeCount, Dislike, DislikeImage, DislikeCount,} from "./BoardRouter_Detail_read.styles"
 import '@fortawesome/fontawesome-free/js/all.js';    
 
@@ -32,13 +32,13 @@ export default function DetailReadUI(props){
             </WriterWrapper>
             <InputWrapper>
                 <Title>{props.data&&props.data.fetchBoard.title}</Title>
-                <ContentsImage><img width="996" height="480" src="/posty.jpeg"/></ContentsImage>
+                <ContentsImage><img width="996" height="480" src="/images/posty.jpeg"/></ContentsImage>
                 <Contents>{props.data&&props.data.fetchBoard.contents}</Contents>
             </InputWrapper>
             <Youtube>
             <iframe width="486" height="240" src="https://www.youtube.com/embed/ScWXi59imGI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </Youtube>
-            <ButtonWrapper>
+            <LikeWrapper>
                 <Like>
                     <LikeImage><i width="22" height="20" class="far fa-thumbs-up"></i></LikeImage>
                     <LikeCount>1920</LikeCount>
@@ -47,6 +47,11 @@ export default function DetailReadUI(props){
                     <DislikeImage><i width="22" height="20" class="far fa-thumbs-down"></i></DislikeImage>
                     <DislikeCount>1920</DislikeCount>
                 </Dislike>
+            </LikeWrapper>
+            <ButtonWrapper>
+                <Button>목록으로</Button>
+                <Button>수정하기</Button>
+                <Button onClick={onClickDelete}>삭제하기</Button>
             </ButtonWrapper>
         </Wrapper>
 

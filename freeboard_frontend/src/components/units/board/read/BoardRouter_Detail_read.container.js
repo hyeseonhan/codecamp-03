@@ -6,9 +6,15 @@ import { FETCH_BOARD } from "./BoardRouter_Detail_read.queries"
 
 export default function DetailRead() {
     const router = useRouter()
-    const {data} = useQuery(FETCH_BOARD, {
-        variables: {boardId: router.query.number}
-    })
+    const {data} = useQuery(FETCH_BOARD)
+    
+        async function onClickDelete(){
+            await deleteBoard({
+                variables: {boardId: router.query.id},
+                refetchQueries: [{query: FETCH_BOARD}]
+
+            })
+        }
 
     return (
         <DetailReadUI

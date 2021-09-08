@@ -101,22 +101,24 @@ export default function MainListUI(props) {
                     </CardPost>
                 </Header>  
             <MiddleWrapper>
-                <SearchTitle name="searchtitle" placeholder="제목을 검색해주세요."/>
+                <SearchTitle type={text} placeholder="제목을 검색해주세요."/>
                 <SearchCreatedAt name="searchcreatedat" placeholder="YYYY.MM.DD ~ YYYY.MM.DD"/>
                 <SearchButton>검색하기</SearchButton>
             </MiddleWrapper>
             <ListName>
+                <Name>번호</Name>
+                <Name>제목</Name>
+                <Name>작성자</Name>
+                <Name>날짜</Name>
             </ListName>
             <BoardList>
                 {props.data?.fetchBoards.map((el, index) =>(
-                    
                     <Row key={el._id}>
                         <Column>{index}</Column>
                         <Column>{el.title}</Column>
                         <Column>{el.writer}</Column>
                         <Column>{el.createdAt}</Column>
                     </Row>
-                    
                 ))}
             </BoardList>    
         </Wrapper>

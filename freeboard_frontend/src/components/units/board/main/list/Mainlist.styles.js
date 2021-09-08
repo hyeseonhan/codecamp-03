@@ -157,6 +157,12 @@ export const Column = styled.div`
 
 export const ListName = styled.div`
     border: 1px solid red;
+    width: 100%;
+    height: 52px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 40px;
 `
 
 export const Name = styled.div`
