@@ -27,7 +27,7 @@ export default function BoardlWriteUI(props){
 
     return (
         <Wrapper>
-          <Title>게시판 등록</Title>
+          <Title>{props.isEdit ? "수정페이지" : "등록페이지"}</Title>
           <WriterWrapper>
             <InputWrapper>
               <Label>작성자</Label>
@@ -84,12 +84,10 @@ export default function BoardlWriteUI(props){
             <RadioButton type="radio" name="radio-button" />사진
           </OptionWrapper>
           <ButtonWrapper>
-            <SubmitButton onClick={props.onClickSubmit} color={props.color}>
-              등록하기
-            </SubmitButton>
-            <EditButton onClick={props.onClickEdit} color={props.color}>
-              수정하기
-            </EditButton>
+            {!props.isEdit &&<SubmitButton onClick={props.onClickSubmit} color={props.color}>
+              등록하기</SubmitButton>}
+            {props.isEdit &&<EditButton onClick={props.onClickEdit} color={props.color}>
+              수정하기</EditButton>}
           </ButtonWrapper>
         </Wrapper>
       );

@@ -2,9 +2,10 @@ import BoardWriteUI from "./BoardWrite.presenter"
 import { useState } from "react"
 import { useMutation } from "@apollo/client"
 import { useRouter } from "next/router"
-import {CREATE_BOARD} from "./BoardWrite.queries"
+import { CREATE_BOARD} from "./BoardWrite.queries"
+import { UPDATE_BOARD } from "./BoardWrite.queries"
 
-export default function BoardWrite(){
+export default function BoardWrite(props){
 
     const router = useRouter()
 
@@ -104,7 +105,7 @@ export default function BoardWrite(){
             })
             console.log(result)
             console.log(result.data.createBoard._id)
-            router.push(`/boards/board-post-detail/${result.data.createBoard._id}`)
+            router.push(`/boards/${result.data.createBoard._id}`)
             }
         catch(error){
             console.log(error)
@@ -112,6 +113,21 @@ export default function BoardWrite(){
     }  
 
     async function onClickEdit(){
+        try{
+            await updateBoard({
+                variables: {
+                    updateBoardInput:{
+                        title:title,
+                        contents:contents,
+                    },
+                    password:password,
+                    boardId: router.query.board_post_detail,
+                }
+            })
+            router.push(`/boards/${router.query.board_post_detail}`)
+        }catch(error){
+            console.log(error);
+        }
 
 
     }
@@ -128,6 +144,7 @@ export default function BoardWrite(){
             onChangeContents={onChangeContents}
             onClickSubmit={onClickSubmit}
             onClickEdit={onClickEdit}
+            isEdit={props.isEdit}
             color={color}
         />    
     )

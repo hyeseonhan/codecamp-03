@@ -5,7 +5,7 @@ import {Wrapper, WriterWrapper, WriterWrapperLeft, WriterWrapperRight,
 import '@fortawesome/fontawesome-free/js/all.js';    
 
 
-export default function BoardReadUI(props){
+export default function BoardDetailUI(props){
     return(
         <Wrapper>
             <WriterWrapper>
