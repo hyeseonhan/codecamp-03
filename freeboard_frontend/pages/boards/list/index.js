@@ -1,12 +1,8 @@
-import MainList from "../../../src/components/units/board/main/list/MainList.container";
+import BoardList from "../../../src/components/units/board/list/BoardList.container";
 
-export default function MainListPage(){
-    return <MainList />
+export default function BoardListPage() {
+  return <BoardList />;
 }
-
-
-
-
 
 // import { Wrapper,
 //         Header,
@@ -34,14 +30,14 @@ export default function MainListPage(){
 //         <Wrapper>
 //             <HeaderTitle>베스트 게시글</HeaderTitle>
 //                 <Header>
-                    
+
 //                     <CardPost>
 //                         <CardImage src="/images/half.png" />
 //                         <Title>게시물 제목입니다.</Title>
 //                         <CardBottom>
 //                             <AvatarWrapper>
 //                                 <Info>
-//                                     <Avatar src="/images/avatar.png"/>  
+//                                     <Avatar src="/images/avatar.png"/>
 //                                     <Writer>노원두</Writer>
 //                                 </Info>
 //                                 <CreatedAt>Date : 2021.02.18</CreatedAt>
@@ -50,7 +46,7 @@ export default function MainListPage(){
 //                                 <LikeImage src="/images/thumb.png" />
 //                                 <LikeCount>356</LikeCount>
 //                             </Like>
-//                         </CardBottom>                     
+//                         </CardBottom>
 //                     </CardPost>
 //                     <CardPost>
 //                         <CardImage src="/images/half.png" />
@@ -58,7 +54,7 @@ export default function MainListPage(){
 //                         <CardBottom>
 //                             <AvatarWrapper>
 //                                 <Info>
-//                                     <Avatar src="/images/avatar.png"/>  
+//                                     <Avatar src="/images/avatar.png"/>
 //                                     <Writer>노원두</Writer>
 //                                 </Info>
 //                                 <CreatedAt>Date : 2021.02.18</CreatedAt>
@@ -67,7 +63,7 @@ export default function MainListPage(){
 //                                 <LikeImage src="/images/thumb.png" />
 //                                 <LikeCount>356</LikeCount>
 //                             </Like>
-//                         </CardBottom>                     
+//                         </CardBottom>
 //                     </CardPost>
 //                     <CardPost>
 //                         <CardImage src="/images/half.png" />
@@ -75,7 +71,7 @@ export default function MainListPage(){
 //                         <CardBottom>
 //                             <AvatarWrapper>
 //                                 <Info>
-//                                     <Avatar src="/images/avatar.png"/>  
+//                                     <Avatar src="/images/avatar.png"/>
 //                                     <Writer>노원두</Writer>
 //                                 </Info>
 //                                 <CreatedAt>Date : 2021.02.18</CreatedAt>
@@ -84,7 +80,7 @@ export default function MainListPage(){
 //                                 <LikeImage src="/images/thumb.png" />
 //                                 <LikeCount>356</LikeCount>
 //                             </Like>
-//                         </CardBottom>                     
+//                         </CardBottom>
 //                     </CardPost>
 //                     <CardPost>
 //                         <CardImage src="/images/half.png" />
@@ -92,7 +88,7 @@ export default function MainListPage(){
 //                         <CardBottom>
 //                             <AvatarWrapper>
 //                                 <Info>
-//                                     <Avatar src="/images/avatar.png"/>  
+//                                     <Avatar src="/images/avatar.png"/>
 //                                     <Writer>노원두</Writer>
 //                                 </Info>
 //                                 <CreatedAt>Date : 2021.02.18</CreatedAt>
@@ -101,14 +97,14 @@ export default function MainListPage(){
 //                                 <LikeImage src="/images/thumb.png" />
 //                                 <LikeCount>356</LikeCount>
 //                             </Like>
-//                         </CardBottom>                     
+//                         </CardBottom>
 //                     </CardPost>
-//                 </Header>  
+//                 </Header>
 //             <MiddleWrapper>
 //                 <SearchTitle name="searchtitle" placeholder="제목을 검색해주세요."/>
 //                 <SearchCreatedAt name="searchcreatedat" placeholder="YYYY.MM.DD ~ YYYY.MM.DD"/>
 //                 <SearchButton>검색하기</SearchButton>
-//             </MiddleWrapper>    
+//             </MiddleWrapper>
 //         </Wrapper>
 //     )
 // }
