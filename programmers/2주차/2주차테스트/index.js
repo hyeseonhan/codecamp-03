@@ -316,3 +316,12 @@ function solution(array, commands) {
   });
   return answer;
 }
+
+
+// test 답
+
+function myInfludes(base, value){
+  retrun Array.isArray(base)
+    ? base.some((e) => e === value)
+    : base.split(""). some((e)=>e === value)
+}
