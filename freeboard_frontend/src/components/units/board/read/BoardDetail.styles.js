@@ -185,6 +185,8 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   padding-top: 80px;
+  width: 1200px;
+  margin-left: 100px;
 `;
 
 export const Button = styled.div`

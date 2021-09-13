@@ -29,7 +29,8 @@ import {
   DislikeImage,
   DislikeCount,
 } from "./BoardDetail.styles";
-// import '@fortawesome/fontawesome-free/js/all.js';
+
+import BoardComment from "../comment/BoardComment.container";
 
 export default function BoardDetailUI(props) {
   return (
@@ -37,13 +38,7 @@ export default function BoardDetailUI(props) {
       <Wrapper>
         <WriterWrapper>
           <WriterWrapperLeft>
-            <ProfilImage>
-              <i
-                width="46.67"
-                height="46.67"
-                class="fas fa-user-circle fa-2x"
-              ></i>
-            </ProfilImage>
+            <ProfilImage></ProfilImage>
             <WriterDate>
               <Writer>{props.data && props.data.fetchBoard.writer}</Writer>
               <Date>Date : 2021.02.18</Date>
@@ -58,12 +53,8 @@ export default function BoardDetailUI(props) {
             </Location>
             <Triangle></Triangle>
             <Icon>
-              <FileIcon>
-                <i class="fas fa-infinity"></i>
-              </FileIcon>
-              <MapIcon>
-                <i class="fas fa-map-marker-alt"></i>
-              </MapIcon>
+              <FileIcon></FileIcon>
+              <MapIcon></MapIcon>
             </Icon>
           </WriterWrapperRight>
         </WriterWrapper>
@@ -87,15 +78,11 @@ export default function BoardDetailUI(props) {
         </Youtube>
         <LikeWrapper>
           <Like>
-            <LikeImage>
-              <i width="22" height="20" class="far fa-thumbs-up"></i>
-            </LikeImage>
+            <LikeImage></LikeImage>
             <LikeCount>1920</LikeCount>
           </Like>
           <Dislike>
-            <DislikeImage>
-              <i width="22" height="20" class="far fa-thumbs-down"></i>
-            </DislikeImage>
+            <DislikeImage></DislikeImage>
             <DislikeCount>1920</DislikeCount>
           </Dislike>
         </LikeWrapper>
@@ -105,6 +92,7 @@ export default function BoardDetailUI(props) {
         <Button onClick={props.onClickMoveToEdit}>수정하러</Button>
         <Button onClick={props.onClickDelete}>삭제하기</Button>
       </ButtonWrapper>
+      <BoardComment />
     </>
   );
 }
