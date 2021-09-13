@@ -102,8 +102,8 @@ function solution(s) {
 function solution(s) {
     const answer = s.split(" ")
                     .map( str => {
-                        retrun str.split{" "}.map((letter, i)=>{
-                            retrun i % 2 === 0
+                        return str.split(" ").map((letter, i)=>{
+                            return i % 2 === 0
                             ? letter.toUpperCase()
                             : letter.toLowerCase()
                         }).join(" ")
