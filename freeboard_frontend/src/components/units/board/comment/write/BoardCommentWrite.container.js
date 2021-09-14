@@ -8,6 +8,8 @@ import {
 } from "./BoardCommentWrite.queries";
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
 
+// props 가 fasle 일 때 등록페이지 1개 /  true 일때 수정 페이지 10개 총 11개
+
 export default function BoardCommentWrite(props) {
   const router = useRouter();
 
@@ -100,3 +102,6 @@ export default function BoardCommentWrite(props) {
     />
   );
 }
+
+// 등록페이지(false)일 때 isEdit={props.isEdit} el={props.el} 은 undefined
+// 수정페이지(true) 일 때  첫번째 댓글 , 두번째 댓글 ...  isEdit={props.isEdit el={props.el} 각각의 el

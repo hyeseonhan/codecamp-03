@@ -79,7 +79,11 @@ export default function BoardlWriteUI(props) {
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
-        <Youtube type="text" placeholder="링크를 복사해주세요" />
+        <Youtube
+          type="text"
+          placeholder="링크를 복사해주세요"
+          onChange={props.onChangeYoutubeUrl}
+        />
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>

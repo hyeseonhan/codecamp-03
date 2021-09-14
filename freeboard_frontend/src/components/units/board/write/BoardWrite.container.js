@@ -145,6 +145,8 @@ export default function BoardWrite(props) {
     }
   }
 
+  async function onChangeYoutubeUrl() {}
+
   return (
     <BoardWriteUI
       writerError={writerError}
@@ -157,6 +159,7 @@ export default function BoardWrite(props) {
       onChangeContents={onChangeContents}
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
+      onChangeYoutubeUrl={onChangeYoutubeUrl}
       isEdit={props.isEdit}
       color={color}
       data={data}

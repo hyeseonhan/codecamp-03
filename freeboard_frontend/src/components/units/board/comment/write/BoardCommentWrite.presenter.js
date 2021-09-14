@@ -17,6 +17,7 @@ import {
 export default function BoardCommentUI(props) {
   return (
     <Wrapper>
+      {/* 수정댓글에서는 true 일때  댓글 글씨가 안보이게  */}
       {!props.isEdit && (
         <LabelWrapper>
           <TitleIcon src="./images/comment.png" />
