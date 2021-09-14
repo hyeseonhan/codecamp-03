@@ -54,6 +54,7 @@ export const Button = styled.div`
 export const UpdatePencil = styled.img`
   color: #bdbdbd;
   padding-right: 16px;
+  cursor: pointer;
 `;
 
 export const DeliteIcon = styled.img`
