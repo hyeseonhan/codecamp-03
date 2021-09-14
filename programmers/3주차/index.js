@@ -62,7 +62,7 @@ function solution(s){
 // step3. 바뀐단어를 공백으로 join한 후 리턴
 
 function solution(s) {
-    const words = s.split{' '}
+    const words = s.split('')
     const answer = words
     .map(word =>
         [...word]
@@ -110,3 +110,91 @@ function solution(s) {
                     }).join(" ")
 return answer;
     }
+
+
+//자연수 뒤집어 배열로 만들기
+
+// 숫자는 배열매서드 reverse () 사용 불가 => 숫자를 문자열 형태 배열로 만듬
+// reverse() 메서드사용. 각각의 요소를 숫자로 변경해 리턴
+
+function solution(n){
+    const answer = [... `${n}`].reverse().map(v=> +v)
+    return answer
+}
+
+// 선생님
+function solution(n){
+    const result = []
+    // 숫자 타입을 문자열 타입으로 변환
+    n = String(n);
+
+    for (let i =0; i<n.length; i++){
+        result.push(Number(n[i]))
+    }
+    result.reverse();
+    return result;
+}
+
+function solution(n){
+    const result = []
+
+    n = String(n);
+
+    for (let i = n.length -1; i>=0; i--){
+        result.push(Number(n[i]))
+    }
+    return result;
+}
+    // 메서드
+function solution(n) {
+    // toString === String
+    const result = n.toString()
+                    .split("")
+                    .reverse()
+                    .map(el=>{
+                        return Number(el)
+                    })
+    return result;
+}
+
+// 나누어 떨어지는 숫자 배열
+
+// arr의 각 요소를 순회하면서 요소와 divisor의 나머지가 0인 값만 추출
+// filter() 메서드는 callback함수의 리턴값이 true인 요소만 반환하게 되는데 나머지가
+// 0인 경우 0은 false로 보기 때문에 v%divisor 앞에 !를 넣어 true값으로 리턴한다.
+
+function solution(arr, divisor) {
+    const answer = arr.filter(v =>!(v%divisor)).sort((a,b)=> a-b);
+    if (!answer.length) return[-1];
+    return answer;
+}
+
+function solution(arr, divisor) {
+    var answer = arr.filter(v => v%divisor == 0);
+    return answer.length == 0 ? [-1] : answer.sort((a,b) => a-b);
+}
+
+// 선생님
+function solution(arr, divisor){
+    let answer = [];
+
+    for (let i = 0; i< arr.length; i++){
+        if(arr[i] % divisor === 0  ) {
+            answer.push(arr[i]);
+        }
+    }
+    
+    return answer.length === 0
+        ?[-1]
+        : answer.sort((a,b) => a - b)
+}
+
+    // 메서드
+function solution(arr, divisor){
+    const answer = arr.filter( number => {
+        return number % divisor === 0
+    }).sort((a,b) => a - b)
+    return answer.length === 0
+        ? [-1]
+        : answer
+}
