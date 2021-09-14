@@ -1,11 +1,18 @@
 import BoardDetailUI from "./BoardDetail.presenter";
 import { useRouter } from "next/router";
 import { useQuery, useMutation } from "@apollo/client";
-import { FETCH_BOARD, DELETE_BOARD } from "./BoardDetail.queries";
+import {
+  FETCH_BOARD,
+  DELETE_BOARD,
+  LIKE_BOARD,
+  DISLIKE_BOARD,
+} from "./BoardDetail.queries";
 
 export default function BoardDetail() {
   const router = useRouter();
   const [deleteBoard] = useMutation(DELETE_BOARD);
+  const [likeBoard] = useMutation(LIKE_BOARD);
+  const [dislikeBoard] = useMutation(DISLIKE_BOARD);
 
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.board_post_detail },
@@ -31,6 +38,32 @@ export default function BoardDetail() {
     }
   }
 
+  async function onClickLike(event) {
+    await likeBoard({
+      variables: { boardId: event.target.id },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { boardId: router.query.board_post_detail },
+        },
+      ],
+    });
+    alert("좋아요를 클릭합니다.");
+  }
+
+  async function onClickDislike(event) {
+    await dislikeBoard({
+      variables: { boardId: event.target.id },
+      refetchQueries: [
+        {
+          query: FETCH_BOARD,
+          variables: { boardId: router.query.board_post_detail },
+        },
+      ],
+    });
+    alert("싫어요를 클릭합니다.");
+  }
+
   return (
     <BoardDetailUI
       data={data}
@@ -38,6 +71,8 @@ export default function BoardDetail() {
       onClickMoveToList={onClickMoveToList}
       onClickDelete={onClickDelete}
       onClickMoveToEdit={onClickMoveToEdit}
+      onClickLike={onClickLike}
+      onClickDislike={onClickDislike}
     />
   );
 }

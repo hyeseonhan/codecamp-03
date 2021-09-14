@@ -72,6 +72,7 @@ export const ContentInput = styled.textarea`
   line-height: 23.68px;
   padding-left: 20px;
   margin-right: 24px;
+  resize: none;
 `;
 
 export const LowerLine = styled.div`
@@ -83,7 +84,15 @@ export const LowerLine = styled.div`
   justify-content: space-between;
 `;
 
-export const WordCount = styled.div``;
+export const WordCount = styled.div`
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 23.68px;
+  color: #bdbdbd;
+`;
 
 export const PostButton = styled.div`
   border: 1px solid black;
@@ -100,60 +109,4 @@ export const PostButton = styled.div`
   color: white;
   background-color: black;
   cursor: pointer;
-`;
-
-export const CommentWrapper = styled.div`
-  width: 1200px;
-  height: 120px;
-  border-bottom: 1px solid #bdbdbd;
-  margin-top: 40px;
-  display: flex;
-  flex-direction: c;
-  justify-content: space-between;
-`;
-
-export const Avatar = styled.img`
-  width: 40px;
-  height: 40px;
-  /* padding-right: 16px; */
-`;
-
-export const Info = styled.div`
-  width: 1103px;
-`;
-
-export const Writer = styled.div`
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 23.68px;
-`;
-
-export const Content = styled.div`
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 23.68px;
-  color: #4f4f4f;
-  padding-top: 4px;
-`;
-
-export const CreatedAt = styled.div`
-  font-size: 12px;
-  font-weight: 400;
-  line-height: 17.76px;
-  color: #bdbdbd;
-  padding-top: 20px;
-`;
-
-export const Button = styled.div`
-  display: flex;
-  align-items: flex-start;
-`;
-
-export const UpdatePencil = styled.img`
-  color: #bdbdbd;
-  padding-right: 16px;
-`;
-
-export const DeliteIcon = styled.img`
-  color: #bdbdbd;
 `;

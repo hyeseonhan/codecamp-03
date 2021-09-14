@@ -30,7 +30,7 @@ import {
   DislikeCount,
 } from "./BoardDetail.styles";
 
-import BoardComment from "../comment/BoardComment.container";
+// import BoardComment from "../comment/BoardComment.container";
 
 export default function BoardDetailUI(props) {
   return (
@@ -38,7 +38,7 @@ export default function BoardDetailUI(props) {
       <Wrapper>
         <WriterWrapper>
           <WriterWrapperLeft>
-            <ProfilImage></ProfilImage>
+            <ProfilImage src="/images/avatar.png" />
             <WriterDate>
               <Writer>{props.data && props.data.fetchBoard.writer}</Writer>
               <Date>Date : 2021.02.18</Date>
@@ -78,12 +78,20 @@ export default function BoardDetailUI(props) {
         </Youtube>
         <LikeWrapper>
           <Like>
-            <LikeImage></LikeImage>
-            <LikeCount>1920</LikeCount>
+            <LikeImage
+              onClick={props.onClickLike}
+              id={props.data?.fetchBoard._id}
+              src="/images/thumb.png"
+            />
+            <LikeCount>{props.data?.fetchBoard.likeCount}</LikeCount>
           </Like>
           <Dislike>
-            <DislikeImage></DislikeImage>
-            <DislikeCount>1920</DislikeCount>
+            <DislikeImage
+              onClick={props.onClickDislike}
+              id={props.data?.fetchBoard._id}
+              src="/images/downthumb.png"
+            />
+            <DislikeCount>{props.data?.fetchBoard.dislikeCount}</DislikeCount>
           </Dislike>
         </LikeWrapper>
       </Wrapper>
@@ -92,7 +100,7 @@ export default function BoardDetailUI(props) {
         <Button onClick={props.onClickMoveToEdit}>수정하러</Button>
         <Button onClick={props.onClickDelete}>삭제하기</Button>
       </ButtonWrapper>
-      <BoardComment />
+      {/* <BoardComment /> */}
     </>
   );
 }

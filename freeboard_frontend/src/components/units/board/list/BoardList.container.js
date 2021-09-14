@@ -11,8 +11,8 @@ export default function BoardList() {
     router.push("/boards/board-post");
   }
 
-  function onClickMoveToBoardDetail() {
-    router.push("/boards/board_post_detail");
+  function onClickMoveToBoardDetail(event) {
+    router.push(`/boards/${event.target.id}`);
   }
 
   return (

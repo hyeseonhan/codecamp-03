@@ -131,11 +131,36 @@ export default function BoardListUI(props) {
           <HeaderName>날짜</HeaderName>
         </Row>
         {props.data?.fetchBoards.map((el, index) => (
-          <Row key={el._id} onClick={props.onClickMoveToBoardDetail}>
-            <ColumnBasic>{10 - index}</ColumnBasic>
-            <ColumnTitle>{el.title}</ColumnTitle>
-            <ColumnBasic>{el.writer}</ColumnBasic>
-            <ColumnBasic>{el.createdAt}</ColumnBasic>
+          <Row
+            key={el._id}
+            id={el._id}
+            onClick={props.onClickMoveToBoardDetail}
+          >
+            <ColumnBasic
+              id={el._id}
+              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
+            >
+              {10 - index}
+            </ColumnBasic>
+            <ColumnTitle
+              id={el._id}
+              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
+            >
+              {" "}
+              {el.title}{" "}
+            </ColumnTitle>
+            <ColumnBasic
+              id={el._id}
+              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
+            >
+              {el.writer}
+            </ColumnBasic>
+            <ColumnBasic
+              id={el._id}
+              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
+            >
+              {el.createdAt}
+            </ColumnBasic>
           </Row>
         ))}
         <ListBottom />

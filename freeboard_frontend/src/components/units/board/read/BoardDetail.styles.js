@@ -32,11 +32,11 @@ export const WriterWrapperRight = styled.div`
   width: 392px;
   padding-left: 15px;
 `;
-export const ProfilImage = styled.div`
-  color: gray;
+export const ProfilImage = styled.img`
+  /* color: gray;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: center; */
 `;
 export const WriterDate = styled.div`
   padding-left: 16.67px;
@@ -149,7 +149,7 @@ export const Like = styled.div`
   align-items: center;
 `;
 
-export const LikeImage = styled.div`
+export const LikeImage = styled.img`
   color: #ffd600;
 `;
 
@@ -168,7 +168,7 @@ export const Dislike = styled.div`
   align-items: center;
 `;
 
-export const DislikeImage = styled.div`
+export const DislikeImage = styled.img`
   color: #828282;
 `;
 
