@@ -19,6 +19,7 @@ export default function BoardWrite(props) {
   const [password, setPassword] = useState("");
   const [title, setTitle] = useState("");
   const [contents, setContents] = useState("");
+  const [youtubeUrl, setYoutubeUrl] = useState("");
 
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
@@ -87,6 +88,10 @@ export default function BoardWrite(props) {
     }
   }
 
+  function onChangeYoutubeUrl(event) {
+    setYoutubeUrl(event.target.value);
+  }
+
   async function onClickSubmit() {
     try {
       if (writer === "") {
@@ -111,6 +116,7 @@ export default function BoardWrite(props) {
             title: title,
             contents: contents,
             password: password,
+            youtubeUrl: youtubeUrl,
           },
         },
       });
@@ -144,8 +150,6 @@ export default function BoardWrite(props) {
       console.log(error);
     }
   }
-
-  async function onChangeYoutubeUrl() {}
 
   return (
     <BoardWriteUI

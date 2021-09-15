@@ -30,6 +30,8 @@ import {
   DislikeCount,
 } from "./BoardDetail.styles";
 
+import ReactPlayer from "react-player";
+
 // import BoardComment from "../comment/BoardComment.container";
 
 export default function BoardDetailUI(props) {
@@ -66,15 +68,12 @@ export default function BoardDetailUI(props) {
           <Contents>{props.data && props.data.fetchBoard.contents}</Contents>
         </InputWrapper>
         <Youtube>
-          <iframe
-            width="486"
-            height="240"
-            src="https://www.youtube.com/embed/ScWXi59imGI"
-            title="YouTube video player"
-            frameborder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-            allowfullscreen
-          ></iframe>
+          {" "}
+          <ReactPlayer
+            url={props.data?.fetchBoard.youtubeUrl}
+            width="486px"
+            height="240px"
+          />
         </Youtube>
         <LikeWrapper>
           <Like>

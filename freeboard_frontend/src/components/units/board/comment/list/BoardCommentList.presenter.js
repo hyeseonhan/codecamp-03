@@ -18,19 +18,19 @@ import {
   DeliteIcon,
 } from "./BoardCommentList.styles";
 
-export default function BoardCommentListUI(props) {
+export default function BoardCommentListPage(props) {
   const router = useRouter();
   const [isEdit, setIsEdit] = useState(false);
   const [isEditedId, setIsEditedId] = useState("");
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
   function onClickUpdate(event) {
-    setIsEdit(true);
+    setIsEdit(false);
   }
 
-  function onClickPost() {
-    setIsEditedId(false);
-  }
+  // function onClickPost() {
+  //   setIsEditedId(false);
+  // }
 
   async function onClickDelite() {
     const PasswordInput = prompt("비밀번호를 입력해 주세요");
@@ -57,7 +57,7 @@ export default function BoardCommentListUI(props) {
     <>
       {props.data?.fetchBoardComments.map((el) => (
         <Wrapper key={el._id} el={el}>
-          {isEditedId !== el._id && (
+          {!isEdit !== el._id && (
             <CommentWrapper>
               <Avatar src="/images/avatar.png" />
               <Info>
@@ -78,7 +78,7 @@ export default function BoardCommentListUI(props) {
               </Button>
             </CommentWrapper>
           )}
-          {isEditedId === el.id && (
+          {isEdit === el.id && (
             <BoardCommentWrite
               isEdit={isEdit}
               setIsEdit={setIsEdit}

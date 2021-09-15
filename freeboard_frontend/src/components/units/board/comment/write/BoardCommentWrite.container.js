@@ -70,12 +70,10 @@ export default function BoardCommentWrite(props) {
     try {
       await updateBoardComment({
         variables: {
-          updatBoardCommentInput: {
-            contents: ContentInput,
-            rating: 2,
-          },
+          updatBoardCommentInput: { contents: ContentInput },
           password: PasswordInput,
           boardCommentId: event.target.id,
+          rating: 2,
         },
         refetchQueries: [
           {

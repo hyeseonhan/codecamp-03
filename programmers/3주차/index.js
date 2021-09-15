@@ -198,3 +198,19 @@ function solution(arr, divisor){
         ? [-1]
         : answer
 }
+
+
+// 콜라츠
+
+function solution(num){
+    let count =0;
+    while (num >1){
+        num = num % 2 ? num * 3 + 1 : num / 2;
+    count += 1;
+    if (count === 500){
+        break
+    }
+}
+    return
+
+}
