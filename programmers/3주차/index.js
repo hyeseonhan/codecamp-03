@@ -213,4 +213,61 @@ function solution(num){
 }
     return
 
+// 선생님 for문
+function solution(num) {
+    // 몇번 반복했는지를 저장하는 변수
+    let count = -1
+    // 오백번을 반복했어도 나오지 않았다는것을 보여줄려고
+
+    for(let i = 0; i < 500; i++){
+
+        if(num === 1){
+            // 입력된 값이 1이 되는 시점
+            count =i
+            break;
+        }
+
+        if( num % 2 === 0){
+          //입력된 값이 짝수일 때
+          num = nu / 2; 
+        } else if (num % 2 === 1) {
+            // 입력된 값이 홀수 일때
+            num = (num *3) +1
+        }
+    }
+    return count;
+}
+
+// while 문 while( 조건식 === true ) 조건식인 true 일때만 반복문 실행
+function solution(num){
+    let count = 0
+
+    // 조건식인 true 일때만 반복문 실행
+    while ( num !== 1){
+        if ( count >= 500){
+            return -1;
+        }
+        count = count +1
+        if (num % 2 === 0 ){
+            //  짝수이 때
+            num = num / 2
+        } else if (num % 2 === 1){
+            // 홀수일때
+            num = (num * 3 +1)
+        }
+    }
+    return count
+}
+
+function collatz(num,count = 0) {
+    return num == 1 ? (count >= 500 ? -1 : count) : collatz(num % 2 == 0 ? num / 2 : num * 3 + 1,++count);
+}
+
+function collatz(num) {
+    var answer = 0;
+    while(num !=1 && answer !=500){
+        num%2==0 ? num = num/2 : num = num*3 +1;
+    answer++;
+  }
+    return num == 1 ? answer : -1;
 }

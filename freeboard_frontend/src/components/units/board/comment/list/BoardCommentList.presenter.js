@@ -25,7 +25,7 @@ export default function BoardCommentListPage(props) {
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
   function onClickUpdate(event) {
-    setIsEdit(false);
+    setIsEdit(event.target.id);
   }
 
   // function onClickPost() {
@@ -78,11 +78,12 @@ export default function BoardCommentListPage(props) {
               </Button>
             </CommentWrapper>
           )}
-          {isEdit === el.id && (
+          {isEdit === el._id && (
             <BoardCommentWrite
               isEdit={isEdit}
               setIsEdit={setIsEdit}
               el={props.el}
+
               // props 가 3개 넘어간거
             />
           )}

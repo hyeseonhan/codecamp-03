@@ -2,8 +2,7 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  border-top: 1px solid #bdbdbd;
-  margin: 100px;
+  margin-left: 100px;
 `;
 
 export const LabelWrapper = styled.div`
@@ -21,7 +20,7 @@ export const Title = styled.div`
 `;
 
 export const InputWrapper = styled.div`
-  padding-top: 81px;
+  padding-top: 40px;
 `;
 
 export const UpperLine = styled.div`

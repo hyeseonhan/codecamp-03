@@ -187,6 +187,8 @@ export const ButtonWrapper = styled.div`
   padding-top: 80px;
   width: 1200px;
   margin-left: 100px;
+  padding-bottom: 87px;
+  border-bottom: 1px solid #bdbdbd;
 `;
 
 export const Button = styled.div`
