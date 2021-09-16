@@ -16,6 +16,8 @@ import {
   Button,
   UpdatePencil,
   DeliteIcon,
+  WriterWrapper,
+  Star,
 } from "./BoardCommentList.styles";
 
 export default function BoardCommentListPage(props) {
@@ -61,7 +63,10 @@ export default function BoardCommentListPage(props) {
             <CommentWrapper>
               <Avatar src="/images/avatar.png" />
               <Info>
-                <Writer>{el.writer}</Writer>
+                <WriterWrapper>
+                  <Writer>{el.writer}</Writer>
+                  <Star value={el?.rating} disabled />
+                </WriterWrapper>
                 <Content>{el.contents}</Content>
                 <CreatedAt>{el.createdAt}</CreatedAt>
               </Info>

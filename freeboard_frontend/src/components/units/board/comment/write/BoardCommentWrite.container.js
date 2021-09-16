@@ -1,7 +1,7 @@
 import BoardCommentUI from "./BoardCommentWrite.presenter";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import {
   CREATE_BOARD_COMMENT,
   UPDATE_BOARD_COMMENT,
@@ -16,6 +16,7 @@ export default function BoardCommentWrite(props) {
   const [WriterInput, setWriterInput] = useState("");
   const [PasswordInput, setPasswordInput] = useState("");
   const [ContentInput, setContentInput] = useState("");
+  const [myStar, setMyStar] = useState(0);
 
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
 
@@ -33,6 +34,10 @@ export default function BoardCommentWrite(props) {
     setContentInput(event.target.value);
   }
 
+  function onChangeStar(value) {
+    setMyStar(value);
+  }
+
   async function onClickPost() {
     try {
       await createBoardComment({
@@ -41,7 +46,7 @@ export default function BoardCommentWrite(props) {
             writer: WriterInput,
             password: PasswordInput,
             contents: ContentInput,
-            rating: 2,
+            rating: myStar,
           },
           boardId: String(router.query.board_post_detail),
         },
@@ -73,7 +78,6 @@ export default function BoardCommentWrite(props) {
           updatBoardCommentInput: { contents: ContentInput },
           password: PasswordInput,
           boardCommentId: event.target.id,
-          rating: 2,
         },
         refetchQueries: [
           {
@@ -88,6 +92,36 @@ export default function BoardCommentWrite(props) {
     }
   }
 
+  // async function onClickUpdate(event) {
+  //   if (!ContentInput) {
+  //     alert("내용이 수정되지 않았습니다.");
+  //     return;
+  //   }
+  //   if (!PasswordInput) {
+  //     alert("비밀번호가 입력되지 않았습니다.");
+  //     return;
+  //   }
+
+  //   try {
+  //     await updateBoardComment({
+  //       variables: {
+  //         updateBoardCommentInput: { contents: ContentInput },
+  //         password: PasswordInput,
+  //         boardCommentId: event.target.id,
+  //       },
+  //       refetchQueries: [
+  //         {
+  //           query: FETCH_BOARD_COMMENTS,
+  //           variables: { boardId: router.query.board_post_detail },
+  //         },
+  //       ],
+  //     });
+  //     props.setIsEdit?.(false);
+  //   } catch (error) {
+  //     alert(error.message);
+  //   }
+  // }
+
   return (
     <BoardCommentUI
       onChangeWriterInput={onChangeWriterInput}
@@ -95,6 +129,7 @@ export default function BoardCommentWrite(props) {
       onChangeContentInput={onChangeContentInput}
       onClickPost={onClickPost}
       onClickUpdate={onClickUpdate}
+      onChangeStar={onChangeStar}
       isEdit={props.isEdit}
       el={props.el}
     />

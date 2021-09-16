@@ -1,16 +1,20 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
-  margin: 0px 100px;
+  /* margin: 0px 100px; */
+  padding-top: 20px;
+  padding-bottom: 20px;
 `;
 
 export const CommentWrapper = styled.div`
   width: 1200px;
   /* height: 120px; */
   border-bottom: 1px solid #bdbdbd;
-  margin-top: 40px;
+  margin: 20px;
   display: flex;
   justify-content: space-between;
+  margin: 0px 100px;
 `;
 
 export const Avatar = styled.img`
@@ -23,11 +27,15 @@ export const Info = styled.div`
   width: 1087px;
 `;
 
+export const WriterWrapper = styled.div``;
+
 export const Writer = styled.div`
   font-size: 16px;
   font-weight: 500;
   line-height: 23.68px;
 `;
+
+export const Star = styled(Rate)``;
 
 export const Content = styled.div`
   font-size: 16px;

@@ -12,6 +12,7 @@ import {
   LowerLine,
   WordCount,
   PostButton,
+  Star,
 } from "./BoardCommentWrite.styles";
 
 export default function BoardCommentUI(props) {
@@ -20,7 +21,7 @@ export default function BoardCommentUI(props) {
       {/* 수정댓글에서는 true 일때  댓글 글씨가 안보이게  */}
       {!props.isEdit && (
         <LabelWrapper>
-          <TitleIcon src="./images/comment.png" />
+          <TitleIcon src="/images/comment.png" />
           <Title>댓글</Title>
         </LabelWrapper>
       )}
@@ -40,6 +41,7 @@ export default function BoardCommentUI(props) {
             placeholder="비밀번호"
             onChange={props.onChangePasswordInput}
           />
+          <Star onChange={props.onChangeStar} />
         </UpperLine>
         <MiddleLine>
           <ContentInput

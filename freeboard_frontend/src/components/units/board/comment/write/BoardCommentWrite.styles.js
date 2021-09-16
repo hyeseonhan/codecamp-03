@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { Rate } from "antd";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -21,6 +22,8 @@ export const Title = styled.div`
 
 export const InputWrapper = styled.div`
   padding-top: 40px;
+  width: 1200px;
+  padding-bottom: 40px;
 `;
 
 export const UpperLine = styled.div`
@@ -38,7 +41,7 @@ export const WriterInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   margin-right: 24px;
 `;
 
@@ -52,7 +55,7 @@ export const PasswordInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding-left: 20px;
+  /* padding-left: 20px; */
 `;
 
 export const MiddleLine = styled.div`
@@ -69,7 +72,7 @@ export const ContentInput = styled.textarea`
   font-size: 16px;
   font-weight: 500;
   line-height: 23.68px;
-  padding-left: 20px;
+  /* padding-left: 20px; */
   margin-right: 24px;
   resize: none;
 `;
@@ -109,3 +112,5 @@ export const PostButton = styled.div`
   background-color: black;
   cursor: pointer;
 `;
+
+export const Star = styled(Rate)``;
