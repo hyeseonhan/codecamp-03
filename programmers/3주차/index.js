@@ -271,3 +271,69 @@ function collatz(num) {
   }
     return num == 1 ? answer : -1;
 }
+
+// 두 개 뽑아서 더하기
+
+// numbers 배열의 서로 다른 인덱스의 값을 찾아내서 더한 값을 sumArray 배열에 담기로 했다. 중복된 값은 Set을 적용하여 제거
+
+function solution(numbers) {
+    let sumArray = []
+    for (let i = 0; i< number.length; i++){
+        for (let j=i+1; j < numbers.length; j++){
+            const sum = numbers[i] + numbers[j]
+        sumArray.push(sum)
+    }
+}
+const result = [...new Set(sumArray)].sort((a,b) => a - b)
+return rwsult
+}
+
+function solution(numbers) {
+    const temp = []
+
+    for (let i = 0; i < numbers.length; i++) {
+        for (let j = i + 1; j < numbers.length; j++) {
+            temp.push(numbers[i] + numbers[j])
+        }
+    }
+
+    const answer = [...new Set(temp)]
+
+    return answer.sort((a, b) => a - b)
+}
+
+
+// 선생님
+
+function solution(numbers) {
+    let answer = [];
+
+    for(let i =0; i <numbers.length; i++){
+        // console.log(numbers[i])
+        for(let j = i + 1; j<numbers.length; j++ ){ // 나를 제외한 다른 숫자를 가져오기 위해서 위치에 1을 더함
+        //  console.log(numbers[i], numbers[j]);
+         const sum = numbers[i] + numbers[j];  //  서로 다른 인덱스 값을 더해서 저장하는 상수
+        
+         if (answer.includes(sum) === false){  // 중복을 제외하기위해서
+             answer.push(sum)
+         }
+        }
+    }
+    return answer.sort((a,b) => a - b);  // 오름차순
+}
+
+// 메서드
+function solution(numbers){
+    let answer = [];
+
+    numbers.forEach((num1, i) => {
+        numbers.slice( i + 1, numbers.length ).forEach(num2 => {
+            const sum = num1 + num2;
+
+            if(answer.includes(sum) === false){
+                answer.push(sum)
+            }
+        })
+    })
+    return answer.sort((a,b) => a - b)
+}
