@@ -23,7 +23,7 @@ import {
 export default function BoardCommentListUI(props) {
   const router = useRouter();
 
-  const [isEditedId, setIsEditedId] = useState("");
+  // const [isEditedId, setIsEditedId] = useState("");
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
   // function onClickPost() {
@@ -55,7 +55,7 @@ export default function BoardCommentListUI(props) {
     <>
       {props.data?.fetchBoardComments.map((el) => (
         <Wrapper key={el._id} el={el}>
-          {!props.isEdit && (
+          {el._id !== props.isActive && (
             <CommentWrapper>
               <Avatar src="/images/avatar.png" />
               <Info>
@@ -69,7 +69,7 @@ export default function BoardCommentListUI(props) {
               <Button>
                 <UpdatePencil
                   src="/images/pencil.png"
-                  onClick={props.onClickUpdate}
+                  onClick={props.onClickActive}
                   id={el._id}
                 ></UpdatePencil>
                 <DeliteIcon
@@ -79,11 +79,14 @@ export default function BoardCommentListUI(props) {
               </Button>
             </CommentWrapper>
           )}
-          {props.isEdit && (
+          {el._id === props.isActive && (
             <BoardCommentWrite
-              isEdit={isEdit}
-              setIsEdit={setIsEdit}
-              el={el}
+              isEdit={props.isEdit}
+              setIsEdit={props.setIsEdit}
+              el={props.el}
+              isActive={props.isActive}
+              id={el._id}
+              setIsActive={props.setIsActive}
 
               // props 가 3개 넘어간거
             />

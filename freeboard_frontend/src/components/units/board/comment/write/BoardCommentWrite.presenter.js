@@ -19,7 +19,7 @@ export default function BoardCommentUI(props) {
   return (
     <Wrapper>
       {/* 수정댓글에서는 true 일때  댓글 글씨가 안보이게  */}
-      {!props.isEdit && (
+      {props.isActive === props.id && (
         <LabelWrapper>
           <TitleIcon src="/images/comment.png" />
           <Title>댓글</Title>
@@ -54,10 +54,9 @@ export default function BoardCommentUI(props) {
           <LowerLine>
             <WordCount>0/100</WordCount>
             <PostButton
-              id={props.el?._id}
-              onClick={props.isEdit ? props.onClickUpdate : props.onClickPost}
+              onClick={props.isActive ? props.onClickUpdate : props.onClickPost}
             >
-              {props.isEdit ? "수정하기" : "등록하기"}
+              {props.isActive ? "수정하기" : "등록하기"}
             </PostButton>
           </LowerLine>
         </MiddleLine>

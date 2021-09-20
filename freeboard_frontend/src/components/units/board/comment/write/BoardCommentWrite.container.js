@@ -23,9 +23,10 @@ export default function BoardCommentWrite(props) {
 
   const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
 
-  function onClickUpdate(event) {
-    setIsEdit(event.target.id);
-  }
+  // function onClickUpdate() {
+  //   // setIsEdit(event.target.id);
+  //   setIsEdit(props.id);
+  // }
 
   function onChangeWriterInput(event) {
     setWriterInput(event.target.value);
@@ -70,8 +71,8 @@ export default function BoardCommentWrite(props) {
   async function onClickUpdate(event) {
     console.log(props.el);
     console.log(ContentInput);
-    console.log(event.target.id);
-    setIsEdit(true);
+    // console.log(.id);
+    // setIsEdit(true);
     if (!ContentInput) {
       alert("내용이 수정되지 않았습니다.");
       return;
@@ -84,9 +85,9 @@ export default function BoardCommentWrite(props) {
     try {
       await updateBoardComment({
         variables: {
-          updateBoardCommentInput: { contents: ContentInput },
+          updateBoardCommentInput: { contents: ContentInput, rating: myStar },
           password: PasswordInput,
-          boardCommentId: event.target.id,
+          boardCommentId: props.id,
         },
         refetchQueries: [
           {
@@ -95,6 +96,7 @@ export default function BoardCommentWrite(props) {
           },
         ],
       });
+      props.setIsActive("");
     } catch (error) {
       alert(error.message);
     }
@@ -140,6 +142,7 @@ export default function BoardCommentWrite(props) {
       onChangeStar={onChangeStar}
       isEdit={isEdit}
       el={props.el}
+      isActive={props.isActive}
     />
   );
 }
