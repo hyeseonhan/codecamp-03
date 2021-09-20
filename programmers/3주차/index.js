@@ -12,6 +12,14 @@ fuction solution(s) {
     return p === y ? true : false;
 }
 
+function solution(s) {
+    const string = s.toLowerCase();
+    const p = [...string].filter(str => str === 'p').length;
+    const y = [...string].filter(str => str === 'y').length;
+    // return p === y ? true : false;
+    return p === y;
+  }
+
 
 // 모든 문자 소문자로 변환 toLowerCase();
 let eng = "aBCdeFg";
@@ -75,6 +83,17 @@ function solution(s) {
 
 solution ('try hello world')
 
+function solution(s) {
+    const words = s.split(' ');
+    const answer = words
+      .map(word =>
+        [...word]
+          .map((w, i) => (i % 2 ? w.toLowerCase() : w.toUpperCase()))
+          .join(''),
+      )
+      .join(' ');
+    return answer;
+  }
 // 
 
 

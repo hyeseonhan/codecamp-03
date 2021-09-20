@@ -17,10 +17,15 @@ export default function BoardCommentWrite(props) {
   const [PasswordInput, setPasswordInput] = useState("");
   const [ContentInput, setContentInput] = useState("");
   const [myStar, setMyStar] = useState(0);
+  const [isEdit, setIsEdit] = useState(false);
 
   const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
 
   const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
+
+  function onClickUpdate(event) {
+    setIsEdit(event.target.id);
+  }
 
   function onChangeWriterInput(event) {
     setWriterInput(event.target.value);
@@ -63,6 +68,10 @@ export default function BoardCommentWrite(props) {
   }
 
   async function onClickUpdate(event) {
+    console.log(props.el);
+    console.log(ContentInput);
+    console.log(event.target.id);
+    setIsEdit(true);
     if (!ContentInput) {
       alert("내용이 수정되지 않았습니다.");
       return;
@@ -75,7 +84,7 @@ export default function BoardCommentWrite(props) {
     try {
       await updateBoardComment({
         variables: {
-          updatBoardCommentInput: { contents: ContentInput },
+          updateBoardCommentInput: { contents: ContentInput },
           password: PasswordInput,
           boardCommentId: event.target.id,
         },
@@ -86,7 +95,6 @@ export default function BoardCommentWrite(props) {
           },
         ],
       });
-      props.setisEdit?.(false);
     } catch (error) {
       alert(error.message);
     }
@@ -130,7 +138,7 @@ export default function BoardCommentWrite(props) {
       onClickPost={onClickPost}
       onClickUpdate={onClickUpdate}
       onChangeStar={onChangeStar}
-      isEdit={props.isEdit}
+      isEdit={isEdit}
       el={props.el}
     />
   );

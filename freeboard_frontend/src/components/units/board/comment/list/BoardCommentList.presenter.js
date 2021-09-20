@@ -20,15 +20,11 @@ import {
   Star,
 } from "./BoardCommentList.styles";
 
-export default function BoardCommentListPage(props) {
+export default function BoardCommentListUI(props) {
   const router = useRouter();
-  const [isEdit, setIsEdit] = useState(false);
+
   const [isEditedId, setIsEditedId] = useState("");
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
-
-  function onClickUpdate(event) {
-    setIsEdit(event.target.id);
-  }
 
   // function onClickPost() {
   //   setIsEditedId(false);
@@ -46,7 +42,7 @@ export default function BoardCommentListPage(props) {
         refetchQueries: [
           {
             query: FETCH_BOARD_COMMENTS,
-            variables: { boardId: router.query.boardId },
+            variables: { boardId: router.query.board_post_detail },
           },
         ],
       });
@@ -59,7 +55,7 @@ export default function BoardCommentListPage(props) {
     <>
       {props.data?.fetchBoardComments.map((el) => (
         <Wrapper key={el._id} el={el}>
-          {!isEdit !== el._id && (
+          {!props.isEdit && (
             <CommentWrapper>
               <Avatar src="/images/avatar.png" />
               <Info>
@@ -68,12 +64,12 @@ export default function BoardCommentListPage(props) {
                   <Star value={el?.rating} disabled />
                 </WriterWrapper>
                 <Content>{el.contents}</Content>
-                <CreatedAt>{el.createdAt}</CreatedAt>
+                <CreatedAt>{el.createdAt.slice(0, 10)}</CreatedAt>
               </Info>
               <Button>
                 <UpdatePencil
                   src="/images/pencil.png"
-                  onClick={onClickUpdate}
+                  onClick={props.onClickUpdate}
                   id={el._id}
                 ></UpdatePencil>
                 <DeliteIcon
@@ -83,11 +79,11 @@ export default function BoardCommentListPage(props) {
               </Button>
             </CommentWrapper>
           )}
-          {isEdit === el._id && (
+          {props.isEdit && (
             <BoardCommentWrite
               isEdit={isEdit}
               setIsEdit={setIsEdit}
-              el={props.el}
+              el={el}
 
               // props 가 3개 넘어간거
             />
