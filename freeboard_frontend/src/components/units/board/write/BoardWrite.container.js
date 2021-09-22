@@ -21,6 +21,11 @@ export default function BoardWrite(props) {
   const [contents, setContents] = useState("");
   const [youtubeUrl, setYoutubeUrl] = useState("");
 
+  const [isOpen, setIsOpen] = useState(false)
+  const [zipcode, setZipcode] = useState("")
+  const [address, setAddress] = useState("")
+  const [addressDetail, setAddressDetail] = useState("")
+
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
@@ -92,6 +97,23 @@ export default function BoardWrite(props) {
     setYoutubeUrl(event.target.value);
   }
 
+  // 상세주소
+  function onChangeAddressDetail(event){
+    setAddressDetail(event.target.value)
+  }
+
+  // 우편번호 검색창 버튼
+  function onClickAddressSearch(){
+    setIsOpen((prev)=>!prev)
+  }
+
+  // 주소 다 쓰면 누르는 버튼
+  function onCompeleteAddressSearch(data){
+    setAddress(data.address);
+    setZipcode(data.zonecode)
+    setIsOpen(false)
+  }
+
   async function onClickSubmit() {
     try {
       if (writer === "") {
@@ -117,6 +139,11 @@ export default function BoardWrite(props) {
             contents: contents,
             password: password,
             youtubeUrl: youtubeUrl,
+            boardAddress: {
+              zipcode: zipcode,
+              address: address,
+              addressDetail: addressDetail,
+            }
           },
         },
       });
@@ -164,9 +191,15 @@ export default function BoardWrite(props) {
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
       onChangeYoutubeUrl={onChangeYoutubeUrl}
+      onCompeleteAddressSearch={onCompeleteAddressSearch}
+      onChangeAddressDetail={onChangeAddressDetail}
+      onClickAddressSearch={onClickAddressSearch}
+      address={address}
+      zipcode={zipcode}
       isEdit={props.isEdit}
       color={color}
       data={data}
+      isOpen={isOpen}
     />
   );
 }

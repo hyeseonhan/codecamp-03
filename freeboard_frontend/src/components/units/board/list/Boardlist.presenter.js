@@ -159,7 +159,7 @@ export default function BoardListUI(props) {
               id={el._id}
               onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
             >
-              {el.createdAt}
+              {el.createdAt.slice(0, 10)}
             </ColumnBasic>
           </Row>
         ))}

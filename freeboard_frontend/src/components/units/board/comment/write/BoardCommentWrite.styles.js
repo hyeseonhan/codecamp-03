@@ -55,7 +55,7 @@ export const PasswordInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* padding-left: 20px; */
+  margin-right: 26px;
 `;
 
 export const MiddleLine = styled.div`
@@ -113,4 +113,9 @@ export const PostButton = styled.div`
   cursor: pointer;
 `;
 
-export const Star = styled(Rate)``;
+export const Star = styled(Rate)`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  /* align-items: center; */
+`;

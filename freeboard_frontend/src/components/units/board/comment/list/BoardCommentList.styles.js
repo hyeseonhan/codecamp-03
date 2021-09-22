@@ -27,12 +27,17 @@ export const Info = styled.div`
   width: 1087px;
 `;
 
-export const WriterWrapper = styled.div``;
+export const WriterWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
 
 export const Writer = styled.div`
   font-size: 16px;
   font-weight: 500;
   line-height: 23.68px;
+  margin-right: 18px;
 `;
 
 export const Star = styled(Rate)``;

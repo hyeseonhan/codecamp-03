@@ -23,6 +23,9 @@ import {
   EditButton,
 } from "./BoardWrite.styles";
 
+import {Modal} from "antd"
+import DaumPostcode from "react-daum-postcode";
+
 export default function BoardlWriteUI(props) {
   return (
     <Wrapper>
@@ -71,11 +74,33 @@ export default function BoardlWriteUI(props) {
       <InputWrapper>
         <Label>주소</Label>
         <ZipcodeWrapper>
-          <Zipcode type="text" placeholder="07250" />
-          <SearchButton>우편번호 검색</SearchButton>
+          <Zipcode
+          type="text"
+          placeholder="07250"
+          readOnly
+          value={props.zipcode || props.data?.fetchBoard.boardAddress?.address}
+          />
+          <SearchButton
+          onClick={props.onClickAddressSearch}
+          
+          >우편번호 검색</SearchButton>
         </ZipcodeWrapper>
-        <Address />
-        <Address />
+        {props.isOpen && (
+        <Modal visible={true}>
+          <DaumPostcode
+            onComplete={props.onCompeleteAddressSearch}
+            autoClose
+          />
+        </Modal>
+        )}
+        <Address
+          readOnly
+          value={props.address || props.data?.fetchBoard.boardAddress?.addressDetail}
+        />
+        <Address
+          onChange={props.onChangeAddressDetail}
+          defaultValue={props.data?.fetchBoard.boardAddress?.addressDetail}
+        />
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>

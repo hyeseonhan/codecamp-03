@@ -5,8 +5,8 @@
 // import { Global } from "@emotion/react";
 // import { globalStyles } from "../src/commons/styles/globalStyles/";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+// import "slick-carousel/slick/slick.css";
+// import "slick-carousel/slick/slick-theme.css";
 
 import "antd/dist/antd.css";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
