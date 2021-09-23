@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { syntaxError } from "graphql";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -180,18 +181,31 @@ export const Footer = styled.div`
   padding-top: 50px;
 `;
 
-export const PageNumber = styled.div``;
+export const PageNumber = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+`;
 
 export const Fake = styled.div`
   color: white;
 `;
 
+export const Page = styled.div`
+  padding-right: 20px;
+  cursor: pointer;
+  color: ${(props) => (props.current === true ? "#81d8b1" : "black")};
+`;
+
 export const LeftIcon = styled.img`
   padding-right: 28.59px;
+  cursor: pointer;
 `;
 
 export const RightIcon = styled.img`
-  padding-left: 28.59px;
+  padding-left: 8.59px;
+  cursor: pointer;
 `;
 
 export const PostButton = styled.div`

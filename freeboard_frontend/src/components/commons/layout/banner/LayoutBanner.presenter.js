@@ -14,7 +14,7 @@ export default function LayoutBannerUI() {
     <>
       <SliderWrapper>
         <Wrapper>Banner</Wrapper>
-        <Slider {...settings}>
+        <Slider {...settings} style={{ height: "150px" }}>
           <div>
             <H3>1</H3>
           </div>

@@ -21,17 +21,17 @@ export default function BoardWrite(props) {
   const [contents, setContents] = useState("");
   const [youtubeUrl, setYoutubeUrl] = useState("");
 
-  const [isOpen, setIsOpen] = useState(false)
-  const [zipcode, setZipcode] = useState("")
-  const [address, setAddress] = useState("")
-  const [addressDetail, setAddressDetail] = useState("")
-
   const [writerError, setWriterError] = useState("");
   const [passwordError, setPasswordError] = useState("");
   const [titleError, setTitleError] = useState("");
   const [contentsError, setContentsError] = useState("");
 
   const [color, setColor] = useState(false);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const [zipcode, setZipcode] = useState("");
+  const [address, setAddress] = useState("");
+  const [addressDetail, setAddressDetail] = useState("");
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -97,22 +97,35 @@ export default function BoardWrite(props) {
     setYoutubeUrl(event.target.value);
   }
 
+  const handleComplete = (data) => {
+    setZipcode(data.zonecode);
+    setAddress(data.address);
+    console.log(data.zonecode);
+    console.log(data.address);
+
+    setIsOpen((prev) => !prev);
+  };
+
   // 상세주소
-  function onChangeAddressDetail(event){
-    setAddressDetail(event.target.value)
+  function onChangeAddressDetail(event) {
+    setAddressDetail(event.target.value);
   }
 
   // 우편번호 검색창 버튼
-  function onClickAddressSearch(){
-    setIsOpen((prev)=>!prev)
+  function onTogleAddress() {
+    setIsOpen((prev) => !prev);
   }
 
   // 주소 다 쓰면 누르는 버튼
-  function onCompeleteAddressSearch(data){
+  function onCompleteAddressSearch(data) {
     setAddress(data.address);
-    setZipcode(data.zonecode)
-    setIsOpen(false)
+    setZipcode(data.zonecode);
+    setIsOpen(false);
   }
+
+  // function closeModal(){
+  //   setModalVisible((prev) => !prev)
+  // }
 
   async function onClickSubmit() {
     try {
@@ -143,7 +156,7 @@ export default function BoardWrite(props) {
               zipcode: zipcode,
               address: address,
               addressDetail: addressDetail,
-            }
+            },
           },
         },
       });
@@ -191,11 +204,13 @@ export default function BoardWrite(props) {
       onClickSubmit={onClickSubmit}
       onClickEdit={onClickEdit}
       onChangeYoutubeUrl={onChangeYoutubeUrl}
-      onCompeleteAddressSearch={onCompeleteAddressSearch}
+      onCompleteAddressSearch={onCompleteAddressSearch}
       onChangeAddressDetail={onChangeAddressDetail}
-      onClickAddressSearch={onClickAddressSearch}
+      onTogleAddress={onTogleAddress}
+      handleComplete={handleComplete}
       address={address}
       zipcode={zipcode}
+      // closeModal={closeModal}
       isEdit={props.isEdit}
       color={color}
       data={data}

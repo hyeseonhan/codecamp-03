@@ -29,6 +29,7 @@ import {
   Footer,
   PageNumber,
   Fake,
+  Page,
   LeftIcon,
   RightIcon,
   PostButton,
@@ -168,9 +169,21 @@ export default function BoardListUI(props) {
       <Footer>
         <Fake>이건정렬맞추기위한구라</Fake>
         <PageNumber>
-          <LeftIcon src="/images/left.png" />
-          1 2
-          <RightIcon src="/images/right.png" />
+          <LeftIcon onClick={props.onClickPrevPage} src="/images/left.png" />
+          {new Array(10).fill(1).map(
+            (_, index) =>
+              props.startPage + index <= props.lastPage && (
+                <Page
+                  key={props.startPage + index}
+                  onClick={props.onClickPage}
+                  id={String(props.startPage + index)}
+                  current={props.startPage + index === props.current}
+                >
+                  {props.startPage + index}
+                </Page>
+              )
+          )}
+          <RightIcon onClick={props.onClickNextPage} src="/images/right.png" />
         </PageNumber>
         <PostButton onClick={props.onClickMoveToBoard}>
           <PencilIcon src="/images/pencil.png" />

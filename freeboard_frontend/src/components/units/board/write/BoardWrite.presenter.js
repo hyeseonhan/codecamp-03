@@ -23,7 +23,7 @@ import {
   EditButton,
 } from "./BoardWrite.styles";
 
-import {Modal} from "antd"
+import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 
 export default function BoardlWriteUI(props) {
@@ -34,6 +34,7 @@ export default function BoardlWriteUI(props) {
         <InputWrapper>
           <Label>작성자</Label>
           <Writer
+            name="writer"
             type="text"
             placeholder="이름을 적어주세요"
             onChange={props.onChangeWriter}
@@ -44,6 +45,7 @@ export default function BoardlWriteUI(props) {
         <InputWrapper>
           <Label>비밀번호</Label>
           <Password
+            name="password"
             type="password"
             placeholder="비밀번호를 입력해주세요"
             onChange={props.onChangePassword}
@@ -54,6 +56,7 @@ export default function BoardlWriteUI(props) {
       <InputWrapper>
         <Label>제목</Label>
         <Subject
+          name="subject"
           type="text"
           placeholder="제목을 입력하세요"
           onChange={props.onChangeTitle}
@@ -64,7 +67,7 @@ export default function BoardlWriteUI(props) {
       <InputWrapper>
         <Label>내용</Label>
         <Contents
-          type="text"
+          name="contents"
           placeholder="내용을 작성해주세요"
           onChange={props.onChangeContents}
           defaultValue={props.data?.fetchBoard.contents}
@@ -75,37 +78,41 @@ export default function BoardlWriteUI(props) {
         <Label>주소</Label>
         <ZipcodeWrapper>
           <Zipcode
-          type="text"
-          placeholder="07250"
-          readOnly
-          value={props.zipcode || props.data?.fetchBoard.boardAddress?.address}
+            name="zipcode"
+            placeholder="07250"
+            readOnly
+            value={
+              props.zipcode || props.data?.fetchBoard.boardAddress?.zipcode
+            }
           />
           <SearchButton
-          onClick={props.onClickAddressSearch}
-          
-          >우편번호 검색</SearchButton>
+            onClick={props.onTogleAddress}
+            onComplete={props.onCompleteAddressSearch}
+          >
+            우편번호 검색
+          </SearchButton>
+          {props.isOpen && (
+            <Modal visible={true} onCancel={props.onTogleAddress}>
+              <DaumPostcode onComplete={props.handleComplete} />
+            </Modal>
+          )}
         </ZipcodeWrapper>
-        {props.isOpen && (
-        <Modal visible={true}>
-          <DaumPostcode
-            onComplete={props.onCompeleteAddressSearch}
-            autoClose
-          />
-        </Modal>
-        )}
         <Address
           readOnly
-          value={props.address || props.data?.fetchBoard.boardAddress?.addressDetail}
+          value={props.address || props.data?.fetchBoard.boardAddress?.address}
         />
         <Address
           onChange={props.onChangeAddressDetail}
-          defaultValue={props.data?.fetchBoard.boardAddress?.addressDetail}
+          defaultValue={
+            props.addressDetail ||
+            props.data?.fetchBoard.boardAddress?.addressDetail
+          }
         />
       </InputWrapper>
       <InputWrapper>
         <Label>유튜브</Label>
         <Youtube
-          type="text"
+          name="youtube"
           placeholder="링크를 복사해주세요"
           onChange={props.onChangeYoutubeUrl}
           defaultValue={props.data?.fetchBoard.youtubeUrl}
@@ -135,12 +142,20 @@ export default function BoardlWriteUI(props) {
       </OptionWrapper>
       <ButtonWrapper>
         {!props.isEdit && (
-          <SubmitButton onClick={props.onClickSubmit} color={props.color}>
+          <SubmitButton
+            onClick={props.onClickSubmit}
+            color={props.color}
+            disabled={!props.color}
+          >
             등록하기
           </SubmitButton>
         )}
         {props.isEdit && (
-          <EditButton onClick={props.onClickEdit} color={props.color}>
+          <EditButton
+            color={true}
+            onClick={props.onClickEdit}
+            // color={props.color}
+          >
             수정하기
           </EditButton>
         )}
