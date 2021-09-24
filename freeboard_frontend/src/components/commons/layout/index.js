@@ -14,7 +14,7 @@ const Wrapper = styled.div``;
 // `;
 
 const Body = styled.div`
-  /* height: 300px; */
+  background-color: #f04237;
 `;
 
 // const Footer = styled.div`

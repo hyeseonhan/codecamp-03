@@ -43,4 +43,65 @@ function soluton(x){
     .reduce( (el,cu) =>{
         return Number(el+) + Number(cu)
     })
-}5
+}
+
+// 내적
+
+  // 선생님
+  function solution(a, b){
+    let answer = 0
+
+    for( let i=0; i <a.length; i++){
+      answer += a[i]*b[i]
+    }
+
+    return answer
+  }
+
+  // 메서드
+  function solution(a, b){
+    const answer = a.map( (num, i)  => {
+      return num*b[i]
+    }).reduce ((el, cu) => {return el + cu}, 0)
+    // 안쪽에 있는 배열들을 el =연산되는 결과가 저장되는 거. cu:현재 인덱스의 데이타값. 초기값:0
+    return answer
+  }
+
+
+// 제일 작은 수 제거하기
+
+  // 선생님
+  function solution(arr){
+    let answer = []
+
+    // 제일 작은 수를 저장해주는 변수
+    let min = arr[0]
+    for (let i=1; i < arr.length; i++){
+      if( min > arr[i] ){
+        min = arr[i]
+      }
+    }
+
+    arr.splice( arr.indexOf(min), 1)
+    if(arr.length === 0 ){
+      return [-1]
+    }
+
+    return arr
+  }
+
+  //  a.splice( 2, 1) 2번째 배열에 하나를 지운다.
+  // Math.min.apply : apply 로 배열이나 값을 찾아올수잇다.
+
+  //  메서드
+  function solution(arr){
+    const min = Math.min.apply( null, arr )
+    //  const min = Math.min(...arr)
+    // 스프레드 연산자 apply와 동일
+
+    const result = arr.filter( num => {
+      return num > min
+    })
+
+    return result.length === 0 ? [-1] : result
+  }

@@ -1,37 +1,41 @@
-import { Wrapper, SliderWrapper, H3 } from "./LayoutBanner.styles";
+import { SliderWrapper, SliderItem, SliderAlbum } from "./LayoutBanner.styles";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
-  dots: true,
+  // dots: true,
   infinite: true,
   speed: 500,
   slidesToShow: 1,
   slidesToScroll: 1,
+  // centerMode: true,
+  autoplaySpeed: 3000,
 };
 
 export default function LayoutBannerUI() {
   return (
     <>
       <SliderWrapper>
-        <Wrapper>Banner</Wrapper>
-        <Slider {...settings} style={{ height: "150px" }}>
+        {/* <Wrapper>Banner</Wrapper> */}
+        <Slider {...settings}>
           <div>
-            <H3>1</H3>
+            <SliderItem src="./images/albumname.png" />
           </div>
           <div>
-            <H3>2</H3>
+            <SliderAlbum src="./images/motleycrew.png" />
           </div>
           <div>
-            <H3>3</H3>
+            <SliderAlbum src="./images/bleeding.png" />
           </div>
           <div>
-            <H3>4</H3>
+            <SliderAlbum src="./images/goodbyes.png" />
           </div>
           <div>
-            <H3>5</H3>
+            <SliderAlbum src="./images/beerbongs.png" />
           </div>
           <div>
-            <H3>6</H3>
+            <SliderAlbum src="./images/congra.png" />
           </div>
         </Slider>
       </SliderWrapper>

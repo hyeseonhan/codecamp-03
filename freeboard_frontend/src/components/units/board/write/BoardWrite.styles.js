@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   width: 1200px;
   border: 1px solid black;
-  margin: 100px;
+  margin: 50px;
   padding-top: 80px;
   padding-bottom: 100px;
   padding-left: 102px;
@@ -11,8 +11,8 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  border: none;
-  box-shadow: 0px 0px 10px gray;
+  border: 7px solid black;
+  box-shadow: 0px 0px 10px black;
 `;
 
 export const Title = styled.div`
@@ -34,6 +34,7 @@ export const Writer = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: transparent;
 `;
 
 export const Password = styled.input`
@@ -41,6 +42,7 @@ export const Password = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: transparent;
 `;
 
 export const Label = styled.div`
@@ -58,6 +60,7 @@ export const Subject = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: transparent;
 `;
 
 export const Contents = styled.textarea`
@@ -67,6 +70,7 @@ export const Contents = styled.textarea`
   padding: 14px;
   border: 1px solid #bdbdbd;
   resize: none;
+  background-color: transparent;
 `;
 
 export const ZipcodeWrapper = styled.div`
@@ -79,6 +83,7 @@ export const Zipcode = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: transparent;
 `;
 
 export const SearchButton = styled.button`
@@ -96,6 +101,7 @@ export const Address = styled.input`
   margin-top: 16px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: transparent;
 `;
 
 export const Youtube = styled.input`
@@ -103,6 +109,7 @@ export const Youtube = styled.input`
   height: 52px;
   padding-left: 16px;
   border: 1px solid #bdbdbd;
+  background-color: transparent;
 `;
 
 export const ImageWrapper = styled.div`
@@ -127,6 +134,7 @@ export const OptionWrapper = styled.div`
 
 export const RadioButton = styled.input`
   cursor: pointer;
+  margin-right: 10px;
 `;
 
 export const RadioLabel = styled.label`

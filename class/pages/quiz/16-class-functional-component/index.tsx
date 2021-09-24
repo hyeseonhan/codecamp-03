@@ -19,7 +19,7 @@ export default function MyComponent() {
     return () => {
       alert("컴포넌트가 제거됩니다~");
     };
-  });
+  }, []);
   //   componentDidMount() {
   //     console.log("컴포넌트가 마운트됐습니다~");
   //     this.inputRef.current?.focus();
@@ -50,6 +50,7 @@ export default function MyComponent() {
   //     Router.push("/");
   //   };
 
+  //  의존성배열
   //   render() {
   //     console.log("마운트 시작");
   return (
