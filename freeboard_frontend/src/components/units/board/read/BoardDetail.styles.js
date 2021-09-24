@@ -23,69 +23,74 @@ export const WriterWrapper = styled.div`
   padding-bottom: 20px;
 `;
 export const WriterWrapperLeft = styled.div`
-  width: 604px;
+  width: 614px;
   padding-top: 60px;
   display: flex;
   flex-direction: row;
 `;
 export const WriterWrapperRight = styled.div`
-  width: 392px;
+  width: 382px;
   padding-left: 15px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  padding-top: 60px;
 `;
 export const ProfilImage = styled.img`
+  padding-right: 16.67px;
   /* color: gray;
   display: flex;
   justify-content: center;
   align-items: center; */
 `;
 export const WriterDate = styled.div`
-  padding-left: 16.67px;
+  /* padding-left: 16.67px; */
 `;
-export const Location = styled.div`
-  width: 368px;
-  height: 64px;
-  border: 1px solid #898989;
-  background-color: #898989;
-  color: white;
-  padding-left: 16px;
-  padding-top: 8px;
-  padding-right: 16px;
-  padding-bottom: 8px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  font-size: 16px;
-  font-weight: 400;
-  font-style: normal;
-  line-height: 23.68px;
-`;
-export const Triangle = styled.div`
-  width: 0px;
-  height: 0px;
-  /* border-top: 6px solid #898989; */
-  border-right: 15px solid #898989;
-  border-bottom: 15px solid transparent;
-  /* border-left: 8px solid transparent; */
-  margin-left: 353px;
-`;
-export const Address1 = styled.div``;
-export const Address2 = styled.div``;
+// export const Location = styled.div`
+//   width: 368px;
+//   height: 64px;
+//   border: 1px solid #898989;
+//   /* background-color: #898989; */
+//   color: black;
+//   padding-left: 16px;
+//   padding-top: 8px;
+//   padding-right: 16px;
+//   padding-bottom: 8px;
+//   display: flex;
+//   flex-direction: column;
+//   align-items: flex-end;
+//   font-size: 16px;
+//   font-weight: 400;
+//   font-style: normal;
+//   line-height: 23.68px;
+// `;
+// export const Triangle = styled.div`
+//   width: 0px;
+//   height: 0px;
+//   /* border-top: 6px solid #898989; */
+//   border-right: 15px solid #898989;
+//   border-bottom: 15px solid transparent;
+//   /* border-left: 8px solid transparent; */
+//   margin-left: 353px;
+
+// `;
+// export const Tooltip = styled.div``;
+
 export const Icon = styled.div`
-  /* padding-top: 19.33px; */
+  /* padding-top: 19.33px;
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  /* align-items: center; */
+  align-items: center; */
 `;
 
-export const FileIcon = styled.div`
-  color: #ffd600;
+export const FileIcon = styled.img`
   padding-right: 29.33px;
-  /* padding-top: 19.33px; */
 `;
 
-export const MapIcon = styled.div`
-  color: #ffd600;
+export const MapIcon = styled.img`
+  /* color: #ffd600; */
   /* padding-top: 4.67px; */
 `;
 

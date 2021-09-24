@@ -5,10 +5,10 @@ import {
   WriterWrapperRight,
   ProfilImage,
   WriterDate,
-  Location,
-  Triangle,
-  Address1,
-  Address2,
+  // Location,
+  // Triangle,
+  // Address1,
+  // Address2,
   Icon,
   FileIcon,
   MapIcon,
@@ -31,6 +31,7 @@ import {
 } from "./BoardDetail.styles";
 
 import ReactPlayer from "react-player";
+import { Tooltip } from "antd";
 
 // import BoardComment from "../comment/BoardComment.container";
 
@@ -43,21 +44,22 @@ export default function BoardDetailUI(props) {
             <ProfilImage src="/images/avatar.png" />
             <WriterDate>
               <Writer>{props.data && props.data.fetchBoard.writer}</Writer>
-              <Date>Date : 2021.02.18</Date>
+              <Date>
+                {props.data?.fetchBoard.createdAt.slice(0, 10) + " "}
+                {props.data?.fetchBoard.createdAt.slice(11, 19)}
+              </Date>
             </WriterDate>
           </WriterWrapperLeft>
           <WriterWrapperRight>
-            <Location>
-              <Address1>서울특별 영등포구 양산로 200</Address1>
-              <Address2>
-                (영등포동5가,영등포시장역)영등포 타임스퀘어 2층
-              </Address2>
-            </Location>
-            <Triangle></Triangle>
-            <Icon>
-              <FileIcon></FileIcon>
-              <MapIcon></MapIcon>
-            </Icon>
+            {/* <Location> */}
+            <FileIcon src="/images/file.png" />
+            <Tooltip
+              placement="topRight"
+              title={`${props.data?.fetchBoard.boardAddress?.address}
+              ${props.data?.fetchBoard.boardAddress?.addressDetail}`}
+            >
+              <MapIcon src="/images/location.png" />
+            </Tooltip>
           </WriterWrapperRight>
         </WriterWrapper>
         <InputWrapper>
