@@ -52,7 +52,7 @@ export default function BoardCommentUI(props) {
             onChange={props.onChangeContentInput}
           />
           <LowerLine>
-            <WordCount>0/100</WordCount>
+            <WordCount>{props.ContentInput.length}/100</WordCount>
             <PostButton
               onClick={props.isActive ? props.onClickUpdate : props.onClickPost}
             >

@@ -14,7 +14,9 @@ const Wrapper = styled.div``;
 // `;
 
 const Body = styled.div`
-  background-color: #f04237;
+  /* background-color: #f04237; */
+  /* clear: both; */
+  margin-bottom: 160px;
 `;
 
 // const Footer = styled.div`
@@ -24,13 +26,14 @@ const Body = styled.div`
 
 const SidebarWapper = styled.div`
   display: flex;
+  justify-content: center;
 `;
 
-const Sidebar = styled.div`
-  background-color: yellow;
-  width: 300px;
-  /* height: 300px; */
-`;
+// const Sidebar = styled.div`
+//   background-color: yellow;
+//   width: 300px;
+//   height: 300px;
+// `;
 
 // const HIDDEN_FOOTER = ["/13-01-layout-hidden"];
 
@@ -46,7 +49,7 @@ export default function Layout(props) {
       <LayoutBanner />
       <LayoutNavi />
       <SidebarWapper>
-        <Sidebar>Sidebar</Sidebar>
+        {/* <Sidebar>Sidebar</Sidebar> */}
         <Body>{props.children}</Body>
       </SidebarWapper>
       <LayoutFooter />

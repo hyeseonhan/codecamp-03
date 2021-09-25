@@ -67,6 +67,7 @@ export default function BoardCommentListUI(props) {
       </Modal>
       <InfiniteScroll pageStart={0} loadMore={props.onLoadMore} hasMore={true}>
         {props.data?.fetchBoardComments.map((el) => (
+          // 댓글 상세보기
           <Wrapper key={el._id} el={el}>
             {el._id !== props.isActive && (
               <CommentWrapper>
@@ -93,11 +94,12 @@ export default function BoardCommentListUI(props) {
                 </Button>
               </CommentWrapper>
             )}
+            {/* 댓글 수정하기 */}
             {el._id === props.isActive && (
               <BoardCommentWrite
-                isEdit={props.isEdit}
+                isEdit={props.isEdit} //true 일 때 댓글 수정 보임.
                 setIsEdit={props.setIsEdit}
-                el={props.el}
+                el={props.el} //defaultvalue 수정시 보여지는 데이터
                 isActive={props.isActive}
                 id={el._id}
                 setIsActive={props.setIsActive}

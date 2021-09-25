@@ -143,6 +143,7 @@ export default function BoardCommentWrite(props) {
       isEdit={isEdit}
       el={props.el}
       isActive={props.isActive}
+      ContentInput={ContentInput}
     />
   );
 }

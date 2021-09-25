@@ -16,7 +16,8 @@ export const Wrapper = styled.div`
 `;
 
 export const Title = styled.div`
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "NB";
+  /* font-weight: 1000; */
   font-size: 36px;
   font-weight: bold;
 `;
@@ -49,6 +50,7 @@ export const Label = styled.div`
   padding-bottom: 16px;
   font-size: 16px;
   font-weight: 500;
+  font-family: "NB";
 `;
 
 export const InputWrapper = styled.div`
@@ -134,7 +136,6 @@ export const OptionWrapper = styled.div`
 
 export const RadioButton = styled.input`
   cursor: pointer;
-  margin-right: 10px;
 `;
 
 export const RadioLabel = styled.label`

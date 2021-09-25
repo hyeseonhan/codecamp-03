@@ -7,6 +7,9 @@ export default function LayoutNaviUI(props) {
       <MenuItem id="/boards/board-post" onClick={props.onClickMenu}>
         BOARD
       </MenuItem>
+      <MenuItem id="/boards/list" onClick={props.onClickMenu}>
+        LIST
+      </MenuItem>
       <MenuItem>MERCH</MenuItem>
       <MenuItem>MINE</MenuItem>
     </Wrapper>

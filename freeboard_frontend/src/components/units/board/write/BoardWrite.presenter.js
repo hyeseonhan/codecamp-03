@@ -9,6 +9,7 @@ import {
   OptionWrapper,
   Password,
   RadioButton,
+  RadioLabel,
   SearchButton,
   Subject,
   SubmitButton,
@@ -29,7 +30,7 @@ import DaumPostcode from "react-daum-postcode";
 export default function BoardlWriteUI(props) {
   return (
     <Wrapper>
-      <Title>{props.isEdit ? "수정페이지" : "등록페이지"}</Title>
+      <Title>{props.isEdit ? "수정페이지" : "REGISTRATION"}</Title>
       <WriterWrapper>
         <InputWrapper>
           <Label>작성자</Label>
@@ -136,9 +137,9 @@ export default function BoardlWriteUI(props) {
       <OptionWrapper>
         <Label>메인설정</Label>
         <RadioButton type="radio" name="radio-button" />
-        유튜브
+        <RadioLabel htmlFor="youtube"> 유튜브</RadioLabel>
         <RadioButton type="radio" name="radio-button" />
-        사진
+        <RadioLabel htmlFor="image"> 사진</RadioLabel>
       </OptionWrapper>
       <ButtonWrapper>
         {!props.isEdit && (

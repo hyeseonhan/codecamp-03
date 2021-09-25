@@ -31,7 +31,7 @@ export default function BoardWrite(props) {
   const [isOpen, setIsOpen] = useState(false);
   const [zipcode, setZipcode] = useState("");
   const [address, setAddress] = useState("");
-  const [addressDetail, setAddressDetail] = useState("");
+  const [addressDetail, setAddressDetail] = useState(""); //입력하는거
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -106,7 +106,7 @@ export default function BoardWrite(props) {
     setIsOpen((prev) => !prev);
   };
 
-  // 상세주소
+  // 상세주소 입력
   function onChangeAddressDetail(event) {
     setAddressDetail(event.target.value);
   }

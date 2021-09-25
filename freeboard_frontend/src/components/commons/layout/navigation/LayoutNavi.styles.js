@@ -1,7 +1,8 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  background-color: #f04237;
+  /* background-color: #f04237; */
+
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -15,6 +16,6 @@ export const MenuItem = styled.div`
   font-size: 20px;
   font-weight: 700;
   position: relative;
-  color: white;
+  color: black;
   margin: 30px;
 `;
