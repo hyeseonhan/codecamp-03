@@ -11,7 +11,7 @@ export const globalStyles = css`
 
   @font-face {
     font-family: "NB"; // 폰트이름
-    src: url("/font/ckhans.otf"); // 폰트위치
+    src: url("/font/ckhans.otf") , url("/font/HelveticaNeue-Light.otf") // 폰트위치
   }
 
 `;

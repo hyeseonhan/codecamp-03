@@ -35,24 +35,26 @@ const SidebarWapper = styled.div`
 //   height: 300px;
 // `;
 
-// const HIDDEN_FOOTER = ["/13-01-layout-hidden"];
+// const HIDDEN_Wrapper = ["/boards"];
 
 export default function Layout(props) {
   const router = useRouter();
-  // const isHiddenFooter = HIDDEN_FOOTER.includes(router.pathname);
+  // const isHiddenWrapper = HIDDEN_Wrapper.includes(router.pathname);
   // router.includes(router.pathname) =
   // console.log(router);
 
   return (
-    <Wrapper>
-      <LayoutHeader />
-      <LayoutBanner />
-      <LayoutNavi />
-      <SidebarWapper>
-        {/* <Sidebar>Sidebar</Sidebar> */}
-        <Body>{props.children}</Body>
-      </SidebarWapper>
-      <LayoutFooter />
-    </Wrapper>
+    <>
+      <Wrapper>
+        <LayoutHeader />
+        <LayoutBanner />
+        <LayoutNavi />
+        <SidebarWapper>
+          {/* <Sidebar>Sidebar</Sidebar> */}
+          <Body>{props.children}</Body>
+        </SidebarWapper>
+        <LayoutFooter />
+      </Wrapper>
+    </>
   );
 }
