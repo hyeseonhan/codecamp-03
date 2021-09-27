@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { syntaxError } from "graphql";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -19,8 +18,9 @@ export const HeaderTitle = styled.div`
   display: flex;
   justify-content: center;
   font-size: 36px;
-  font-weight: 700;
+  font-weight: 1000;
   line-height: 42.19px;
+  font-family: "NB";
 `;
 
 export const CardPost = styled.div`
@@ -35,6 +35,7 @@ export const CardPost = styled.div`
 export const CardImage = styled.img`
   width: 282px;
   height: 120px;
+  border-radius: 20px;
 `;
 
 export const Title = styled.div`

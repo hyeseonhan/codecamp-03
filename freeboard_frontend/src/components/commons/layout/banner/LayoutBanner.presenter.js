@@ -20,22 +20,22 @@ export default function LayoutBannerUI() {
         {/* <Wrapper>Banner</Wrapper> */}
         <Slider {...settings}>
           <div>
-            <SliderItem src="./images/albumname.png" />
+            <SliderItem src="/images/albumname.png" alt="error" />
           </div>
           <div>
-            <SliderAlbum src="./images/motleycrew.png" />
+            <SliderAlbum src="/images/motleycrew.png" />
           </div>
           <div>
-            <SliderAlbum src="./images/bleeding.png" />
+            <SliderAlbum src="/images/bleeding.png" />
           </div>
           <div>
-            <SliderAlbum src="./images/goodbyes.png" />
+            <SliderAlbum src="/images/goodbyes.png" />
           </div>
           <div>
-            <SliderAlbum src="./images/beerbongs.png" />
+            <SliderAlbum src="/images/beerbongs.png" />
           </div>
           <div>
-            <SliderAlbum src="./images/congra.png" />
+            <SliderAlbum src="/images/congra.png" />
           </div>
         </Slider>
       </SliderWrapper>

@@ -18,4 +18,8 @@ export const MenuItem = styled.div`
   position: relative;
   color: black;
   margin: 30px;
+  cursor: pointer;
+  :hover {
+    opacity: 0.4;
+  }
 `;

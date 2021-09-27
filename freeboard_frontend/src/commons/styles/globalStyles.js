@@ -14,6 +14,11 @@ export const globalStyles = css`
     src: url("/font/ckhans.otf") , url("/font/HelveticaNeue-Light.otf") // 폰트위치
   }
 
+  @font-face {
+    font-family: "Light"; // 폰트이름
+    src:url("/font/HelveticaNeue-Light.otf") // 폰트위치
+  }
+
 `;
 
 // *{ } 여기에 넣으면 한번에 다 적용됨.

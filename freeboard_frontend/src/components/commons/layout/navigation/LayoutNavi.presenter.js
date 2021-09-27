@@ -3,7 +3,9 @@ import { Wrapper, MenuItem } from "./LayoutNavi.styles";
 export default function LayoutNaviUI(props) {
   return (
     <Wrapper>
-      <MenuItem>SOME</MenuItem>
+      <MenuItem id="/boards/openapi" onClick={props.onClickMenu}>
+        SOME
+      </MenuItem>
       <MenuItem id="/boards/board-post" onClick={props.onClickMenu}>
         BOARD
       </MenuItem>

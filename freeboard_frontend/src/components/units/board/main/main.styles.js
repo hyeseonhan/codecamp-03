@@ -13,7 +13,6 @@ export const Wrapper = styled.div`
 export const Home = styled.img`
   width: 83px;
   height: 40px;
-  cursor: pointer;
 `;
 
 export const Head = styled.div`
@@ -39,8 +38,9 @@ export const Song = styled.div`
 `;
 
 export const StreamButton = styled.div`
+  width: 240px;
   color: white;
-  font-family: "NB";
+  font-family: "Light";
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,7 +48,7 @@ export const StreamButton = styled.div`
   font-size: 16px;
   border: 2px solid #fff;
   font-weight: 400;
-  padding: 12.8px 20.8px;
+  padding: 12.8px 12.8px;
 `;
 
 export const SubWrapper = styled.div`
@@ -77,4 +77,9 @@ export const EnterButton = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  :hover {
+    opacity: 0.4;
+    /* background-color: #f04237; */
+  }
 `;

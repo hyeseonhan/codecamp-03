@@ -1,9 +1,9 @@
 import { Wrapper, Home } from "./LayoutHeader.styles";
 
-export default function LayoutHeaderUI() {
+export default function LayoutHeaderUI(props) {
   return (
     <Wrapper>
-      <Home src="./images/pm-logo.png" />
+      <Home onClick={props.onClickMoveMain} src="/images/pm-logo.png" />
     </Wrapper>
   );
 }

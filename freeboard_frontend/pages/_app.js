@@ -9,7 +9,12 @@ import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 
 const HIDDEN_Layout = ["/"];
-const HIDDEN_Main = ["/boards/list"];
+const HIDDEN_Main = [
+  "/boards/list",
+  "/boards/board-post",
+  "/boards/[board_post_detail]",
+  "/boards/openapi",
+];
 
 function MyApp({ Component, pageProps }) {
   const client = new ApolloClient({

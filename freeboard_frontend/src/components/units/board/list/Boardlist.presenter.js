@@ -39,10 +39,10 @@ import {
 export default function BoardListUI(props) {
   return (
     <Wrapper>
-      <HeaderTitle>베스트 게시글</HeaderTitle>
+      <HeaderTitle>BEST POST</HeaderTitle>
       <Header>
         <CardPost>
-          <CardImage src="/images/half.png" />
+          <CardImage src="/images/posty.jpeg" />
           <Title>게시물 제목입니다.</Title>
           <CardBottom>
             <AvatarWrapper>
@@ -59,7 +59,7 @@ export default function BoardListUI(props) {
           </CardBottom>
         </CardPost>
         <CardPost>
-          <CardImage src="/images/half.png" />
+          <CardImage src="/images/posty.jpeg" />
           <Title>게시물 제목입니다.</Title>
           <CardBottom>
             <AvatarWrapper>
@@ -76,7 +76,7 @@ export default function BoardListUI(props) {
           </CardBottom>
         </CardPost>
         <CardPost>
-          <CardImage src="/images/half.png" />
+          <CardImage src="/images/posty.jpeg" />
           <Title>게시물 제목입니다.</Title>
           <CardBottom>
             <AvatarWrapper>
@@ -93,7 +93,7 @@ export default function BoardListUI(props) {
           </CardBottom>
         </CardPost>
         <CardPost>
-          <CardImage src="/images/half.png" />
+          <CardImage src="/images/posty.jpeg" />
           <Title>게시물 제목입니다.</Title>
           <CardBottom>
             <AvatarWrapper>

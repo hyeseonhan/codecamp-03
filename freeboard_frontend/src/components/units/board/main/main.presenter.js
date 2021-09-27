@@ -14,12 +14,14 @@ import {
 export default function MainPageUI(props) {
   return (
     <Wrapper>
-      <Head>
-        <Home src="./images/pm-logo.png" onClick={props.onClickMoveList} />
-      </Head>
-      <MainImg src="./images/MotleyCrewMain.png" />
+      {/* <Head>
+        <Home src="./images/pm-logo.png" />
+      </Head> */}
+      <MainImg src="/images/MotleyCrewMain.png" />
       <Song>motley crew</Song>
-      <StreamButton>STREAM / DOWNLOAD</StreamButton>
+      <StreamButton href="https://postmalone.lnk.to/motleycrew">
+        STREAM / DOWNLOAD
+      </StreamButton>
       <Sub>ENTER</Sub>
       <SubWrapper>
         <Select onChange={props.onChangehandleSelect}>
@@ -30,7 +32,7 @@ export default function MainPageUI(props) {
           ))}
         </Select>
       </SubWrapper>
-      <EnterButton>ENTRY</EnterButton>
+      <EnterButton onClick={props.onClickMoveList}>ENTRY</EnterButton>
     </Wrapper>
   );
 }
