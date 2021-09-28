@@ -12,4 +12,8 @@ export const Wrapper = styled.div`
 export const Home = styled.img`
   width: 83px;
   height: 40px;
+  cursor: pointer;
+  :hover {
+    opacity: 0.4;
+  }
 `;

@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import OpenapiListUI from "./OpenapiList.presenter";
 
 export default function OpenapiList() {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("post malone");
   const [list, setList] = useState();
   const inputRef = useRef<HTMLInputElement>();
 
@@ -32,7 +32,7 @@ export default function OpenapiList() {
 
   return (
     <OpenapiListUI
-      inputRe={inputRef}
+      inputRef={inputRef}
       onChangeSearch={onChangeSearch}
       list={list}
     />

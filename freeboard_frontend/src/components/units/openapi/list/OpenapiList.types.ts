@@ -1,1 +1,3 @@
-export interface IOpenapiListUIprops {}
+export interface IOpenapiListUIprops {
+  inputRef: HTMLInputElement;
+}

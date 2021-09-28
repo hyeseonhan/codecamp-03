@@ -7,7 +7,9 @@ import {
   StreamButton,
   Sub,
   SubWrapper,
-  Select,
+  SelectYear,
+  SelectMonth,
+  SelectDate,
   EnterButton,
 } from "./main.styles";
 
@@ -19,18 +21,32 @@ export default function MainPageUI(props) {
       </Head> */}
       <MainImg src="/images/MotleyCrewMain.png" />
       <Song>motley crew</Song>
-      <StreamButton href="https://postmalone.lnk.to/motleycrew">
-        STREAM / DOWNLOAD
-      </StreamButton>
-      <Sub>ENTER</Sub>
+      <a href="https://postmalone.lnk.to/motleycrew">
+        <StreamButton>STREAM / DOWNLOAD</StreamButton>
+      </a>
+      <Sub>DATE OF BIRTH</Sub>
       <SubWrapper>
-        <Select onChange={props.onChangehandleSelect}>
-          {props.selectList.map((item) => (
+        <SelectYear onChange={props.onChangehandleSelect}>
+          {props.selectYear.map((item) => (
             <option value={item.value} key={item.value}>
               {item.name}
             </option>
           ))}
-        </Select>
+        </SelectYear>
+        <SelectMonth>
+          {props.selectMonth.map((item) => (
+            <option value={item.value} key={item.value}>
+              {item.name}
+            </option>
+          ))}
+        </SelectMonth>
+        <SelectDate>
+          {props.selectDate.map((item) => (
+            <option value={item.value} key={item.value}>
+              {item.name}
+            </option>
+          ))}
+        </SelectDate>
       </SubWrapper>
       <EnterButton onClick={props.onClickMoveList}>ENTRY</EnterButton>
     </Wrapper>

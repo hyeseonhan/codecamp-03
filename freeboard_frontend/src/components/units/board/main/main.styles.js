@@ -49,22 +49,65 @@ export const StreamButton = styled.div`
   border: 2px solid #fff;
   font-weight: 400;
   padding: 12.8px 12.8px;
+  margin-bottom: 170px;
 `;
 
-export const SubWrapper = styled.div`
+export const Sub = styled.div`
+  color: white;
+  font-size: 31px;
+  font-weight: 400;
+  line-height: 1.2;
   margin-bottom: 30px;
 `;
 
-export const Select = styled.select`
-  width: 100px;
-  height: 40px;
+export const SubWrapper = styled.div`
+  margin-bottom: 50px;
+`;
+
+export const SelectYear = styled.select`
+  width: 160px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  margin-right: 40px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 2px solid white;
+  text-align: start;
+  /* text-decoration: underline; */
+`;
+
+export const SelectMonth = styled.select`
+  width: 160px;
+  height: 50px;
   font-size: 20px;
   color: white;
   background-color: transparent;
   border: none;
+  margin-right: 40px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 2px solid white;
+  text-align: start;
 `;
 
-export const Sub = styled.div``;
+export const SelectDate = styled.select`
+  width: 160px;
+  height: 50px;
+  font-size: 20px;
+  color: white;
+  background-color: transparent;
+  border: none;
+  margin-right: 40px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-right: 1px solid black;
+  border-bottom: 2px solid white;
+  text-align: start;
+`;
 
 export const EnterButton = styled.button`
   margin-bottom: 30px;

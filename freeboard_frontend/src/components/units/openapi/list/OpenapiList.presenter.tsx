@@ -1,20 +1,21 @@
-import { Wrapper, InputWrapper, Search } from "./OpenapiList.styles";
+import { Wrapper, InputWrapper, Search, Youtube } from "./OpenapiList.styles";
 import { IOpenapiListUIprops } from "./OpenapiList.types";
-import ReactPlayer from "react-player";
 
 export default function OpenapiListUI(props: IOpenapiListUIProps) {
   return (
     <>
       <Wrapper>
+        <Search
+          type="text"
+          ref={props.inputRef}
+          onChange={props.onChangeSearch}
+        ></Search>
         <InputWrapper>
-          <Search
-            type="text"
-            ref={props.inputRef}
-            onChange={props.onChangeSearch}
-          ></Search>
           {props.list &&
             props.list.documents.map((data) => (
-              <ReactPlayer key={data} url={data.url} />
+              <>
+                <Youtube key={data} url={data.url} width={486} height={240} />
+              </>
             ))}
         </InputWrapper>
       </Wrapper>
