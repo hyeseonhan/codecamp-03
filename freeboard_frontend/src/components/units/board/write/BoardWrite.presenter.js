@@ -14,7 +14,9 @@ import {
   Subject,
   SubmitButton,
   Title,
-  UploadButton,
+  // Images,
+  // UploadButton,
+  // UploadImage,
   Wrapper,
   Writer,
   WriterWrapper,
@@ -26,6 +28,7 @@ import {
 
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
+import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
 
 export default function BoardlWriteUI(props) {
   return (
@@ -121,25 +124,13 @@ export default function BoardlWriteUI(props) {
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>
-        {props.imageUrl.map((el, index) => (
-          <>
-            <UploadButton
-              key={`${el}_${index}`}
-              // key={(el, index)}
-              index={index}
-              imageUrls={el}
-              onClick={props.onClickUploadImage}
-            >
-              <div>+</div>
-              <div>Upload</div>
-            </UploadButton>
-            <input
-              ref={props.fileRef}
-              style={{ display: "none" }}
-              type="file"
-              onChange={props.onChangeImageFile}
-            />
-          </>
+        {props.fileUrls.map((el, index) => (
+          <Uploads01
+            key={`${el}_${index}`}
+            index={index}
+            fileUrl={el}
+            onChangeFileUrls={props.onChangeFileUrls}
+          />
         ))}
         {/* <UploadButton onClick={props.onClickUploadImage}>
           <div>+</div>

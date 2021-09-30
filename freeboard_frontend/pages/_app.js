@@ -1,5 +1,10 @@
 import "antd/dist/antd.css";
-import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {
+  ApolloClient,
+  ApolloProvider,
+  InMemoryCache,
+  ApolloLink,
+} from "@apollo/client";
 import Layout from "../src/components/commons/layout";
 import Main from "./main";
 import { Global } from "@emotion/react";
@@ -7,6 +12,7 @@ import { globalStyles } from "../src/commons/styles/globalStyles";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
+import { createUploadLink } from "apollo-upload-client";
 
 const HIDDEN_Layout = ["/"];
 const HIDDEN_Main = [
@@ -17,8 +23,13 @@ const HIDDEN_Main = [
 ];
 
 function MyApp({ Component, pageProps }) {
-  const client = new ApolloClient({
+  const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
+  });
+
+  const client = new ApolloClient({
+    // uri: "http://backend03.codebootcamp.co.kr/graphql",
+    link: ApolloLink.from([uploadLink]),
     cache: new InMemoryCache(),
   });
 

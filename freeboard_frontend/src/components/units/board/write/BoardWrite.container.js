@@ -2,12 +2,7 @@ import BoardWriteUI from "./BoardWrite.presenter";
 import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import {
-  CREATE_BOARD,
-  UPDATE_BOARD,
-  FETCH_BOARD,
-  UPLOAD_FILE,
-} from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD, FETCH_BOARD } from "./BoardWrite.queries";
 
 export default function BoardWrite(props) {
   const router = useRouter();
@@ -17,7 +12,6 @@ export default function BoardWrite(props) {
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.board_post_detail },
   });
-  const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
@@ -37,8 +31,7 @@ export default function BoardWrite(props) {
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState(""); //입력하는거
 
-  const [imageUrl, setImageUrl] = useState(["", "", ""]);
-  const fileRef = useRef(null);
+  const [fileUrls, setFileUrls] = useState(["", "", ""]);
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -164,7 +157,7 @@ export default function BoardWrite(props) {
               address: address,
               addressDetail: addressDetail,
             },
-            image: [...imageUrl],
+            images: [...fileUrls],
           },
         },
       });
@@ -199,34 +192,11 @@ export default function BoardWrite(props) {
     }
   }
 
-  async function onChangeImageFile(event) {
-    const myFile = event.target.files?.[0];
-    console.log(myFile);
-    if (!myFile) {
-      alert("파일이 없습니다!");
-      return;
-    }
-    if (myFile.size > 5 * 1024 * 1024) {
-      alert("파일 용량이 너무 큽니다. (제한: 5MB");
-      return;
-    }
-    if (!myFile.type.includes("jpeg") && !myFile.type.includes("png")) {
-      alert("jpeg 또는 png만 업로드 가능합니다!");
-      return;
-    }
-    try {
-      const result = await uploadFile({ variables: { file: myFile } });
-      props.onChangeImageFile(result.data.uploadFile.url, props.idex);
-    } catch (error) {
-      alert(error);
-    }
-
-    // console.log(result.data.uploadFile.url);
-    // setImageUrl(imageUrl.concat([result.data.uploadFile.url]));
-  }
-
-  function onClickUploadImage() {
-    fileRef.current?.click();
+  function onChangeFileUrls(fileUrl, index) {
+    const newFileUrls = [...fileUrls];
+    newFileUrls[index] = fileUrl;
+    console.log(newFileUrls);
+    setFileUrls(newFileUrls);
   }
 
   return (
@@ -252,10 +222,8 @@ export default function BoardWrite(props) {
       isEdit={props.isEdit}
       color={color}
       data={data}
-      onClickUploadImage={onClickUploadImage}
-      onChangeImageFile={onChangeImageFile}
-      fileRef={fileRef}
-      imageUrl={imageUrl}
+      onChangeFileUrls={onChangeFileUrls}
+      fileUrls={fileUrls}
     />
   );
 }

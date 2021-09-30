@@ -123,8 +123,15 @@ export const Title = styled.div`
 `;
 
 export const ContentsImage = styled.div`
-  width: 996px;
-  height: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const Image = styled.img`
+  width: 796px;
+  height: 440px;
+  margin-bottom: 30px;
 `;
 
 export const Contents = styled.div`

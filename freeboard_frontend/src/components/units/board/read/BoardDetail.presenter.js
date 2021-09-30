@@ -17,6 +17,7 @@ import {
   InputWrapper,
   Title,
   ContentsImage,
+  Image,
   Contents,
   Youtube,
   LikeWrapper,
@@ -65,7 +66,10 @@ export default function BoardDetailUI(props) {
         <InputWrapper>
           <Title>{props.data && props.data.fetchBoard.title}</Title>
           <ContentsImage>
-            <img width="996" height="480" src="/images/posty.jpeg" />
+            {props.data?.fetchBoard.images.map((el, index) => (
+              <Image src={`https://storage.googleapis.com/${el}`} key={index} />
+            ))}
+            {/* <img width="996" height="480" src="/images/posty.jpeg" /> */}
           </ContentsImage>
           <Contents>{props.data && props.data.fetchBoard.contents}</Contents>
         </InputWrapper>
