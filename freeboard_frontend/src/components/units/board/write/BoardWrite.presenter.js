@@ -124,22 +124,22 @@ export default function BoardlWriteUI(props) {
       </InputWrapper>
       <ImageWrapper>
         <Label>사진첨부</Label>
-        {props.fileUrls.map((el, index) => (
+        {/*  1차 이미지 실ㅂ
+          {props.fileUrls.map((el, index) => (
           <Uploads01
             key={`${el}_${index}`}
             index={index}
             fileUrl={el}
             onChangeFileUrls={props.onChangeFileUrls}
           />
+        ))} */}
+        {new Array(3).fill(1).map((el, index) => (
+          <Uploads01
+            key={`${el}_${index}`}
+            index={index}
+            onChangeFiles={props.onChangeFiles}
+          />
         ))}
-        {/* <UploadButton onClick={props.onClickUploadImage}>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton>
-        <UploadButton onClick={props.onClickUploadImage}>
-          <div>+</div>
-          <div>Upload</div>
-        </UploadButton> */}
       </ImageWrapper>
       <OptionWrapper>
         <Label>메인설정</Label>

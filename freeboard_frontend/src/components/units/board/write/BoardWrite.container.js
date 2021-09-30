@@ -2,13 +2,19 @@ import BoardWriteUI from "./BoardWrite.presenter";
 import { useState, useRef } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { CREATE_BOARD, UPDATE_BOARD, FETCH_BOARD } from "./BoardWrite.queries";
+import {
+  CREATE_BOARD,
+  UPDATE_BOARD,
+  FETCH_BOARD,
+  UPLOAD_FILE,
+} from "./BoardWrite.queries";
 
 export default function BoardWrite(props) {
   const router = useRouter();
 
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [uploadFile] = useMutation(UPLOAD_FILE);
   const { data } = useQuery(FETCH_BOARD, {
     variables: { boardId: router.query.board_post_detail },
   });
@@ -31,7 +37,8 @@ export default function BoardWrite(props) {
   const [address, setAddress] = useState("");
   const [addressDetail, setAddressDetail] = useState(""); //입력하는거
 
-  const [fileUrls, setFileUrls] = useState(["", "", ""]);
+  // const [fileUrls, setFileUrls] = useState(["", "", ""]);  // 1차 이미지 실습
+  const [files, setFiles] = useState([null, null, null]);
 
   function onChangeWriter(event) {
     setWriter(event.target.value);
@@ -144,6 +151,13 @@ export default function BoardWrite(props) {
       if (writer !== "" && password !== "" && title !== "" && contents !== "") {
         alert("게시물을 등록합니다~");
       }
+      // 2차 이미지 실습
+      const uploadFiles = files
+        .filter((el) => el)
+        .map((el) => uploadFile({ variables: { file: el } }));
+      const results = await Promise.all(uploadFiles);
+      const images = results.map((el) => el.data.uploadFile.url);
+
       const result = await createBoard({
         variables: {
           createBoardInput: {
@@ -157,7 +171,8 @@ export default function BoardWrite(props) {
               address: address,
               addressDetail: addressDetail,
             },
-            images: [...fileUrls],
+            // images: [...fileUrls], // 1차 이미지 실습
+            images: images, // 2차 이미지 실습
           },
         },
       });
@@ -192,11 +207,19 @@ export default function BoardWrite(props) {
     }
   }
 
-  function onChangeFileUrls(fileUrl, index) {
-    const newFileUrls = [...fileUrls];
-    newFileUrls[index] = fileUrl;
-    console.log(newFileUrls);
-    setFileUrls(newFileUrls);
+  // 1차 이미지 실습
+  // function onChangeFileUrls(fileUrl, index) {
+  //   const newFileUrls = [...fileUrls];
+  //   newFileUrls[index] = fileUrl;
+  //   console.log(newFileUrls);
+  //   setFileUrls(newFileUrls);
+  // }
+
+  // 2차 이미지 실습
+  function onChangeFiles(file, index) {
+    const newFiles = [...files];
+    newFiles[index] = file;
+    setFiles(newFiles);
   }
 
   return (
@@ -222,8 +245,9 @@ export default function BoardWrite(props) {
       isEdit={props.isEdit}
       color={color}
       data={data}
-      onChangeFileUrls={onChangeFileUrls}
-      fileUrls={fileUrls}
+      // onChangeFileUrls={onChangeFileUrls} // 1차 이미지 실습
+      // fileUrls={fileUrls}  // 1차 이미지 실습
+      onChangeFiles={onChangeFiles}
     />
   );
 }

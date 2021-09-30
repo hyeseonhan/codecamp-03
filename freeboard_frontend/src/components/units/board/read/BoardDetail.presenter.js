@@ -66,10 +66,16 @@ export default function BoardDetailUI(props) {
         <InputWrapper>
           <Title>{props.data && props.data.fetchBoard.title}</Title>
           <ContentsImage>
+            {/* 1차 이미지 실습
             {props.data?.fetchBoard.images.map((el, index) => (
               <Image src={`https://storage.googleapis.com/${el}`} key={index} />
-            ))}
+            ))} */}
             {/* <img width="996" height="480" src="/images/posty.jpeg" /> */}
+            {props.data?.fetchBoard.images
+              ?.filter((el) => el)
+              .map((el) => (
+                <Image key={el} src={`https://storage.googleapis.com/${el}`} />
+              ))}
           </ContentsImage>
           <Contents>{props.data && props.data.fetchBoard.contents}</Contents>
         </InputWrapper>
