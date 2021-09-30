@@ -188,3 +188,70 @@ function solution(n, m) {
   //최소공배수는 두 수를 곱한 값에 최대공약수를 나눈 값
   return [b, (n * m) / b];
 }
+
+//완주하지 못하 못한 선
+// 배열 안에 문자열 형태로 들어감.
+
+function solution(participant, completon) {
+  let answer = "";
+
+  //문자렬을 오름차순으로 정렬(기본으로 오름차순)
+  participant.sort((a, b) => (a < b ? -1 : 1));
+  completon.sort((a, b) => (a < b ? -1 : 1));
+
+  for (let i = 0; i < participant.length; i++) {
+    if (participant[i] !== completion[i]) {
+      answer = participant[i];
+      break;
+    }
+  }
+  return answer;
+}
+
+function solution(participant, completion) {
+  let answer = "";
+
+  //문자렬을 오름차순으로 정렬(기본으로 오름차순)
+  participant.sort((a, b) => (a < b ? -1 : 1));
+  completion.sort((a, b) => (a < b ? -1 : 1));
+
+  for (let i = 0; i < participant.length; i++) {
+    if (participant[i] !== completion[i]) {
+      answer = participant[i];
+
+      //함수 안에서 for문을 사요했을 때에 return 을 하면
+      //break 와 동시에 값을 반환한다.
+      return answer;
+    }
+  }
+}
+
+//foreach
+function solution(participant, completion) {
+  let answer = "";
+  participant.sort((a, b) => (a < b ? -1 : 1));
+  completion.sort((a, b) => (a < b ? -1 : 1));
+
+  //최초로 false 값을 할당하고,
+  //합격자가 아닌 참가자를 찾았을 때에 true 값으로 변환
+  let stop = false;
+  participant.forEach((name, i) => {
+    // stop이 false 일 때만 아래의 조건문을 실행
+    if (name !== completion[i] && stop === false) {
+      answer = name;
+      stop = true;
+    }
+  });
+  return answer;
+}
+
+//메서드
+function solution(participant, completion) {
+  participant.sort((a, b) => (a < b ? -1 : 1));
+  completion.sort((a, b) => (a < b ? -1 : 1));
+
+  const answer = participant.filter((name, i) => {
+    return name !== completion[i];
+  });
+  return answer[0];
+}
