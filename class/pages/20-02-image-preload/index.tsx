@@ -15,7 +15,9 @@ export default function ImagePreloadPage() {
       setImageTag(img);
     };
   }, []);
-  // img를 내장객체를 통해서 만듬 -> img.src로 주소가 등록됨 -> 로딩 시작됨 -> img 태그를 state에 잠시 저장둠 -> 8 이 state에 저장한 img 태그를 1 의 div의 자식으로 넣어줄것이다!!!!
+  // img를 내장객체를 통해서 만듬 -> img.src로 주소가 등록됨
+  //     -> 로딩 시작됨 -> img 태그를 state에 잠시 저장둠 ->
+  //          8 이 state에 저장한 img 태그를 1 의 div의 자식으로 넣어줄것이다!!!!
 
   // 4  버튼을 누르면 1 쪽에 이미지가 그려지게끔. 이미지를 사전에 로딩을 해놔야함. 어디서?
   function onClickButton() {
