@@ -7,14 +7,16 @@ import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./Boardlist.queries";
 export default function BoardList(props) {
   const router = useRouter();
   const [startPage, setStartPage] = useState(1);
+
+  const [keyword, setKeyword] = useState("");
+
   const { data, refetch } = useQuery(FETCH_BOARDS, {
-    variables: { page: startPage },
+    variables: { page: startPage, search: keyword },
   });
-
-  const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT);
-
+  const { data: dataBoardsCount } = useQuery(FETCH_BOARDS_COUNT, {
+    variables: { search: keyword },
+  });
   const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10);
-
   const [current, setCurrent] = useState(1);
 
   function onClickMoveToBoard() {
@@ -44,6 +46,11 @@ export default function BoardList(props) {
     setCurrent(Number(event.target.id));
   }
 
+  function onChangeKeyword(value) {
+    setKeyword(value);
+    setCurrent(1);
+  }
+
   return (
     <BoardListUI
       data={data}
@@ -55,6 +62,9 @@ export default function BoardList(props) {
       startPage={startPage}
       lastPage={lastPage}
       current={current}
+      refetch={refetch}
+      onChangeKeyword={onChangeKeyword}
+      keyword={keyword}
     />
   );
 }

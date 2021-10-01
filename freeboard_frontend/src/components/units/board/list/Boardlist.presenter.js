@@ -25,6 +25,7 @@ import {
   TitleName,
   ColumnBasic,
   ColumnTitle,
+  Word,
   ListBottom,
   Footer,
   PageNumber,
@@ -35,6 +36,8 @@ import {
   PostButton,
   PencilIcon,
 } from "./Boardlist.styles";
+import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
+import { v4 as uuidv4 } from "uuid";
 
 export default function BoardListUI(props) {
   return (
@@ -111,10 +114,14 @@ export default function BoardListUI(props) {
         </CardPost>
       </Header>
       <MiddleWrapper>
-        <SearchTitle
+        {/* <SearchTitle
           name="title"
           type="text"
           placeholder="제목을 검색해주세요."
+        /> */}
+        <Searchbars01
+          refetch={props.refetch}
+          onChangeKeyword={props.onChangeKeyword}
         />
         <SearchCreatedAt
           name="searchcreatedat"
@@ -132,7 +139,23 @@ export default function BoardListUI(props) {
           <HeaderName>날짜</HeaderName>
         </Row>
         {props.data?.fetchBoards.map((el, index) => (
-          <Row
+          <Row key={el._id}>
+            <ColumnBasic>{10 - index}</ColumnBasic>
+            <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+              {el.title
+                .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
+                .split("#$%")
+                .map((el) => (
+                  <Word key={uuidv4()} isMatched={props.keyword === el}>
+                    {el}
+                  </Word>
+                ))}
+            </ColumnTitle>
+            <ColumnBasic>{el.writer}</ColumnBasic>
+            <ColumnBasic>{el.createdAt.slice(0, 10)}</ColumnBasic>
+          </Row>
+        ))}
+        {/* <Row
             key={el._id}
             id={el._id}
             onClick={props.onClickMoveToBoardDetail}
@@ -162,8 +185,8 @@ export default function BoardListUI(props) {
             >
               {el.createdAt.slice(0, 10)}
             </ColumnBasic>
-          </Row>
-        ))}
+          </Row> */}
+
         <ListBottom />
       </BoardList>
       <Footer>

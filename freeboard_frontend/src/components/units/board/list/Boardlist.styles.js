@@ -223,3 +223,7 @@ export const PostButton = styled.div`
 `;
 
 export const PencilIcon = styled.img``;
+
+export const Word = styled.span`
+  color: ${(props) => (props.isMatched ? "red" : "black")};
+`;
