@@ -133,11 +133,13 @@ export default function BoardlWriteUI(props) {
             onChangeFileUrls={props.onChangeFileUrls}
           />
         ))} */}
+        {/* 2차 이미지 실습  */}
         {new Array(3).fill(1).map((el, index) => (
           <Uploads01
             key={`${el}_${index}`}
             index={index}
             onChangeFiles={props.onChangeFiles}
+            defaultFileUrl={props.data?.fetchBoard.images?.[index]}
           />
         ))}
       </ImageWrapper>

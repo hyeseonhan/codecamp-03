@@ -139,9 +139,9 @@ export default function BoardListUI(props) {
           <HeaderName>날짜</HeaderName>
         </Row>
         {props.data?.fetchBoards.map((el, index) => (
-          <Row key={el._id}>
+          <Row key={el._id} onClick={props.onClickMoveToBoardDetail}>
             <ColumnBasic>{10 - index}</ColumnBasic>
-            <ColumnTitle id={el._id} onClick={props.onClickMoveToBoardDetail}>
+            <ColumnTitle id={el._id}>
               {el.title
                 .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
                 .split("#$%")

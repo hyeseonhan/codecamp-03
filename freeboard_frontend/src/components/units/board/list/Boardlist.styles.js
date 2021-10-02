@@ -111,10 +111,15 @@ export const SearchTitle = styled.div`
   border-radius: 10px;
 `;
 
-export const SearchCreatedAt = styled.div`
+export const SearchCreatedAt = styled.input`
   border: 1px solid #bdbdbd;
   width: 244px;
   height: 52px;
+  padding: 25px;
+  border-radius: 15px;
+  border: 1px solid black;
+  border: none;
+  box-shadow: 0px 0px 5px black;
 `;
 
 export const SearchButton = styled.div`
@@ -145,6 +150,10 @@ export const Row = styled.div`
   line-height: 52px;
   border-bottom: 1px solid #bdbdbd;
   cursor: pointer;
+  :hover {
+    background-color: black;
+    color: white;
+  }
 `;
 
 export const ListTop = styled.div`
@@ -169,6 +178,10 @@ export const ColumnBasic = styled.div`
 export const ColumnTitle = styled.div`
   width: 70%;
   text-align: center;
+  :hover {
+    background-color: black;
+    color: white;
+  }
 `;
 
 export const ListBottom = styled.div`

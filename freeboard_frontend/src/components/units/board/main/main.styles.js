@@ -110,7 +110,7 @@ export const SelectDate = styled.select`
 `;
 
 export const EnterButton = styled.button`
-  margin-bottom: 30px;
+  margin-bottom: 90px;
   width: 185px;
   height: 31px;
   font-size: 16px;

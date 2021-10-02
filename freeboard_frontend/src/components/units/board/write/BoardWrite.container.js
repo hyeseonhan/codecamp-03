@@ -16,8 +16,10 @@ export default function BoardWrite(props) {
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadFile] = useMutation(UPLOAD_FILE);
   const { data } = useQuery(FETCH_BOARD, {
-    variables: { boardId: router.query.board_post_detail },
+    variables: { boardId: String(router.query.board_post_detail) },
   });
+
+  console.log(data);
 
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
@@ -135,28 +137,28 @@ export default function BoardWrite(props) {
   // }
 
   async function onClickSubmit() {
+    if (writer === "") {
+      setWriterError("작성자를 입력해주세요.");
+    }
+    if (password === "") {
+      setPasswordError("비밀번호를 입력해주세요.");
+    }
+    if (title === "") {
+      setTitleError("제목을 입력해주세요.");
+    }
+    if (contents === "") {
+      setContentsError("내용을 입력해주세요.");
+    }
+    if (writer !== "" && password !== "" && title !== "" && contents !== "") {
+      alert("게시물을 등록합니다~");
+    }
     try {
-      if (writer === "") {
-        setWriterError("작성자를 입력해주세요.");
-      }
-      if (password === "") {
-        setPasswordError("비밀번호를 입력해주세요.");
-      }
-      if (title === "") {
-        setTitleError("제목을 입력해주세요.");
-      }
-      if (contents === "") {
-        setContentsError("내용을 입력해주세요.");
-      }
-      if (writer !== "" && password !== "" && title !== "" && contents !== "") {
-        alert("게시물을 등록합니다~");
-      }
-      // 2차 이미지 실습
+      // 2차 이미지 등록
       const uploadFiles = files
-        .filter((el) => el)
-        .map((el) => uploadFile({ variables: { file: el } }));
+        // .filter((el) => el)
+        .map((el) => (el ? uploadFile({ variables: { file: el } }) : null));
       const results = await Promise.all(uploadFiles);
-      const images = results.map((el) => el.data.uploadFile.url);
+      const images = results.map((el) => el?.data.uploadFile.url || "");
 
       const result = await createBoard({
         variables: {
@@ -172,12 +174,13 @@ export default function BoardWrite(props) {
               addressDetail: addressDetail,
             },
             // images: [...fileUrls], // 1차 이미지 실습
-            images: images, // 2차 이미지 실습
+            images: images, // 2차 이미지 등록
           },
         },
       });
       console.log(result);
       console.log(result.data.createBoard._id);
+      // router.push(`/boards/${result.data.createBoard._id}`);
       router.push(`/boards/${result.data.createBoard._id}`);
     } catch (error) {
       console.log(error);
@@ -185,23 +188,71 @@ export default function BoardWrite(props) {
   }
 
   async function onClickEdit() {
+    if (
+      !title &&
+      !contents &&
+      !youtubeUrl &&
+      !zipcode &&
+      !address &&
+      !addressDetail
+    ) {
+      alert("수정된 내용이 없습니다.");
+      return;
+    }
+
+    const updateboardInput = {};
+    if (title) updateboardInput.title = title;
+    if (contents) updateboardInput.contents = contents;
+    if (youtubeUrl) updateboardInput.youtubeUrl = youtubeUrl;
+    if (zipcode || address || addressDetail) {
+      updateboardInput.boardAddress = {};
+      if (zipcode) updateboardInput.boardAddress.zipcode = zipcode;
+      if (address) updateboardInput.boardAddress.address = address;
+      if (addressDetail)
+        updateboardInput.boardAddress.addressDetail = addressDetail;
+    }
+
+    // 2차 이미지
+    const uploadFiles = files //[“File1”, ”File2” , ”null”]
+      .map((el) => (el ? uploadFile({ variables: { file: el } }) : null));
+    const results = await Promise.all(uploadFiles);
+    const nextImages = results.map((el) => el?.data.uploadFile.url || ""); //[“강이지.png”, ”고양이.png ” , ””]
+    updateboardInput.images = nextImages;
+
+    // 이미지 수정
+    if (props.data?.fetchBoard.images?.length) {
+      const prevImages = [...props.data?.fetchBoard.images];
+      updateboardInput.images = prevImages.map((el, index) => nextImages[index] || el); //prettier-ignore
+      // @ts-igonre
+    } else {
+      updateboardInput.images = nextImages;
+    }
+
     try {
-      const myVariables = {
-        updateBoardInput: {
-          title: data.fetchBoard.title,
-          contents: data.fetchBoard.contents,
+      const result = await updateBoard({
+        variables: {
+          boardId: router.query.board_post_detail,
+          password: password,
+          updateBoardInput: updateboardInput,
         },
-        password: password,
-        boardId: router.query.board_post_detail,
-      };
-      if (title) myVariables.updateBoardInput.title = title;
-      if (contents) myVariables.updateBoardInput.contents = contents;
+      });
+      // const myVariables = {
+      //   updateboardInput: {
+      //     title: data.fetchBoard.title,
+      //     contents: data.fetchBoard.contents,
+      //   },
+      //   password: password,
+      //   boardId: router.query.board_post_detail,
+      // };
+      // if (title) myVariables.updateboardInput.title = title;
+      // if (contents) myVariables.updateboardInput.contents = contents;
 
-      console.log(myVariables);
+      // console.log(myVariables);
 
-      await updateBoard({ variables: myVariables });
+      // await updateBoard({ variables: myVariables });
 
-      router.push(`/boards/${router.query.board_post_detail}/`);
+      router.push(`/boards/${result.data.updateBoard._id}`);
+      // router.push(`/boards/${router.query.board_post_detail}/`);
     } catch (error) {
       console.log(error);
     }

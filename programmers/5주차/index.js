@@ -255,3 +255,81 @@ function solution(participant, completion) {
   });
   return answer[0];
 }
+
+// 모의고사
+// 오름차순으로 리턴되야함
+// 1번수포자: 1번문제 1 2번문제 2 .. 6번문제에서 1. ...11번문제에 1을찍음
+// 2번수포자: 8번 반복되는 순서도.
+// 3번수포자: 10개의 반복되는 순서도.
+
+// 배열에 담음
+const answerTable = [
+  // 1번 수포자가 찍는 방식
+  [1, 2, 3, 4, 5],
+  // 2번 수포자가 찍는 방식
+  [2, 1, 2, 3, 2, 4, 2, 5],
+  // 3번 수포자가 찍느 방식
+  [3, 3, 1, 1, 2, 2, 4, 4, 5, 5],
+];
+
+function solution(answers) {
+  // 학생들의 점수를 저장하는 배열
+  const score = [0, 0, 0];
+
+  for (let i = 0; i < answers.lenght; i++) {
+    for (let l = 0; l < answerTable.length; l++) {
+      if (answerTable[l][i % answerTable[l].length] === answers[i]) {
+        score[i][l++];
+      }
+    }
+  }
+}
+
+function solution(answers) {
+  // 학생들의 점수를 저장하는 배열
+  const score = [0, 0, 0];
+
+  for (let i = 0; i < answers.lenght; i++) {
+    for (let l = 0; l < answerTable.length; l++) {
+      if (answerTable[l][i % answerTable[l].length] === answers[i]) {
+        score [l]++;
+      }
+    }
+  }
+    const bigeest = Math.maxP(...score)
+    const result = []
+    
+    for (let i =0; sorelenth;i++){
+    if(biggest === score[i] ){
+        result.pus(i+1)
+    }
+        return result
+    }
+
+    //메서드
+  
+    const answerTable = [
+  // 1번 수포자가 찍는 방식
+  [1, 2, 3, 4, 5],
+  // 2번 수포자가 찍는 방식
+  [2, 1, 2, 3, 2, 4, 2, 5],
+  // 3번 수포자가 찍느 방식
+  [3, 3, 1, 1, 2, 2, 4, 4, 5, 5],
+];
+
+function solution){answers}{
+  const scoreList = [
+    {stududnet: 1 , score:0} stududnet: 2, score :0 ,{stududnet: 3 , score:0}
+
+  ]
+
+  answer ,forEach (el,i) => {
+    answerTable.forEach((cu),l) =>{
+      if( u [i % cu.lenght] === el){
+    scroreList[l.score ++}
+    } )
+    )
+  }
+}
+
+    

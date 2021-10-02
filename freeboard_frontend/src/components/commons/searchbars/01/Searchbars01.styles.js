@@ -10,7 +10,8 @@ export const Searchbar = styled.div`
   flex-direction: row;
   align-items: center;
   border: 1px solid black;
-  box-shadow: 10px;
+  border: none;
+  box-shadow: 0px 0px 5px black;
 `;
 
 export const SearchbarInput = styled.input`

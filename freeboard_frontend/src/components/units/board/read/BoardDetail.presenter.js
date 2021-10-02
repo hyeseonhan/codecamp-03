@@ -64,7 +64,7 @@ export default function BoardDetailUI(props) {
           </WriterWrapperRight>
         </WriterWrapper>
         <InputWrapper>
-          <Title>{props.data && props.data.fetchBoard.title}</Title>
+          <Title>{props.data?.fetchBoard.title}</Title>
           <ContentsImage>
             {/* 1차 이미지 실습
             {props.data?.fetchBoard.images.map((el, index) => (
