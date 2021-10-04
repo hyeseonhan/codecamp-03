@@ -1,5 +1,5 @@
 import { createContext } from "react";
-import MyBoardWrite from "../../src/components/units/22-context-api/MyBoardWrite.container";
+import MyBoardWrite from "../../src/components/units/22-04-context-api/MyBoardWrite.container";
 
 export const MyContext = createContext(null);
 export default function ContextAPIPage() {
