@@ -11,12 +11,17 @@ export const globalStyles = css`
 
   @font-face {
     font-family: "NB"; // 폰트이름
-    src: url("/font/ckhans.otf") , url("/font/HelveticaNeue-Light.otf") // 폰트위치
+    src: url("/font/ckhans.otf")  // 폰트위치
   }
 
   @font-face {
     font-family: "Light"; // 폰트이름
-    src:url("/font/HelveticaNeue-Light.otf") // 폰트위치
+    src:url("/font/HelveticaNeue-Light.otf" ) // 폰트위치
+  }
+
+  @font-face {
+    font-family: "LightBold"; // 폰트이름
+    src:url("/font/Helvetica Condensed Black.ttf" ) // 폰트위치
   }
 
 `;

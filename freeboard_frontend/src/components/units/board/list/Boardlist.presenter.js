@@ -43,76 +43,7 @@ export default function BoardListUI(props) {
   return (
     <Wrapper>
       <HeaderTitle>BEST POST</HeaderTitle>
-      <Header>
-        <CardPost>
-          <CardImage src="/images/posty.jpeg" />
-          <Title>게시물 제목입니다.</Title>
-          <CardBottom>
-            <AvatarWrapper>
-              <Info>
-                <Avatar src="/images/avatar.png" />
-                <Writer>노원두</Writer>
-              </Info>
-              <CreatedAt>Date : 2021.02.18</CreatedAt>
-            </AvatarWrapper>
-            <Like>
-              <LikeImage src="/images/thumb.png" />
-              <LikeCount>356</LikeCount>
-            </Like>
-          </CardBottom>
-        </CardPost>
-        <CardPost>
-          <CardImage src="/images/posty.jpeg" />
-          <Title>게시물 제목입니다.</Title>
-          <CardBottom>
-            <AvatarWrapper>
-              <Info>
-                <Avatar src="/images/avatar.png" />
-                <Writer>노원두</Writer>
-              </Info>
-              <CreatedAt>Date : 2021.02.18</CreatedAt>
-            </AvatarWrapper>
-            <Like>
-              <LikeImage src="/images/thumb.png" />
-              <LikeCount>356</LikeCount>
-            </Like>
-          </CardBottom>
-        </CardPost>
-        <CardPost>
-          <CardImage src="/images/posty.jpeg" />
-          <Title>게시물 제목입니다.</Title>
-          <CardBottom>
-            <AvatarWrapper>
-              <Info>
-                <Avatar src="/images/avatar.png" />
-                <Writer>노원두</Writer>
-              </Info>
-              <CreatedAt>Date : 2021.02.18</CreatedAt>
-            </AvatarWrapper>
-            <Like>
-              <LikeImage src="/images/thumb.png" />
-              <LikeCount>356</LikeCount>
-            </Like>
-          </CardBottom>
-        </CardPost>
-        <CardPost>
-          <CardImage src="/images/posty.jpeg" />
-          <Title>게시물 제목입니다.</Title>
-          <CardBottom>
-            <AvatarWrapper>
-              <Info>
-                <Avatar src="/images/avatar.png" />
-                <Writer>노원두</Writer>
-              </Info>
-              <CreatedAt>Date : 2021.02.18</CreatedAt>
-            </AvatarWrapper>
-            <Like>
-              <LikeImage src="/images/thumb.png" />
-              <LikeCount>356</LikeCount>
-            </Like>
-          </CardBottom>
-        </CardPost>
-      </Header>
+
       <MiddleWrapper>
         {/* <SearchTitle
           name="title"
@@ -213,6 +144,44 @@ export default function BoardListUI(props) {
           게시물 등록하기
         </PostButton>
       </Footer>
+      <Header>
+        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
+          <CardPost key={el._id} id={el.id} onClick={props.onClickBest}>
+            <CardImage src={`https://storage.googleapis.com/${el.images[0]}`} />
+            <Title>{el.title}</Title>
+            <CardBottom>
+              <AvatarWrapper>
+                <Info>
+                  <Avatar src="/images/avatar.png" />
+                  <Writer>{el.writer}</Writer>
+                </Info>
+                <CreatedAt>{el.createdAt.slice(0, 10)}</CreatedAt>
+              </AvatarWrapper>
+              <Like>
+                <LikeImage src="/images/thumb.png" />
+                <LikeCount>{el.likeCount}</LikeCount>
+              </Like>
+            </CardBottom>
+          </CardPost>
+        ))}
+        {/* <CardPost>
+          <CardImage src="/images/posty.jpeg" />
+          <Title>게시물 제목입니다.</Title>
+          <CardBottom>
+            <AvatarWrapper>
+              <Info>
+                <Avatar src="/images/avatar.png" />
+                <Writer>노원두</Writer>
+              </Info>
+              <CreatedAt>Date : 2021.02.18</CreatedAt>
+            </AvatarWrapper>
+            <Like>
+              <LikeImage src="/images/thumb.png" />
+              <LikeCount>356</LikeCount>
+            </Like>
+          </CardBottom>
+        </CardPost> */}
+      </Header>
     </Wrapper>
   );
 }

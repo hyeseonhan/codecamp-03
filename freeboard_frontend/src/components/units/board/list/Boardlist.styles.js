@@ -1,8 +1,23 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
+  /* margin: 50px 100px 100px 100px; */
   width: 1200px;
-  margin: 100px;
+  border-top: 7px solid black;
+  padding-top: 80px;
+  /* box-shadow: 0px 0px 10px black; */
+  /* width: 1500px;
+  border: 1px solid black
+  margin: 50px;
+  padding-top: 80px;
+  padding-bottom: 100px;
+  padding-left: 102px;
+  padding-right: 102px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 7px solid black;
+  box-shadow: 0px 0px 10px black; */
 `;
 
 export const Header = styled.div`
@@ -10,7 +25,7 @@ export const Header = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  padding-top: 40px;
+  padding-top: 100px;
 `;
 
 export const HeaderTitle = styled.div`
@@ -18,9 +33,9 @@ export const HeaderTitle = styled.div`
   display: flex;
   justify-content: center;
   font-size: 36px;
-  font-weight: 1000;
+  font-weight: 600;
   line-height: 42.19px;
-  font-family: "NB";
+  font-family: "LightBold";
 `;
 
 export const CardPost = styled.div`

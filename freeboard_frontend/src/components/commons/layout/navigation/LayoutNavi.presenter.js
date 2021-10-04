@@ -14,6 +14,9 @@ export default function LayoutNaviUI(props) {
       </MenuItem>
       <MenuItem>MERCH</MenuItem>
       <MenuItem>MINE</MenuItem>
+      <MenuItem id="/boards/login" onClick={props.onClickMenu}>
+        LOGIN
+      </MenuItem>
     </Wrapper>
   );
 }

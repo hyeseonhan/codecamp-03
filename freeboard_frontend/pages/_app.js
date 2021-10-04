@@ -21,6 +21,8 @@ const HIDDEN_Main = [
   "/boards/[board_post_detail]",
   "/boards/openapi",
   "/boards/[board_post_detail]/edit",
+  "/boards/login",
+  "/boards/createacc",
 ];
 
 function MyApp({ Component, pageProps }) {

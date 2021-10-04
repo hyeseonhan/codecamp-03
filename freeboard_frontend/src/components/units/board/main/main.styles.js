@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: black;
+  background-color: rgb(16, 16, 16);
 `;
 
 export const Home = styled.img`
@@ -27,7 +27,7 @@ export const MainImg = styled.img`
 
 export const Song = styled.div`
   color: white;
-  font-size: calc(0.92593vw + 27.04px);
+  font-size: 57px;
   font-weight: 400;
   line-height: 1.2;
   text-transform: lowercase;
@@ -38,17 +38,17 @@ export const Song = styled.div`
 `;
 
 export const StreamButton = styled.div`
-  width: 240px;
+  width: 280px;
   color: white;
   font-family: "Light";
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: black;
-  font-size: 16px;
-  border: 2px solid #fff;
-  font-weight: 400;
-  padding: 12.8px 12.8px;
+  background-color: transparent;
+  font-size: 18px;
+  border: 3px solid #fff;
+  font-weight: 600;
+  padding: 14.8px 14.8px;
   margin-bottom: 170px;
 `;
 

@@ -6,7 +6,12 @@ import LayoutNavi from "./navigation/LayoutNavi.container";
 
 import { useRouter } from "next/router";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+`;
 
 // const Header = styled.div`
 //   background-color: red;

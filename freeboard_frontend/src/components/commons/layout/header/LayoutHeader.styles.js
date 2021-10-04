@@ -7,11 +7,13 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 10px;
 `;
 
 export const Home = styled.img`
   width: 83px;
   height: 40px;
+
   cursor: pointer;
   :hover {
     opacity: 0.4;
