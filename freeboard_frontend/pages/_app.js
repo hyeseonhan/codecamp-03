@@ -13,6 +13,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import { createUploadLink } from "apollo-upload-client";
+import { createContext, useEffect, useState } from "react";
 
 const HIDDEN_Layout = ["/"];
 const HIDDEN_Main = [
@@ -26,9 +27,26 @@ const HIDDEN_Main = [
   "/boards",
 ];
 
+export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }) {
+  const [accessToken, setAccessToken] = useState("");
+  const [userInfo, setUserInfo] = useState({});
+
+  const value = {
+    accessToken: accessToken,
+    setAccessToken: setAccessToken,
+    userInfo: userInfo,
+    setUserInfo: setUserInfo,
+  };
+
+  useEffect(() => {
+    const accessToken = localStorage.getItem("accessToken") || "";
+    setAccessToken(accessToken);
+  }, []);
+
   const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
+    headers: { authorization: `Bearer ${accessToken}` },
   });
 
   const client = new ApolloClient({
@@ -42,7 +60,7 @@ function MyApp({ Component, pageProps }) {
   const isHiddenMain = HIDDEN_Main.includes(router.pathname);
 
   return (
-    <>
+    <GlobalContext.Provider value={value}>
       <Global styles={globalStyles} />
       <ApolloProvider client={client}>
         {!isHiddenMain && <Main />}
@@ -52,7 +70,7 @@ function MyApp({ Component, pageProps }) {
           </Layout>
         )}
       </ApolloProvider>
-    </>
+    </GlobalContext.Provider>
   );
 }
 

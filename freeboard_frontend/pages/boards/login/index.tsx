@@ -1,5 +1,10 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/dist/client/router";
+import { gql, useMutation, useQuery } from "@apollo/client";
+import { useState } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../../_app";
+import { useEffect } from "react";
 
 const Wrapper = styled.div`
   /* margin: 50px 100px 100px 100px; */
@@ -116,21 +121,86 @@ const CreateAccountbutton = styled.button`
   cursor: pointer;
 `;
 
+const LOGIN_USER = gql`
+  mutation loginUser($email: String!, $password: String!) {
+    loginUser(email: $email, password: $password) {
+      accessToken
+    }
+  }
+`;
+
+const FETCH_USER_LOGGED_IN = gql`
+  query fetchUserLoggedIn {
+    fetchUserLoggedIn {
+      name
+      email
+      picture
+    }
+  }
+`;
+
 export default function LoginPage() {
   const router = useRouter();
   const onClickCreateAccount = (event) => router.push(event.target.id);
 
-  function onClickSign() {}
+  // const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
+  const { setAccessToken } = useContext(GlobalContext);
+
+  const [myEmail, setMyEmail] = useState("");
+  const [myPassword, setMyPassword] = useState("");
+
+  const [loginUser] = useMutation(LOGIN_USER);
+  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+
+  function onChangeEmail(event) {
+    setMyEmail(event.target.value);
+  }
+
+  function onChangePassword(event) {
+    setMyPassword(event.target.value);
+  }
+
+  async function onClickSign() {
+    const result = await loginUser({
+      variables: {
+        email: myEmail,
+        password: myPassword,
+      },
+    });
+    console.log(result.data?.loginUser.accessToken);
+    localStorage.setItem("accessTokien", result.data?.loginUser.accessToken);
+    setAccessToken(result.data?.loginUser.accessToken);
+    router.push("/quiz/23-login");
+  }
+
+  // useEffect(() => {
+  //   if (localStorage.getItem("accessToken")) return;
+  //   setUserInfo({
+  //     name: data?.fetchUserLoggedIn.name,
+  //     email: data?.fetchUserLoggedIn.email,
+  //     picture: data?.fetchUserLoggedIn.picture,
+  //   });
+  //   if (!localStorage.getItem("accessToken")) {
+  //     alert("로그인을 먼저 해주세요");
+  //     router.push("/quiz/23-login");
+  //   }
+  // }, []);
 
   return (
     <Wrapper>
       <LoginWrapper>
         <TitleLogin>LOGIN</TitleLogin>
-        <Email name="email" type="text" placeholder="EMAIL"></Email>
+        <Email
+          name="email"
+          type="text"
+          placeholder="EMAIL"
+          onChange={onChangeEmail}
+        ></Email>
         <Password
           name="password"
           type="password"
           placeholder="PASSWORD"
+          onChange={onChangePassword}
         ></Password>
         <Signbutton onClick={onClickSign}>SIGN IN</Signbutton>
         <Forgot>FORGOT YOUR PASSWORD?</Forgot>
