@@ -7,10 +7,10 @@ export const Wrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  border-top: 7px solid black;
+  border-top: 5px solid black;
+  border-bottom: 5px solid black;
   width: 1200px;
-  padding-top: 50px;
-  padding: 50px;
+  padding: 30px;
 `;
 
 export const MenuItem = styled.div`
@@ -22,6 +22,7 @@ export const MenuItem = styled.div`
   margin: 30px;
   cursor: pointer;
   :hover {
-    opacity: 0.4;
+    /* opacity: 0.4; */
+    color: #f04237;
   }
 `;

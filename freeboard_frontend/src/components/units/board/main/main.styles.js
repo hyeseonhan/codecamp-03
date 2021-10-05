@@ -10,20 +10,38 @@ export const Wrapper = styled.div`
   background-color: rgb(16, 16, 16);
 `;
 
-export const Home = styled.img`
-  width: 83px;
-  height: 40px;
-`;
-
-export const Head = styled.div`
+export const SliderWrapper = styled.div`
+  margin-top: 80px;
   padding: 20px;
+  width: 1600px;
+  height: 400px;
+  /* background-color: #f04237; */
 `;
 
-export const MainImg = styled.img`
-  width: 30%;
-  height: 30%;
-  margin: 60px;
+export const SliderAlbum = styled.img`
+  width: 20%;
+  height: 20%;
+  /* margin: 60px; */
+  box-shadow: 8px 8px 8px 8px;
+  margin: auto;
+  align-items: center;
+  justify-content: center;
 `;
+
+// export const Home = styled.img`
+//   width: 83px;
+//   height: 40px;
+// `;
+
+// export const Head = styled.div`
+//   padding: 20px;
+// `;
+
+// export const MainImg = styled.img`
+//   width: 30%;
+//   height: 30%;
+//   margin: 60px;
+// `;
 
 export const Song = styled.div`
   color: white;
@@ -33,7 +51,7 @@ export const Song = styled.div`
   text-transform: lowercase;
   text-align: center;
   margin: 0 auto;
-  padding-bottom: 30px;
+  padding-bottom: 50px;
   width: 90%;
 `;
 
@@ -49,7 +67,7 @@ export const StreamButton = styled.div`
   border: 3px solid #fff;
   font-weight: 600;
   padding: 14.8px 14.8px;
-  margin-bottom: 170px;
+  margin-bottom: 120px;
 `;
 
 export const Sub = styled.div`

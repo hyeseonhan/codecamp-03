@@ -52,7 +52,7 @@ export default function Layout(props) {
     <>
       <Wrapper>
         <LayoutHeader />
-        <LayoutBanner />
+        {/* <LayoutBanner /> */}
         <LayoutNavi />
         <SidebarWapper>
           {/* <Sidebar>Sidebar</Sidebar> */}

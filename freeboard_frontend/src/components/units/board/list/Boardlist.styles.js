@@ -3,7 +3,7 @@ import styled from "@emotion/styled";
 export const Wrapper = styled.div`
   /* margin: 50px 100px 100px 100px; */
   width: 1200px;
-  border-top: 7px solid black;
+  /* border-top: 7px solid black; */
   padding-top: 80px;
   /* box-shadow: 0px 0px 10px black; */
   /* width: 1500px;
@@ -132,9 +132,18 @@ export const SearchCreatedAt = styled.input`
   height: 52px;
   padding: 25px;
   border-radius: 15px;
-  border: 1px solid black;
-  border: none;
-  box-shadow: 0px 0px 5px black;
+  border: 2px solid black;
+  /* border: none;
+  box-shadow: 0px 0px 5px black; */
+
+  outline: none;
+  margin: 0px 20px;
+  /* box-shadow: 0px 0px 5px black; */
+  ::placeholder {
+    color: black;
+    font-weight: 600;
+    font-family: "LightBold";
+  }
 `;
 
 export const SearchButton = styled.div`
@@ -144,7 +153,7 @@ export const SearchButton = styled.div`
   border: none;
   border-radius: 10px;
   color: white;
-  font-size: 16px;
+  /* font-size: 16px; */
   font-weight: 500;
   line-height: 23.68px;
   display: flex;
@@ -155,7 +164,23 @@ export const SearchButton = styled.div`
 export const BoardList = styled.div`
   width: 1200px;
   height: 583px;
-  margin-top: 40px;
+  margin-top: 90px;
+`;
+
+export const RowFirst = styled.div`
+  display: flex;
+  /* flex-direction: row; */
+  height: 52px;
+  line-height: 52px;
+  /* border-bottom: 1px solid #bdbdbd; */
+  border-bottom: 3px solid black;
+  cursor: pointer;
+  font-weight: 700;
+
+  :hover {
+    background-color: black;
+    color: white;
+  }
 `;
 
 export const Row = styled.div`
@@ -163,7 +188,8 @@ export const Row = styled.div`
   /* flex-direction: row; */
   height: 52px;
   line-height: 52px;
-  border-bottom: 1px solid #bdbdbd;
+  /* border-bottom: 1px solid #bdbdbd; */
+  border-bottom: 2px solid black;
   cursor: pointer;
 
   :hover {
@@ -173,7 +199,7 @@ export const Row = styled.div`
 `;
 
 export const ListTop = styled.div`
-  border-top: 2px solid gray;
+  border-top: 3px solid black;
 `;
 
 export const HeaderName = styled.div`
@@ -191,8 +217,18 @@ export const ColumnBasic = styled.div`
   text-align: center;
 `;
 
+export const ColumnTitle = styled.div`
+  width: 70%;
+  text-align: center;
+
+  /* :hover {
+    background-color: black;
+    color: white;
+  } */
+`;
+
 export const ListBottom = styled.div`
-  border-top: 2px solid gray;
+  /* border-top: 2px solid gray; */
 `;
 
 export const Footer = styled.div`
@@ -216,7 +252,7 @@ export const Fake = styled.div`
 export const Page = styled.div`
   padding-right: 20px;
   cursor: pointer;
-  color: ${(props) => (props.current === true ? "#81d8b1" : "black")};
+  color: ${(props) => (props.current === true ? "#f04237" : "black")};
 `;
 
 export const LeftIcon = styled.img`
@@ -232,7 +268,8 @@ export const RightIcon = styled.img`
 export const PostButton = styled.div`
   width: 171px;
   height: 52px;
-  background-color: white;
+  background-color: black;
+  color: white;
   border-radius: 15px;
   display: flex;
   flex-direction: row;
@@ -242,18 +279,11 @@ export const PostButton = styled.div`
   border: 1px solid #f2f2f2;
 `;
 
-export const PencilIcon = styled.img``;
-
-export const Word = styled.span`
-  color: ${(props) => (props.isMatched ? "red" : "black")};
+export const PencilIcon = styled.img`
+  filter: invert(100%);
+  -webkit-filter: invert(100%);
 `;
 
-export const ColumnTitle = styled.div`
-  width: 70%;
-  text-align: center;
-
-  :hover {
-    background-color: black;
-    color: white;
-  }
+export const Word = styled.span`
+  color: ${(props) => props.isMatched && "red"};
 `;

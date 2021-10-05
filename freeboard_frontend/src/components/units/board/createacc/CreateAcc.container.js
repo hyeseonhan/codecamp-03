@@ -21,6 +21,14 @@ export default function CreateAcc() {
     if (event.target.value !== "") {
       setEmailError("");
     }
+    if (myEmail === "") {
+      setEmailError("이메일은 필수 입력입니다.");
+      return;
+    }
+    if (/\w+@\w+\.\w+/.test(myEmail) === false) {
+      setEmailError("이메일 형식이 아닙니다.");
+      return;
+    }
   }
 
   function onChangeName(event) {
@@ -28,12 +36,20 @@ export default function CreateAcc() {
     if (event.target.value !== "") {
       setNameError("");
     }
+    if (myName === "") {
+      setNameError("이름은 필수 입력입니다.");
+      return;
+    }
   }
 
   function onChangePassword(event) {
     setMyPassword(event.target.value);
     if (event.target.value !== "") {
       setPasswordError("");
+    }
+    if (myPassword === "") {
+      setPasswordError("비밀번호는 필수 입력입니다.");
+      return;
     }
   }
 
@@ -45,22 +61,6 @@ export default function CreateAcc() {
   }
 
   async function onClickCreateAcc() {
-    if (myEmail === "") {
-      setEmailError("이메일은 필수 입력입니다.");
-      return;
-    }
-    if (/\w+@\w+\.\w+/.test(myEmail) === false) {
-      setEmailError("이메일 형식이 아닙니다.");
-      return;
-    }
-    if (myName === "") {
-      setNameError("이름은 필수 입력입니다.");
-      return;
-    }
-    if (myPassword === "") {
-      setPasswordError("비밀번호는 필수 입력입니다.");
-      return;
-    }
     if (myPasswordCheck === "") {
       setPasswordCheckError("비밀번호는 필수 입력입니다.");
       return;

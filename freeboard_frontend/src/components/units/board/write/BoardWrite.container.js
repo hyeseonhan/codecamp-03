@@ -1,5 +1,5 @@
 import BoardWriteUI from "./BoardWrite.presenter";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import {
@@ -272,6 +272,18 @@ export default function BoardWrite(props) {
     newFiles[index] = file;
     setFiles(newFiles);
   }
+
+  // useEffect(() => {
+  //   testFunc();
+  // }, [files]);
+
+  // const testFunc = async () => {
+  //   if (!files) return;
+  //   const { el } = await axios.get(`https://storage.googleapis.com=${el}`);
+
+  //   console.log(el);
+  //   setFiles(el);
+  // };
 
   return (
     <BoardWriteUI

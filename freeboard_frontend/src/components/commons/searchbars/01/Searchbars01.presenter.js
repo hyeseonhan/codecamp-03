@@ -5,7 +5,7 @@ export default function Searcchbars01UI(props) {
     <>
       <Searchbar>
         <SearchbarInput
-          placeholder="제목을 검색해주세요."
+          placeholder="SEARCH THE TITLE"
           onChange={props.onChangeSearchbar}
         ></SearchbarInput>
       </Searchbar>

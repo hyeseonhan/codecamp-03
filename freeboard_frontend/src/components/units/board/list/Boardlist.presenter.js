@@ -19,6 +19,7 @@ import {
   SearchCreatedAt,
   SearchButton,
   BoardList,
+  RowFirst,
   Row,
   ListTop,
   HeaderName,
@@ -36,7 +37,7 @@ import {
   PostButton,
   PencilIcon,
 } from "./Boardlist.styles";
-import Searchbars01 from "../../../commons/searchbars/01/Searchbars01.container";
+import Searchbarcs01 from "../../../commons/searchbars/01/Searchbars01.container";
 import { v4 as uuidv4 } from "uuid";
 
 export default function BoardListUI(props) {
@@ -50,7 +51,7 @@ export default function BoardListUI(props) {
           type="text"
           placeholder="제목을 검색해주세요."
         /> */}
-        <Searchbars01
+        <Searchbarcs01
           refetch={props.refetch}
           onChangeKeyword={props.onChangeKeyword}
         />
@@ -59,16 +60,16 @@ export default function BoardListUI(props) {
           type="text"
           placeholder="YYYY.MM.DD ~ YYYY.MM.DD"
         />
-        <SearchButton>검색하기</SearchButton>
+        <SearchButton>SEARCH</SearchButton>
       </MiddleWrapper>
       <BoardList>
         <ListTop />
-        <Row>
+        <RowFirst>
           <HeaderName>번호</HeaderName>
           <TitleName>제목</TitleName>
           <HeaderName>작성자</HeaderName>
           <HeaderName>날짜</HeaderName>
-        </Row>
+        </RowFirst>
         {props.data?.fetchBoards.map((el, index) => (
           <Row key={el._id} onClick={props.onClickMoveToBoardDetail}>
             <ColumnBasic>{10 - index}</ColumnBasic>

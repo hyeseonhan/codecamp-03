@@ -23,6 +23,7 @@ const HIDDEN_Main = [
   "/boards/[board_post_detail]/edit",
   "/boards/login",
   "/boards/createacc",
+  "/boards",
 ];
 
 function MyApp({ Component, pageProps }) {

@@ -11,7 +11,24 @@ import {
   SelectMonth,
   SelectDate,
   EnterButton,
+  SliderWrapper,
+  SliderAlbum,
 } from "./main.styles";
+
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+
+const settings = {
+  // dots: true,
+  autoplay: true,
+  infinite: true,
+  speed: 2000,
+  slidesToShow: 1,
+  slidesToScroll: 1,
+  // centerMode: true,
+  autoplaySpeed: 100,
+};
 
 export default function MainPageUI(props) {
   return (
@@ -19,7 +36,23 @@ export default function MainPageUI(props) {
       {/* <Head>
         <Home src="./images/pm-logo.png" />
       </Head> */}
-      <MainImg src="/images/MotleyCrewMain.png" />
+      {/* <MainImg src="/images/MotleyCrewMain.png" /> */}
+      <SliderWrapper>
+        <Slider {...settings}>
+          <div>
+            <SliderAlbum src="/images/motleycrew.png" />
+          </div>
+          <div>
+            <SliderAlbum src="/images/bleeding.png" />
+          </div>
+          <div>
+            <SliderAlbum src="/images/goodbyes.png" />
+          </div>
+          <div>
+            <SliderAlbum src="/images/congra.png" />
+          </div>
+        </Slider>
+      </SliderWrapper>
       <Song>motley crew</Song>
       <a href="https://postmalone.lnk.to/motleycrew">
         <StreamButton>STREAM / DOWNLOAD</StreamButton>

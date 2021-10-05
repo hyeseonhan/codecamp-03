@@ -77,6 +77,7 @@ export const CreateButton = styled.button`
   font-weight: 700;
   background-color: black;
   color: #f04237;
+  cursor: pointer;
 `;
 
 export const BackPage = styled.div`

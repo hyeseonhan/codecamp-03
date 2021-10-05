@@ -4,14 +4,15 @@ export const Searchbar = styled.div`
   width: 776px;
   height: 52px;
   border-radius: 15px;
-  /* background-color: gray; */
+  /* background-color: black; */
   padding: 0px 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid black;
-  border: none;
-  box-shadow: 0px 0px 5px black;
+  color: black;
+  border: 2px solid black;
+
+  /* border: none; */
 `;
 
 export const SearchbarInput = styled.input`
@@ -19,6 +20,12 @@ export const SearchbarInput = styled.input`
   height: 100%;
   border: none;
   outline: none;
-  background: none;
+  /* background: black; */
   margin: 0px 20px;
+  /* box-shadow: 0px 0px 5px black; */
+  ::placeholder {
+    font-weight: 600;
+    color: black;
+    font-family: "LightBold";
+  }
 `;
