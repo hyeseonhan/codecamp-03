@@ -317,19 +317,81 @@ function solution(answers) {
   [3, 3, 1, 1, 2, 2, 4, 4, 5, 5],
 ];
 
-function solution){answers}{
-  const scoreList = [
-    {stududnet: 1 , score:0} stududnet: 2, score :0 ,{stududnet: 3 , score:0}
+// function solution){answers}{
+//   const scoreList = [
+//     {stududnet: 1 , score:0} stududnet: 2, score :0 ,{stududnet: 3 , score:0}
 
-  ]
+//   ]
 
-  answer ,forEach (el,i) => {
-    answerTable.forEach((cu),l) =>{
-      if( u [i % cu.lenght] === el){
-    scroreList[l.score ++}
-    } )
-    )
+//   answer ,forEach (el,i) => {
+//     answerTable.forEach((cu),l) =>{
+//       if( u [i % cu.lenght] === el){
+//     scroreList[l.score ++}
+//     } )
+//     )
+//   }
+// }
+
+
+// 폰켓몬
+
+//1차원 배열: 배열 안에 한개
+function solution(nums){
+  // var answer = 0
+  
+  //폰켓몬들을 담는 배열
+  const pocket = [];
+
+  for(let i=0; i < nums.length; i++){
+    // console.log(num[i])
+    // pocket.push(num[i])
+
+    // 중복 제거
+    if(pocket.includes(nums[i]) === false && 
+    // pocket 배열의 중복값을 제거
+    pocket.length < (nums.length / 2)
+    // pocket 에 넣을 수 있는 최대 폰켓몬 값까지만 배열에 추가
+    ){
+      pocket.push(nums[i])
+    }
   }
+  // console.log(pocket)
+  return pocket.length;
 }
 
-    
+function solution(nums){
+  const pocket = [];
+
+  for(let i=0; i < nums.length; i++){
+    if(pocket.includes(nums[i]) === false && 
+    pocket.length < (nums.length / 2)
+    ){
+      pocket.push(nums[i])
+    }
+  }
+  return pocket.length;
+}
+
+  // 메서드
+  function solution(nums){
+    //폰켓몬드를 담는 배열
+    const pocket = []
+
+    nums.forEach(monster => {
+      if(pocket.includes(monster) === false &&
+      pocket.length < (nums.length / 2)
+      ){
+        pocket.push(monster)
+      }
+    })
+    // console.group(pocket)
+    return pocket.length;
+
+  }
+
+  function solution(nums) {
+    const max = nums.length / 2;
+    const arr = [...new Set(nums)];
+  
+    return arr.length > max ? max : arr.length
+  }
