@@ -1,8 +1,9 @@
 import {
   Wrapper,
   Title,
-  FirstName,
-  LastName,
+  Error,
+  Name,
+  PasswordCheck,
   Email,
   Password,
   CreateButton,
@@ -14,18 +15,34 @@ export default function CreateAccUI(props) {
     <>
       <Wrapper>
         <Title>CREATE ACCOUNT</Title>
-        <FirstName
-          name="firstname"
+        <Email
+          name="email"
           type="text"
-          placeholder="FirstName"
-        ></FirstName>
-        <LastName name="lastname" type="text" placeholder="LastName"></LastName>
-        <Email name="email" type="text" placeholder="EMAIL"></Email>
+          placeholder="EMAIL"
+          onChange={props.onChangeEmail}
+        ></Email>
+        <Error>{props.emailError}</Error>
+        <Name
+          name="name"
+          type="text"
+          placeholder="NAME"
+          onChange={props.onChangeName}
+        ></Name>
+        <Error>{props.nameError}</Error>
         <Password
           name="password"
           type="password"
           placeholder="PASSWORD"
+          onChange={props.onChangePassword}
         ></Password>
+        <Error>{props.passwordError}</Error>
+        <PasswordCheck
+          name="passwordcheck"
+          type="password"
+          placeholder="PASSWORD CHECK"
+          onChange={props.onChangePasswordCheck}
+        ></PasswordCheck>
+        <Error>{props.passwordcheckError}</Error>
         <CreateButton onClick={props.onClickCreateAcc}>CREATE</CreateButton>
         <BackPage onClick={props.onClickBackPage}>BACK TO LOGIN</BackPage>
       </Wrapper>

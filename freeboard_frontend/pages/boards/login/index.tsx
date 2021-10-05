@@ -9,8 +9,8 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
-  padding-right: 89px;
+  align-items: flex-start;
+  /* padding-right: 20px; */
 `;
 
 const LoginWrapper = styled.div`
@@ -25,31 +25,84 @@ const LoginWrapper = styled.div`
 
 const Title = styled.div`
   margin-bottom: 20px;
+  margin-bottom: 25px;
+  font-family: "LightBold";
+  font-size: 20px;
+  font-weight: 800;
 `;
 
 const Email = styled.input`
+  width: 300px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  font-family: "LightBold";
+  font-weight: 700;
 `;
 
 const Password = styled.input`
+  width: 300px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  font-family: "LightBold";
+  font-weight: 700;
 `;
 
 const Signbutton = styled.button`
+  width: 300px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  font-family: "LightBold";
+  font-weight: 700;
+  background-color: black;
+  color: #f04237;
 `;
 
-const Forgot = styled.div``;
+const Forgot = styled.div`
+  font-family: "LightBold";
+  font-weight: 800;
+  font-size: 13px;
+`;
 
 const CreatedWrppaer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  padding-top: 40px;
+`;
+
+const Lyrics = styled.div`
+  border: none;
+  width: 400px;
+  text-align: center;
+  font-size: 13px;
+  margin-bottom: 20px;
 `;
 
 const CreateAccountbutton = styled.button`
+  width: 300px;
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-bottom: 20px;
+  font-family: "LightBold";
+  font-weight: 700;
+  background-color: black;
+  color: #f04237;
 `;
 
 export default function LoginPage() {
@@ -73,6 +126,14 @@ export default function LoginPage() {
       </LoginWrapper>
       <CreatedWrppaer>
         <Title>CREATE ACCOUNT</Title>
+        <Lyrics>
+          'Cause you make my earth quake Oh, <br />
+          you make my earth quake Riding around, you tell me something, baby,
+          and it's making my heart break <br />
+          'Cause you make my earth quake Oh, you make my earth quake (earth
+          quake, yeah) Riding around, your love is shakin' me up and it's making
+          my heart break (you already know)
+        </Lyrics>
         <CreateAccountbutton
           id="/boards/createacc"
           onClick={onClickCreateAccount}

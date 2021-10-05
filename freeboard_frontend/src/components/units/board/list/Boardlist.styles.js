@@ -160,11 +160,12 @@ export const BoardList = styled.div`
 
 export const Row = styled.div`
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   height: 52px;
   line-height: 52px;
   border-bottom: 1px solid #bdbdbd;
   cursor: pointer;
+
   :hover {
     background-color: black;
     color: white;
@@ -188,15 +189,6 @@ export const TitleName = styled.div`
 export const ColumnBasic = styled.div`
   width: 10%;
   text-align: center;
-`;
-
-export const ColumnTitle = styled.div`
-  width: 70%;
-  text-align: center;
-  :hover {
-    background-color: black;
-    color: white;
-  }
 `;
 
 export const ListBottom = styled.div`
@@ -254,4 +246,14 @@ export const PencilIcon = styled.img``;
 
 export const Word = styled.span`
   color: ${(props) => (props.isMatched ? "red" : "black")};
+`;
+
+export const ColumnTitle = styled.div`
+  width: 70%;
+  text-align: center;
+
+  :hover {
+    background-color: black;
+    color: white;
+  }
 `;
