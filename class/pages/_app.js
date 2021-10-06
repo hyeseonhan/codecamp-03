@@ -37,11 +37,17 @@ function MyApp({ Component, pageProps }) {
     setUserInfo: setUserInfo,
   };
 
+  // useEffect(() => {
+  //   const accessToken = localStorage.getItem("accessToken") || "";
+  //   setAccessToken(accessToken);
+  //   // localStorage.clear();
+  // }, []);
+
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken") || "";
-    setAccessToken(accessToken);
+    const Token = localStorage.getItem("accessToken") || "";
+    setAccessToken(Token);
     // localStorage.clear();
-  }, []);
+  }, [accessToken]);
 
   const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
