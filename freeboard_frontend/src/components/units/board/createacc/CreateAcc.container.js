@@ -2,8 +2,11 @@ import { useMutation } from "@apollo/client";
 import { useState } from "react";
 import CreateAccUI from "./CreateAcc.presenter";
 import { CREATE_USER } from "./CreateAcc.queries";
+import { useRouter } from "next/router";
 
 export default function CreateAcc() {
+  const router = useRouter();
+
   const [createUser] = useMutation(CREATE_USER);
 
   const [myEmail, setMyEmail] = useState("");
@@ -82,6 +85,7 @@ export default function CreateAcc() {
       });
       alert("회원가입을 축하합니다!");
       console.log(result.data.createUser.email, result.data.createUser._id);
+      router.push("/boards/login");
     } catch (error) {
       alert(error.message);
     }

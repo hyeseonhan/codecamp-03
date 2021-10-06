@@ -143,8 +143,8 @@ export default function LoginPage() {
   const router = useRouter();
   const onClickCreateAccount = (event) => router.push(event.target.id);
 
-  // const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
-  const { setAccessToken } = useContext(GlobalContext);
+  const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
+  // const { setAccessToken } = useContext(GlobalContext);
 
   const [myEmail, setMyEmail] = useState("");
   const [myPassword, setMyPassword] = useState("");
@@ -170,21 +170,8 @@ export default function LoginPage() {
     console.log(result.data?.loginUser.accessToken);
     localStorage.setItem("accessTokien", result.data?.loginUser.accessToken);
     setAccessToken(result.data?.loginUser.accessToken);
-    router.push("/quiz/23-login");
+    router.push("/boards/login-success");
   }
-
-  // useEffect(() => {
-  //   if (localStorage.getItem("accessToken")) return;
-  //   setUserInfo({
-  //     name: data?.fetchUserLoggedIn.name,
-  //     email: data?.fetchUserLoggedIn.email,
-  //     picture: data?.fetchUserLoggedIn.picture,
-  //   });
-  //   if (!localStorage.getItem("accessToken")) {
-  //     alert("로그인을 먼저 해주세요");
-  //     router.push("/quiz/23-login");
-  //   }
-  // }, []);
 
   return (
     <Wrapper>

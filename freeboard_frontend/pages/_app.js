@@ -25,6 +25,7 @@ const HIDDEN_Main = [
   "/boards/login",
   "/boards/createacc",
   "/boards",
+  "/boards/login-success",
 ];
 
 export const GlobalContext = createContext(null);
