@@ -1,9 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
-import { useEffect } from "react";
-import { useContext } from "react";
-import { GlobalContext } from "../../_app";
+import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 import styled from "@emotion/styled";
 
 const Wrapper = styled.div`
@@ -48,25 +46,10 @@ const FETCH_USER_LOGGED_IN = gql`
     }
   }
 `;
-export default function QuizLoginSuccessPage() {
-  const router = useRouter();
-  const { setUserInfo, userInfo, accessToken } = useContext(GlobalContext);
+
+export default function LogInfoPage() {
+  // const router = useRouter();
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
-
-  useEffect(() => {
-    if (localStorage.getItem("accessToken")) return;
-    setUserInfo({
-      name: data?.fetchUserLoggedIn.name,
-      email: data?.fetchUserLoggedIn.email,
-      picture: data?.fetchUserLoggedIn.picture,
-    });
-    // if (!localStorage.getItem("accessToken")) {
-    //   alert("로그인을 먼저 해주세요");
-    //   router.push("/boards/login");
-    // }
-  }, []);
-
-  console.log(accessToken);
 
   return (
     <>
@@ -78,8 +61,8 @@ export default function QuizLoginSuccessPage() {
         </LeftWrapper>
         <RightWrapper>
           <Info>Account Information</Info>
-          <Name>hyeseon han</Name>
-          <Email>h1225hs@gmail</Email>
+          <Name>{data?.fetchUserLoggedIn.name}</Name>
+          <Email>{data?.fetchUserLoggedIn.email}l</Email>
         </RightWrapper>
       </Wrapper>
     </>

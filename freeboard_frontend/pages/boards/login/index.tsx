@@ -129,15 +129,15 @@ const LOGIN_USER = gql`
   }
 `;
 
-const FETCH_USER_LOGGED_IN = gql`
-  query fetchUserLoggedIn {
-    fetchUserLoggedIn {
-      name
-      email
-      picture
-    }
-  }
-`;
+// const FETCH_USER_LOGGED_IN = gql`
+//   query fetchUserLoggedIn {
+//     fetchUserLoggedIn {
+//       name
+//       email
+//       picture
+//     }
+//   }
+// `;
 
 export default function LoginPage() {
   const router = useRouter();
@@ -150,7 +150,7 @@ export default function LoginPage() {
   const [myPassword, setMyPassword] = useState("");
 
   const [loginUser] = useMutation(LOGIN_USER);
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
+  // const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   function onChangeEmail(event) {
     setMyEmail(event.target.value);
@@ -170,7 +170,7 @@ export default function LoginPage() {
     console.log(result.data?.loginUser.accessToken);
     localStorage.setItem("accessTokien", result.data?.loginUser.accessToken);
     setAccessToken(result.data?.loginUser.accessToken);
-    router.push("/boards/login-success");
+    router.push("/boards/loginfo");
   }
 
   return (
