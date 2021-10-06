@@ -389,9 +389,86 @@ function solution(nums){
 
   }
 
-  function solution(nums) {
-    const max = nums.length / 2;
-    const arr = [...new Set(nums)];
+  // function solution(nums) {
+  //   const max = nums.length / 2;
+  //   const arr = [...new Set(nums)];
   
-    return arr.length > max ? max : arr.length
+  //   return arr.length > max ? max : arr.length
+  // }
+
+
+  // 피보나치
+
+  // 0, 1, 1, 
+  function solution(n) {
+
+    // 피보나치 수열들을 저장하는 배열
+    const arr = [0, 1]
+
+    for( let i = 2; i <= n; i++ ){
+      arr[i] = (arr[i -1] + arr[i - 2])
+    }
+    console.log(arr)
+    return arr[n] % 1234567
   }
+
+  function solution(n) {
+
+    // 피보나치 수열들을 저장하는 배열
+    const arr = [0, 1]
+
+    for( let i = 2; i <= n; i++ ){
+      arr[i] = (arr[i -1] + arr[i - 2])% 1234567
+    }
+    console.log(arr)
+    return arr[n] 
+  }
+
+  function fibonacci(n) {
+    var a = 0, b = 1, f = 1;
+    for (var i = 2; i <= n; i++) {
+      f = a + b;
+      a = b;
+      b = f;
+    }
+    return f;
+  }
+  
+  // 아래는 테스트로 출력해 보기 위한 코드입니다.
+  console.log(fibonacci(3))
+
+    // 다른방법 배열이 아닌 변수 값으로 처리
+ 
+    //0 ,1, 1, 2, 3, 5, 8, 13 ...
+    function solution(n){
+      let prev = 0; //F(n - 2)
+      let next = 1; //F(n - 1)
+      let sum = 1;  //F(n - 2) + F(n -1)
+
+      for (let i = 2; i <= n; i++){
+        sum = (prev + next) % 1234567;
+        prev = next;
+        next = sum;
+      }
+      console.log(sum)
+        return sum;
+    }
+
+    function solution(n){
+      let prev = 0; //F(n - 2)
+      let next = 1; //F(n - 1)
+      let sum = 1;  //F(n - 2) + F(n -1)
+
+      const arr =[]
+      for (let i = 2; i <= n; i++){
+        sum = (prev + next) % 1234567;
+        prev = next;
+        next = sum;
+
+        arr.push(sum)
+      }
+      
+        return arr[n-2]
+    }
+
+    
