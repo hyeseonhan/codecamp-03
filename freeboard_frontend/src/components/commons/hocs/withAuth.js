@@ -5,7 +5,7 @@ import { GlobalContext } from "../../../../pages/_app";
 
 export const withAuth = (Component) => (props) => {
   const router = useRouter();
-  const { accessToken } = useContext(GlobalContext);
+  // const { accessToken } = useContext(GlobalContext);
 
   // useEffect(() => {
   //   const accessToken = localStorage.getItem("accessToken");
@@ -17,11 +17,22 @@ export const withAuth = (Component) => (props) => {
   // }, []);
 
   useEffect(() => {
-    if (!localStorage.getItem("accessToken")) {
+    const accessTokenItem = window.localStorage.getItem("accessToken");
+    console.log("withAuth", accessTokenItem);
+    if (!accessTokenItem) {
       alert("로그인을 먼저 해주세요");
       router.push("./loginfo");
     }
-  }, [accessToken]);
+  }, []);
+
+  // useEffect(() => {
+  //   const accessTokenItem = window.localStorage.getItem("accessToken");
+
+  //   if (!accessTokenItem) {
+  //     alert("로그인을 먼저 해주세요");
+  //     router.push("./loginfo");
+  //   }
+  // }, [accessToken]);
 
   return <Component {...props} />;
 };

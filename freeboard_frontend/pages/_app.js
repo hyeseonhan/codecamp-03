@@ -40,16 +40,18 @@ function MyApp({ Component, pageProps }) {
     setUserInfo: setUserInfo,
   };
 
+  // useEffect(() => {
+  //   const token = localStorage.getItem("accessToken") || "";
+  //   // console.log("app:", accessToken);
+  //   setAccessToken(token);
+  //   // localStorage.clear();
+  // }, []);
+
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken") || "";
     console.log("app:", accessToken);
     setAccessToken(accessToken);
   }, []);
-
-  // useEffect(() => {
-  //   const token = localStorage.getItem("accessToken") || "";
-  //   setAccessToken(token);
-  // }, [accessToken]);
 
   const uploadLink = createUploadLink({
     uri: "http://backend03.codebootcamp.co.kr/graphql",
