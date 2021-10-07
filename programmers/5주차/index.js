@@ -471,4 +471,61 @@ function solution(nums){
         return arr[n-2]
     }
 
-    
+
+// 시저암호
+
+const lower = ‘abcdefghijklmnopqrstuvwxyz’;
+const upper = ‘ABCDEFGHIJKLMNOPQRSTUVWXYZ’;
+
+function solution(s, n){
+
+  let answer="";
+
+  for(let i = 0; i < s.length; i++){
+    if( s[i] === ''){
+      //공백일 경우, 바로 공백을 추가한다.
+      answer += ' ';
+    } else {
+      //소문자와 대문자를 구분해서 알파벳 문자열을 text 상수에 저장
+      const text = lower.includes( s[i]) === true ? lower : upper; 
+      let index = text.indexOf( s[i] + n)
+      // console.log(s[i], text, index)
+
+      if (text[index] === undefined){
+        // console.log(index)
+        index = index - 26; // 알파벳의 길이만큼 뺀다.
+      }
+      answer += " "; 
+    }
+  }
+  // console.log(a nswer)
+  return answer
+}
+
+// 메서드
+
+const lower = ‘abcdefghijklmnopqrstuvwxyz’;
+const upper = ‘ABCDEFGHIJKLMNOPQRSTUVWXYZ’;
+
+funciton solution(s, n){
+  const answer = s.split(" ")
+                  .map( str => {
+                    if( str === " "){
+                      return
+                    }
+                    const text = lower.includes( str ) === true 
+                      ? lower: upper
+                      let index = text.indexOf( str ) + n
+                      if( text[index] === undefined){
+                        index = index - 26
+                      }
+                      // console.log(index s)
+                      return text[index ] 
+                  })
+                  return answer.join("")
+}
+
+
+function solution(s, n){
+  
+}
