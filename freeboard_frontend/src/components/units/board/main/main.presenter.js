@@ -28,6 +28,7 @@ const settings = {
   slidesToScroll: 1,
   // centerMode: true,
   autoplaySpeed: 100,
+  // innerWidth: 400,
 };
 
 export default function MainPageUI(props) {

@@ -35,7 +35,7 @@ const State = styled.div`
 
 const StateContent = styled.div`
   width: 400px;
-  border: 1px solid black;
+  border: 1px solid red;
   border: none;
   height: 60px;
   font-size: 12px;
@@ -116,7 +116,7 @@ export default function LogInfoPage() {
             <State>Name</State>
             <NameInfo>{data?.fetchUserLoggedIn.name}</NameInfo>
             <State>Email</State>
-            <EmailInfo>{data?.fetchUserLoggedIn.email}l</EmailInfo>
+            <EmailInfo>{data?.fetchUserLoggedIn.email}</EmailInfo>
           </InnerWrapper>
         </RightWrapper>
       </Wrapper>

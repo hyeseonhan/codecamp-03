@@ -50,6 +50,7 @@ function MyApp({ Component, pageProps }) {
   useEffect(() => {
     const accessToken = localStorage.getItem("accessToken") || "";
     console.log("app:", accessToken);
+    // localStorage.clear();
     setAccessToken(accessToken);
   }, []);
 

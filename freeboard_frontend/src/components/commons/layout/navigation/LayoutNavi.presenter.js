@@ -6,17 +6,21 @@ export default function LayoutNaviUI(props) {
       <MenuItem id="/boards/openapi" onClick={props.onClickMenu}>
         SOME
       </MenuItem>
-      <MenuItem id="/boards/board-post" onClick={props.onClickMenu}>
+      {/* <MenuItem id="/boards/board-post" onClick={props.onClickMenu}>
         BOARD
-      </MenuItem>
+      </MenuItem> */}
       <MenuItem id="/boards/list" onClick={props.onClickMenu}>
         LIST
       </MenuItem>
       <MenuItem>MERCH</MenuItem>
-      <MenuItem>MINE</MenuItem>
-      <MenuItem id="/boards/login" onClick={props.onClickMenu}>
-        LOGIN
-      </MenuItem>
+      {/* <MenuItem>MINE</MenuItem> */}
+
+      {!props.accessToken && (
+        <MenuItem onClick={props.onClickLogin}>LOGIN</MenuItem>
+      )}
+      {props.accessToken && (
+        <MenuItem onClick={props.onClickLogin}>ACCOUNT / INFO</MenuItem>
+      )}
     </Wrapper>
   );
 }

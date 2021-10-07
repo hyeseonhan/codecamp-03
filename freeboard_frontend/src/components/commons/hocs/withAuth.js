@@ -21,7 +21,7 @@ export const withAuth = (Component) => (props) => {
     console.log("withAuth", accessTokenItem);
     if (!accessTokenItem) {
       alert("로그인을 먼저 해주세요");
-      router.push("./loginfo");
+      router.push("./login");
     }
   }, []);
 
