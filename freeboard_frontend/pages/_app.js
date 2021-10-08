@@ -27,6 +27,7 @@ const HIDDEN_Main = [
   "/boards",
   "/boards/loginfo",
   "/market/product-post",
+  "/market/product-list",
 ];
 
 export const GlobalContext = createContext(null);

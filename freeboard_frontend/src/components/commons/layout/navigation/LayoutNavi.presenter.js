@@ -12,7 +12,9 @@ export default function LayoutNaviUI(props) {
       <MenuItem id="/boards/list" onClick={props.onClickMenu}>
         LIST
       </MenuItem>
-      <MenuItem>MERCH</MenuItem>
+      <MenuItem id="/market/product-list" onClick={props.onClickMenu}>
+        MERCH
+      </MenuItem>
       {/* <MenuItem>MINE</MenuItem> */}
 
       {!props.accessToken && (

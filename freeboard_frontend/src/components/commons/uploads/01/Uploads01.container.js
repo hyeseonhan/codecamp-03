@@ -1,3 +1,4 @@
+// 작은 사이즈 사진첨부
 import { useRef, useState } from "react";
 import { useMutation } from "@apollo/client";
 // import { UPLOAD_FILE } from "./Uploads01.queries";
