@@ -29,6 +29,7 @@ const settings = {
   // centerMode: true,
   autoplaySpeed: 100,
   // innerWidth: 400,
+  arrows: false,
 };
 
 export default function MainPageUI(props) {
