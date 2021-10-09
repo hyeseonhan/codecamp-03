@@ -4,22 +4,23 @@ import { useContext, useEffect, useState } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 import LayoutNaviUI from "./LayoutNavi.presenter";
 import { FETCH_USER_LOGGED_IN, LOGIN_USER } from "./LayoutNavi.queries";
-import { withAuth } from "../../hocs/withAuth";
+// import { withAuth } from "../../hocs/withAuth";
 
-const LayoutNavi = () => {
+// const LayoutNavi = () => {
+
+export default function LayoutNavi() {
   const router = useRouter();
   const onClickMenu = (event) => router.push(event.target.id);
+  const { accessToken } = useContext(GlobalContext);
+  // const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
-  const { userInfo, setUserInfo, accessToken } = useContext(GlobalContext);
-  const { data } = useQuery(FETCH_USER_LOGGED_IN);
-
-  useEffect(() => {
-    setUserInfo({
-      name: data?.fetchUserLoggedIn.name,
-      email: data?.fetchUserLoggedIn.email,
-      picture: data?.fetchUserLoggedIn.picture,
-    });
-  }, []);
+  // useEffect(() => {
+  //   setUserInfo({
+  //     name: data?.fetchUserLoggedIn.name,
+  //     email: data?.fetchUserLoggedIn.email,
+  //     picture: data?.fetchUserLoggedIn.picture,
+  //   });
+  // }, []);
 
   function onClickLogin() {
     // setIsChange((prev) => !prev);
@@ -37,6 +38,6 @@ const LayoutNavi = () => {
       accessToken={accessToken}
     />
   );
-};
+}
 
-export default withAuth(LayoutNavi);
+// export default withAuth(LayoutNavi);

@@ -1,6 +1,4 @@
 import { gql, useQuery } from "@apollo/client";
-import { useRouter } from "next/router";
-import { useState } from "react";
 import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 import styled from "@emotion/styled";
 
@@ -94,8 +92,9 @@ const FETCH_USER_LOGGED_IN = gql`
   }
 `;
 
-export default function LogInfoPage() {
-  // const router = useRouter();
+// export default function LogInfoPage() {
+
+const LogInfoPage = () => {
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   return (
@@ -122,4 +121,6 @@ export default function LogInfoPage() {
       </Wrapper>
     </>
   );
-}
+};
+
+export default withAuth(LogInfoPage);
