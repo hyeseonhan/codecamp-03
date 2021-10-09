@@ -4,7 +4,7 @@ const Container = () => {
   return (
     <>
       <div>컨테이너 입니다.</div>
-      {AAA({ aaa: "철수" })}
+      {AAA({ aaa: "철수" })} {/* = <AAA aaa: "철수">  */}
     </>
   );
 };

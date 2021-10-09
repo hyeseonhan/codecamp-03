@@ -22,8 +22,9 @@
 // }
 import { withAuth } from "../../src/components/commons/hocs/withAuth";
 
-const HoCPage = () => {
+const HocPage = () => {
   return <div>HOC 연습 페이지 입니다!!</div>;
 };
 
-export default withAuth(HoCPage);
+export default withAuth(HocPage);
+// withAuth로 감싸서 HocPage를 내보낸다.
