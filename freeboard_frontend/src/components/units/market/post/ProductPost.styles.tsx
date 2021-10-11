@@ -1,14 +1,12 @@
 import styled from "@emotion/styled";
+import { IProps } from "./ProductPost.types";
 
-export const Wrapper = styled.div`
+export const Wrapper = styled.form`
   width: 1200px;
   padding-top: 80px;
   padding-bottom: 100px;
   padding-left: 102px;
   padding-right: 102px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 `;
 
 export const Title = styled.div`
@@ -16,6 +14,9 @@ export const Title = styled.div`
   font-weight: 600;
   font-size: 36px;
   margin-bottom: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const ContentsWrapper = styled.div`
@@ -32,7 +33,7 @@ export const TitleName = styled.div`
   line-height: 23.68px;
 `;
 
-export const AboveWarpper = styled.input`
+export const AboveWarpper = styled.div`
   width: 996px;
   height: 52px;
   border: 1px solid #bdbdbd;
@@ -123,8 +124,9 @@ export const RadioLabel = styled.label`
   margin-right: 12px;
 `;
 
-export const PostButton = styled.button`
-  width: 179px;
-  height: 52px;
-  border: none;
-`;
+// export const PostButton = styled.button`
+//   width: 179px;
+//   height: 52px;
+//   border: none;
+//   background-color: ${(props: IProps) => (props.isValid ? "yellow" : "")};
+// `;

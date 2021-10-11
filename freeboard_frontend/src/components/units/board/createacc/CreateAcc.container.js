@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 
 export default function CreateAcc() {
   const router = useRouter();
+  const onClickBackPage = (event) => router.push(event.target.id);
 
   const [createUser] = useMutation(CREATE_USER);
 
@@ -90,8 +91,6 @@ export default function CreateAcc() {
       alert(error.message);
     }
   }
-
-  function onClickBackPage() {}
 
   return (
     <CreateAccUI

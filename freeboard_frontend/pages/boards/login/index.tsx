@@ -73,6 +73,9 @@ const Signbutton = styled.button`
   background-color: black;
   color: #f04237;
   cursor: pointer;
+  :hover {
+    background-color: #f04237;
+    color: black;
 `;
 
 const Forgot = styled.div`
@@ -119,6 +122,9 @@ const CreateAccountbutton = styled.button`
   background-color: black;
   color: #f04237;
   cursor: pointer;
+  :hover {
+    background-color: #f04237;
+    color: black;
 `;
 
 const LOGIN_USER = gql`
@@ -129,22 +135,12 @@ const LOGIN_USER = gql`
   }
 `;
 
-// const FETCH_USER_LOGGED_IN = gql`
-//   query fetchUserLoggedIn {
-//     fetchUserLoggedIn {
-//       name
-//       email
-//       picture
-//     }
-//   }
-// `;
-
 export default function LoginPage() {
   const router = useRouter();
   const onClickCreateAccount = (event) => router.push(event.target.id);
 
-  const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext);
-  // const { setAccessToken } = useContext(GlobalContext);
+  /* const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext); */
+  const { setAccessToken } = useContext(GlobalContext);
 
   const [myEmail, setMyEmail] = useState("");
   const [myPassword, setMyPassword] = useState("");

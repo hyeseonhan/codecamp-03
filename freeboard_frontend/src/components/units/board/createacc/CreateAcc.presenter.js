@@ -44,7 +44,9 @@ export default function CreateAccUI(props) {
         ></PasswordCheck>
         <Error>{props.passwordcheckError}</Error>
         <CreateButton onClick={props.onClickCreateAcc}>CREATE</CreateButton>
-        <BackPage onClick={props.onClickBackPage}>BACK TO LOGIN</BackPage>
+        <BackPage id="/boards/login" onClick={props.onClickBackPage}>
+          BACK TO LOGIN
+        </BackPage>
       </Wrapper>
     </>
   );

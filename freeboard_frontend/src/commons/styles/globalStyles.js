@@ -21,7 +21,7 @@ export const globalStyles = css`
 
   @font-face {
     font-family: "LightBold"; // 폰트이름
-    src:url("/font/Helvetica Condensed Black.ttf" ) // 폰트위치
+    src:url("/font/HelveticaCondensedBlack.ttf" ) // 폰트위치
   }
 
 `;

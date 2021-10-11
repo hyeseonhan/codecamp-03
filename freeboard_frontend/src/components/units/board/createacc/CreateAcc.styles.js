@@ -78,6 +78,10 @@ export const CreateButton = styled.button`
   background-color: black;
   color: #f04237;
   cursor: pointer;
+  :hover {
+    background-color: #f04237;
+    color: black;
+  }
 `;
 
 export const BackPage = styled.div`
@@ -85,4 +89,8 @@ export const BackPage = styled.div`
   font-family: "LightBold";
   font-weight: 800;
   font-size: 13px;
+  cursor: pointer;
+  :hover {
+    color: #f04237;
+  }
 `;

@@ -19,6 +19,7 @@ export default function ProductPost() {
       handleSubmit={handleSubmit}
       register={register}
       onClickPost={onClickPost}
+      formState={formState}
     />
   );
 }

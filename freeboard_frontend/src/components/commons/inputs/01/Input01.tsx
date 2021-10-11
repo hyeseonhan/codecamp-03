@@ -1,11 +1,7 @@
-// 한 줄 창
+// 한 줄 Input창
 import styled from "@emotion/styled";
 
-const Wrapper = styled.div`
-  margin-bottom: 40px;
-`;
-
-// const InputTitle = styled.div``;
+const Wrapper = styled.div``;
 
 const TitleName = styled.div`
   margin-bottom: 16px;
@@ -21,18 +17,13 @@ const Input = styled.input`
   padding-left: 16px;
 `;
 
-export default function Inputs01(props) {
+export default function Input01(props) {
   return (
     <Wrapper>
-      {/* <InputTitle
-        placeholder={props.placeholder}
-        type={props.type}
-        {...props.register}
-      /> */}
       <TitleName>{props.name}</TitleName>
       <Input
-        placeholder={props.placeholder}
         type={props.type}
+        placeholder={props.placeholder}
         {...props.register}
       />
     </Wrapper>
