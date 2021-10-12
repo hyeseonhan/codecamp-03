@@ -21,11 +21,12 @@ export default function LoginSuccessPage() {
   useEffect(() => {
     if (userInfo.email) return;
     setUserInfo({
+      // 정보 저장
       name: data?.fetchUserLoggedIn.name,
       email: data?.fetchUserLoggedIn.email,
       picture: data?.fetchUserLoggedIn.picture,
-    });
-  }, [data]);
+    }); // FETCH_USER_LOGGED_IN 하고 나서 GlobalContext에 다 setUserInfo({})를 저장한다는 의미
+  }, [data]); // data가 들어오면 실행
 
   console.log(userInfo);
   return (

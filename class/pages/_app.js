@@ -28,7 +28,7 @@ export const firebaseApp = initializeApp({
 export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }) {
   const [accessToken, setAccessToken] = useState("");
-  const [userInfo, setUserInfo] = useState({});
+  const [userInfo, setUserInfo] = useState({}); // {} 처음에는 빈객체
 
   const value = {
     accessToken: accessToken,

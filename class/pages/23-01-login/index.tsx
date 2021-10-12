@@ -30,6 +30,7 @@ export default function LoginPage() {
     setMyPassword(event.target.value);
   }
 
+  // onClick 했을 때  loginUser 실행 -> email, password 사용 -> async, await 로 return을 기다린다.
   async function onClickLogin() {
     const result = await loginUser({
       variables: {

@@ -82,6 +82,7 @@ export default function ApolloCacheStatePage() {
     });
   };
 
+  // gql로 만든 FETCH_BOARDS 를 뿌려준다.
   return (
     <>
       {data?.fetchBoards.map((el, index) => (
