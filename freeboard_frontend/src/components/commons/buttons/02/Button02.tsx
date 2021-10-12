@@ -1,4 +1,5 @@
-//리스트로 가는 버튼
+//구매하러가 가는 버튼
+
 import styled from "@emotion/styled";
 
 interface IProps {
@@ -18,7 +19,7 @@ const Button = styled.button`
   background-color: ${(props: IProps) => (props.isValid ? "yellow" : "")};
 `;
 
-export default function Button01(props) {
+export default function Button02(props) {
   return (
     <Wrapper>
       <Button type={props.type} isValid={props.isValid}>
