@@ -37,50 +37,54 @@ export default function QuizApolloCacheState() {
   const [deleteBoard] = useMutation(DELETE_BOARD);
 
   const onClickDelete = (boardId) => async () => {
-    await deleteBoard({
-      variables: {
-        boardId: boardId,
-      },
-      update(cache, { data }) {
-        const deletedId = data.deldteBoard;
-        cache.modify({
-          fields: {
-            fetchBoards: (prev, { readField }) => {
-              const newFetchBoards = prev.filter(
-                (el) => readField("_id", el) !== deletedId
-              );
-              return [...newFetchBoards];
+    try {
+      await deleteBoard({
+        variables: {
+          boardId: boardId,
+        },
+        update(cache, { data }) {
+          const deletedId = data.deleteBoard;
+          cache.modify({
+            fields: {
+              fetchBoards: (prev, { readField }) => {
+                const newFetchBoards = prev.filter((el) => {
+                  return readField("_id", el) !== deletedId;
+                });
+                return [...newFetchBoards];
+              },
             },
-          },
-        });
-      },
-    });
+          });
+        },
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   async function onClickCreate(data) {
-    // try {
-    await createBoard({
-      variables: {
-        createBoardInput: {
-          writer: data.writer,
-          password: data.password,
-          title: data.title,
-          contents: data.contents,
-        },
-      },
-      update(cache, { data }) {
-        cache.modify({
-          fields: {
-            fetchBoards: (prev) => {
-              return [...prev, data.createBoard];
-            },
+    try {
+      await createBoard({
+        variables: {
+          createBoardInput: {
+            writer: data.writer,
+            password: data.password,
+            title: data.title,
+            contents: data.contents,
           },
-        });
-      },
-    });
-    // } catch (error) {
-    //   console.log(error);
-    // }
+        },
+        update(cache, { data }) {
+          cache.modify({
+            fields: {
+              fetchBoards: (prev) => {
+                return [data.createBoard, ...prev];
+              },
+            },
+          });
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   return (
@@ -99,7 +103,9 @@ export default function QuizApolloCacheState() {
           작성자: <span>{el.writer}</span>
           제목: <span>{el.title}</span>
           내용: <span>{el.contents}</span>
-          <button onClick={onClickDelete(el._id)}>X</button>
+          <button type="button" onClick={onClickDelete(el._id)}>
+            X
+          </button>
         </div>
       ))}
     </form>
