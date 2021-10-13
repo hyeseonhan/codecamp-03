@@ -15,7 +15,7 @@ const Button = styled.button`
   width: 179px;
   height: 52px;
   border: none;
-  background-color: ${(props: IProps) => (props.isValid ? "yellow" : "")};
+  background-color: ${(props: IProps) => (props.isValid ? "#f04237" : "")};
 `;
 
 export default function Button01(props) {

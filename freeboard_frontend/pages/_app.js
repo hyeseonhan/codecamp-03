@@ -28,6 +28,8 @@ const HIDDEN_Main = [
   "/boards/loginfo",
   "/market/product-post",
   "/market/product-list",
+  "/market/product-detail",
+  "/market/product-detail/[useditemId]",
 ];
 
 export const GlobalContext = createContext(null);
