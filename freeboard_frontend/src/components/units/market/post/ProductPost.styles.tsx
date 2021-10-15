@@ -22,7 +22,6 @@ export const Title = styled.div`
 export const ContentsWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  margin-bottom: 40px;
 `;
 
 export const TitleName = styled.div`

@@ -1,8 +1,18 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  /* width: 1200px; */
   padding-top: 80px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-left: 360px;
+  margin-right: 360px;
+`;
+
+export const LeftWrapper = styled.div`
+  width: 1200px;
+  margin-right: 20px;
 `;
 
 export const BestTitle = styled.div`
@@ -18,11 +28,23 @@ export const BestTitle = styled.div`
 export const TableTop = styled.div`
   display: flex;
   flex-direction: row;
+  margin-bottom: 40px;
 `;
 
-export const OnSale = styled.div``;
+export const OnSale = styled.div`
+  margin-right: 20px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 26.64px;
+`;
 
-export const Sold = styled.div``;
+export const Sold = styled.div`
+  font-weight: 500;
+  font-style: normal;
+  font-size: 18px;
+  line-height: 26.64px;
+`;
 
 export const Table = styled.div`
   display: flex;
@@ -41,7 +63,7 @@ export const ProductImage = styled.img`
 `;
 
 export const Info = styled.div`
-  width: 1000px;
+  width: 700px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
