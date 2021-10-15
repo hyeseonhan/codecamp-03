@@ -1,4 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
+import { useRouter } from "next/router";
 
 const FETCH_BOARDS = gql`
   query fetchBoards {
@@ -12,6 +13,7 @@ const FETCH_BOARDS = gql`
 
 export default function BasketPage() {
   const { data } = useQuery(FETCH_BOARDS);
+  const router = useRouter();
 
   const onClickBasket = (el) => () => {
     const baskets = JSON.parse(localStorage.getItem("baskets")) || [];
@@ -35,6 +37,20 @@ export default function BasketPage() {
     localStorage.setItem("baskets", JSON.stringify(baskets));
   };
 
+  function onClickLogin() {
+    alert("로그인에 성공하였습니다!");
+    const baskets = JSON.parse(localStorage.getItem("baskets")) || []; // 로그인에 성공하면 검사한다.
+    if (baskets.length) {
+      const result = confirm(
+        "장바구니에 담으신 상품이 있습니다. 장바구니 페이지로 이동할까요?"
+      );
+      if (result) {
+        // 27-03-basket-logged-in 페이지로 이동시킨다
+        router.push("27-03-basket-logged-in");
+      }
+    }
+  }
+
   return (
     <>
       {data?.fetchBoards.map((el, index) => (
@@ -45,6 +61,7 @@ export default function BasketPage() {
           <button onClick={onClickBasket(el)}>장바구니담기</button>
         </div>
       ))}
+      <button onClick={onClickLogin}>로그인하기</button>
     </>
   );
 }
