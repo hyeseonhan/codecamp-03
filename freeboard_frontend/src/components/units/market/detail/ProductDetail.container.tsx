@@ -9,5 +9,9 @@ export default function ProductDetail() {
     variables: { useditemId: router.query.useditemId },
   });
 
-  return <ProductDetailUI data={data} />;
+  function onClickMoveToList() {
+    router.push("/market/product-list");
+  }
+
+  return <ProductDetailUI data={data} onClickMoveToList={onClickMoveToList} />;
 }

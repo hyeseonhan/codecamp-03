@@ -47,7 +47,11 @@ export default function ProductListtUI(props) {
           <Sold>판매된상품</Sold>
         </TableTop>
         {props.data?.fetchUseditems.map((el) => (
-          <Table key={el._id}>
+          <Table
+            key={el._id}
+            id={el._id}
+            onClick={props.onClickMoveToProductDetail}
+          >
             <ProductImage />
             <Info>
               <Detail>

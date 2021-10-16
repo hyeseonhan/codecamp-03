@@ -25,9 +25,9 @@ export default function LayoutNavi() {
   function onClickLogin() {
     // setIsChange((prev) => !prev);
     if (!accessToken) {
-      router.push("/boards/login");
+      router.push("/mypage/login");
     } else {
-      router.push("/boards/loginfo");
+      router.push("/mypage/loginfo");
     }
   }
 

@@ -17,15 +17,15 @@ import { createContext, useEffect, useState } from "react";
 
 const HIDDEN_Layout = ["/"];
 const HIDDEN_Main = [
+  "/boards",
   "/boards/list",
   "/boards/board-post",
   "/boards/[board_post_detail]",
   "/boards/openapi",
   "/boards/[board_post_detail]/edit",
-  "/boards/login",
-  "/boards/createacc",
-  "/boards",
-  "/boards/loginfo",
+  "/mypage/login",
+  "/mypage/createacc",
+  "/mypage/loginfo",
   "/market/product-post",
   "/market/product-list",
   "/market/product-detail",

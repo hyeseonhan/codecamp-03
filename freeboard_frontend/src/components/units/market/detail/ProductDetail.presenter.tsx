@@ -68,7 +68,7 @@ export default function ProductDetailUI(props) {
         </MapWrapper>
       </CardWrapper>
       <ButtonWrapper>
-        <Wrapper01>
+        <Wrapper01 onClick={props.onClickMoveToList}>
           <Button01 name="목록으로" type="text" />
         </Wrapper01>
         <Button01 name="구매하기" type="text" />

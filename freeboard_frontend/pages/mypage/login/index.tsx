@@ -166,7 +166,7 @@ export default function LoginPage() {
     // console.log(result.data?.loginUser.accessToken);
     localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
     setAccessToken(result.data?.loginUser.accessToken);
-    router.push("/boards/loginfo");
+    router.push("/mypage/loginfo");
   }
 
   return (
@@ -199,7 +199,7 @@ export default function LoginPage() {
           my heart break (you already know)
         </Lyrics>
         <CreateAccountbutton
-          id="/boards/createacc"
+          id="/mypage/createacc"
           onClick={onClickCreateAccount}
         >
           CREATE ACCOUNT
