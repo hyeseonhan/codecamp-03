@@ -1,4 +1,6 @@
 import { gql, useQuery } from "@apollo/client";
+import { useEffect } from "react";
+import { useState } from "react";
 
 const FETCH_BOARDS = gql`
   query fetchBoards {
@@ -12,12 +14,15 @@ const FETCH_BOARDS = gql`
 
 export default function BasketLogin() {
   const { data } = useQuery(FETCH_BOARDS);
+  const [basketGet, setBasketGet] = useState([]);
+  // const [deleteBasket, setDeleteBasket] = useState([]);
 
   const onClickBasket = (el) => () => {
     const baskets = JSON.parse(localStorage.getItem("baskets")) || [];
     baskets.push(el);
 
     localStorage.setItem("baskets", JSON.stringify(baskets));
+    setBasketGet(JSON.parse(localStorage.getItem("baskets")));
   };
 
   const onClickRemove = (el) => () => {
@@ -33,12 +38,14 @@ export default function BasketLogin() {
     });
 
     localStorage.setItem("baskets", JSON.stringify(baskets));
-    localStorage.removeItem("baskets[_id]");
-
-    // localStorage.setItem("baskets", JSON.stringify(baskets));
   };
 
-  function onClickLogin() {}
+  // function onClickLogin() {}
+
+  // useEffect(() => {
+  //   const Items = JSON.parse(localStorage.getItem("baskets")) || [];
+  //   setBasketGet(Items);
+  // }, []);
 
   return (
     <>
@@ -53,7 +60,17 @@ export default function BasketLogin() {
           <button onClick={onClickRemove(el)}>담기취소</button>
         </div>
       ))}
-      <button onClick={onClickLogin}>로그인하기</button>
+      {/* <button onClick={onClickLogin}>로그인하기</button> */}
+      <br />
+      <br />
+      장바구니 목록
+      {basketGet.map((el, index) => (
+        <div key={el._id}>
+          <span>{index}</span>
+          <span>{el.writer}</span>
+          <span>{el.title}</span>
+        </div>
+      ))}
     </>
   );
 }
