@@ -9,6 +9,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin-right: 24px;
 `;
 
 const Button = styled.button`
@@ -21,7 +22,12 @@ const Button = styled.button`
 export default function Button01(props) {
   return (
     <Wrapper>
-      <Button type={props.type} isValid={props.isValid}>
+      <Button
+        type={props.type}
+        isValid={props.isValid}
+        id={props.id}
+        onClick={props.onClick}
+      >
         {props.name}
       </Button>
     </Wrapper>

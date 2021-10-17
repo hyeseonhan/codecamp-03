@@ -7,6 +7,7 @@ export const FETCH_USED_ITEM = gql`
       name
       remarks
       contents
+      images
       price
       tags
       seller {

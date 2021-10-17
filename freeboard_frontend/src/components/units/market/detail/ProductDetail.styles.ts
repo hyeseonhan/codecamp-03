@@ -101,10 +101,12 @@ export const Price = styled.div`
   line-height: 53.28px;
 `;
 
-export const Images = styled.img`
+export const ItemImages = styled.div`
   width: 504px;
   height: 482px;
 `;
+
+export const ItemImage = styled.img``;
 
 export const Contents = styled.div`
   margin-bottom: 40px;
@@ -133,6 +135,6 @@ export const ButtonWrapper = styled.div`
   margin-bottom: 80px;
 `;
 
-export const Wrapper01 = styled.div`
-  margin-right: 24px;
-`;
+// export const Wrapper01 = styled.div`
+//   margin-right: 24px;
+// `;

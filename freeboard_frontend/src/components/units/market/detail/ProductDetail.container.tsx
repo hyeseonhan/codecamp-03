@@ -13,5 +13,15 @@ export default function ProductDetail() {
     router.push("/market/product-list");
   }
 
-  return <ProductDetailUI data={data} onClickMoveToList={onClickMoveToList} />;
+  function onClickMoveToEdit() {
+    router.push(`/market/product-detail/${router.query.useditemId}/edit`);
+  }
+
+  return (
+    <ProductDetailUI
+      data={data}
+      onClickMoveToList={onClickMoveToList}
+      onClickMoveToEdit={onClickMoveToEdit}
+    />
+  );
 }

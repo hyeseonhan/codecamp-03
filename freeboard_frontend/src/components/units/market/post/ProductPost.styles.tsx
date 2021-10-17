@@ -7,6 +7,9 @@ export const Wrapper = styled.form`
   padding-bottom: 100px;
   padding-left: 102px;
   padding-right: 102px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
 
 export const Title = styled.div`
@@ -20,24 +23,17 @@ export const Title = styled.div`
 `;
 
 export const ContentsWrapper = styled.div`
+  width: 996px;
   display: flex;
   flex-direction: column;
 `;
 
-export const TitleName = styled.div`
-  margin-bottom: 16px;
-  font-size: 16px;
-  font-weight: 500;
-  font-style: normal;
-  line-height: 23.68px;
-`;
-
-export const AboveWarpper = styled.div`
-  width: 996px;
-  height: 52px;
-  border: 1px solid #bdbdbd;
-  border-bottom: none;
-`;
+// export const AboveWarpper = styled.div`
+//   width: 996px;
+//   height: 52px;
+//   border: 1px solid #bdbdbd;
+//   border-bottom: none;
+// `;
 
 export const UndderInput = styled.textarea`
   width: 996px;
@@ -64,14 +60,6 @@ export const Location = styled.input`
 
 export const MapInfoWrapper = styled.div`
   margin-bottom: 40px;
-`;
-
-export const UnderWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  /* align-items: initial; */
-  width: 996px;
 `;
 
 export const GpsWrapper = styled.div`
@@ -112,6 +100,29 @@ export const Address = styled.input`
   height: 52px;
 `;
 
+export const UnderWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: initial; */
+  width: 996px;
+`;
+
+export const ImageWrapper = styled.div`
+  width: 384px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+`;
+
+export const TitleName = styled.div`
+  margin-bottom: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 23.68px;
+`;
+
 export const OptionWrapper = styled.div``;
 
 export const RadioButton = styled.input`
@@ -123,9 +134,7 @@ export const RadioLabel = styled.label`
   margin-right: 12px;
 `;
 
-// export const PostButton = styled.button`
-//   width: 179px;
-//   height: 52px;
-//   border: none;
-//   background-color: ${(props: IProps) => (props.isValid ? "yellow" : "")};
-// `;
+export const ButtonWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+`;

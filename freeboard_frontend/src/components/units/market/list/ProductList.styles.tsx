@@ -1,28 +1,31 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  /* width: 1200px; */
   padding-top: 80px;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  margin-left: 360px;
-  margin-right: 360px;
-`;
-
-export const LeftWrapper = styled.div`
-  width: 1200px;
-  margin-right: 20px;
 `;
 
 export const BestTitle = styled.div`
-  width: 100%px;
   display: flex;
   justify-content: center;
   font-size: 36px;
   font-weight: 600;
   line-height: 42.19px;
   font-family: "LightBold";
+  margin-bottom: 50px;
+`;
+
+export const ListWrapper = styled.div`
+  width: 1200px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  margin-left: 360px;
+  margin-right: 360px;
+`;
+
+export const LeftWrapper = styled.div`
+  width: 1000px;
+  margin-right: 20px;
 `;
 
 export const TableTop = styled.div`
@@ -63,7 +66,8 @@ export const ProductImage = styled.img`
 `;
 
 export const Info = styled.div`
-  width: 700px;
+  width: 800px;
+  /* width: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -162,4 +166,6 @@ export const HeartCount = styled.div`
   line-height: 23.68px;
 `;
 
-export const PostButton = styled.button``;
+export const PostButton = styled.button`
+  margin-top: 40px;
+`;

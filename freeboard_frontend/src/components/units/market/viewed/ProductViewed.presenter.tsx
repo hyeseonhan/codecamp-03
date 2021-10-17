@@ -1,4 +1,4 @@
-import { Wrapper, Title, ViewedCard } from "./ProductViewed.styles";
+import { RightWrapper, Title, ViewedCard } from "./ProductViewed.styles";
 import ViewedInput from "../../../commons/inputs/viewedinput/viewedinput";
 
 export default function ViewedProductUI() {

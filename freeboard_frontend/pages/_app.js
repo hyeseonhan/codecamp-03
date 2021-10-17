@@ -30,6 +30,7 @@ const HIDDEN_Main = [
   "/market/product-list",
   "/market/product-detail",
   "/market/product-detail/[useditemId]",
+  "/market/product-detail/[useditemId]/edit",
 ];
 
 export const GlobalContext = createContext(null);

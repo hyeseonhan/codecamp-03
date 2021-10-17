@@ -1,5 +1,6 @@
 import {
   Wrapper,
+  ListWrapper,
   LeftWrapper,
   BestTitle,
   TableTop,
@@ -24,12 +25,15 @@ import {
   HeartCount,
   PostButton,
 } from "./ProductList.styles";
-import ViewedProduct from "../viewed/ProductViewed.container";
-import Flickity from "flickity";
+import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
+
+// import dynamic from "next/dynamic";
+// const Flickity = dynamic(() => import("flickity"));
 
 // function Carousel() {
 //   return (
-//     <Flickity>s
+//     <Flickity>
+//       s
 //       <img src="/images/beerbongs.png" />
 //       <img src="/images/congra.png" />
 //       <img src="/images/bleeding.png" />
@@ -40,50 +44,60 @@ import Flickity from "flickity";
 export default function ProductListtUI(props) {
   return (
     <Wrapper>
-      <LeftWrapper>
-        <BestTitle>BEST PRODUCT</BestTitle>
-        <TableTop>
-          <OnSale>판매중상품</OnSale>
-          <Sold>판매된상품</Sold>
-        </TableTop>
-        {props.data?.fetchUseditems.map((el) => (
-          <Table
-            key={el._id}
-            id={el._id}
-            onClick={props.onClickMoveToProductDetail}
+      <BestTitle>BEST PRODUCT</BestTitle>
+      <ListWrapper>
+        <LeftWrapper>
+          <TableTop>
+            <OnSale>판매중상품</OnSale>
+            <Sold>판매된상품</Sold>
+          </TableTop>
+          {props.data?.fetchUseditems.map((el) => (
+            <Table
+              key={el._id}
+              id={el._id}
+              onClick={props.onClickMoveToProductDetail(el)}
+            >
+              {/* {props.data?.fetchUseditems.images
+                ?.filter((el: string) => el)
+                .map((el: string) => (
+                  <ProductImage
+                    key={el}
+                    src={`https://storage.googleapis.com/${el}`}
+                  />
+                ))} */}
+              <ProductImage />
+              <Info>
+                <Detail>
+                  <Name>{el.name}</Name>
+                  <Remarks>{el.remarks}</Remarks>
+                  <Tags>{el.tags}</Tags>
+                  <SellerInfo>
+                    <AvatarInfo>
+                      <Avatar src="/images/avatar.png" />
+                      <Seller>{el.seller?.name}</Seller>
+                    </AvatarInfo>
+                    <HeartInfo>
+                      <HeartButton src="/images/heart.png" />
+                      <HeartCount>{el.pickedCount}</HeartCount>
+                    </HeartInfo>
+                  </SellerInfo>
+                </Detail>
+                <PriceInfo>
+                  <PriceIcon src="/images/price.png" />
+                  <Price>{el.price}</Price>
+                </PriceInfo>
+              </Info>
+            </Table>
+          ))}
+          <PostButton
+            // id={"/market/product-post"}
+            onClick={props.onClickMoveToPost}
           >
-            <ProductImage />
-            <Info>
-              <Detail>
-                <Name>{el.name}</Name>
-                <Remarks>{el.remarks}</Remarks>
-                <Tags>{el.tags}</Tags>
-                <SellerInfo>
-                  <AvatarInfo>
-                    <Avatar src="/images/avatar.png" />
-                    <Seller>{el.seller.name}</Seller>
-                  </AvatarInfo>
-                  <HeartInfo>
-                    <HeartButton src="/images/heart.png" />
-                    <HeartCount>{el.pickedCount}</HeartCount>
-                  </HeartInfo>
-                </SellerInfo>
-              </Detail>
-              <PriceInfo>
-                <PriceIcon src="/images/price.png" />
-                <Price>{el.price}</Price>
-              </PriceInfo>
-            </Info>
-          </Table>
-        ))}
-        <PostButton
-          id={"/market/product-post"}
-          onClick={props.onClickMoveToPost}
-        >
-          상품 등록하기
-        </PostButton>
-      </LeftWrapper>
-      <ViewedProduct />
+            상품 등록하기
+          </PostButton>
+        </LeftWrapper>
+        <RecentlyViewedItems />
+      </ListWrapper>
     </Wrapper>
   );
 }
