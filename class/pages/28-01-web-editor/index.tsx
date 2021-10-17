@@ -47,7 +47,7 @@ export default function WebEditorPage() {
     setValue("contents", value === "<p><br></p>" ? "" : value);
     console.log(value);
 
-    // onChange 됐는지 react-hook-form 에 알려주는 기능
+    // register로 등록하지 않고, 강제로 값을 넣어주는 기능
     trigger("contents");
   }
 
