@@ -1,5 +1,5 @@
 import { gql, useQuery } from "@apollo/client";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 import { useState } from "react";
 
 const FETCH_BOARDS = gql`
@@ -26,15 +26,20 @@ export default function BasketLogin() {
   };
 
   const onClickRemove = (el) => () => {
-    const baskets = JSON.parse(localStorage.getItem("baskets")) || [];
+    let baskets = JSON.parse(localStorage.getItem("baskets")) || [];
 
-    baskets.forEach((basket, _id) => {
-      if (basket === null) {
-        return;
-      }
-      if (basket._id === el._id) {
-        delete baskets[_id];
-      }
+    // baskets.forEach((basket, _id) => {
+    //   if (basket === null) {
+    //     return;
+    //   }
+    //   if (basket._id === el._id) {
+    //     delete baskets[_id];
+    //   }
+    // });
+
+    // splic를 사용해도 되는데 filter가 더 간단
+    baskets = baskets.filter((cur) => {
+      return cur._id !== el._id;
     });
 
     localStorage.setItem("baskets", JSON.stringify(baskets));

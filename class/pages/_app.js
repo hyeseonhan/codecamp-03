@@ -62,14 +62,16 @@ function MyApp({ Component, pageProps }) {
   });
 
   return (
-    <GlobalContext.Provider value={value}>
-      <Global styles={globalStyles} />
-      <ApolloProvider client={client}>
-        <Layout>
-          <Component {...pageProps} />
-        </Layout>
-      </ApolloProvider>
-    </GlobalContext.Provider>
+    <>
+      <GlobalContext.Provider value={value}>
+        <Global styles={globalStyles} />
+        <ApolloProvider client={client}>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </ApolloProvider>
+      </GlobalContext.Provider>
+    </>
   );
 }
 
