@@ -27,20 +27,6 @@ import {
 } from "./ProductList.styles";
 import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
 
-// import dynamic from "next/dynamic";
-// const Flickity = dynamic(() => import("flickity"));
-
-// function Carousel() {
-//   return (
-//     <Flickity>
-//       s
-//       <img src="/images/beerbongs.png" />
-//       <img src="/images/congra.png" />
-//       <img src="/images/bleeding.png" />
-//     </Flickity>
-//   );
-// }
-
 export default function ProductListtUI(props) {
   return (
     <Wrapper>

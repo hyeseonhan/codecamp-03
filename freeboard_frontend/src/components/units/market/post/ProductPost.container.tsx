@@ -56,6 +56,7 @@ export default function ProductPost(props) {
   //   }
   // };
 
+  console.log(formState);
   async function onClickPost(data) {
     console.log(data);
 
@@ -77,6 +78,12 @@ export default function ProductPost(props) {
             tags: data.tags,
             images: Images,
             // ...data,
+            useditemAddress: {
+              address: data.address,
+              addressDetail: data.addressDetail,
+              lat: data.lat,
+              lng: data.lng,
+            },
           },
         },
       });

@@ -53,10 +53,10 @@ export const LocationWrapper = styled.div`
   margin-right: 24px;
 `;
 
-export const Location = styled.input`
-  width: 384px;
-  height: 252px;
-`;
+// export const Location = styled.input`
+//   width: 384px;
+//   height: 252px;
+// `;
 
 export const MapInfoWrapper = styled.div`
   margin-bottom: 40px;

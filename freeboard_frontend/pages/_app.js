@@ -15,6 +15,8 @@ import { useRouter } from "next/router";
 import { createUploadLink } from "apollo-upload-client";
 import { createContext, useEffect, useState } from "react";
 
+import "flickity/css/flickity.css";
+
 const HIDDEN_Layout = ["/"];
 const HIDDEN_Main = [
   "/boards",

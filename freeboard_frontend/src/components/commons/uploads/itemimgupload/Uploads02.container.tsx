@@ -24,7 +24,6 @@ export default function ItemImgUpload(props) {
 
   return (
     <Uploads02UI
-      type="button"
       fileRef={fileRef}
       fileUrl={fileUrl}
       onClickUpload={onClickUpload}

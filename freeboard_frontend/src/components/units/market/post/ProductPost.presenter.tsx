@@ -3,6 +3,7 @@ import Button01 from "../../../commons/buttons/01/Button01";
 import ErrorMessage01 from "../../../commons/errormessages/01/ErrorMessage01";
 import Input01 from "../../../commons/inputs/01/Input01";
 import ItemImgUpload from "../../../commons/uploads/itemimgupload/Uploads02.container";
+import KakaoMap from "../../../commons/kakaomap/kakaomap";
 import {
   Wrapper,
   Title,
@@ -13,7 +14,7 @@ import {
   ImageWrapper,
   MapWrapper,
   LocationWrapper,
-  Location,
+  // Location,
   MapInfoWrapper,
   GpsWrapper,
   GpsInnerWrapper,
@@ -33,6 +34,7 @@ const ReactQuill = dynamic(() => import("react-quill"));
 import "react-quill/dist/quill.snow.css";
 
 export default function ProductPostUI(props: any) {
+  console.log(props);
   return (
     <Wrapper
       onSubmit={props.handleSubmit(
@@ -87,15 +89,23 @@ export default function ProductPostUI(props: any) {
       <MapWrapper>
         <LocationWrapper>
           <TitleName>거래위치</TitleName>
-          <Location></Location>
+          <KakaoMap />
         </LocationWrapper>
         <MapInfoWrapper>
           <GpsWrapper>
             <TitleName>GPS</TitleName>
             <GpsInnerWrapper>
-              <Lat placeholder="위도 (LAT)" />
+              <Lat
+                type="text"
+                placeholder="위도 (LAT)"
+                register={props.register("lat")}
+              />
               <GpsIcon src="/images/location.png" />
-              <Lng placeholder="경도 (LNG)" />
+              <Lng
+                type="text"
+                placeholder="경도 (LNG)"
+                register={props.register("lng")}
+              />
             </GpsInnerWrapper>
           </GpsWrapper>
           <TitleName>주소</TitleName>
@@ -131,7 +141,7 @@ export default function ProductPostUI(props: any) {
         {!props.isEdit && (
           <Button01
             name="등록하기"
-            type="submit"
+            // type="button"
             isValid={props.formState.isValid}
           />
         )}
