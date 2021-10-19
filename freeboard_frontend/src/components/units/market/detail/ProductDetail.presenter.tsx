@@ -1,4 +1,5 @@
 import Button01 from "../../../commons/buttons/01/Button01";
+import KakaoMapDetail from "../../../commons/kakaomap/kakaomap-detail";
 
 import {
   Wrapper,
@@ -57,7 +58,6 @@ export default function ProductDetailUI(props: any) {
             </InnerTop>
             <InnerBottom>
               <HeartButton src="/images/heart.png" />
-
               <PickedCount>{props.data?.fetchUseditem.pickedCount}</PickedCount>
             </InnerBottom>
           </Top>
@@ -83,7 +83,7 @@ export default function ProductDetailUI(props: any) {
           <Tags>{props.data?.fetchUseditem.tags}</Tags>
         </ContentsWrapper>
         <MapWrapper>
-          <Map></Map>
+          <KakaoMapDetail data={props.data} />
         </MapWrapper>
       </CardWrapper>
       <ButtonWrapper>

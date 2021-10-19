@@ -43,63 +43,6 @@ export const UndderInput = styled.textarea`
   padding-left: 16px;
 `;
 
-export const MapWrapper = styled.div`
-  /* border: 1px solid red; */
-  display: flex;
-  flex-direction: row;
-`;
-
-export const LocationWrapper = styled.div`
-  margin-right: 24px;
-`;
-
-// export const Location = styled.input`
-//   width: 384px;
-//   height: 252px;
-// `;
-
-export const MapInfoWrapper = styled.div`
-  margin-bottom: 40px;
-`;
-
-export const GpsWrapper = styled.div`
-  margin-bottom: 40px;
-`;
-
-export const GpsInnerWrapper = styled.div``;
-
-export const Lat = styled.input`
-  width: 108px;
-  height: 52px;
-  margin-right: 21px;
-  padding-left: 20px;
-`;
-
-export const GpsIcon = styled.img`
-  /* width: 14px;
-  height: 20px; */
-  margin-right: 21px;
-`;
-
-export const Lng = styled.input`
-  width: 108px;
-  height: 52px;
-  padding-left: 20px;
-`;
-
-export const AddressWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  /* border: 1px solid red; */
-  height: 120px;
-`;
-
-export const Address = styled.input`
-  width: 588px;
-  height: 52px;
-`;
-
 export const UnderWrapper = styled.div`
   display: flex;
   flex-direction: column;

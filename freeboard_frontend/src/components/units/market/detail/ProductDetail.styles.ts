@@ -54,7 +54,7 @@ export const LinkIcon = styled.img``;
 export const MapIcon = styled.img``;
 
 export const ContentsWrapper = styled.div`
-  border-bottom: 1px solid #bdbdbd;
+  /* border-bottom: 1px solid #bdbdbd; */
   margin-bottom: 80px;
 `;
 
@@ -114,10 +114,10 @@ export const Contents = styled.div`
 
 export const Tags = styled.div`
   margin-bottom: 40px;
+  color: #bdbdbd;
 `;
 
 export const MapWrapper = styled.div`
-  border-bottom: 1px solid #bdbdbd;
   display: flex;
   justify-content: center;
 `;

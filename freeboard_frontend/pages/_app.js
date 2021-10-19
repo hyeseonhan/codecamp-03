@@ -17,7 +17,7 @@ import { createContext, useEffect, useState } from "react";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
-import "flickity/css/flickity.css";
+// import "flickity/css/flickity.css";
 
 const HIDDEN_Layout = ["/"];
 const HIDDEN_Main = [
@@ -41,12 +41,21 @@ export const GlobalContext = createContext(null);
 function MyApp({ Component, pageProps }) {
   const [accessToken, setAccessToken] = useState("");
   const [userInfo, setUserInfo] = useState({});
+  const [lat, setLat] = useState("");
+  const [lng, setLng] = useState("");
+  const [location, setLocation] = useState("");
 
   const value = {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
     userInfo: userInfo,
     setUserInfo: setUserInfo,
+    setLat: setLat,
+    setLng: setLng,
+    setLocation: setLocation,
+    lat,
+    lng,
+    location,
   };
 
   useEffect(() => {

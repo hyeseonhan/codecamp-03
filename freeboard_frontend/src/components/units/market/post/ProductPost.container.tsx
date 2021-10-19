@@ -6,11 +6,14 @@ import {
   CREATE_USED_ITEM,
   UPDATE_USED_ITEM,
   UPLOAD_FILE,
+  FETCH_USED_ITEM,
 } from "./ProductPost.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useContext } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
 
 export default function ProductPost(props) {
   const router = useRouter();
@@ -19,15 +22,18 @@ export default function ProductPost(props) {
     resolver: yupResolver(schema),
   });
 
-  // const { data } = useQuery(FETCH_USED_ITEM, {
-  //   variables: { useditemId: String(router.query.useditemId) },
-  // });
+  const { data: imagesdata } = useQuery(FETCH_USED_ITEM, {
+    variables: { useditemId: String(router.query.useditemId) },
+  });
 
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const [files, setFiles] = useState([null, null]);
+
+  const { lat, lng, location } = useContext(GlobalContext);
+  const [addressDetail, setAddressDetail] = useState("");
 
   // const onClickPost = (Items) => async () => {
   //   try {
@@ -80,10 +86,10 @@ export default function ProductPost(props) {
             images: Images,
             // ...data,
             useditemAddress: {
-              address: data.address,
-              addressDetail: data.addressDetail,
-              lat: data.lat,
-              lng: data.lng,
+              address: location,
+              addressDetail: addressDetail,
+              lat: lat,
+              lng: lng,
             },
           },
         },
@@ -105,6 +111,11 @@ export default function ProductPost(props) {
     trigger("contents");
   }
 
+  // kakaomap-post
+  function onChangeAddressDetail(event) {
+    setAddressDetail(event.target.vaule);
+  }
+
   function onChangeFiles(file: File, index: number) {
     const newFiles = [...files];
     newFiles[index] = file;
@@ -124,8 +135,8 @@ export default function ProductPost(props) {
     const nextImages = results.map((el) => el?.data.uploadFile.url || "");
     data.images = nextImages;
 
-    if (props.data?.fetchUseditem.images?.lenght) {
-      const prevImages = [...props.data?.fetchUseditem.images];
+    if (imagesdata?.fetchUseditem.images?.lenght) {
+      const prevImages = [...imagesdata?.fetchUseditem.images];
       data.images = prevImages.map((el, index) => nextImages[index] || el);
     } else {
       data.images = nextImages;
@@ -142,6 +153,12 @@ export default function ProductPost(props) {
             tags: data.tags,
             images: data.images,
             // ...data,
+            useditemAddress: {
+              address: location,
+              addressDetail: addressDetail,
+              lat: lat,
+              lng: lng,
+            },
           },
           useditemId: router.query.useditemId,
         },
@@ -174,7 +191,7 @@ export default function ProductPost(props) {
       setValue("price", props.data?.fetchUseditem.price, {
         shouldValidate: true,
       });
-      setValue("tags", props.data?.fetchUseditem.tags, {
+      setValue("tags", String(props.data?.fetchUseditem.tags), {
         shouldValidate: true,
       });
       setValue("images", props.data?.fetchUseditem.images, {
@@ -193,6 +210,7 @@ export default function ProductPost(props) {
       onClickUpdate={onClickUpdate}
       onClickCancelUpdate={onClickCancelUpdate}
       onChangeEditior={onChangeEditior}
+      onChangeAddressDetail={onChangeAddressDetail}
       isEdit={props.isEdit}
       data={props.data} // pages/../edit의 FETCH_USED_ITEMdml data를 props로 가져와서 defaultValue에 사용함
     />

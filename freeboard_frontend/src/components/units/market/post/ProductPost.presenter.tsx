@@ -3,7 +3,7 @@ import Button01 from "../../../commons/buttons/01/Button01";
 import ErrorMessage01 from "../../../commons/errormessages/01/ErrorMessage01";
 import Input01 from "../../../commons/inputs/01/Input01";
 import ItemImgUpload from "../../../commons/uploads/itemimgupload/Uploads02.container";
-import KakaoMap from "../../../commons/kakaomap/kakaomap";
+import KakaoMapPost from "../../../commons/kakaomap/kakaomap-post";
 import {
   Wrapper,
   Title,
@@ -12,17 +12,6 @@ import {
   UndderInput,
   UnderWrapper,
   ImageWrapper,
-  MapWrapper,
-  LocationWrapper,
-  // Location,
-  MapInfoWrapper,
-  GpsWrapper,
-  GpsInnerWrapper,
-  Lat,
-  GpsIcon,
-  Lng,
-  AddressWrapper,
-  Address,
   OptionWrapper,
   RadioButton,
   RadioLabel,
@@ -86,35 +75,7 @@ export default function ProductPostUI(props: any) {
         defaultValue={props.data?.fetchUseditem.tags}
       />
       <ErrorMessage01 message={props.formState.errors.tags?.message} />
-      <MapWrapper>
-        <LocationWrapper>
-          <TitleName>거래위치</TitleName>
-          <KakaoMap />
-        </LocationWrapper>
-        <MapInfoWrapper>
-          <GpsWrapper>
-            <TitleName>GPS</TitleName>
-            <GpsInnerWrapper>
-              <Lat
-                type="text"
-                placeholder="위도 (LAT)"
-                register={props.register("lat")}
-              />
-              <GpsIcon src="/images/location.png" />
-              <Lng
-                type="text"
-                placeholder="경도 (LNG)"
-                register={props.register("lng")}
-              />
-            </GpsInnerWrapper>
-          </GpsWrapper>
-          <TitleName>주소</TitleName>
-          <AddressWrapper>
-            <Address />
-            <Address />
-          </AddressWrapper>
-        </MapInfoWrapper>
-      </MapWrapper>
+      <KakaoMapPost onChangeAddressDetail={props.onChangeAddressDetail} />
       <UnderWrapper>
         <TitleName>사진 첨부</TitleName>
         <ImageWrapper>
