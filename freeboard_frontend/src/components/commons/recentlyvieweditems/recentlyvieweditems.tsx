@@ -55,12 +55,30 @@ const HeartButton = styled.img`
 
 const HeartCount = styled.div``;
 
-const ProductImage = styled.div`
+const ProductImage = styled.img`
   width: 60px;
   height: 60px;
   border: 1px solid #bdbdbd;
   margin-bottom: 12px;
   margin-left: 36px;
+`;
+
+export const NoneImage = styled.div`
+  margin-bottom: 12px;
+  margin-left: 36px;
+  width: 60px;
+  height: 60px;
+  border: 1px solid black;
+  border: none;
+  /* box-shadow: 1px 1px 1px 1px; */
+  margin-right: 40px;
+  color: white;
+  background-color: black;
+  font-size: 10px;
+  font-family: "LightBold";
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const Detail = styled.div``;
@@ -122,7 +140,13 @@ export default function RecentlyViewedItems() {
               <HeartCount>{el.pickedCount}</HeartCount>
             </HeartInfo>
             {/* </HeartWrapper> */}
-            <ProductImage />
+            {el?.images[0] ? (
+              <ProductImage
+                src={`https://storage.googleapis.com/${el?.images[0]}`}
+              />
+            ) : (
+              <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+            )}
             <Detail>
               <Name>{el.name}</Name>
               <Remarks>{el.remarks}</Remarks>

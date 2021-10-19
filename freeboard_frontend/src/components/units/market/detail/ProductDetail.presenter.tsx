@@ -61,7 +61,6 @@ export default function ProductDetailUI(props: any) {
               <PickedCount>{props.data?.fetchUseditem.pickedCount}</PickedCount>
             </InnerBottom>
           </Top>
-
           <Price>{props.data?.fetchUseditem.price}</Price>
           <ItemImages>
             {props.data?.fetchUseditem.images

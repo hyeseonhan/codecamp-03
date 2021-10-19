@@ -8,6 +8,7 @@ import {
   Sold,
   Table,
   ProductImage,
+  NoneImage,
   Info,
   Detail,
   PriceInfo,
@@ -51,7 +52,14 @@ export default function ProductListtUI(props) {
                     src={`https://storage.googleapis.com/${el}`}
                   />
                 ))} */}
-              <ProductImage />
+              {el?.images[0] ? (
+                <ProductImage
+                  src={`https://storage.googleapis.com/${el?.images[0]}`}
+                />
+              ) : (
+                <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+              )}
+
               <Info>
                 <Detail>
                   <Name>{el.name}</Name>

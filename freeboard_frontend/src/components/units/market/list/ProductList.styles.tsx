@@ -12,6 +12,7 @@ export const BestTitle = styled.div`
   line-height: 42.19px;
   font-family: "LightBold";
   margin-bottom: 50px;
+  font-family: "LightBold";
 `;
 
 export const ListWrapper = styled.div`
@@ -55,14 +56,31 @@ export const Table = styled.div`
   border-top: 1px solid black;
   border-bottom: 1px solid black;
   padding-top: 20px;
-  padding-bottom: 10px;
+  padding-bottom: 20px;
 `;
 
 export const ProductImage = styled.img`
   width: 160px;
   height: 160px;
   border: 1px solid black;
+  border: none;
   margin-right: 40px;
+`;
+
+export const NoneImage = styled.div`
+  width: 160px;
+  height: 160px;
+  border: 1px solid black;
+  border: none;
+  /* box-shadow: 1px 1px 1px 1px; */
+  margin-right: 40px;
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: "LightBold";
 `;
 
 export const Info = styled.div`
