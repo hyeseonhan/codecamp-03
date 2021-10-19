@@ -26,3 +26,73 @@ function solution(n) {
 
   return parseInt(n, 3);
 }
+
+// 비밀지도
+
+function solution(n, arr1, arr2) {
+  const answer = [];
+
+  for (let i = 0; i < arr1.length; i++) {
+    // n 만큼의 길이를 가지는 빈 배열을 넣어준다.
+    answer[i] = [];
+    // console.log(arr[i], arr2[i])
+
+    const map1 = arr1[i].toString(2).padStart(n, "0");
+    const map2 = arr2[i].toString(2).padStart(n, "0");
+    // console.log(arr1[i], map1);
+    // console.log(arr2[i], map2);
+    // console.log(arr1[i], arr2[i]);
+
+    for (let l = 0; l < map1.length; l++) {
+      // console.log(map1[l], map2[l]);
+      // 둘 중 하나라도 벽이라면
+      if (map1[l] === "1" || map2[l] === "1") {
+        answer[i][l] = "#";
+      } else {
+        answer[i][l] = " ";
+      }
+    }
+    answer[i] = answer[i].join("");
+  }
+  // console.log(answer);
+  return answer;
+}
+
+// 메서드
+
+function solution(n, arr1, arr2) {
+  const answer = arr1.map((map1, i) => {
+    // console.log(map1, arr[i])
+    map1 = map1.toString(2).padStart(n, "0");
+    // console.log(map1)
+    const map2 = arr2[i].toString(2).padStart(n, "0");
+    // console.log(map2)
+
+    return map1
+      .split("")
+      .map((el, l) => {
+        // console.log(el, map2[l]);
+        return el === "1" || map2[l] === "1" ? "#" : " ";
+      })
+      .join("");
+  });
+  // console.log(answer);
+  return answer;
+}
+
+function solution(n, arr1, arr2) {
+  return arr1.map((v, i) =>
+    addZero(n, (v | arr2[i]).toString(2)).replace(/1|0/g, (a) =>
+      +a ? "#" : " "
+    )
+  );
+}
+
+const addZero = (n, s) => {
+  return "0".repeat(n - s.length) + s;
+};
+
+var solution = (n, a, b) =>
+  a.map((a, i) =>
+    (a | b[i]).toString(2).padStart(n, 0).replace(/0/g, " ").replace(/1/g, "#")
+  );
