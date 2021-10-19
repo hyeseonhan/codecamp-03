@@ -1,6 +1,8 @@
 import { gql, useQuery } from "@apollo/client";
 import { withAuth } from "../../../src/components/commons/hocs/withAuth";
 import styled from "@emotion/styled";
+import { useContext, useEffect } from "react";
+import { GlobalContext } from "../../_app";
 
 const Wrapper = styled.div`
   /* font-family: "LightBold"; */
@@ -85,9 +87,10 @@ const EmailInfo = styled.div`
 const FETCH_USER_LOGGED_IN = gql`
   query fetchUserLoggedIn {
     fetchUserLoggedIn {
-      name
       email
+      name
       picture
+      # userPoint
     }
   }
 `;
@@ -95,8 +98,22 @@ const FETCH_USER_LOGGED_IN = gql`
 // export default function LogInfoPage() {
 
 const LogInfoPage = () => {
+  const { setUserInfo, userInfo, accessToken } = useContext(GlobalContext);
+  console.log("aaa:", accessToken);
+
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
+  useEffect(() => {
+    if (userInfo.email) return;
+    setUserInfo({
+      name: data?.fetchUserLoggedIn.name,
+      email: data?.fetchUserLoggedIn.email,
+      picture: data?.fetchUserLoggedIn.picture,
+      // userPoint: data?.fetchUserLoggedIn.usePoint,
+    });
+  }, [data]);
+
+  console.log("loginfo:", userInfo);
   return (
     <>
       <Wrapper>

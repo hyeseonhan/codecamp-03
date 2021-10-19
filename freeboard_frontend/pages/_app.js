@@ -14,6 +14,8 @@ import "slick-carousel/slick/slick-theme.css";
 import { useRouter } from "next/router";
 import { createUploadLink } from "apollo-upload-client";
 import { createContext, useEffect, useState } from "react";
+import { onError } from "@apollo/client/link/error";
+import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
 import "flickity/css/flickity.css";
 
@@ -47,28 +49,47 @@ function MyApp({ Component, pageProps }) {
     setUserInfo: setUserInfo,
   };
 
-  // useEffect(() => {
-  //   const token = localStorage.getItem("accessToken") || "";
-  //   // console.log("app:", accessToken);
-  //   setAccessToken(token);
-  //   // localStorage.clear();
-  // }, []);
-
   useEffect(() => {
-    const accessToken = localStorage.getItem("accessToken") || "";
-    console.log("app:", accessToken);
+    // const accessToken = localStorage.getItem("accessToken") || "";
+    // setAccessToken(accessToken);
     // localStorage.clear();
-    setAccessToken(accessToken);
+    if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
   }, []);
 
+  // useEffect(() => {
+  //   // const accessToken = localStorage.getItem("accessToken") || "";
+  //   // console.log("app:", accessToken);
+  //   // // localStorage.clear();
+  //   // setAccessToken(accessToken);
+  //   if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
+  // }, []);
+
+  const errorLink = onError(({ grahpQLErrors, operation, forward }) => {
+    if (grahpQLErrors) {
+      for (const err of grahpQLErrors) {
+        if (err.extensions?.code === "UNAUTHENTICATED") {
+          operation.setContext({
+            headers: {
+              ...operation.getContext().headers,
+              authorization: `Bearer ${getAccessToken(setAccessToken)}`,
+            },
+          });
+
+          return forward(operation);
+        }
+      }
+    }
+  });
+
   const uploadLink = createUploadLink({
-    uri: "http://backend03.codebootcamp.co.kr/graphql",
+    uri: "https://backend03.codebootcamp.co.kr/graphql",
     headers: { authorization: `Bearer ${accessToken}` },
+    credentials: "include",
   });
 
   const client = new ApolloClient({
     // uri: "http://backend03.codebootcamp.co.kr/graphql",
-    link: ApolloLink.from([uploadLink]),
+    link: ApolloLink.from([errorLink, uploadLink]),
     cache: new InMemoryCache(),
   });
 

@@ -7,6 +7,7 @@ export const withAuth = (Component) => (props) => {
   const { accessToken } = useContext(GlobalContext);
 
   useEffect(() => {
+    const accessToken = localStorage.getItem("refreshToken");
     console.log("withAuth", accessToken);
     if (!accessToken) {
       alert("로그인을 먼저 해주세요");

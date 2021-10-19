@@ -1,10 +1,9 @@
 import styled from "@emotion/styled";
 import { useRouter } from "next/dist/client/router";
-import { gql, useMutation, useQuery } from "@apollo/client";
+import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../_app";
-import { useEffect } from "react";
 
 const Wrapper = styled.div`
   /* margin: 50px 100px 100px 100px; */
@@ -76,6 +75,7 @@ const Signbutton = styled.button`
   :hover {
     background-color: #f04237;
     color: black;
+  }
 `;
 
 const Forgot = styled.div`
@@ -125,6 +125,7 @@ const CreateAccountbutton = styled.button`
   :hover {
     background-color: #f04237;
     color: black;
+  }
 `;
 
 const LOGIN_USER = gql`
@@ -140,7 +141,7 @@ export default function LoginPage() {
   const onClickCreateAccount = (event) => router.push(event.target.id);
 
   /* const { setAccessToken, setUserInfo, userInfo } = useContext(GlobalContext); */
-  const { setAccessToken } = useContext(GlobalContext);
+  const { setAccessToken, accessToken } = useContext(GlobalContext);
 
   const [myEmail, setMyEmail] = useState("");
   const [myPassword, setMyPassword] = useState("");
@@ -164,7 +165,9 @@ export default function LoginPage() {
       },
     });
     // console.log(result.data?.loginUser.accessToken);
-    localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+    // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+    localStorage.setItem("refreshToken", "true");
+    console.log("login:", accessToken);
     setAccessToken(result.data?.loginUser.accessToken);
     router.push("/mypage/loginfo");
   }

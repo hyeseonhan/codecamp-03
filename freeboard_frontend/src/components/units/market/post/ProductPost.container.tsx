@@ -10,6 +10,7 @@ import {
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { useEffect } from "react";
 
 export default function ProductPost(props) {
   const router = useRouter();
@@ -158,6 +159,29 @@ export default function ProductPost(props) {
     newFiles[index] = file;
     setFiles(newFiles);
   }
+
+  useEffect(() => {
+    if (props.data) {
+      setValue("name", props.data?.fetchUseditem.name, {
+        shouldValidate: true,
+      });
+      setValue("remarks", props.data?.fetchUseditem.remarks, {
+        shouldValidate: true,
+      });
+      setValue("contents", props.data?.fetchUseditem.contents, {
+        shouldValidate: true,
+      });
+      setValue("price", props.data?.fetchUseditem.price, {
+        shouldValidate: true,
+      });
+      setValue("tags", props.data?.fetchUseditem.tags, {
+        shouldValidate: true,
+      });
+      setValue("images", props.data?.fetchUseditem.images, {
+        shouldValidate: true,
+      });
+    }
+  }, [props.data]);
 
   return (
     <ProductPostUI
