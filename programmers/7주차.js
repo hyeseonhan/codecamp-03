@@ -96,3 +96,71 @@ var solution = (n, a, b) =>
   a.map((a, i) =>
     (a | b[i]).toString(2).padStart(n, 0).replace(/0/g, " ").replace(/1/g, "#")
   );
+
+// 다트게임
+
+const bonus = ["S", "D", "T"]; // 보너스를 판단하기 위해서 배열에 저장
+const option = ["*", "#"]; // 옵션을 판단하기 위해서 배열에 저장
+
+function solution(dartResult) {
+  const answer = [];
+  let score = ""; // 점수를 뽑아서 저장
+  for (let i = 0; i < dartResult.length; i++) {
+    // console.log(isNaN(Number(dartResult[i])) , dartResult[i])
+    if (!isNaN(Number(dartResult[i]))) {
+      // element가 숫자일때
+      // console.log(dartResult[i])
+      score += dartResult[i];
+    } else {
+      // element가 문자일때
+      if (bonus.includes(dartResult[i])) {
+        // dart의 보너스에 의해서 점수가 바뀜
+        score = Number(score);
+        if (dartResult[i] === "D") {
+          score = Math.pow(score, 2);
+        } else if (dartResult[i] === "T") {
+          score = Math.pow(score, 3);
+        }
+
+        // element중에서 bonus중의 하나라도 값이 있으면 true(보너스인 경우)
+        answer.push(score);
+        score = "";
+      } else if (option.includes(dartResult[i])) {
+        // option 배열중에 하나라도 나왔을때
+        // console.log(dartResult[i])
+        if (dartResult[i] === "#") {
+          // 아차상인 경우 해당 점수 * -1
+          answer[answer.length - 1] *= -1;
+        } else if (dartResult[i] === "*") {
+          // 스타상인 경우 해당 점수 * 2
+          answer[answer.length - 1] *= 2;
+
+          if (answer.length > 1) {
+            // 앞에 데이터가 있으므로 앞에 데이터까지 곱하기 2
+            answer[answer.length - 2] *= 2;
+          }
+        }
+      }
+    }
+  }
+  return answer.reduce((acc, cur) => acc + cur);
+}
+
+//다른사람
+function solution(dartResult) {
+  const bonus = { S: 1, D: 2, T: 3 },
+    options = { "*": 2, "#": -1, undefined: 1 };
+
+  let darts = dartResult.match(/\d.?\D/g);
+
+  for (let i = 0; i < darts.length; i++) {
+    let split = darts[i].match(/(^\d{1,})(S|D|T)(\*|#)?/),
+      score = Math.pow(split[1], bonus[split[2]]) * options[split[3]];
+
+    if (split[3] === "*" && darts[i - 1]) darts[i - 1] *= options["*"];
+
+    darts[i] = score;
+  }
+
+  return darts.reduce((a, b) => a + b);
+}
