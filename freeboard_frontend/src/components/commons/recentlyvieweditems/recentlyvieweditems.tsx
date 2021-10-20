@@ -51,6 +51,8 @@ const HeartButton = styled.img`
   width: 15px;
   height: 13.76px;
   margin-right: 5.5px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 `;
 
 const HeartCount = styled.div``;

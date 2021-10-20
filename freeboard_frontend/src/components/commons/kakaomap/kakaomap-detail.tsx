@@ -42,7 +42,10 @@ export default function KakaoMapDetail(props) {
         marker.setMap(map);
       });
     };
-  }, [props.data?.fetchUseditem.useditemAddress?.lat]);
+  }, [
+    props.data?.fetchUseditem.useditemAddress?.lat,
+    props.data?.fetchUseditem.useditemAddress?.lng,
+  ]);
 
   return (
     <>

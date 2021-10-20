@@ -7,7 +7,7 @@ export const Wrapper = styled.div`
   left: 0;
   right: 0;
   bottom: 0;
-
+  z-index: 1;
   display: block;
   font-family: "NB";
   text-align: center;

@@ -80,69 +80,72 @@ export default function KakaoMapPost(props) {
   useEffect(() => {
     const script = document.createElement("script"); // script 태그를 만든다.
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=a0290023f3c59e26ad85f5ea9165188f&libraries=services";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=a0290023f3c59e26ad85f5ea9165188f&autoload=false&libraries=services";
     document.head.appendChild(script); // appendChild 자식으로 추가
     script.onload = () => {
       window.kakao.maps.load(() => {
-        const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
-        const options = {
-          // 지도를 생성할 때 필요한 기본 옵션
-          center: new window.kakao.maps.LatLng(
-            37.51719553992789,
-            126.95962070083127
-          ), // 지도의 중심좌표.
-          level: 3, // 지도의 레벨(확대, 축소 정도)
-        };
+        window.setTimeout(() => {
+          const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
+          const options = {
+            // 지도를 생성할 때 필요한 기본 옵션
+            center: new window.kakao.maps.LatLng(
+              37.51719553992789,
+              126.95962070083127
+            ), // 지도의 중심좌표.
+            level: 3, // 지도의 레벨(확대, 축소 정도)
+          };
 
-        const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
-        console.log(map);
+          const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
+          console.log(map);
 
-        // 지도를 클릭한 위치에 표출할 마커입니다
-        const marker = new window.kakao.maps.Marker({
-          // 지도 중심좌표에 마커를 생성합니다
-          position: map.getCenter(),
-        });
+          // 지도를 클릭한 위치에 표출할 마커입니다
+          const marker = new window.kakao.maps.Marker({
+            // 지도 중심좌표에 마커를 생성합니다
+            position: map.getCenter(),
+          });
 
-        // 중요!
-        const geocoder = new window.kakao.maps.services.Geocoder();
-        console.log(geocoder);
+          console.log(window.kakao.maps);
+          // 중요!
+          const geocoder = new window.kakao.maps.services.Geocoder();
+          console.log(geocoder);
 
-        const coord = new window.kakao.maps.LatLng(lat, lng);
-        console.log("2번", coord);
+          const coord = new window.kakao.maps.LatLng(lat, lng);
+          console.log("2번", coord);
 
-        const test = function (coords, callback) {
-          geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
-        };
+          const test = function (coords, callback) {
+            geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
+          };
 
-        // 지도에 마커를 표시합니다
-        marker.setMap(map);
+          // 지도에 마커를 표시합니다
+          marker.setMap(map);
 
-        // 지도에 클릭 이벤트를 등록합니다
-        // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-        window.kakao.maps.event.addListener(
-          map,
-          "click",
-          function (mouseEvent: { latLng: any }) {
-            test(mouseEvent.latLng, function (result, status) {
-              if (status === window.kakao.maps.services.Status.OK) {
-                setLocation(result[0].address.address_name);
-              }
-            });
-            // 클릭한 위도, 경도 정보를 가져옵니다
-            const latlng = mouseEvent.latLng;
+          // 지도에 클릭 이벤트를 등록합니다
+          // 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
+          window.kakao.maps.event.addListener(
+            map,
+            "click",
+            function (mouseEvent: { latLng: any }) {
+              test(mouseEvent.latLng, function (result, status) {
+                if (status === window.kakao.maps.services.Status.OK) {
+                  setLocation(result[0].address.address_name);
+                }
+              });
+              // 클릭한 위도, 경도 정보를 가져옵니다
+              const latlng = mouseEvent.latLng;
 
-            // 마커 위치를 클릭한 위치로 옮깁니다
-            marker.setPosition(latlng);
+              // 마커 위치를 클릭한 위치로 옮깁니다
+              marker.setPosition(latlng);
 
-            // const message =
-            //   "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
-            // message += "경도는 " + latlng.getLng() + " 입니다";
-            setLat(latlng.getLat());
-            setLng(latlng.getLng());
+              // const message =
+              //   "클릭한 위치의 위도는 " + latlng.getLat() + " 이고, ";
+              // message += "경도는 " + latlng.getLng() + " 입니다";
+              setLat(latlng.getLat());
+              setLng(latlng.getLng());
 
-            console.log("jhg", lat);
-          }
-        );
+              console.log("jhg", lat);
+            }
+          );
+        }, 200);
       });
     };
   }, []);

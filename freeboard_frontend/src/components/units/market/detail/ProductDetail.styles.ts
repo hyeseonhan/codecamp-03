@@ -49,9 +49,16 @@ export const CreatedAt = styled.div``;
 
 export const IconWrapper = styled.div``;
 
-export const LinkIcon = styled.img``;
+export const LinkIcon = styled.img`
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+  margin-right: 15px;
+`;
 
-export const MapIcon = styled.img``;
+export const MapIcon = styled.img`
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+`;
 
 export const ContentsWrapper = styled.div`
   /* border-bottom: 1px solid #bdbdbd; */
@@ -62,6 +69,7 @@ export const Top = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  padding-right: 20px;
   height: 67px;
 `;
 
@@ -90,7 +98,10 @@ export const InnerBottom = styled.div`
   align-items: center;
 `;
 
-export const HeartButton = styled.img``;
+export const HeartButton = styled.img`
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+`;
 
 export const PickedCount = styled.div``;
 

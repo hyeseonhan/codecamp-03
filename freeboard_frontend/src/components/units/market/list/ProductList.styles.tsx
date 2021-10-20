@@ -107,6 +107,8 @@ export const PriceIcon = styled.img`
   width: 18px;
   height: 18px;
   margin-right: 11px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 `;
 
 export const Price = styled.div`
@@ -175,6 +177,8 @@ export const HeartButton = styled.img`
   width: 20px;
   height: 18.35px;
   margin-right: 6px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 `;
 
 export const HeartCount = styled.div`

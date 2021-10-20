@@ -34,6 +34,7 @@ import {
 import Dompurify from "dompurify";
 
 export default function ProductDetailUI(props: any) {
+  console.log(props);
   return (
     <Wrapper>
       <CardWrapper>
@@ -42,7 +43,9 @@ export default function ProductDetailUI(props: any) {
             <Avatar src="/images/avatar.png" />
             <Info>
               <Seller>{props.data?.fetchUseditem.seller.name}</Seller>
-              <CreatedAt>{props.data?.fetchUseditem.createdAt}</CreatedAt>
+              <CreatedAt>
+                {props.data?.fetchUseditem.createdAt.slice(0, 10)}
+              </CreatedAt>
             </Info>
           </AvartarWrapper>
           <IconWrapper>
@@ -99,6 +102,11 @@ export default function ProductDetailUI(props: any) {
           type="button"
           onClick={props.onClickMoveToEdit}
         />
+        {/* <Button01
+          name="삭제하기"
+          type="button"
+          onClick={props.onClickDelete}
+        /> */}
       </ButtonWrapper>
     </Wrapper>
   );

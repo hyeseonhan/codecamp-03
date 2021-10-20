@@ -19,11 +19,10 @@ import {
 } from "./ProductPost.styles";
 // import ReactQuill from "react-quill"; 프론트엔드 서버에서 그릴 때, document가 없어서 문제가 됨!!
 import dynamic from "next/dynamic";
-const ReactQuill = dynamic(() => import("react-quill"));
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
 
 export default function ProductPostUI(props: any) {
-  console.log(props);
   return (
     <Wrapper
       onSubmit={props.handleSubmit(

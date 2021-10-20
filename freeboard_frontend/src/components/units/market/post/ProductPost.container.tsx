@@ -70,7 +70,6 @@ export default function ProductPost(props) {
     const uploadFiles = files.map((el) =>
       el ? uploadFile({ variables: { file: el } }) : null
     );
-
     const results = await Promise.all(uploadFiles);
     const Images = results.map((el) => el?.data.uploadFile.url || "");
 
@@ -114,12 +113,6 @@ export default function ProductPost(props) {
   // kakaomap-post
   function onChangeAddressDetail(event) {
     setAddressDetail(event.target.vaule);
-  }
-
-  function onChangeFiles(file: File, index: number) {
-    const newFiles = [...files];
-    newFiles[index] = file;
-    setFiles(newFiles);
   }
 
   function onClickCancelUpdate() {
