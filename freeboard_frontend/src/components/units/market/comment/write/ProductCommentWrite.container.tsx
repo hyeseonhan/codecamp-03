@@ -6,8 +6,9 @@ import {
   CREATE_USED_ITEM_QUESTION,
   UPDATE_USED_ITEM_QUESTION,
 } from "./ProductCommentWrite.queries";
+import { FETCH_USED_ITEM_QUESTIONS } from "../list/ProductCommentlist.queries";
 
-export default function ProductCommentWrite() {
+export default function ProductCommentWrite(props) {
   const router = useRouter();
   const [contents, setContensts] = useState("");
 
@@ -28,7 +29,33 @@ export default function ProductCommentWrite() {
           },
           useditemId: router.query.useditemId,
         },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM_QUESTIONS,
+            variables: { useditemId: router.query.useditemId },
+          },
+        ],
       });
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
+  async function onClickUpdate(event) {
+    try {
+      await updateUseditemQuestion({
+        variables: {
+          updateUseditemQuestionInput: { contents: contents },
+          useditemQuestionId: event.target.id,
+        },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM_QUESTIONS,
+            variables: { useditemId: router.query.useditemId },
+          },
+        ],
+      });
+      props.setIsEdit(false);
     } catch (error) {
       alert(error.message);
     }
@@ -38,7 +65,10 @@ export default function ProductCommentWrite() {
     <ProductCommentWriteUI
       onChangeContents={onChangeContents}
       onClickQuestion={onClickQuestion}
+      onClickUpdate={onClickUpdate}
       contents={contents}
+      isEdit={props.isEdit}
+      el={props.el}
     />
   );
 }
