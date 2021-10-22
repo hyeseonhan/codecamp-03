@@ -18,14 +18,26 @@ export default function ReplyCommentWriteUI(props) {
           <Contents onChange={props.onChangeContents} />
           <ContentsBottom>
             <ContentsLength>{props.contents.length}/100</ContentsLength>
-            {props.isEditReply}
+            {/* {props.isEditReply && (
+              <Button
+                id={props.Answerel?._id}
+                onClick={props.onClickReplyUpate}
+              >
+                수정하기
+              </Button>
+            )}
+            {props.isCommentReply && (
+              <Button id={props.Answerel?._id} onClick={props.onClickReply}>
+                답글등록
+              </Button>
+            )} */}
             <Button
               id={props.Answerel?._id}
               onClick={
-                props.isEditReply ? props.onClickReply : props.onClickReplyUpate
+                props.isEditReply ? props.onClickReplyUpate : props.onClickReply
               }
             >
-              {props.isEditReply ? "답글등록" : "수정하기"}
+              {props.isEditReply ? "수정하기" : "답글등록"}
             </Button>
           </ContentsBottom>
         </InnerWrapper>

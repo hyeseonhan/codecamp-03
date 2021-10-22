@@ -9,5 +9,14 @@ export default function ProductCommentList(props) {
     variables: { useditemId: router.query.useditemId },
   });
 
-  return <ProductCommentListUI data={data} />;
+  return (
+    <ProductCommentListUI
+      data={data}
+      // 최상위 폴더인 pages/product-detail에서 만든 state값을 가져옴, ReplyCompare 변수값이 저장되어있다.
+      setIsReplySeller={props.setIsReplySeller}
+      isReplySeller={props.isReplySeller}
+      setIsCommentSeller={props.setIsCommentSeller}
+      isCommentSeller={props.isCommentSeller}
+    />
+  );
 }

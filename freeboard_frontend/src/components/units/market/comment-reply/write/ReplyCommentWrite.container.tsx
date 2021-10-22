@@ -32,8 +32,16 @@ export default function ReplyCommentWrite(props) {
           },
           useditemQuestionId: props.el._id, // ProductCommentListUIItem에서 댓글의 대댓이니까 댓글의 id를 받아야된다.
         },
+        refetchQueries: [
+          {
+            query: FETCH_USED_ITEM_QUESTION_ANSWERS,
+            variables: { useditemQuestionId: props.el?._id },
+          },
+        ],
       });
       console.log("reply:", contents);
+      // props.setIsCommentReply?.(false);
+      props.setIsReply?.(false);
     } catch (error) {
       alert(error.mesaage);
     }
@@ -73,7 +81,10 @@ export default function ReplyCommentWrite(props) {
       onClickReplyUpate={onClickReplyUpate}
       onChangeContents={onChangeContents}
       Answerel={props.Answerel}
+      isEditReply={props.isEditReply}
+      isCommentReply={props.isCommentReply}
       setIsEditReply={props.setIsEditReply}
+      setIsCommentReply={props.setIsCommentReply}
     />
   );
 }

@@ -69,6 +69,7 @@ export default function ProductCommentWrite(props) {
       contents={contents}
       isEdit={props.isEdit}
       el={props.el}
+      isCommentSeller={props.isCommentSeller}
     />
   );
 }

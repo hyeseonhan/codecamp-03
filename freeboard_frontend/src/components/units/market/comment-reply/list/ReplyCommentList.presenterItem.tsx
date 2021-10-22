@@ -14,12 +14,22 @@ import {
   Reply,
 } from "./ReplyCommentLists.styles";
 import ReplyCommentWrite from "../../comment-reply/write/ReplyCommentWrite.container";
-
+import { FETCH_USER_LOGGED_IN } from "./ReplyCommentList.queries";
+import { useQuery } from "@apollo/client";
 export default function ReplyCommentListUIItem(props) {
   // console.log(props.Answerel?.user?.name)
   const [isEditReply, setIsEditReply] = useState(false);
   const [isCommentReply, setIsCommentReply] = useState(false);
 
+  const { data: fetchUserLoggedIndata } = useQuery(FETCH_USER_LOGGED_IN);
+
+  // 이 변수를 넘기기 위해 pages/product-detail에서 state 끌어올리기 해줌.
+  const ReplyCompare =
+    fetchUserLoggedIndata?.fetchUserLoggedIn.email ===
+    props.Answerel?.user?.email;
+
+  props.setIsReplySeller(ReplyCompare);
+  //
   function onClickUpdate() {
     setIsEditReply(true);
   }
@@ -45,9 +55,15 @@ export default function ReplyCommentListUIItem(props) {
             </InfoWrapper>
           </InnerWrapper>
           <OptionWrapper>
-            <UpdateIcon onClick={onClickUpdate} src="/images/graypencil.png" />
-            <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
-            {isCommentReply && (
+            {ReplyCompare ? (
+              <>
+                <UpdateIcon
+                  onClick={onClickUpdate}
+                  src="/images/graypencil.png"
+                />
+                <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
+              </>
+            ) : (
               <Reply onClick={onClickReply} src="/images/reply.png" />
             )}
           </OptionWrapper>
@@ -58,6 +74,14 @@ export default function ReplyCommentListUIItem(props) {
           Answerel={props.Answerel}
           isEditReply={isEditReply}
           setIsEditReply={setIsEditReply}
+        />
+      )}
+      {/* 대대댓 등록 안됨. */}
+      {isCommentReply && (
+        <ReplyCommentWrite
+          Answerel={props.Answerel}
+          isCommentReply={isCommentReply}
+          setIsCommentReply={setIsCommentReply}
         />
       )}
     </>
