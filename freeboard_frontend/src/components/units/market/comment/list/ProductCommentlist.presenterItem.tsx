@@ -44,14 +44,14 @@ export default function ProductCommentListUIItem(props) {
                 <Date>{props.el?.createdAt.slice(0, 10)}</Date>
               </InfoWrapper>
             </InnerWrapper>
-            {/* {!isEdit ? ( */}
-            <OptionWrapper>
-              <UpdateIcon onClick={onClickUpdate} src="/images/pencil.png" />
-              <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
-            </OptionWrapper>
-            {/* ) : ( */}
-            <Reply onClick={onClickReply} src="/images/reply.png" />
-            {/* )} */}
+            {!isEdit ? (
+              <OptionWrapper>
+                <UpdateIcon onClick={onClickUpdate} src="/images/pencil.png" />
+                <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
+              </OptionWrapper>
+            ) : (
+              <Reply onClick={onClickReply} src="/images/reply.png" />
+            )}
           </>
         )}
         {isEdit && (

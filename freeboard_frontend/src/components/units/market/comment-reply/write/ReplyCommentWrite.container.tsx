@@ -52,11 +52,13 @@ export default function ReplyCommentWrite(props) {
           {
             query: FETCH_USED_ITEM_QUESTION_ANSWERS,
             variables: {
-              useditemQuestionId: props.Answerel?.useditemQuestionId._id,
+              useditemQuestionId: props.Answerel?.useditemQuestion._id,
             },
           },
         ],
       });
+      console.log("adf", contents);
+      console.log(props.Answerel);
       props.setIsEditReply?.(false);
     } catch (error) {
       alert(error.message);
@@ -70,6 +72,8 @@ export default function ReplyCommentWrite(props) {
       onClickReply={onClickReply}
       onClickReplyUpate={onClickReplyUpate}
       onChangeContents={onChangeContents}
+      Answerel={props.Answerel}
+      setIsEditReply={props.setIsEditReply}
     />
   );
 }

@@ -11,6 +11,9 @@ export const FETCH_USED_ITEM_QUESTION_ANSWERS = gql`
       user {
         name
       }
+      useditemQuestion {
+        _id
+      }
     }
   }
 `;
