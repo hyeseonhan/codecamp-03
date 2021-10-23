@@ -5,11 +5,15 @@ import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
 import { withAuth } from "../../../commons/hocs/withAuth";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
 const MySideBar = () => {
   const router = useRouter();
   const { setUserInfo, userInfo, accessToken } = useContext(GlobalContext);
   console.log("aaa:", accessToken);
+
+  // const [point, setPoint] = useState(false);
+  const [isOpenModal, setIsOpenModal] = useState(false);
 
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
@@ -37,12 +41,18 @@ const MySideBar = () => {
     router.push("/mypage/myprofile");
   }
 
+  function onToggleOpenPointCharge() {
+    setIsOpenModal((prev) => !prev);
+  }
+
   return (
     <MySideBarUI
       data={data}
       onClickMovetoMyMarket={onClickMovetoMyMarket}
       onClickMovetoMyPoint={onClickMovetoMyPoint}
       onClickMovetoMyProfile={onClickMovetoMyProfile}
+      onToggleOpenPointCharge={onToggleOpenPointCharge}
+      isOpenModal={isOpenModal}
     />
   );
 };

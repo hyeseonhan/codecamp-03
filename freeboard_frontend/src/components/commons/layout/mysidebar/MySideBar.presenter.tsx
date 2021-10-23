@@ -13,6 +13,7 @@ import {
   PointInfo,
 } from "./MySideBar.styles";
 import { Modal } from "antd";
+import PointCharge from "../../../units/mypage/pointcharge/pointcharge.container";
 
 export default function MySideBarUI(props) {
   return (
@@ -29,14 +30,31 @@ export default function MySideBarUI(props) {
           <InnerWrapper3>
             <LogoutButton>LOG OUT</LogoutButton>
             <Avatar></Avatar>
-            <LogoutButton>CHARGE</LogoutButton>
-            <Modal></Modal>
+            <LogoutButton onClick={props.onToggleOpenPointCharge}>
+              CHARGE
+            </LogoutButton>
+            {props.isOpenModal && (
+              <Modal
+                visible={true}
+                width="300px"
+                footer={null}
+                mask={true}
+                maskClosable={false}
+                onCancel={props.onToggleOpenPointCharge}
+              >
+                <PointCharge />
+              </Modal>
+            )}
           </InnerWrapper3>
           <InnerLeftWrapper2>
             <State onClick={props.onClickMovetoMyMarket}>Market</State>
             <div>
               <State onClick={props.onClickMovetoMyPoint}>Point</State>
-              <PointInfo>$ 100,000</PointInfo>
+              <PointInfo>
+                {props.data?.fetchUserLoggedIn.userPoint?.amount.toLocaleString(
+                  "ko-KR"
+                )}
+              </PointInfo>
             </div>
             <State onClick={props.onClickMovetoMyProfile}>Profile</State>
           </InnerLeftWrapper2>
