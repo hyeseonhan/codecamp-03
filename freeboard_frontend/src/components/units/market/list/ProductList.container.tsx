@@ -5,9 +5,25 @@ import { FETCH_USED_ITEMS } from "./ProductList.queries";
 
 export default function ProductList() {
   const router = useRouter();
-  const { data } = useQuery(FETCH_USED_ITEMS, {
-    variables: { page: 1 },
+  const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
+    variables: { page: 0 },
   });
+
+  function onloadMore() {
+    if (!data) return;
+    fetchMore({
+      // variables: { page: data?.fetchUseditems.length / 10 + 1 },
+      variables: { page: Math.ceil(data?.fetchUseditems.length / 10) + 1 },
+      updateQuery: (prev, { fetchMoreResult }) => {
+        return {
+          fetchUseditems: [
+            ...prev.fetchUseditems,
+            fetchMoreResult.fetchUseditems,
+          ],
+        };
+      },
+    });
+  }
 
   // const onClickMoveToPost = (event) => router.push(event.target.id);
   function onClickMoveToPost() {
@@ -44,6 +60,7 @@ export default function ProductList() {
       data={data}
       onClickMoveToPost={onClickMoveToPost}
       onClickMoveToProductDetail={onClickMoveToProductDetail}
+      onloadMore={onloadMore}
     />
   );
 }

@@ -27,6 +27,7 @@ import {
   PostButton,
 } from "./ProductList.styles";
 import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
+import InfiniteScroll from "react-infinite-scroller";
 
 export default function ProductListtUI(props) {
   return (
@@ -38,13 +39,19 @@ export default function ProductListtUI(props) {
             <OnSale>판매중상품</OnSale>
             <Sold>판매된상품</Sold>
           </TableTop>
-          {props.data?.fetchUseditems.map((el) => (
-            <Table
-              key={el._id}
-              id={el._id}
-              onClick={props.onClickMoveToProductDetail(el)}
+          <div style={{ overflow: "auto", width: "1000px", height: "1004px" }}>
+            <InfiniteScroll
+              pageStart={0}
+              loadMore={props.onloadMore}
+              hasMore={true}
             >
-              {/* {props.data?.fetchUseditems.images
+              {props.data?.fetchUseditems.map((el) => (
+                <Table
+                  key={el._id}
+                  id={el._id}
+                  onClick={props.onClickMoveToProductDetail(el)}
+                >
+                  {/* {props.data?.fetchUseditems.images
                 ?.filter((el: string) => el)
                 .map((el: string) => (
                   <ProductImage
@@ -52,37 +59,39 @@ export default function ProductListtUI(props) {
                     src={`https://storage.googleapis.com/${el}`}
                   />
                 ))} */}
-              {el?.images[0] ? (
-                <ProductImage
-                  src={`https://storage.googleapis.com/${el?.images[0]}`}
-                />
-              ) : (
-                <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
-              )}
+                  {el?.images[0] ? (
+                    <ProductImage
+                      src={`https://storage.googleapis.com/${el?.images[0]}`}
+                    />
+                  ) : (
+                    <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+                  )}
 
-              <Info>
-                <Detail>
-                  <Name>{el.name}</Name>
-                  <Remarks>{el.remarks}</Remarks>
-                  <Tags>{el.tags}</Tags>
-                  <SellerInfo>
-                    <AvatarInfo>
-                      <Avatar src="/images/avatar.png" />
-                      <Seller>{el.seller?.name}</Seller>
-                    </AvatarInfo>
-                    <HeartInfo>
-                      <HeartButton src="/images/heart.png" />
-                      <HeartCount>{el.pickedCount}</HeartCount>
-                    </HeartInfo>
-                  </SellerInfo>
-                </Detail>
-                <PriceInfo>
-                  <PriceIcon src="/images/price.png" />
-                  <Price>{el.price}</Price>
-                </PriceInfo>
-              </Info>
-            </Table>
-          ))}
+                  <Info>
+                    <Detail>
+                      <Name>{el.name}</Name>
+                      <Remarks>{el.remarks}</Remarks>
+                      <Tags>{el.tags}</Tags>
+                      <SellerInfo>
+                        <AvatarInfo>
+                          <Avatar src="/images/avatar.png" />
+                          <Seller>{el.seller?.name}</Seller>
+                        </AvatarInfo>
+                        <HeartInfo>
+                          <HeartButton src="/images/heart.png" />
+                          <HeartCount>{el.pickedCount}</HeartCount>
+                        </HeartInfo>
+                      </SellerInfo>
+                    </Detail>
+                    <PriceInfo>
+                      <PriceIcon src="/images/price.png" />
+                      <Price>{el.price}</Price>
+                    </PriceInfo>
+                  </Info>
+                </Table>
+              ))}
+            </InfiniteScroll>
+          </div>
           <PostButton
             // id={"/market/product-post"}
             onClick={props.onClickMoveToPost}
