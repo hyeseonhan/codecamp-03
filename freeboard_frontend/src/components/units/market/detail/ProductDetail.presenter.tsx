@@ -60,7 +60,10 @@ export default function ProductDetailUI(props: any) {
               <Name>{props.data?.fetchUseditem.name}</Name>
             </InnerTop>
             <InnerBottom>
-              <HeartButton src="/images/heart.png" />
+              <HeartButton
+                onClick={props.onClickPicked}
+                src="/images/heart.png"
+              />
               <PickedCount>{props.data?.fetchUseditem.pickedCount}</PickedCount>
             </InnerBottom>
           </Top>

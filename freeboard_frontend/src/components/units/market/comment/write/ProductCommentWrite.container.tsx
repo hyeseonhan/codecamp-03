@@ -11,6 +11,7 @@ import { FETCH_USED_ITEM_QUESTIONS } from "../list/ProductCommentlist.queries";
 export default function ProductCommentWrite(props) {
   const router = useRouter();
   const [contents, setContensts] = useState("");
+  const [changeEidtForm, setChangeEditForm] = useState(false);
 
   const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
   const [updateUseditemQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
@@ -20,6 +21,7 @@ export default function ProductCommentWrite(props) {
   }
 
   async function onClickQuestion() {
+    setChangeEditForm(true);
     console.log(contents);
     try {
       await createUseditemQuestion({
@@ -42,6 +44,7 @@ export default function ProductCommentWrite(props) {
   }
 
   async function onClickUpdate(event) {
+    setChangeEditForm(false);
     try {
       await updateUseditemQuestion({
         variables: {
@@ -70,6 +73,7 @@ export default function ProductCommentWrite(props) {
       isEdit={props.isEdit}
       el={props.el}
       isCommentSeller={props.isCommentSeller}
+      changeEidtForm={changeEidtForm}
     />
   );
 }

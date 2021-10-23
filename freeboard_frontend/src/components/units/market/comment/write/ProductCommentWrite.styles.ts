@@ -1,14 +1,15 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1200px;
+  /* width: 1200px; */
   margin: 0px 100px 40px;
+  /* margin-bottom: 40px; */
 `;
 
 export const TopWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 `;
 
 export const CommentIcon = styled.img`
@@ -23,8 +24,32 @@ export const Titlename = styled.div`
   font-size: 18px;
 `;
 
+export const InnerWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  /* border: 1px solid red; */
+`;
+
+export const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+`;
+
+export const MiddleWrapper = styled.div``;
+
 export const InputWrapper = styled.div`
+  width: ${(props) => (props.isEdit === true ? "1143px" : "1200px")};
+  /* width: 1200px; */
   border: 1px solid lightgray;
+`;
+
+export const Writer = styled.div`
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 23.68px;
+  margin-bottom: 6px;
 `;
 
 export const Contents = styled.textarea`

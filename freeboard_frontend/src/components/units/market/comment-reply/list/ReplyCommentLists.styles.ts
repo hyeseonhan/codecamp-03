@@ -1,11 +1,12 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  width: 1162px;
+  width: 1144px;
   /* border: 1px solid lightgray; */
-  margin-left: 40px;
+  margin-left: 160px;
   display: flex;
   flex-direction: row;
+  align-items: baseline;
   justify-content: space-between;
 `;
 
@@ -15,6 +16,7 @@ export const InnerWrapper = styled.div`
   justify-content: space-between;
   align-items: center;
   padding-bottom: 20px;
+  margin-bottom: 10px;
 `;
 
 export const LeftWrapper = styled.div`
@@ -54,7 +56,7 @@ export const Content = styled.div`
 export const OptionWrapper = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: flex-start;
 `;
 
 export const UpdateIcon = styled.img`
@@ -68,6 +70,13 @@ export const Reply = styled.img`
   height: 20px;
 `;
 
-// export const Line = styled.div`
-//   border-bottom: 1px solid lightgray;
-// `;
+export const ComponentWrapper1 = styled.div`
+  margin-left: 116px;
+  /* border: 1px solid blue; */
+`;
+
+// 대대댓
+export const ComponentWrapper = styled.div`
+  margin-left: 116px;
+  /* border: 1px solid green; */
+`;

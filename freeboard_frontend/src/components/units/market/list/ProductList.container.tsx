@@ -36,6 +36,7 @@ export default function ProductList() {
     if (baskets.length > 3) baskets.shift();
 
     localStorage.setItem("baskets", JSON.stringify(baskets));
+    console.log("sdfsdf", el);
   };
 
   return (

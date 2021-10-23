@@ -15,6 +15,9 @@ import {
   UpdateIcon,
   DeleteIcon,
   Reply,
+  ComponentWrpper,
+  ComponentWrpper2,
+  Line,
 } from "./ProductCommentlist.styles";
 import { FETCH_USER_LOGGED_IN } from "../../comment-reply/list/ReplyCommentList.queries";
 import { useQuery } from "@apollo/client";
@@ -43,30 +46,37 @@ export default function ProductCommentListUIItem(props) {
   // console.log("aaa", props.el?._id, props.el?.user);
 
   return (
-    <OutWrapper>
-      <Wrapper>
-        {!isEdit && (
-          <>
-            <InnerWrapper>
-              <Avatar src="/images/avatar.png" />
-              <InfoWrapper>
-                <Writer>{props.el?.user?.name}</Writer>
-                <Content>{props.el?.contents}</Content>
-                <Date>{props.el?.createdAt.slice(0, 10)}</Date>
-              </InfoWrapper>
-            </InnerWrapper>
-            {/* isCommentSeller 는 state이다. */}
-            {/* {!props.isCommentSeller ? ( */}
-            {CommentCompare ? (
-              <OptionWrapper>
-                <UpdateIcon onClick={onClickUpdate} src="/images/pencil.png" />
-                <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
-              </OptionWrapper>
-            ) : (
-              <Reply onClick={onClickReply} src="/images/reply.png" />
-            )}
+    <>
+      <OutWrapper>
+        <Wrapper>
+          {!isEdit && (
+            <>
+              <InnerWrapper>
+                <Avatar src="/images/avatar.png" />
+                <InfoWrapper>
+                  <Writer>{props.el?.user?.name}</Writer>
+                  <Content>{props.el?.contents}</Content>
+                  <Date>{props.el?.createdAt.slice(0, 10)}</Date>
+                </InfoWrapper>
+              </InnerWrapper>
+              {/* isCommentSeller 는 state이다. */}
+              {/* {!props.isCommentSeller ? ( */}
+              {CommentCompare ? (
+                <OptionWrapper>
+                  <UpdateIcon
+                    onClick={onClickUpdate}
+                    src="/images/pencil.png"
+                  />
+                  <DeleteIcon
+                    onClick={onClickDelete}
+                    src="/images/delite.png"
+                  />
+                </OptionWrapper>
+              ) : (
+                <Reply onClick={onClickReply} src="/images/reply.png" />
+              )}
 
-            {/* {props.el?._id && (
+              {/* {props.el?._id && (
               <OptionWrapper>
                 <UpdateIcon onClick={onClickUpdate} src="/images/pencil.png" />
                 <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
@@ -75,8 +85,11 @@ export default function ProductCommentListUIItem(props) {
             {!props.el?.user?._id && (
               <Reply onClick={onClickReply} src="/images/reply.png" />
             )} */}
-          </>
-        )}
+            </>
+          )}
+        </Wrapper>
+      </OutWrapper>
+      <ComponentWrpper>
         {isEdit && (
           <ProductCommentWrite
             isEdit={isEdit}
@@ -84,19 +97,22 @@ export default function ProductCommentListUIItem(props) {
             setIsEdit={setIsEdit}
           />
         )}
-      </Wrapper>
-      {isReply && (
-        <ReplyCommentWrite
+        <ComponentWrpper2>
+          {isReply && (
+            <ReplyCommentWrite
+              el={props.el}
+              isReply={isReply}
+              setIsReply={setIsReply}
+            />
+          )}
+        </ComponentWrpper2>
+        {/* 상위 폴더에서 내려준 state. ReplyCompare 변수 값이 저장되어있다 */}
+        <ReplyCommentList
           el={props.el}
-          isReply={isReply}
-          setIsReply={setIsReply}
+          setIsReplySeller={props.setIsReplySeller}
         />
-      )}
-      {/* 상위 폴더에서 내려준 state. ReplyCompare 변수 값이 저장되어있다 */}
-      <ReplyCommentList
-        el={props.el}
-        setIsReplySeller={props.setIsReplySeller}
-      />
-    </OutWrapper>
+      </ComponentWrpper>
+      <Line />
+    </>
   );
 }

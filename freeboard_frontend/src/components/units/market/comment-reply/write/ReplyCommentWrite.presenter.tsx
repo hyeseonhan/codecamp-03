@@ -1,8 +1,12 @@
 import {
   OutWrapper,
   Wrapper,
+  LeftWrapper,
   ReplyIcon,
+  MiddleWrapper,
+  Avatar,
   InnerWrapper,
+  Writer,
   Contents,
   ContentsBottom,
   ContentsLength,
@@ -13,12 +17,17 @@ export default function ReplyCommentWriteUI(props) {
   return (
     <OutWrapper>
       <Wrapper>
-        <ReplyIcon src="/images/replyarrow.png" />
-        <InnerWrapper>
-          <Contents onChange={props.onChangeContents} />
-          <ContentsBottom>
-            <ContentsLength>{props.contents.length}/100</ContentsLength>
-            {/* {props.isEditReply && (
+        <LeftWrapper>
+          <ReplyIcon src="/images/replyarrow.png" />
+          {props.isEditReply && <Avatar src="/images/avatar.png" />}
+        </LeftWrapper>
+        <MiddleWrapper>
+          {props.isEditReply && <Writer>{props.Answerel?.user?.name}</Writer>}
+          <InnerWrapper isEditReply={props.isEditReply}>
+            <Contents onChange={props.onChangeContents} />
+            <ContentsBottom>
+              <ContentsLength>{props.contents.length}/100</ContentsLength>
+              {/* {props.isEditReply && (
               <Button
                 id={props.Answerel?._id}
                 onClick={props.onClickReplyUpate}
@@ -31,16 +40,19 @@ export default function ReplyCommentWriteUI(props) {
                 답글등록
               </Button>
             )} */}
-            <Button
-              id={props.Answerel?._id}
-              onClick={
-                props.isEditReply ? props.onClickReplyUpate : props.onClickReply
-              }
-            >
-              {props.isEditReply ? "수정하기" : "답글등록"}
-            </Button>
-          </ContentsBottom>
-        </InnerWrapper>
+              <Button
+                id={props.Answerel?._id}
+                onClick={
+                  props.isEditReply
+                    ? props.onClickReplyUpate
+                    : props.onClickReply
+                }
+              >
+                {props.isEditReply ? "수정하기" : "답글등록"}
+              </Button>
+            </ContentsBottom>
+          </InnerWrapper>
+        </MiddleWrapper>
       </Wrapper>
     </OutWrapper>
   );

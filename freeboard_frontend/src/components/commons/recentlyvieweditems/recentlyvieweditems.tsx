@@ -134,7 +134,8 @@ export default function RecentlyViewedItems() {
     <>
       <Wrapper>
         <Title>오늘 본 상품</Title>
-        {basketItems.map((el: any) => (
+        {/* basketItems ? 물음표 꼭 써줘야한다. */}
+        {basketItems?.map((el: any) => (
           <InnerWrapper key={el._id} id={el._id} onClick={onClickMoveToProduct}>
             {/* <HeartWrapper> */}
             <HeartInfo>
@@ -147,7 +148,7 @@ export default function RecentlyViewedItems() {
                 src={`https://storage.googleapis.com/${el?.images[0]}`}
               />
             ) : (
-              <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+              <NoneImage>NO IMAGE</NoneImage>
             )}
             <Detail>
               <Name>{el.name}</Name>

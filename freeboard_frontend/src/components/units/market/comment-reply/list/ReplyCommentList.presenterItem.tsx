@@ -12,6 +12,8 @@ import {
   UpdateIcon,
   DeleteIcon,
   Reply,
+  ComponentWrapper1,
+  ComponentWrapper,
 } from "./ReplyCommentLists.styles";
 import ReplyCommentWrite from "../../comment-reply/write/ReplyCommentWrite.container";
 import { FETCH_USER_LOGGED_IN } from "./ReplyCommentList.queries";
@@ -69,21 +71,25 @@ export default function ReplyCommentListUIItem(props) {
           </OptionWrapper>
         </Wrapper>
       )}
-      {isEditReply && (
-        <ReplyCommentWrite
-          Answerel={props.Answerel}
-          isEditReply={isEditReply}
-          setIsEditReply={setIsEditReply}
-        />
-      )}
-      {/* 대대댓 등록 안됨. */}
-      {isCommentReply && (
-        <ReplyCommentWrite
-          Answerel={props.Answerel}
-          isCommentReply={isCommentReply}
-          setIsCommentReply={setIsCommentReply}
-        />
-      )}
+      <ComponentWrapper1>
+        {isEditReply && (
+          <ReplyCommentWrite
+            Answerel={props.Answerel}
+            isEditReply={isEditReply}
+            setIsEditReply={setIsEditReply}
+          />
+        )}
+      </ComponentWrapper1>
+      <ComponentWrapper>
+        {/* 대대댓 등록 안됨. */}
+        {isCommentReply && (
+          <ReplyCommentWrite
+            Answerel={props.Answerel}
+            isCommentReply={isCommentReply}
+            setIsCommentReply={setIsCommentReply}
+          />
+        )}
+      </ComponentWrapper>
     </>
   );
 }

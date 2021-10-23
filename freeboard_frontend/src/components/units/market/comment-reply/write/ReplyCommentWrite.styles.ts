@@ -11,16 +11,39 @@ export const Wrapper = styled.div`
   margin-left: 40px;
 `;
 
+export const LeftWrapper = styled.div``;
+
 export const ReplyIcon = styled.img`
   width: 15px;
   height: 17px;
-  margin-right: 25px;
+  margin-right: 29px;
+`;
+
+export const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
+  margin-right: 16px;
+`;
+
+export const MiddleWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 `;
 
 export const InnerWrapper = styled.div`
-  width: 1095px;
+  width: ${(props) => (props.isEditReply === true ? "1036px" : "1095px")};
+  /* width: 1095px; */
   border: 1px solid lightgray;
   margin-bottom: 40px;
+`;
+
+export const Writer = styled.div`
+  margin-bottom: 8px;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 23.68px;
 `;
 
 export const Contents = styled.textarea`

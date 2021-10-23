@@ -10,6 +10,7 @@ import { FETCH_USED_ITEM_QUESTION_ANSWERS } from "../../comment-reply/list/Reply
 
 export default function ReplyCommentWrite(props) {
   const [contents, setContents] = useState("");
+  const [changeEidtForm, setChangeEditForm] = useState(false);
 
   const [createUseditemQuestionAnswer] = useMutation(
     CREATE_USED_ITEM_QUESTION_ANSWER
@@ -24,6 +25,7 @@ export default function ReplyCommentWrite(props) {
   }
 
   async function onClickReply() {
+    setChangeEditForm(true);
     try {
       await createUseditemQuestionAnswer({
         variables: {
@@ -48,6 +50,7 @@ export default function ReplyCommentWrite(props) {
   }
 
   async function onClickReplyUpate(event) {
+    setChangeEditForm(false);
     try {
       await updateUseditemQuestionAnswer({
         variables: {
@@ -85,6 +88,7 @@ export default function ReplyCommentWrite(props) {
       isCommentReply={props.isCommentReply}
       setIsEditReply={props.setIsEditReply}
       setIsCommentReply={props.setIsCommentReply}
+      changeEidtForm={changeEidtForm}
     />
   );
 }
