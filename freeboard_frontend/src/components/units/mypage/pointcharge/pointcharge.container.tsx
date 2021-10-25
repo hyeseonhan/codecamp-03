@@ -49,7 +49,7 @@ export default function PointCharge() {
               impUid: String(rsp.imp_uid),
             },
           });
-          alert("포인트 ${${mypoint} 이 충전되었습니다.");
+          alert("포인트 ${mypoint} 이 충전되었습니다.");
 
           //   mutation() => createPointTransactionOfLoading
           //     ...,

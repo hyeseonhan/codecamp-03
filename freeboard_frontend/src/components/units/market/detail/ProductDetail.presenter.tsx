@@ -99,17 +99,13 @@ export default function ProductDetailUI(props: any) {
           type="button"
         />
         {/* </Wrapper01> */}
-        <Button01 name="구매하기" type="text" />
+        <Button01 onClick={props.onClickBuy} name="구매하기" type="button" />
         <Button01
           name="수정하기"
           type="button"
           onClick={props.onClickMoveToEdit}
         />
-        {/* <Button01
-          name="삭제하기"
-          type="button"
-          onClick={props.onClickDelete}
-        /> */}
+        <Button01 name="삭제하기" type="button" onClick={props.onClickDelete} />
       </ButtonWrapper>
     </Wrapper>
   );
