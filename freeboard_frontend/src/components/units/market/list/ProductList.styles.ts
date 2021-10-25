@@ -26,7 +26,7 @@ export const ListWrapper = styled.div`
 
 export const LeftWrapper = styled.div`
   width: 1000px;
-  margin-right: 20px;
+  margin-right: 30px;
 `;
 
 export const TableTop = styled.div`
@@ -84,7 +84,7 @@ export const NoneImage = styled.div`
 `;
 
 export const Info = styled.div`
-  width: 800px;
+  width: 750px;
   /* width: 100%; */
   display: flex;
   flex-direction: row;
@@ -159,6 +159,7 @@ export const Avatar = styled.img`
   width: 20px;
   height: 20px;
   margin-right: 6px;
+  border-radius: 70%;
 `;
 
 export const Seller = styled.div`
@@ -189,5 +190,20 @@ export const HeartCount = styled.div`
 `;
 
 export const PostButton = styled.button`
-  margin-top: 40px;
+  width: 171px;
+  height: 52px;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: white;
+  color: black;
+  /* border-radius: 15px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  cursor: pointer;
+  /* border: 1px solid #f2f2f2; */
+  border: 3px solid black;
+  margin-top: 50px;
+  margin-left: 530px;
 `;

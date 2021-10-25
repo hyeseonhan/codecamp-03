@@ -15,6 +15,10 @@ export const Wrapper = styled.div`
 export const State = styled.div`
   font-weight: 500;
   font-size: 16px;
+  cursor: pointer;
+  :hover {
+    color: #f04237;
+  }
 `;
 
 export const RightWrapper = styled.div`
@@ -77,6 +81,7 @@ export const Avatar = styled.img`
   border: 1px solid black;
   margin-top: 20px;
   margin-bottom: 20px;
+  border-radius: 70%;
 `;
 
 export const InnerLeftWrapper2 = styled.div`

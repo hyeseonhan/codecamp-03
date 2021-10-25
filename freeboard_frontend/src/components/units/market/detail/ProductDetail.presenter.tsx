@@ -40,7 +40,13 @@ export default function ProductDetailUI(props: any) {
       <CardWrapper>
         <Headers>
           <AvartarWrapper>
-            <Avatar src="/images/avatar.png" />
+            <Avatar
+              src={
+                props.data?.fetchUseditem.seller.picture
+                  ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.pciture}`
+                  : "/images/you.jpeg"
+              }
+            />
             <Info>
               <Seller>{props.data?.fetchUseditem.seller.name}</Seller>
               <CreatedAt>

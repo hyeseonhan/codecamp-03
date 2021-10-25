@@ -68,7 +68,6 @@ export default function ProductListtUI(props) {
                   ) : (
                     <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
                   )}
-
                   <Info>
                     <Detail>
                       <Name>{el.name}</Name>
@@ -76,7 +75,13 @@ export default function ProductListtUI(props) {
                       <Tags>{el.tags}</Tags>
                       <SellerInfo>
                         <AvatarInfo>
-                          <Avatar src="/images/avatar.png" />
+                          <Avatar
+                            src={
+                              props.data?.fetchUseditems?.seller?.picture
+                                ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.pciture}`
+                                : "/images/price.png"
+                            }
+                          />
                           <Seller>{el.seller?.name}</Seller>
                         </AvatarInfo>
                         <HeartInfo>

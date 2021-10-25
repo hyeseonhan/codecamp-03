@@ -34,7 +34,10 @@ export const AvartarWrapper = styled.div`
 `;
 
 export const Avatar = styled.img`
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
+  border-radius: 70%;
 `;
 
 export const Info = styled.div`

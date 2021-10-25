@@ -29,7 +29,13 @@ export default function MySideBarUI(props) {
           </InnerWrapper1>
           <InnerWrapper3>
             <LogoutButton>LOG OUT</LogoutButton>
-            <Avatar></Avatar>
+            <Avatar
+              src={
+                props.data?.fetchUserLoggedIn.picture
+                  ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.pciture}`
+                  : "/images/you.jpeg"
+              }
+            />
             <LogoutButton onClick={props.onToggleOpenPointCharge}>
               CHARGE
             </LogoutButton>

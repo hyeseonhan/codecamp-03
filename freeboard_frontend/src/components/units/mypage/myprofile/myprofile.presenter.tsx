@@ -1,20 +1,25 @@
+import MyProfileUploadUI from "../../../commons/uploads/myprofileupload/myprofileupload.container";
 import {
   Wrapper,
   LeftWrapper,
   Title,
   InnerLeftWrapper,
-  State,
-  StateContent,
+  // State,
+  // StateContent,
+  // Picture,
+  // StateButton,
 } from "./myprofile.styles";
 
-export default function MyProfileUI() {
+export default function MyProfileUI(props) {
   return (
     <Wrapper>
       <LeftWrapper>
         <Title>ACCOUNT</Title>
         <InnerLeftWrapper>
-          <State>CHANGE OF PASSWORD</State>
-          <StateContent>You have not placed any orders yet.</StateContent>
+          <MyProfileUploadUI
+            onChange={props.onChangeFile}
+            defaultValue={props.data?.fetchUserLoggedIn.picture}
+          />
         </InnerLeftWrapper>
       </LeftWrapper>
     </Wrapper>
