@@ -73,6 +73,7 @@ export default function MyMarketUI(props) {
             <RowCategory>
               <ColumnIndex>번호</ColumnIndex>
               <ColumnName>상품명</ColumnName>
+              <ColumnNone />
               <ColumnPrice>판매가격</ColumnPrice>
               <ColumnSeller>판매자</ColumnSeller>
               <CloumnDate>날짜</CloumnDate>

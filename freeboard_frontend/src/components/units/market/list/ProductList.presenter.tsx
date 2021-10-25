@@ -44,6 +44,8 @@ export default function ProductListtUI(props) {
               pageStart={0}
               loadMore={props.onloadMore}
               hasMore={true}
+              useWindow={false}
+              // style={{ height: "800px" }}
             >
               {props.data?.fetchUseditems.map((el) => (
                 <Table
@@ -99,7 +101,7 @@ export default function ProductListtUI(props) {
             상품 등록하기
           </PostButton>
         </LeftWrapper>
-        <RecentlyViewedItems />
+        <RecentlyViewedItems items={props.items} />
       </ListWrapper>
     </Wrapper>
   );

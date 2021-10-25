@@ -86,7 +86,6 @@ export default function PointCharge() {
         onClickPayment={onClickPayment}
         onChangeMyPoint={onChangeMyPoint}
       />
-      ;
     </>
   );
 }

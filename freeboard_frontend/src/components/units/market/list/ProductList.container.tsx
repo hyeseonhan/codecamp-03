@@ -18,7 +18,7 @@ export default function ProductList() {
         return {
           fetchUseditems: [
             ...prev.fetchUseditems,
-            fetchMoreResult.fetchUseditems,
+            ...fetchMoreResult.fetchUseditems,
           ],
         };
       },

@@ -358,3 +358,79 @@ const solution = (new_id) =>
     .match(/^.{0,14}[^.]/)[0]
     .replace(/^(.)$/, "$1$1$1")
     .replace(/^(.)(.)$/, "$1$2$2");
+
+//
+// 키패드 누르기
+
+const [leftNumbers, rightNumbers] = [
+  [1, 4, 7],
+  [3, 6, 9],
+];
+console.log(leftNumbers, rightNumbers);
+
+function solution(numbers, hand) {}
+let answer = "";
+
+// 현재 손가락의 위치를 저장
+const current = {
+  left: 10,
+  right: 12,
+};
+
+for (let i = 0; i < numbers.length; i++) {
+  // console.log(numbers[i])
+  if (leftNumbers.includes(numbers[i])) {
+    // console.log(numbers[i], leftNumbers)
+    // 누를 번호가 왼쪽 키패드에 해당되는 경우 ( = 왼쪽 손가락으로 누를 경우)
+    answer += "L";
+    current["left"] = numbers[i]; // 왼쪽 손가락 위치 변환
+  } else if (rightNumbers.includes(numbers[i])) {
+    // console.log(numbers[i], rightNumbers)
+    // 누를 번호가 오른쪽 키패드에 해당되는 경우( = 오른쪽 손가락으로 누를 경우)
+    answer += "R";
+    current["right"] = numbers[i]; // 오른쪽 손가락 위치변환
+  } else {
+    // 가운데 번호를 누를 때
+    const tempObj = { ...current };
+
+    for (let hand in tempObj) {
+      // 0번을 누를 때는 예외처리 : 11 거리값으로 변환
+      numbers[i] = numbers[i] === 0 ? 11 : numbers[i];
+      // console.log(hand, tempObj[hand], numbers[i]);
+      let location = Math.abs(numbers[i] - tempObj[hand]);
+      // console.log(hand, location)
+      // console.log(hand, location, numbers[i], tempObj[hand]);
+
+      // console.log(location, hand)
+      if (location >= 3) {
+        location = Math.trunc(location / 3) + (location % 3);
+      }
+      // console.log(location, hand);
+      // console.log("현재 손가락 위치 : " + [hand, tempObj[hand]]);
+      // console.log("누를 번호 :" + numbers[i]);
+      // console.log("최종 거리 위치 : " + location);
+      // console("");
+      tempObj[hand] = location;
+    }
+    if (tyemObj["left"] === tempObj["right"]) {
+      // console.log(tempObj);
+      // 왼손가락과 오른손가락의 위치가 서로 동일하 경우
+      // 주로 사용하는 손가락으로 키패드를 누른다.
+      answer += hand === "left" ? "L" : "R";
+      current[hand] = numbers[i];
+      return;
+    } else {
+      if (tempObj["left"] > tempObj["right"]) {
+        // 오른쪽 손가락 위치가 더 가까운 경우
+        answer += "R";
+        current["right"] = numbers[i];
+      } else {
+        // 왼쪽 손가락 위치가 더 가까운 경우
+        answer += "L";
+        currnet["left"] = numbers[i];
+      }
+    }
+  }
+  // console.log(answer);
+  return answer;
+}

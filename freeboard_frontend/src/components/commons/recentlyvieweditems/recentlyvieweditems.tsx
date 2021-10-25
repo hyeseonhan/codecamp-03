@@ -116,7 +116,7 @@ const Tags = styled.div`
   color: #bdbdbd;
 `;
 
-export default function RecentlyViewedItems() {
+export default function RecentlyViewedItems(props) {
   const router = useRouter();
   const [basketItems, setBasketItems] = useState([]);
 

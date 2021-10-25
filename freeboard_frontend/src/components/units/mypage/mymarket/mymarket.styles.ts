@@ -132,7 +132,7 @@ export const ColumnNone = styled.div`
 
 export const ColumnPrice = styled.div`
   /* border: 1px solid red; */
-  width: 30%;
+  width: 10%;
   display: flex;
   flex-direction: row;
   justify-content: center;
