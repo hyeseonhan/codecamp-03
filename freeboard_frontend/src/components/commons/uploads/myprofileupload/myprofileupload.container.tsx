@@ -1,22 +1,29 @@
 import { useRef } from "react";
-import { useMutation } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
-import { UPDATE_USER, UPLOAD_FILE } from "./myprofileupload.queries";
+import { useContext } from "react";
+import { GlobalContext } from "../../../../../pages/_app";
+import {
+  UPDATE_USER,
+  UPLOAD_FILE,
+  FETCH_USER_LOGGED_IN,
+} from "./myprofileupload.queries";
 import MyProfileUploadUI from "./myprofileupload.presenter";
-import productPost from "../../../../../pages/market/product-post";
 
 export default function MyProfileUpload(props) {
+  const { setUserInfo, userInfo } = useContext(GlobalContext);
   const fileRef = useRef(null);
   const [fileUrl, setFileUrl] = useState("");
   const [updateUser] = useMutation(UPDATE_USER);
   const [uploadFile] = useMutation(UPLOAD_FILE);
+  const { data: fetchdata } = useQuery(FETCH_USER_LOGGED_IN);
   const [files, setFiles] = useState(null);
 
   function onChangeFile(file) {
     setFiles(file);
   }
 
-  function onClickUploadPicture() {
+  function onClickUpload() {
     fileRef.current?.click();
   }
 
@@ -35,13 +42,13 @@ export default function MyProfileUpload(props) {
     };
   }
 
-  async function onClickPicture() {
+  async function onClickUploadPicture() {
     try {
       const result = await uploadFile({
         variables: { file: files },
       });
 
-      const myPicture = result.data?.uploadFil.url;
+      const myPicture = result.data?.uploadFile.url;
 
       await updateUser({
         variables: {
@@ -49,6 +56,7 @@ export default function MyProfileUpload(props) {
         },
       });
       alert("사진이 변경되었습니다.");
+      setUserInfo(files);
     } catch (error) {
       alert(error.message);
     }
@@ -60,9 +68,10 @@ export default function MyProfileUpload(props) {
       fileUrl={fileUrl}
       defaultValue={props.defaultValue}
       onClickUploadPicture={onClickUploadPicture}
-      onClickPicture={onClickPicture}
+      onClickUpload={onClickUpload}
       onChangeImage={onChangeImage}
       onChangeFile={onChangeFile}
+      fetchdata={fetchdata}
     />
   );
 }

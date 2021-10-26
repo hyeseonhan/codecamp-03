@@ -32,7 +32,7 @@ export default function MySideBarUI(props) {
             <Avatar
               src={
                 props.data?.fetchUserLoggedIn.picture
-                  ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.pciture}`
+                  ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.picture}`
                   : "/images/you.jpeg"
               }
             />

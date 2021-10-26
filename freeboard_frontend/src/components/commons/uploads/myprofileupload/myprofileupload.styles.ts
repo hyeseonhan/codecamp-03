@@ -5,7 +5,7 @@ export const State = styled.div`
   font-size: 17px;
   color: white;
   margin-top: 50px;
-  margin-bottom: 60px;
+  margin-bottom: 50px;
 `;
 
 export const StateContent = styled.div`
@@ -27,6 +27,15 @@ export const Picture = styled.img`
   border: 3px solid black;
   border-radius: 70%;
   background-color: white;
+`;
+
+export const UploadImage = styled.button`
+  width: 200px;
+  height: 200px;
+  border: 3px solid black;
+  border-radius: 70%;
+  background-color: white;
+  /* color: white; */
 `;
 
 export const StateButton = styled.button`

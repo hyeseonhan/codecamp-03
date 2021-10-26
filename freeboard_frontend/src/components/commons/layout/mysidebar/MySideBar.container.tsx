@@ -17,20 +17,21 @@ const MySideBar = () => {
 
   const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
-  useEffect(() => {
-    if (userInfo.email) return;
-    setUserInfo({
-      name: data?.fetchUserLoggedIn.name,
-      email: data?.fetchUserLoggedIn.email,
-      picture: data?.fetchUserLoggedIn.picture,
-      // userPoint: data?.fetchUserLoggedIn.usePoint,
-    });
-  }, [data]);
+  // useEffect(() => {
+  //   if (userInfo.email) return;
+  //   setUserInfo({
+  //     name: data?.fetchUserLoggedIn.name,
+  //     email: data?.fetchUserLoggedIn.email,
+  //     picture: data?.fetchUserLoggedIn.picture,
+  //     // userPoint: data?.fetchUserLoggedIn.usePoint,
+  //   });
+  // }, [data]);
 
   console.log("loginfo:", userInfo);
 
   function onClickMovetoMyMarket() {
     router.push("/mypage/mymarket");
+    console.log(userInfo);
   }
 
   function onClickMovetoMyPoint() {
