@@ -17,7 +17,7 @@ export default function MyProfileUI(props) {
         <Title>ACCOUNT</Title>
         <InnerLeftWrapper>
           <MyProfileUploadUI
-            onChange={props.onChangeFile}
+            // onChange={props.onChangeFile}
             defaultValue={props.data?.fetchUserLoggedIn.picture}
           />
         </InnerLeftWrapper>

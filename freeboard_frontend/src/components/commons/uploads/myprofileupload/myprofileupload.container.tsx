@@ -5,7 +5,7 @@ import { UPDATE_USER, UPLOAD_FILE } from "./myprofileupload.queries";
 import MyProfileUploadUI from "./myprofileupload.presenter";
 import productPost from "../../../../../pages/market/product-post";
 
-export default function MyProfileUpload() {
+export default function MyProfileUpload(props) {
   const fileRef = useRef(null);
   const [fileUrl, setFileUrl] = useState("");
   const [updateUser] = useMutation(UPDATE_USER);
@@ -56,6 +56,9 @@ export default function MyProfileUpload() {
 
   return (
     <MyProfileUploadUI
+      fileRef={fileRef}
+      fileUrl={fileUrl}
+      defaultValue={props.defaultValue}
       onClickUploadPicture={onClickUploadPicture}
       onClickPicture={onClickPicture}
       onChangeImage={onChangeImage}

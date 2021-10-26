@@ -11,10 +11,25 @@ export default function MyProfileUploadUI(props) {
     <>
       <StateContent>
         <State>CHANGE OF MY PICTURE</State>
-        <Picture
+        {props.fileUrl || props.defaultValue ? (
+          <Picture
+            onChange={props.onChangeFile}
+            onClick={props.onClickUploadPicture}
+            src={
+              props.fileUrl ||
+              `https://storage.googleapis.com/${props.defaultPicture}`
+            }
+          />
+        ) : (
+          <Picture
+            onChange={props.onChangeFile}
+            onClick={props.onClickUploadPicture}
+          />
+        )}
+        {/* <Picture
           onChange={props.onChangeFile}
           onClick={props.onClickUploadPicture}
-        />
+        /> */}
         <StateButton onClick={props.onClickPicture}>CHANGE</StateButton>
       </StateContent>
       <UploadImageHidden
