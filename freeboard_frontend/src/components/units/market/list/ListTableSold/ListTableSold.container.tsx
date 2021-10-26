@@ -1,14 +1,12 @@
+import ListTableSoldUI from "./ListTableSold.presenter";
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
-import ProductListUI from "./ProductList.presenter";
-import { FETCH_USED_ITEMS } from "./ProductList.queries";
+import { FETCH_USED_ITEMS } from "./ListTableSold.queries";
 
-export default function ProductList() {
-  const [isVisible, setIsVisible] = useState(false);
+export default function ListTableSold() {
   const router = useRouter();
   const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
-    variables: { page: 0, isSoldout: false },
+    variables: { page: 0, isSoldout: true },
   });
 
   function onloadMore() {
@@ -25,14 +23,6 @@ export default function ProductList() {
         };
       },
     });
-  }
-
-  function onClickTablesell() {
-    setIsVisible(false);
-  }
-
-  function onClickTablesold() {
-    setIsVisible(true);
   }
 
   // const onClickMoveToPost = (event) => router.push(event.target.id);
@@ -64,16 +54,12 @@ export default function ProductList() {
     localStorage.setItem("baskets", JSON.stringify(baskets));
     console.log("sdfsdf", el);
   };
-
   return (
-    <ProductListUI
+    <ListTableSoldUI
       data={data}
       onClickMoveToPost={onClickMoveToPost}
       onClickMoveToProductDetail={onClickMoveToProductDetail}
       onloadMore={onloadMore}
-      onClickTablesell={onClickTablesell}
-      onClickTablesold={onClickTablesold}
-      isVisible={isVisible}
     />
   );
 }

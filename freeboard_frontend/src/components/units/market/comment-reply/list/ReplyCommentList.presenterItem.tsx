@@ -18,6 +18,7 @@ import {
 import ReplyCommentWrite from "../../comment-reply/write/ReplyCommentWrite.container";
 import { FETCH_USER_LOGGED_IN } from "./ReplyCommentList.queries";
 import { useQuery } from "@apollo/client";
+
 export default function ReplyCommentListUIItem(props) {
   // console.log(props.Answerel?.user?.name)
   const [isEditReply, setIsEditReply] = useState(false);
@@ -32,11 +33,10 @@ export default function ReplyCommentListUIItem(props) {
 
   props.setIsReplySeller(ReplyCompare);
   //
+
   function onClickUpdate() {
     setIsEditReply(true);
   }
-
-  function onClickDelete() {}
 
   function onClickReply() {
     setIsCommentReply(true);
@@ -63,7 +63,10 @@ export default function ReplyCommentListUIItem(props) {
                   onClick={onClickUpdate}
                   src="/images/graypencil.png"
                 />
-                <DeleteIcon onClick={onClickDelete} src="/images/delite.png" />
+                <DeleteIcon
+                  onClick={props.onClickDelete(props.Answerel?._id)}
+                  src="/images/delite.png"
+                />
               </>
             ) : (
               <Reply onClick={onClickReply} src="/images/reply.png" />

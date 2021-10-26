@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 export const Wrapper = styled.div`
   width: 196px;
   height: 725px;
-  border: 1px solid #bdbdbd;
+  border: 3px solid black;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +29,8 @@ const InnerWrapper = styled.div`
   padding: 10px;
   width: 156px;
   height: 199px;
-  border: 1px solid #bdbdbd;
+  /* border: 1px solid #bdbdbd; */
+  border: 3px solid black;
   margin-bottom: 20px;
 `;
 

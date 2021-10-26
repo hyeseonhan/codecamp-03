@@ -8,6 +8,7 @@ export default function ReplyCommentListUI(props) {
           key={Answerel._id}
           Answerel={Answerel}
           setIsReplySeller={props.setIsReplySeller}
+          onClickDelete={props.onClickDelete}
         />
       ))}
     </>

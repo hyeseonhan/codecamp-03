@@ -6,7 +6,7 @@ import {
   TableTop,
   OnSale,
   Sold,
-  Table,
+  TableSell,
   ProductImage,
   NoneImage,
   Info,
@@ -20,6 +20,7 @@ import {
   SellerInfo,
   AvatarInfo,
   Avatar,
+  AvatarNone,
   Seller,
   HeartInfo,
   HeartButton,
@@ -28,6 +29,7 @@ import {
 } from "./ProductList.styles";
 import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
 import InfiniteScroll from "react-infinite-scroller";
+import TableSold from "./ListTableSold/ListTableSold.container";
 
 export default function ProductListtUI(props) {
   return (
@@ -36,8 +38,15 @@ export default function ProductListtUI(props) {
       <ListWrapper>
         <LeftWrapper>
           <TableTop>
-            <OnSale>판매중상품</OnSale>
-            <Sold>판매된상품</Sold>
+            <OnSale
+              onClick={props.onClickTablesell}
+              isVisible={props.isVisible}
+            >
+              판매중상품
+            </OnSale>
+            <Sold onClick={props.onClickTablesold} isVisible={props.isVisible}>
+              판매된상품
+            </Sold>
           </TableTop>
           <div style={{ overflow: "auto", width: "1000px", height: "1004px" }}>
             <InfiniteScroll
@@ -48,54 +57,52 @@ export default function ProductListtUI(props) {
               // style={{ height: "800px" }}
             >
               {props.data?.fetchUseditems.map((el) => (
-                <Table
-                  key={el._id}
-                  id={el._id}
-                  onClick={props.onClickMoveToProductDetail(el)}
-                >
-                  {/* {props.data?.fetchUseditems.images
-                ?.filter((el: string) => el)
-                .map((el: string) => (
-                  <ProductImage
-                    key={el}
-                    src={`https://storage.googleapis.com/${el}`}
-                  />
-                ))} */}
-                  {el?.images[0] ? (
-                    <ProductImage
-                      src={`https://storage.googleapis.com/${el?.images[0]}`}
-                    />
+                <>
+                  {!props.isVisible ? (
+                    <TableSell
+                      key={el._id}
+                      id={el._id}
+                      onClick={props.onClickMoveToProductDetail(el)}
+                    >
+                      {el?.images[0] ? (
+                        <ProductImage
+                          src={`https://storage.googleapis.com/${el?.images[0]}`}
+                        />
+                      ) : (
+                        <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+                      )}
+                      <Info>
+                        <Detail>
+                          <Name>{el.name}</Name>
+                          <Remarks>{el.remarks}</Remarks>
+                          <Tags>{el.tags}</Tags>
+                          <SellerInfo>
+                            <AvatarInfo>
+                              {el.seller?.picture ? (
+                                <Avatar
+                                  src={`https://storage.googleapis.com/${el.seller?.picture}`}
+                                />
+                              ) : (
+                                <AvatarNone />
+                              )}
+                              <Seller>{el.seller?.name}</Seller>
+                            </AvatarInfo>
+                            <HeartInfo>
+                              <HeartButton src="/images/heart.png" />
+                              <HeartCount>{el.pickedCount}</HeartCount>
+                            </HeartInfo>
+                          </SellerInfo>
+                        </Detail>
+                        <PriceInfo>
+                          <PriceIcon src="/images/price.png" />
+                          <Price>{el.price}</Price>
+                        </PriceInfo>
+                      </Info>
+                    </TableSell>
                   ) : (
-                    <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+                    <TableSold />
                   )}
-                  <Info>
-                    <Detail>
-                      <Name>{el.name}</Name>
-                      <Remarks>{el.remarks}</Remarks>
-                      <Tags>{el.tags}</Tags>
-                      <SellerInfo>
-                        <AvatarInfo>
-                          <Avatar
-                            src={
-                              props.data?.fetchUseditems?.seller?.picture
-                                ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.pciture}`
-                                : "/images/price.png"
-                            }
-                          />
-                          <Seller>{el.seller?.name}</Seller>
-                        </AvatarInfo>
-                        <HeartInfo>
-                          <HeartButton src="/images/heart.png" />
-                          <HeartCount>{el.pickedCount}</HeartCount>
-                        </HeartInfo>
-                      </SellerInfo>
-                    </Detail>
-                    <PriceInfo>
-                      <PriceIcon src="/images/price.png" />
-                      <Price>{el.price}</Price>
-                    </PriceInfo>
-                  </Info>
-                </Table>
+                </>
               ))}
             </InfiniteScroll>
           </div>

@@ -43,7 +43,7 @@ export default function ProductDetailUI(props: any) {
             <Avatar
               src={
                 props.data?.fetchUseditem.seller.picture
-                  ? `https://storage.googleapis.com/${props.data?.fetchUserLoggedIn.pciture}`
+                  ? `https://storage.googleapis.com/${props.data?.fetchUseditem.seller.picture}`
                   : "/images/you.jpeg"
               }
             />

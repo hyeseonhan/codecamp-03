@@ -31,3 +31,11 @@ export const FETCH_USER_LOGGED_IN = gql`
     }
   }
 `;
+
+export const DELETE_USED_ITEM_QUESTION_ANSWER = gql`
+  mutation deleteUseditemQuestionAnswer($useditemQuestionAnswerId: ID!) {
+    deleteUseditemQuestionAnswer(
+      useditemQuestionAnswerId: $useditemQuestionAnswerId
+    )
+  }
+`;

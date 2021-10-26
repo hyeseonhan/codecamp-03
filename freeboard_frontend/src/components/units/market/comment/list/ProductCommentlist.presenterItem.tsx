@@ -20,7 +20,8 @@ import {
   Line,
 } from "./ProductCommentlist.styles";
 import { FETCH_USER_LOGGED_IN } from "../../comment-reply/list/ReplyCommentList.queries";
-import { useQuery } from "@apollo/client";
+import { DELETE_USED_ITEM_QUESTION } from "./ProductCommentlist.queries";
+import { useMutation, useQuery } from "@apollo/client";
 
 export default function ProductCommentListUIItem(props) {
   const [isEdit, setIsEdit] = useState(false);
@@ -30,14 +31,37 @@ export default function ProductCommentListUIItem(props) {
 
   const CommentCompare =
     fetchUserLoggedIndata?.fetchUserLoggedIn.email === props.el?.user?.email;
-
   props.setIsCommentSeller(CommentCompare);
+
+  const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
 
   function onClickUpdate() {
     setIsEdit(true);
   }
 
-  function onClickDelete() {}
+  const onClickDelete = (useditemQuestionId) => async () => {
+    try {
+      await deleteUseditemQuestion({
+        variables: { useditemQuestionId: useditemQuestionId },
+        update(cache, { data }) {
+          const deleteId = data.deleteUseditemQuestion;
+          cache.modify({
+            fields: {
+              fetchUseditemQuestions: (prev, { readField }) => {
+                const newFetchUseditemQuestions = prev.filter(
+                  (el) => readField("_id", el) !== deleteId
+                );
+                return [...newFetchUseditemQuestions];
+              },
+            },
+          });
+        },
+      });
+      alert("댓글이 삭제되었습니다.");
+    } catch (error) {
+      alert(error.message);
+    }
+  };
 
   function onClickReply() {
     setIsReply(true);
@@ -68,7 +92,7 @@ export default function ProductCommentListUIItem(props) {
                     src="/images/pencil.png"
                   />
                   <DeleteIcon
-                    onClick={onClickDelete}
+                    onClick={onClickDelete(props.el?._id)}
                     src="/images/delite.png"
                   />
                 </OptionWrapper>
