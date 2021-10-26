@@ -4,12 +4,12 @@ export default function BoardsPage() {
   return (
     <>
       <Head>
-        {/* <meta property="og:title" content="나의사이트 게시판페이지" />
+        <meta property="og:title" content="나의사이트 게시판페이지" />
         <meta property="og:description" content="환영합니다~" />
         <meta
           property="og:image"
           content="https://w.namu.la/s/bc75175b063a43a123523fba625ed9d185f6a180a3c1e9ae9409db0c11026[…]a5c1fde8b3327cb27431716d9f89b84b1d8945e6fc9eb60ceb418432323cd459"
-        /> */}
+        />
       </Head>
       <div>게시판입니다.</div>
     </>
