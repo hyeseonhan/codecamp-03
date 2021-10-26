@@ -1,4 +1,4 @@
-import HEAD from "next/head";
+import Head from "next/head";
 import { gql, request } from "graphql-request";
 
 export default function MarketPage() {
@@ -14,9 +14,9 @@ export default function MarketPage() {
   );
 }
 
-const FETCH_USEDITEM = gql`
+const FETCH_USED_ITEM = gql`
   query fetchUseditem($useditemId: ID!) {
-    getchUseditem(useditemId: $useditemId) {
+    fetchUseditem(useditemId: $useditemId) {
       name
       remarks
       images
@@ -28,7 +28,7 @@ export const getServerSideProps = async (context) => {
   // 1. graphql 데이터를 요청한다.
   const result = await request(
     "https://backend03.codebootcamp.co.kr/graphql",
-    FETCH_USEDITEM,
+    FETCH_USED_ITEM,
     {
       useditemId: context.query.useditemId,
     }
