@@ -2,6 +2,13 @@ import styled from "@emotion/styled";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
+// export const Asd = styled.div`
+//   border: 1px solid black;
+//   height: 1700px;
+//   width: 200px;
+//   position: sticky;
+// `;
+
 export const Wrapper = styled.div`
   width: 196px;
   height: 725px;
@@ -33,12 +40,6 @@ const InnerWrapper = styled.div`
   border: 3px solid black;
   margin-bottom: 20px;
 `;
-
-// const HeartWrapper = styled.div`
-//   display: flex;
-//   align-items: flex-start;
-//   margin-top: 12.25px;
-// `;
 
 const HeartInfo = styled.div`
   display: flex;
@@ -132,34 +133,34 @@ export default function RecentlyViewedItems(props) {
   }
 
   return (
-    <>
-      <Wrapper>
-        <Title>오늘 본 상품</Title>
-        {/* basketItems ? 물음표 꼭 써줘야한다. */}
-        {basketItems?.map((el: any) => (
-          <InnerWrapper key={el._id} id={el._id} onClick={onClickMoveToProduct}>
-            {/* <HeartWrapper> */}
-            <HeartInfo>
-              <HeartButton src="/images/heart.png" />
-              <HeartCount>{el.pickedCount}</HeartCount>
-            </HeartInfo>
-            {/* </HeartWrapper> */}
-            {el?.images[0] ? (
-              <ProductImage
-                src={`https://storage.googleapis.com/${el?.images[0]}`}
-              />
-            ) : (
-              <NoneImage>NO IMAGE</NoneImage>
-            )}
-            <Detail>
-              <Name>{el.name}</Name>
-              <Remarks>{el.remarks}</Remarks>
-              <Price>{el.price}</Price>
-              <Tags>{el.tags}</Tags>
-            </Detail>
-          </InnerWrapper>
-        ))}
-      </Wrapper>
-    </>
+    // <Asd>
+    <Wrapper>
+      <Title>오늘 본 상품</Title>
+      {/* basketItems ? 물음표 꼭 써줘야한다. */}
+      {basketItems?.map((el: any) => (
+        <InnerWrapper key={el._id} id={el._id} onClick={onClickMoveToProduct}>
+          {/* <HeartWrapper> */}
+          <HeartInfo>
+            <HeartButton src="/images/heart.png" />
+            <HeartCount>{el.pickedCount}</HeartCount>
+          </HeartInfo>
+          {/* </HeartWrapper> */}
+          {el?.images[0] ? (
+            <ProductImage
+              src={`https://storage.googleapis.com/${el?.images[0]}`}
+            />
+          ) : (
+            <NoneImage>NO IMAGE</NoneImage>
+          )}
+          <Detail>
+            <Name>{el.name}</Name>
+            <Remarks>{el.remarks}</Remarks>
+            <Price>{el.price}</Price>
+            <Tags>{el.tags}</Tags>
+          </Detail>
+        </InnerWrapper>
+      ))}
+    </Wrapper>
+    // </Asd>
   );
 }

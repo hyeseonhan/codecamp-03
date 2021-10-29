@@ -225,4 +225,5 @@ export const PostButton = styled.button`
   border: 3px solid black;
   margin-top: 50px;
   margin-left: 530px;
+  margin-bottom: 1000px;
 `;
