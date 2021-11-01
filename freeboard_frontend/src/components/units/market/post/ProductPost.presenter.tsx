@@ -49,13 +49,30 @@ export default function ProductPostUI(props: any) {
       <ErrorMessage01 message={props.formState.errors.remarks?.message} />
       <ContentsWrapper>
         <TitleName>상품설명</TitleName>
-        <ReactQuill
-          onChange={props.onChangeEditior}
-          placeholder="상품을 설명해주세요."
-          // register={props.register("contents")} 공통컴포넌트에서 불러오는게 아니므로 이렇게 쓰면 안됨
-          // {...props.register("contents")} react-hook-form과 연결되있지않음
-          defaultValue={props.data?.fetchUseditem.contents}
-        />
+
+        {props.isEdit ? (
+          <>
+            {props.data?.fetchUseditem.contents && (
+              <ReactQuill
+                style={{ height: "320px" }}
+                onChange={props.onChangeEditior}
+                placeholder="상품을 설명해주세요."
+                // register={props.register("contents")} //공통컴포넌트에서 불러오는게 아니므로 이렇게 쓰면 안됨
+                // {...props.register("contents")} // react-hook-form과 연결되있지않음
+                defaultValue={props.data?.fetchUseditem.contents}
+              />
+            )}
+          </>
+        ) : (
+          <ReactQuill
+            style={{ height: "320px" }}
+            onChange={props.onChangeEditior}
+            placeholder="상품을 설명해주세요."
+            // register={props.register("contents")} //공통컴포넌트에서 불러오는게 아니므로 이렇게 쓰면 안됨
+            // {...props.register("contents")} //react-hook-form과 연결되있지않음
+          />
+        )}
+
         <ErrorMessage01 message={props.formState.errors.contents?.message} />
       </ContentsWrapper>
       <Input01
@@ -83,6 +100,7 @@ export default function ProductPostUI(props: any) {
               type="button"
               onChangeFiles={props.onChangeFiles}
               key={`${el}_${index}`}
+              // key={uuidv4()}
               index={index}
               defaultValue={props.data?.fetchUseditem.images?.[index]}
               register={props.register("images")}

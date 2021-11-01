@@ -13,16 +13,49 @@ export const Wrapper = styled.div`
   padding: 30px;
 `;
 
+export const MenuSome = styled.div`
+  font-family: "LightBold";
+  font-size: 23px;
+  font-weight: 600;
+  position: relative;
+  color: black;
+  margin: 45px;
+  padding-left: 53px;
+  cursor: pointer;
+  :hover {
+    /* opacity: 0.4; */
+    color: #f04237;
+  }
+`;
+
 export const MenuItem = styled.div`
   font-family: "LightBold";
   font-size: 23px;
   font-weight: 600;
   position: relative;
   color: black;
-  margin: 30px;
+  margin: 45px;
   cursor: pointer;
   :hover {
     /* opacity: 0.4; */
     color: #f04237;
   }
+`;
+
+export const MenuHome = styled.div`
+  font-family: "LightBold";
+  font-size: 28px;
+  font-weight: 800;
+  position: relative;
+  color: black;
+  margin: 20px;
+  cursor: pointer;
+  :hover {
+    /* opacity: 0.4; */
+    color: #f04237;
+  }
+  border: 1px solid black;
+  padding: 5px 15px 2px 15px;
+  background-color: black;
+  color: #f04237;
 `;

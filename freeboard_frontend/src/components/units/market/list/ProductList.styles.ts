@@ -41,6 +41,7 @@ export const OnSale = styled.div`
   font-style: normal;
   font-size: 18px;
   line-height: 26.64px;
+  cursor: pointer;
   color: ${(props) => (props.isVisible === true ? "black" : "#f04237")};
 `;
 
@@ -49,6 +50,7 @@ export const Sold = styled.div`
   font-style: normal;
   font-size: 18px;
   line-height: 26.64px;
+  cursor: pointer;
   color: ${(props) => (props.isVisible === true ? "#f04237" : "black")};
 `;
 

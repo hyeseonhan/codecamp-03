@@ -28,6 +28,7 @@ export default function ItemImgUpload(props) {
       fileUrl={fileUrl}
       onClickUpload={onClickUpload}
       onChangeFile={onChangeFile}
+      defaultValue={props.defaultValue}
     />
   );
 }

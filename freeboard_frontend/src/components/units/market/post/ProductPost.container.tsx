@@ -22,9 +22,9 @@ export default function ProductPost(props) {
     resolver: yupResolver(schema),
   });
 
-  const { data: imagesdata } = useQuery(FETCH_USED_ITEM, {
-    variables: { useditemId: String(router.query.useditemId) },
-  });
+  // const { data: imagesdata } = useQuery(FETCH_USED_ITEM, {
+  //   variables: { useditemId: String(router.query.useditemId) },
+  // });
 
   const [createUseditem] = useMutation(CREATE_USED_ITEM);
   const [updateUseditem] = useMutation(UPDATE_USED_ITEM);
@@ -35,41 +35,13 @@ export default function ProductPost(props) {
   const { lat, lng, location } = useContext(GlobalContext);
   const [addressDetail, setAddressDetail] = useState("");
 
-  // const onClickPost = (Items) => async () => {
-  //   try {
-  //     await createUseditem({
-  //       variables: {
-  //         createUseditemInput: {
-  //           name: Items.name,
-  //           remarks: Items.remarks,
-  //           contents: Items.contents,
-  //           price: Number(Items.price),
-  //           tags: Items.tags,
-  //           images: Items.images,
-  //         },
-  //       },
-  //       update(cache, { Items }) {
-  //         cache.modify({
-  //           fields: {
-  //             fetchUseditem: (prev) => {
-  //               return [Items.creatUseditem, ...prev];
-  //             },
-  //           },
-  //         });
-  //       },
-  //     });
-  //   } catch (error) {
-  //     alert(error.message);
-  //   }
-  // };
-
-  console.log(formState);
+  // console.log(formState);
   async function onClickPost(data) {
-    console.log(data);
+    // console.log(data);
 
-    const uploadFiles = files.map((el) =>
-      el ? uploadFile({ variables: { file: el } }) : null
-    );
+    const uploadFiles = files
+      // .filter((el) => el)
+      .map((el) => (el ? uploadFile({ variables: { file: el } }) : null));
     const results = await Promise.all(uploadFiles);
     const Images = results.map((el) => el?.data.uploadFile.url || "");
 
@@ -85,10 +57,10 @@ export default function ProductPost(props) {
             images: Images,
             // ...data,
             useditemAddress: {
-              address: location,
-              addressDetail: addressDetail,
-              lat: lat,
-              lng: lng,
+              address: data.location,
+              addressDetail: data.addressDetail,
+              lat: Number(data.lat),
+              lng: Number(data.lng),
             },
           },
         },
@@ -96,13 +68,13 @@ export default function ProductPost(props) {
       alert("상품을 등록합니다.");
       router.push(`/market/product-detail/${result.data.createUseditem._id}`);
     } catch (error) {
-      console.log(error.message);
+      alert(error.message);
     }
   }
 
   // web editor
   function onChangeEditior(value) {
-    console.log(value);
+    // console.log(value);
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능
     setValue("contents", value === "<p><br></p>" ? "" : value);
 
@@ -119,59 +91,67 @@ export default function ProductPost(props) {
     router.push(`/market/product-detail/${router.query.useditemId}`);
   }
 
-  async function onClickUpdate(data) {
-    // 이미지수정
-    const uploadFiles = files.map((el) =>
-      el ? uploadFile({ variables: { file: el } }) : null
-    );
-    const results = await Promise.all(uploadFiles);
-    const nextImages = results.map((el) => el?.data.uploadFile.url || "");
-    data.images = nextImages;
-
-    if (imagesdata?.fetchUseditem.images?.lenght) {
-      const prevImages = [...imagesdata?.fetchUseditem.images];
-      data.images = prevImages.map((el, index) => nextImages[index] || el);
-    } else {
-      data.images = nextImages;
-    }
-
-    try {
-      const result = await updateUseditem({
-        variables: {
-          updateUseditemInput: {
-            name: data.name,
-            remarks: data.remarks,
-            contents: data.contents,
-            price: Number(data.price),
-            tags: data.tags,
-            images: data.images,
-            // ...data,
-            useditemAddress: {
-              address: location,
-              addressDetail: addressDetail,
-              lat: lat,
-              lng: lng,
-            },
-          },
-          useditemId: router.query.useditemId,
-        },
-      });
-
-      router.push(`/market/product-detail/${result.data.updateUseditem._id}`);
-      console.log("result:", result);
-    } catch (error) {
-      alert(error.message);
-    }
-  }
-
   function onChangeFiles(file: File, index: number) {
     const newFiles = [...files];
     newFiles[index] = file;
     setFiles(newFiles);
   }
 
+  async function onClickUpdate(data) {
+    const myUpdateUseditemInput: any = {};
+    if (data.name) myUpdateUseditemInput.name = data.name;
+    if (data.remarks) myUpdateUseditemInput.remarks = data.remarks;
+    if (data.contents) myUpdateUseditemInput.contents = data.contents;
+    if (Number(data.price)) myUpdateUseditemInput.price = Number(data.price);
+    if (data.tags) myUpdateUseditemInput.tags = data.tags;
+    if (data.lat || data.lng || data.location || data.addressDetail) {
+      myUpdateUseditemInput.useditemAddress = {};
+      if (data.lat) myUpdateUseditemInput.useditemAddress.lat = data.lat;
+      if (data.lng) myUpdateUseditemInput.useditemAddress.lng = data.lng;
+      if (data.location)
+        myUpdateUseditemInput.useditemAddress.location = data.location;
+      if (data.addressDetail)
+        myUpdateUseditemInput.useditemAddress.addressDetail =
+          data.addressDetail;
+    }
+
+    // 이미지수정
+    const uploadFiles = files.map((el) =>
+      el ? uploadFile({ variables: { file: el } }) : null
+    );
+    const results = await Promise.all(uploadFiles);
+    const nextImages = results.map((el) => el?.data.uploadFile.url || "");
+    myUpdateUseditemInput.images = nextImages;
+
+    console.log("3333", nextImages);
+
+    if (props.data?.fetchUseditem.images?.length) {
+      const prevImages = [...props.data?.fetchUseditem.images];
+      myUpdateUseditemInput.images = prevImages.map(
+        (el, index) => nextImages[index] || el
+      );
+    } else {
+      myUpdateUseditemInput.images = nextImages;
+    }
+
+    try {
+      const result = await updateUseditem({
+        variables: {
+          updateUseditemInput: myUpdateUseditemInput,
+          useditemId: router.query.useditemId,
+        },
+      });
+
+      // router.push(`/market/product-detail/${result.data.updateUseditem._id}`);
+      router.push(`/market/product-detail/${router.query.useditemId}`);
+    } catch (error) {
+      alert(error.message);
+    }
+  }
+
   useEffect(() => {
-    if (props.data) {
+    // if (props.data) {
+    if (props.isEdit && props.data?.fetchUseditem) {
       setValue("name", props.data?.fetchUseditem.name, {
         shouldValidate: true,
       });
@@ -191,7 +171,8 @@ export default function ProductPost(props) {
         shouldValidate: true,
       });
     }
-  }, [props.data]);
+    // }, [props.data]);
+  }, [props.isEdit, props.data?.fetchUseditem]);
 
   return (
     <ProductPostUI

@@ -1,32 +1,31 @@
-import dynamic from "next/dynamic";
-// import "../styles.css";
 import styled from "@emotion/styled";
 import flickity from "react-flickity-component";
-// const Flickity = dynamic(() => import("react-flickity-component"));
 
 const flickityOptions = {
   initialIndex: 1,
   draggable: true,
-  freeScroll: true,
+  freeScroll: false,
   lazyLoad: 2,
+  contain: true,
+  wrapAround: true,
 };
 
 const Flickity = styled(flickity)`
-  /* width: 100%;
-  border-radius: 50%;
-  overflow: hidden; */
-
   .flickity-viewport {
-    width: 300px;
-     height: 300px 
+    border-radius: 50%;
+    overflow: hidden;
+    width: 500px;
+    height: 500px;
     /* height: 200px !important; */
-  } 
-
-    .flickity-slider {
-      width: 500px;
-      height: 500px;
-    }
   }
+
+  .flickity-slider {
+    width: 500px;
+    height: 500px;
+  
+  }
+}
+
   .flickity-enabled {
     position: relative;
   }
@@ -36,10 +35,10 @@ const Flickity = styled(flickity)`
   }
 
   .flickity-viewport {
-    overflow: hidden;
+     overflow: hidden;
     position: relative;
-    height: 100%;
-  }
+    height: 100%; 
+  } 
 
   .flickity-slider {
     position: absolute;
@@ -51,7 +50,7 @@ const Flickity = styled(flickity)`
 
   .flickity-enabled.is-draggable {
     -webkit-tap-highlight-color: transparent;
-    -tap-highlight-color: transparent;
+    /* -tap-highlight-color: transparent; */
     -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
@@ -167,28 +166,25 @@ const Flickity = styled(flickity)`
     cursor: pointer;
   }
 
+
   .flickity-page-dots .dot.is-selected {
     opacity: 1;
   }
 `;
 
 const Wrapper = styled.div`
-  width: 300px;
-  height: 600px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  /* border: 1px solid black; */
+  padding-top: 50px;
+  padding-bottom: 100px;
 `;
 
 const Img = styled.img`
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
 `;
 
-// function Carousel() {}
-
-export default function Carousel() {
+export default function Flickity01() {
   return (
     <Wrapper>
       <Flickity
@@ -200,16 +196,21 @@ export default function Carousel() {
         static // default false
       >
         <div>
-          <Img src="/images/bleeding.png" />
+          <Img src="/images/chairs.jpg" />
         </div>
         <div>
-          <Img src="/images/bleeding.png" />
+          <Img src="/images/poolblue.jpg" />
         </div>
         <div>
-          <Img src="/images/bleeding.png" />
+          <Img src="/images/postybangs.png" />
+        </div>
+        <div>
+          <Img src="/images/pool.jpg" />
+        </div>
+        <div>
+          <Img src="/images/building.jpg" />
         </div>
       </Flickity>
-      {/* </Wrapper> */}
     </Wrapper>
   );
 }

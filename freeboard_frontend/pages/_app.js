@@ -38,6 +38,7 @@ const HIDDEN_Main = [
   "/mypage/mymarket",
   "/mypage/mypoint",
   "/mypage/myprofile",
+  "/home",
 ];
 
 export const GlobalContext = createContext(null);

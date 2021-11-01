@@ -58,6 +58,7 @@ const HIDDEN_MySidebar = [
   "/market/product-detail",
   "/market/product-detail/[useditemId]",
   "/market/product-detail/[useditemId]/edit",
+  "/home",
 ];
 
 export default function Layout(props) {

@@ -1,27 +1,28 @@
-import { Wrapper, MenuItem } from "./LayoutNavi.styles";
+import { Wrapper, MenuItem, MenuHome, MenuSome } from "./LayoutNavi.styles";
 
 export default function LayoutNaviUI(props) {
   return (
     <Wrapper>
-      <MenuItem id="/boards/openapi" onClick={props.onClickMenu}>
+      <MenuSome id="/boards/openapi" onClick={props.onClickMenu}>
         SOME
-      </MenuItem>
+      </MenuSome>
       {/* <MenuItem id="/boards/board-post" onClick={props.onClickMenu}>
         BOARD
       </MenuItem> */}
       <MenuItem id="/boards/list" onClick={props.onClickMenu}>
-        LIST
+        BOARD
       </MenuItem>
+      <MenuHome id="/home" onClick={props.onClickMenu}>
+        HOME
+      </MenuHome>
       <MenuItem id="/market/product-list" onClick={props.onClickMenu}>
         MERCH
       </MenuItem>
-      {/* <MenuItem>MINE</MenuItem> */}
-
       {!props.accessToken && (
         <MenuItem onClick={props.onClickLogin}>LOGIN</MenuItem>
       )}
       {props.accessToken && (
-        <MenuItem onClick={props.onClickLogin}>ACCOUNT / INFO</MenuItem>
+        <MenuItem onClick={props.onClickLogin}>ACC / INFO</MenuItem>
       )}
     </Wrapper>
   );

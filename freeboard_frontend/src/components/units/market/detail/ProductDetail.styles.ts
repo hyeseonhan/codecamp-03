@@ -116,11 +116,16 @@ export const Price = styled.div`
 `;
 
 export const ItemImages = styled.div`
-  width: 504px;
+  /* width: 504px; */
   height: 482px;
+  /* width: 1200px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 `;
 
-export const ItemImage = styled.img``;
+export const ItemImage = styled.div``;
 
 export const Contents = styled.div`
   margin-bottom: 40px;
@@ -148,7 +153,3 @@ export const ButtonWrapper = styled.div`
   justify-content: center;
   margin-bottom: 80px;
 `;
-
-// export const Wrapper01 = styled.div`
-//   margin-right: 24px;
-// `;

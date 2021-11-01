@@ -25,7 +25,7 @@ export default function MainPage() {
   };
 
   function onClickMoveList() {
-    router.push("/boards/list");
+    router.push("/home");
   }
 
   return (

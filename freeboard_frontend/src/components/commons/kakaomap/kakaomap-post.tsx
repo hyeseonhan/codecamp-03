@@ -161,9 +161,9 @@ export default function KakaoMapPost(props) {
           <GpsWrapper>
             <TitleName>GPS</TitleName>
             <GpsInnerWrapper>
-              <Lat value={lat} readOnly />
+              <Lat value={lat} />
               <GpsIcon src="/images/location.png" />
-              <Lng value={lng} readOnly />
+              <Lng value={lng} />
             </GpsInnerWrapper>
           </GpsWrapper>
           <TitleName>주소</TitleName>

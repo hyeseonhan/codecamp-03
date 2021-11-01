@@ -12,7 +12,7 @@ export default function Uploads02UI(props) {
   return (
     <Wrapper>
       <Title>{props.name}</Title>
-      {props.fileUrl || props.defaultFileUrl ? (
+      {props.fileUrl || props.defaultValue ? (
         <UploadWrapper onClick={props.onClickUpload}>
           <UploadDeliteButton>
             <img src="/images/delite.png"></img>
@@ -22,7 +22,7 @@ export default function Uploads02UI(props) {
             {...props.register}
             src={
               props.fileUrl ||
-              `https://storage.googleapis.com/${props.defaultFileUrl}`
+              `https://storage.googleapis.com/${props.defaultValue}`
             }
           />
         </UploadWrapper>

@@ -1,5 +1,6 @@
 import Button01 from "../../../commons/buttons/01/Button01";
 import KakaoMapDetail from "../../../commons/kakaomap/kakaomap-detail";
+import Carousel01 from "../../../commons/carousel/Carousel01/index";
 
 import {
   Wrapper,
@@ -75,14 +76,15 @@ export default function ProductDetailUI(props: any) {
           </Top>
           <Price>{props.data?.fetchUseditem.price}</Price>
           <ItemImages>
-            {props.data?.fetchUseditem.images
+            {/* {props.data?.fetchUseditem.images
               ?.filter((el: string) => el)
               .map((el: string) => (
                 <ItemImage
                   key={el}
                   src={`https://storage.googleapis.com/${el}`}
                 />
-              ))}
+              ))} */}
+            <Carousel01 data={props.data} />
           </ItemImages>
           {process.browser && (
             <Contents

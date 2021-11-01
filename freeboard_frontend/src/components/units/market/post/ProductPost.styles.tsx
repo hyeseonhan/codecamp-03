@@ -26,14 +26,8 @@ export const ContentsWrapper = styled.div`
   width: 996px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 40px;
 `;
-
-// export const AboveWarpper = styled.div`
-//   width: 996px;
-//   height: 52px;
-//   border: 1px solid #bdbdbd;
-//   border-bottom: none;
-// `;
 
 export const UndderInput = styled.textarea`
   width: 996px;

@@ -18,7 +18,7 @@ const FETCH_USED_ITEM = gql`
 export default function MarketEditPage() {
   const router = useRouter();
   const { data } = useQuery(FETCH_USED_ITEM, {
-    variables: { useditemId: String(router.query.useditemId) },
+    variables: { useditemId: router.query.useditemId },
   });
 
   return <ProductPost isEdit={true} data={data} />;
