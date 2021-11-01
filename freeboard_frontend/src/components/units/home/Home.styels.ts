@@ -23,6 +23,12 @@ export const RightWrapper = styled.div`
 `;
 
 export const Name = styled.div`
-  font-size: 17px;
+  font-size: 15x;
   font-weight: 700;
+`;
+
+export const Title = styled.div`
+  font-size: 17x;
+  font-weight: 800;
+  text-decoration: underline 3px;
 `;

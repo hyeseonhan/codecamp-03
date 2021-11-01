@@ -1,14 +1,14 @@
 import Flickity01 from "../../commons/carousel/Flickity01";
-import { Wrapper, LeftWarpper, RightWrapper, Name } from "./Home.styels";
+import { Wrapper, LeftWarpper, RightWrapper, Name, Title } from "./Home.styels";
 
 export default function HomeUI(props) {
   return (
     <Wrapper>
       <LeftWarpper>
+        <Title>BOARDS</Title>
         {props.Boardsdata?.fetchBoards.map((el) => (
           <>
             <Name>{el.title}</Name>
-            {/* <div>{el.remarks}</div> */}
             <div>{el.writer}</div>
             {/* <div>{el.createdAt.slice(0, 10)}</div> */}
           </>
@@ -16,6 +16,7 @@ export default function HomeUI(props) {
       </LeftWarpper>
       <Flickity01 />
       <RightWrapper>
+        <Title>PRODUCTS</Title>
         {props.Itemsdata?.fetchUseditems.map((el) => (
           <>
             <Name>{el.name}</Name>

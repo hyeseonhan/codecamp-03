@@ -16,7 +16,7 @@ export const Wrapper = styled.div`
 export const MenuSome = styled.div`
   font-family: "LightBold";
   font-size: 23px;
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   color: black;
   margin: 45px;
@@ -31,7 +31,7 @@ export const MenuSome = styled.div`
 export const MenuItem = styled.div`
   font-family: "LightBold";
   font-size: 23px;
-  font-weight: 600;
+  font-weight: 700;
   position: relative;
   color: black;
   margin: 45px;
