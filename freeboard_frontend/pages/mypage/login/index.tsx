@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import styled from "@emotion/styled";
 import { useRouter } from "next/dist/client/router";
 import { gql, useMutation } from "@apollo/client";

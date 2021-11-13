@@ -1,11 +1,7 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useState } from "react";
 import MyProfileUI from "./myprofile.presenter";
-import {
-  UPDATE_USER,
-  FETCH_USER_LOGGED_IN,
-  UPLOAD_FILE,
-} from "./myprofile.queries";
+import { FETCH_USER_LOGGED_IN } from "./myprofile.queries";
 
 export default function MyProfile() {
   // const [updateUser] = useMutation(UPDATE_USER);

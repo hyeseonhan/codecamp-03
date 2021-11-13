@@ -1,7 +1,7 @@
 import { Wrapper, InputWrapper, Search, Youtube } from "./OpenapiList.styles";
 import { IOpenapiListUIprops } from "./OpenapiList.types";
 
-export default function OpenapiListUI(props: IOpenapiListUIProps) {
+export default function OpenapiListUI(props: IOpenapiListUIprops) {
   return (
     <>
       <Wrapper>

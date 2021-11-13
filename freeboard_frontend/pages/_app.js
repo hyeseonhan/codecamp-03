@@ -63,23 +63,12 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
-    // const accessToken = localStorage.getItem("accessToken") || "";
-    // setAccessToken(accessToken);
-    // localStorage.clear();
     if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
   }, []);
 
-  // useEffect(() => {
-  //   // const accessToken = localStorage.getItem("accessToken") || "";
-  //   // console.log("app:", accessToken);
-  //   // // localStorage.clear();
-  //   // setAccessToken(accessToken);
-  //   if (localStorage.getItem("refreshToken")) getAccessToken(setAccessToken);
-  // }, []);
-
-  const errorLink = onError(({ grahpQLErrors, operation, forward }) => {
-    if (grahpQLErrors) {
-      for (const err of grahpQLErrors) {
+  const errorLink = onError(({ graphQLErrors, operation, forward }) => {
+    if (graphQLErrors) {
+      for (const err of graphQLErrors) {
         if (err.extensions?.code === "UNAUTHENTICATED") {
           operation.setContext({
             headers: {
@@ -95,13 +84,12 @@ function MyApp({ Component, pageProps }) {
   });
 
   const uploadLink = createUploadLink({
-    uri: "https://backend03.codebootcamp.co.kr/graphql",
+    uri: "https://backend03.codebootcamp.co.kr/graphql08",
     headers: { authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });
 
   const client = new ApolloClient({
-    // uri: "http://backend03.codebootcamp.co.kr/graphql",
     link: ApolloLink.from([errorLink, uploadLink]),
     cache: new InMemoryCache(),
   });

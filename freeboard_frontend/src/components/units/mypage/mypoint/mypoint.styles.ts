@@ -39,11 +39,16 @@ export const State = styled.div`
   font-size: 16px;
 `;
 
+interface IProps {
+  isVisible: boolean;
+  isVisibled: boolean;
+}
+
 export const State1 = styled.div`
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  color: ${(props) =>
+  color: ${(props: IProps) =>
     (props.isVisible && !props.isVisibled) === true ? "#f04237" : "black"};
 `;
 
@@ -51,7 +56,7 @@ export const State2 = styled.div`
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  color: ${(props) =>
+  color: ${(props: IProps) =>
     (!props.isVisible && !props.isVisibled) === true ? "#f04237" : "black"};
 `;
 
@@ -59,7 +64,7 @@ export const State3 = styled.div`
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  color: ${(props) =>
+  color: ${(props: IProps) =>
     (!props.isVisible && props.isVisibled) === true ? "#f04237" : "black"};
 `;
 
@@ -67,7 +72,7 @@ export const State4 = styled.div`
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  color: ${(props) =>
+  color: ${(props: IProps) =>
     (props.isVisible && props.isVisibled) === true ? "#f04237" : "black"};
 `;
 

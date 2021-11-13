@@ -1,4 +1,10 @@
-import { Wrapper, MenuItem, MenuHome, MenuSome } from "./LayoutNavi.styles";
+import {
+  Wrapper,
+  MenuItem,
+  MenuHome,
+  MenuSome,
+  MenuLogin,
+} from "./LayoutNavi.styles";
 
 export default function LayoutNaviUI(props) {
   return (
@@ -19,7 +25,7 @@ export default function LayoutNaviUI(props) {
         MERCH
       </MenuItem>
       {!props.accessToken && (
-        <MenuItem onClick={props.onClickLogin}>LOGIN</MenuItem>
+        <MenuLogin onClick={props.onClickLogin}>LOGIN</MenuLogin>
       )}
       {props.accessToken && (
         <MenuItem onClick={props.onClickLogin}>ACC / INFO</MenuItem>

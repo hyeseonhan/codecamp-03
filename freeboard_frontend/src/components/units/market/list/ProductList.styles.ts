@@ -35,6 +35,10 @@ export const TableTop = styled.div`
   margin-bottom: 40px;
 `;
 
+interface IProps {
+  isVisible: boolean;
+}
+
 export const OnSale = styled.div`
   margin-right: 20px;
   font-weight: 500;
@@ -42,8 +46,12 @@ export const OnSale = styled.div`
   font-size: 18px;
   line-height: 26.64px;
   cursor: pointer;
-  color: ${(props) => (props.isVisible === true ? "black" : "#f04237")};
+  color: ${(props: IProps) => (props.isVisible === true ? "black" : "#f04237")};
 `;
+
+interface IProps {
+  isVisible: boolean;
+}
 
 export const Sold = styled.div`
   font-weight: 500;
@@ -51,7 +59,7 @@ export const Sold = styled.div`
   font-size: 18px;
   line-height: 26.64px;
   cursor: pointer;
-  color: ${(props) => (props.isVisible === true ? "#f04237" : "black")};
+  color: ${(props: IProps) => (props.isVisible === true ? "#f04237" : "black")};
 `;
 
 export const TableSell = styled.div`

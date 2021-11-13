@@ -97,13 +97,14 @@ export default function ProductPostUI(props: any) {
         <ImageWrapper>
           {new Array(2).fill(1).map((el, index) => (
             <ItemImgUpload
-              type="button"
+              // type="button"
               onChangeFiles={props.onChangeFiles}
               key={`${el}_${index}`}
               // key={uuidv4()}
               index={index}
               defaultValue={props.data?.fetchUseditem.images?.[index]}
-              register={props.register("images")}
+              // register={props.register("images")}
+              {...props.register("images")}
             />
           ))}
         </ImageWrapper>

@@ -10,6 +10,7 @@ export default function OpenapiList() {
   useEffect(() => {
     testFunc();
     console.log("실행");
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [search]);
 
   const testFunc = async () => {

@@ -41,11 +41,15 @@ export const CategoryWrapper = styled.div`
   justify-content: space-between;
 `;
 
+interface IProps {
+  isVisible: boolean;
+}
+
 export const StateMyItem = styled.div`
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  color: ${(props) => (props.isVisible === true ? "black" : "#f04237")};
+  color: ${(props: IProps) => (props.isVisible === true ? "black" : "#f04237")};
 `;
 
 export const State = styled.div`
@@ -57,7 +61,7 @@ export const StatePickedItem = styled.div`
   font-weight: 600;
   font-size: 16px;
   cursor: pointer;
-  color: ${(props) => (props.isVisible === true ? "#f04237" : "black")};
+  color: ${(props: IProps) => (props.isVisible === true ? "#f04237" : "black")};
 `;
 
 export const ItemContent = styled.div`

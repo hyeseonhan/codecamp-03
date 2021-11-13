@@ -59,3 +59,20 @@ export const MenuHome = styled.div`
   background-color: black;
   color: #f04237;
 `;
+
+export const MenuLogin = styled.div`
+  width: 113.887px;
+  text-align: center;
+  /* border: 1px solid black; */
+  font-family: "LightBold";
+  font-size: 23px;
+  font-weight: 700;
+  position: relative;
+  color: black;
+  margin: 45px;
+  cursor: pointer;
+  :hover {
+    /* opacity: 0.4; */
+    color: #f04237;
+  }
+`;

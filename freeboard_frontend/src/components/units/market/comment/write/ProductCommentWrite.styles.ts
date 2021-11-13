@@ -38,8 +38,12 @@ export const Avatar = styled.img`
 
 export const MiddleWrapper = styled.div``;
 
+interface IProps {
+  isEdit: boolean;
+}
+
 export const InputWrapper = styled.div`
-  width: ${(props) => (props.isEdit === true ? "1143px" : "1200px")};
+  width: ${(props: IProps) => (props.isEdit === true ? "1143px" : "1200px")};
   /* width: 1200px; */
   border: 1px solid lightgray;
 `;

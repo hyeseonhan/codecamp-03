@@ -1,11 +1,7 @@
 {
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -21,9 +17,14 @@
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    "pages/boards/zbefore/state/index.js",
+    "pages/boards/zbefore/router_detail_read/index.js",
+    "pages/boards/zbefore/router_detail_read/[number]/index.js",
+    "pages/boards/zbefore/router_detail/index.js",
+    "pages/boards/zbefore/new/index.js",
+    "pages/boards/zbefore/mutation/index.js",
+    "pages/_app.js"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

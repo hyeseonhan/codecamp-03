@@ -1,3 +1,8 @@
+import { MutableRefObject } from "react";
+import { ChangeEvent, RefObject } from "react";
+
 export interface IOpenapiListUIprops {
-  inputRef: HTMLInputElement;
+  list: any;
+  inputRef: MutableRefObject<HTMLInputElement>;
+  onChangeSearch: (event: ChangeEvent<HTMLInputElement>) => void;
 }

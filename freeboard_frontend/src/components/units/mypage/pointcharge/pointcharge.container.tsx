@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-sync-scripts */
 import { useMutation, useQuery } from "@apollo/client";
 import Head from "next/head";
 import { useState } from "react";

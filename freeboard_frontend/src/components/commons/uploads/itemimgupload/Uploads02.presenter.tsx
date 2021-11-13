@@ -7,6 +7,7 @@ import {
   UploadButton,
   UploadFileHidden,
 } from "./Uploads02.styles";
+import { IUploads02UIProps } from "./Uploads02.types";
 
 export default function Uploads02UI(props) {
   return (

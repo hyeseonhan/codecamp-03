@@ -31,8 +31,13 @@ export const MiddleWrapper = styled.div`
   justify-content: flex-start;
 `;
 
+interface IProps {
+  isEditReply: boolean;
+}
+
 export const InnerWrapper = styled.div`
-  width: ${(props) => (props.isEditReply === true ? "1036px" : "1095px")};
+  width: ${(props: IProps) =>
+    props.isEditReply === true ? "1036px" : "1095px"};
   /* width: 1095px; */
   border: 1px solid lightgray;
   margin-bottom: 40px;

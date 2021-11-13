@@ -1,9 +1,10 @@
 import { useState } from "react";
 import { useRef } from "react";
 import Uploads02UI from "./Uploads02.presenter";
+import { IUploads02Props } from "./Uploads02.types";
 
-export default function ItemImgUpload(props) {
-  const fileRef = useRef(null);
+export default function ItemImgUpload(props: IUploads02Props) {
+  const fileRef = useRef<HTMLInputElement>(null);
   const [fileUrl, setFileUrl] = useState("");
 
   function onClickUpload() {
