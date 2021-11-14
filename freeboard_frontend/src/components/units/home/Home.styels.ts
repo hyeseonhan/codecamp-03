@@ -9,7 +9,7 @@ export const Wrapper = styled.div`
 
 export const LeftWarpper = styled.div`
   margin-top: 50px;
-  width: 200px;
+  width: 220px;
   height: 100px;
 `;
 
@@ -18,7 +18,7 @@ export const RightWrapper = styled.div`
   flex-direction: column;
   align-items: flex-end;
   margin-top: 50px;
-  width: 200px;
+  width: 210px;
   height: 100px;
 `;
 
@@ -37,12 +37,21 @@ export const Name = styled.div`
   font-size: 15x;
   font-weight: 700;
   color: #4f4f4f;
+  /* width: 280px; */
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Name1 = styled.div`
   font-size: 15x;
   /* font-weight: 700; */
   color: #4f4f4f;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const Title = styled.div`
