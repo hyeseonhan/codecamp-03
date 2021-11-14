@@ -1,10 +1,11 @@
 import styled from "@emotion/styled";
 
 export const TableSold = styled.div`
+  width: 880px;
   display: flex;
   flex-direction: row;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  /* border-top: 1px solid black; */
+  border-bottom: 2px solid black;
   padding-top: 20px;
   padding-bottom: 20px;
 `;
@@ -34,7 +35,7 @@ export const NoneImage = styled.div`
 `;
 
 export const Info = styled.div`
-  width: 750px;
+  width: 650px;
   /* width: 100%; */
   display: flex;
   flex-direction: row;

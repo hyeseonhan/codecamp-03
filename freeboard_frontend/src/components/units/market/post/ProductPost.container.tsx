@@ -57,10 +57,10 @@ export default function ProductPost(props) {
             images: Images,
             // ...data,
             useditemAddress: {
-              address: data.location,
-              addressDetail: data.addressDetail,
-              lat: Number(data.lat),
-              lng: Number(data.lng),
+              address: location,
+              addressDetail: addressDetail,
+              lat: lat,
+              lng: lng,
             },
           },
         },
@@ -104,15 +104,13 @@ export default function ProductPost(props) {
     if (data.contents) myUpdateUseditemInput.contents = data.contents;
     if (Number(data.price)) myUpdateUseditemInput.price = Number(data.price);
     if (data.tags) myUpdateUseditemInput.tags = data.tags;
-    if (data.lat || data.lng || data.location || data.addressDetail) {
+    if (lat || lng || location || addressDetail) {
       myUpdateUseditemInput.useditemAddress = {};
-      if (data.lat) myUpdateUseditemInput.useditemAddress.lat = data.lat;
-      if (data.lng) myUpdateUseditemInput.useditemAddress.lng = data.lng;
-      if (data.location)
-        myUpdateUseditemInput.useditemAddress.location = data.location;
-      if (data.addressDetail)
-        myUpdateUseditemInput.useditemAddress.addressDetail =
-          data.addressDetail;
+      if (lat) myUpdateUseditemInput.useditemAddress.lat = lat;
+      if (lng) myUpdateUseditemInput.useditemAddress.lng = lng;
+      if (location) myUpdateUseditemInput.useditemAddress.address = location;
+      if (addressDetail)
+        myUpdateUseditemInput.useditemAddress.addressDetail = addressDetail;
     }
 
     // 이미지수정

@@ -1,6 +1,5 @@
 import styled from "@emotion/styled";
-import { useContext } from "react";
-import { useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { GlobalContext } from "../../../../pages/_app";
 
 const Wrapper = styled.div`
@@ -80,10 +79,10 @@ export default function KakaoMapPost(props) {
   useEffect(() => {
     const script = document.createElement("script"); // script 태그를 만든다.
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=a0290023f3c59e26ad85f5ea9165188f&autoload=false&libraries=services";
+      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5c3f3b5fa1a016d4a491f6dc430152fe&autoload=false&libraries=services";
     document.head.appendChild(script); // appendChild 자식으로 추가
     script.onload = () => {
-      window.kakao.maps.load(() => {
+      window.kakao.maps.load(function () {
         window.setTimeout(() => {
           const container = document.getElementById("map"); // 지도를 담을 영역의 DOM 레퍼런스
           const options = {
@@ -107,7 +106,7 @@ export default function KakaoMapPost(props) {
           console.log(window.kakao.maps);
           // 중요!
           const geocoder = new window.kakao.maps.services.Geocoder();
-          console.log(geocoder);
+          // console.log(geocoder);
 
           const coord = new window.kakao.maps.LatLng(lat, lng);
           console.log("2번", coord);
@@ -142,6 +141,8 @@ export default function KakaoMapPost(props) {
               setLat(latlng.getLat());
               setLng(latlng.getLng());
 
+              console.log("aabdsdf", window.kakao.maps);
+              console.log("234234", location);
               console.log("jhg", lat);
             }
           );
@@ -161,14 +162,14 @@ export default function KakaoMapPost(props) {
           <GpsWrapper>
             <TitleName>GPS</TitleName>
             <GpsInnerWrapper>
-              <Lat value={lat} />
+              <Lat value={lat} readOnly />
               <GpsIcon src="/images/location.png" />
-              <Lng value={lng} />
+              <Lng value={lng} readOnly />
             </GpsInnerWrapper>
           </GpsWrapper>
           <TitleName>주소</TitleName>
           <AddressWrapper>
-            <Address value={location} />
+            <Address value={location} readOnly />
             <Address onChange={props.onChangeAddressDetail} />
           </AddressWrapper>
         </MapInfoWrapper>

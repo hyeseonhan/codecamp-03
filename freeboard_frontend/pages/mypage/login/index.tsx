@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 
 const LoginWrapper = styled.div`
   border-right: 2px dotted black;
-  padding: 20px;
+  padding: 20px 25px 20px 80px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -168,8 +168,9 @@ export default function LoginPage() {
     // console.log(result.data?.loginUser.accessToken);
     // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
     localStorage.setItem("refreshToken", "true");
-    console.log("login:", accessToken);
+    // console.log("login:", accessToken);
     setAccessToken(result.data?.loginUser.accessToken);
+    // location.reload();
     router.push("/mypage/loginfo");
   }
 

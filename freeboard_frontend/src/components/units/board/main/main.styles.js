@@ -13,14 +13,14 @@ export const Wrapper = styled.div`
 export const SliderWrapper = styled.div`
   margin-top: 80px;
   padding: 20px;
-  width: 1600px;
+  width: 1200px;
   height: 400px;
   /* background-color: #f04237; */
 `;
 
 export const SliderAlbum = styled.img`
-  width: 20%;
-  height: 20%;
+  width: 30%;
+  height: 30%;
   /* margin: 60px; */
   box-shadow: 8px 8px 8px 8px;
   margin: auto;

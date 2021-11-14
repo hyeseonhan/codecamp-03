@@ -135,7 +135,7 @@ export default function RecentlyViewedItems(props) {
   return (
     // <Asd>
     <Wrapper>
-      <Title>오늘 본 상품</Title>
+      <Title>최근 본 상품</Title>
       {/* basketItems ? 물음표 꼭 써줘야한다. */}
       {basketItems?.map((el: any) => (
         <InnerWrapper key={el._id} id={el._id} onClick={onClickMoveToProduct}>

@@ -19,11 +19,11 @@ export default function KakaoMapDetail(props) {
   useEffect(() => {
     const script = document.createElement("script");
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=a0290023f3c59e26ad85f5ea9165188f";
+      "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=5c3f3b5fa1a016d4a491f6dc430152fe";
     document.head.appendChild(script);
 
     script.onload = () => {
-      window.kakao.maps.load(() => {
+      window.kakao.maps.load(function () {
         const container = document.getElementById("map");
         const options = {
           center: new window.kakao.maps.LatLng(
@@ -33,6 +33,7 @@ export default function KakaoMapDetail(props) {
           level: 4,
         };
         const map = new window.kakao.maps.Map(container, options);
+        console.log("kakaomap-detail:", map);
 
         const marker = new window.kakao.maps.Marker({
           // 지도 중심좌표에 마커를 생성합니다

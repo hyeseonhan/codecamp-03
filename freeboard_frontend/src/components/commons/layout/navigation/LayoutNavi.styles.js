@@ -20,7 +20,7 @@ export const MenuSome = styled.div`
   position: relative;
   color: black;
   margin: 45px;
-  padding-left: 53px;
+  padding-left: 16px;
   cursor: pointer;
   :hover {
     /* opacity: 0.4; */

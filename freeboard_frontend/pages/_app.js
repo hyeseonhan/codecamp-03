@@ -53,13 +53,13 @@ function MyApp({ Component, pageProps }) {
     accessToken: accessToken,
     setAccessToken: setAccessToken,
     userInfo: userInfo,
+    lat: lat,
+    lng: lng,
+    location: location,
     setUserInfo: setUserInfo,
     setLat: setLat,
     setLng: setLng,
     setLocation: setLocation,
-    lat,
-    lng,
-    location,
   };
 
   useEffect(() => {
@@ -84,7 +84,8 @@ function MyApp({ Component, pageProps }) {
   });
 
   const uploadLink = createUploadLink({
-    uri: "https://backend03.codebootcamp.co.kr/graphql08",
+    // uri: "https://backend03.codebootcamp.co.kr/graphql08",
+    uri: "http://backend03.codebootcamp.co.kr/graphql",
     headers: { authorization: `Bearer ${accessToken}` },
     credentials: "include",
   });

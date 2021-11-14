@@ -1,13 +1,8 @@
 import BoardWriteUI from "./BoardWrite.presenter";
 import { useState, useRef, useEffect } from "react";
-import { useMutation, useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import {
-  CREATE_BOARD,
-  UPDATE_BOARD,
-  FETCH_BOARD,
-  UPLOAD_FILE,
-} from "./BoardWrite.queries";
+import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 
 export default function BoardWrite(props) {
   const router = useRouter();
@@ -15,11 +10,6 @@ export default function BoardWrite(props) {
   const [createBoard] = useMutation(CREATE_BOARD);
   const [updateBoard] = useMutation(UPDATE_BOARD);
   const [uploadFile] = useMutation(UPLOAD_FILE);
-  const { data } = useQuery(FETCH_BOARD, {
-    variables: { boardId: String(router.query.board_post_detail) },
-  });
-
-  console.log(data);
 
   const [writer, setWriter] = useState("");
   const [password, setPassword] = useState("");
@@ -304,10 +294,11 @@ export default function BoardWrite(props) {
       handleComplete={handleComplete}
       address={address}
       zipcode={zipcode}
+      isOpen={isOpen}
       // closeModal={closeModal}
       isEdit={props.isEdit}
       color={color}
-      data={data}
+      data={props.data}
       // onChangeFileUrls={onChangeFileUrls} // 1차 이미지 실습
       // fileUrls={fileUrls}  // 1차 이미지 실습
       onChangeFiles={onChangeFiles}

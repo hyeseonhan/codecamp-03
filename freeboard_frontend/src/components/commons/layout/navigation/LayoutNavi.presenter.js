@@ -10,7 +10,7 @@ export default function LayoutNaviUI(props) {
   return (
     <Wrapper>
       <MenuSome id="/boards/openapi" onClick={props.onClickMenu}>
-        SOME
+        YOUTUBE
       </MenuSome>
       {/* <MenuItem id="/boards/board-post" onClick={props.onClickMenu}>
         BOARD

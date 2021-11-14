@@ -91,7 +91,7 @@ export default function BoardlWriteUI(props) {
           />
           <SearchButton
             onClick={props.onTogleAddress}
-            onComplete={props.onCompleteAddressSearch}
+            // onComplete={props.onCompleteAddressSearch} // onComplete 다음지도에 들어있는 태그
           >
             우편번호 검색
           </SearchButton>

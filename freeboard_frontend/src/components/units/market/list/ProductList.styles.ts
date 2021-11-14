@@ -8,7 +8,7 @@ export const BestTitle = styled.div`
   display: flex;
   justify-content: center;
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 42.19px;
   font-family: "LightBold";
   margin-bottom: 50px;
@@ -16,16 +16,14 @@ export const BestTitle = styled.div`
 `;
 
 export const ListWrapper = styled.div`
-  width: 1200px;
   width: 100%;
+  /* border: 1px solid red; */
   display: flex;
   flex-direction: row;
-  margin-left: 360px;
-  margin-right: 360px;
 `;
 
 export const LeftWrapper = styled.div`
-  width: 1000px;
+  width: 900px;
   margin-right: 30px;
 `;
 
@@ -63,19 +61,11 @@ export const Sold = styled.div`
 `;
 
 export const TableSell = styled.div`
+  width: 880px;
   display: flex;
   flex-direction: row;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
-  padding-top: 20px;
-  padding-bottom: 20px;
-`;
-
-export const TableSold = styled.div`
-  display: flex;
-  flex-direction: row;
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
+  /* border-top: 1px solid black; */
+  border-bottom: 2px solid black;
   padding-top: 20px;
   padding-bottom: 20px;
 `;
@@ -105,7 +95,7 @@ export const NoneImage = styled.div`
 `;
 
 export const Info = styled.div`
-  width: 750px;
+  width: 650px;
   /* width: 100%; */
   display: flex;
   flex-direction: row;
@@ -234,6 +224,6 @@ export const PostButton = styled.button`
   /* border: 1px solid #f2f2f2; */
   border: 3px solid black;
   margin-top: 50px;
-  margin-left: 530px;
+  margin-left: 480px;
   margin-bottom: 1000px;
 `;

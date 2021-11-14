@@ -27,11 +27,11 @@ const MySideBar = () => {
   //   });
   // }, [data]);
 
-  console.log("loginfo:", userInfo);
+  // console.log("loginfo:", userInfo);
 
   function onClickMovetoMyMarket() {
     router.push("/mypage/mymarket");
-    console.log(userInfo);
+    // console.log(userInfo);
   }
 
   function onClickMovetoMyPoint() {

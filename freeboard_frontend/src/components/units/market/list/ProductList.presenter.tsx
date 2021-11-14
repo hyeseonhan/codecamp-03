@@ -34,7 +34,7 @@ import TableSold from "./ListTableSold/ListTableSold.container";
 export default function ProductListtUI(props) {
   return (
     <Wrapper>
-      <BestTitle>BEST PRODUCT</BestTitle>
+      <BestTitle>SECONDHAND-GOODS</BestTitle>
       <ListWrapper>
         <LeftWrapper>
           <TableTop>
@@ -48,7 +48,15 @@ export default function ProductListtUI(props) {
               판매된상품
             </Sold>
           </TableTop>
-          <div style={{ overflow: "auto", width: "1000px", height: "1004px" }}>
+          <div
+            style={{
+              overflow: "auto",
+              width: "900px",
+              height: "1004px",
+              borderTop: "3px solid black",
+              borderBottom: "3px solid black",
+            }}
+          >
             <InfiniteScroll
               pageStart={0}
               loadMore={props.onloadMore}

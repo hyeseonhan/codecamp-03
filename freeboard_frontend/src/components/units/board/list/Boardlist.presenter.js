@@ -4,6 +4,7 @@ import {
   HeaderTitle,
   CardPost,
   CardImage,
+  CardNone,
   Title,
   CardBottom,
   AvatarWrapper,
@@ -44,7 +45,35 @@ export default function BoardListUI(props) {
   return (
     <Wrapper>
       <HeaderTitle>BEST POST</HeaderTitle>
+      <Header>
+        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
+          <CardPost key={el._id} id={el.id} onClick={props.onClickBest}>
+            {el?.images[0] ? (
+              <CardImage
+                src={`https://storage.googleapis.com/${el.images[0]}`}
+              />
+            ) : (
+              <CardNone>NO IMAGE</CardNone>
+            )}
 
+            {/* <Title>{el.title}</Title> */}
+            <CardBottom>
+              <Title>{el.title}</Title>
+              <AvatarWrapper>
+                <CreatedAt>{el.createdAt.slice(0, 10)}</CreatedAt>
+                <Info>
+                  <Avatar src="/images/avatar.png" />
+                  <Writer>{el.writer}</Writer>
+                </Info>
+              </AvatarWrapper>
+              <Like>
+                <LikeImage src="/images/thumb.png" />
+                <LikeCount>{el.likeCount}</LikeCount>
+              </Like>
+            </CardBottom>
+          </CardPost>
+        ))}
+      </Header>
       <MiddleWrapper>
         {/* <SearchTitle
           name="title"
@@ -87,38 +116,6 @@ export default function BoardListUI(props) {
             <ColumnBasic>{el.createdAt.slice(0, 10)}</ColumnBasic>
           </Row>
         ))}
-        {/* <Row
-            key={el._id}
-            id={el._id}
-            onClick={props.onClickMoveToBoardDetail}
-          >
-            <ColumnBasic
-              id={el._id}
-              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
-            >
-              {10 - index}
-            </ColumnBasic>
-            <ColumnTitle
-              id={el._id}
-              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
-            >
-              {" "}
-              {el.title}{" "}
-            </ColumnTitle>
-            <ColumnBasic
-              id={el._id}
-              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
-            >
-              {el.writer}
-            </ColumnBasic>
-            <ColumnBasic
-              id={el._id}
-              onClickMoveToBoardDetail={props.onClickMoveToBoardDetail}
-            >
-              {el.createdAt.slice(0, 10)}
-            </ColumnBasic>
-          </Row> */}
-
         <ListBottom />
       </BoardList>
       <Footer>
@@ -145,44 +142,6 @@ export default function BoardListUI(props) {
           게시물 등록하기
         </PostButton>
       </Footer>
-      <Header>
-        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
-          <CardPost key={el._id} id={el.id} onClick={props.onClickBest}>
-            <CardImage src={`https://storage.googleapis.com/${el.images[0]}`} />
-            <Title>{el.title}</Title>
-            <CardBottom>
-              <AvatarWrapper>
-                <Info>
-                  <Avatar src="/images/avatar.png" />
-                  <Writer>{el.writer}</Writer>
-                </Info>
-                <CreatedAt>{el.createdAt.slice(0, 10)}</CreatedAt>
-              </AvatarWrapper>
-              <Like>
-                <LikeImage src="/images/thumb.png" />
-                <LikeCount>{el.likeCount}</LikeCount>
-              </Like>
-            </CardBottom>
-          </CardPost>
-        ))}
-        {/* <CardPost>
-          <CardImage src="/images/posty.jpeg" />
-          <Title>게시물 제목입니다.</Title>
-          <CardBottom>
-            <AvatarWrapper>
-              <Info>
-                <Avatar src="/images/avatar.png" />
-                <Writer>노원두</Writer>
-              </Info>
-              <CreatedAt>Date : 2021.02.18</CreatedAt>
-            </AvatarWrapper>
-            <Like>
-              <LikeImage src="/images/thumb.png" />
-              <LikeCount>356</LikeCount>
-            </Like>
-          </CardBottom>
-        </CardPost> */}
-      </Header>
     </Wrapper>
   );
 }

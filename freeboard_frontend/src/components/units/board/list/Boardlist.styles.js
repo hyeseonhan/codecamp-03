@@ -1,31 +1,19 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  /* margin: 50px 100px 100px 100px; */
   width: 1200px;
-  /* border-top: 7px solid black; */
   padding-top: 80px;
-  /* box-shadow: 0px 0px 10px black; */
-  /* width: 1500px;
-  border: 1px solid black
-  margin: 50px;
-  padding-top: 80px;
-  padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border: 7px solid black;
-  box-shadow: 0px 0px 10px black; */
 `;
 
 export const Header = styled.div`
   width: 100%;
+  height: 302px;
+  border: 1px solid black;
   display: flex;
+  background-color: black;
   flex-direction: row;
-  justify-content: space-between;
-  padding-top: 100px;
+  align-items: center;
+  justify-content: space-evenly;
 `;
 
 export const HeaderTitle = styled.div`
@@ -33,43 +21,88 @@ export const HeaderTitle = styled.div`
   display: flex;
   justify-content: center;
   font-size: 36px;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 42.19px;
   font-family: "LightBold";
+  margin-bottom: 20px;
 `;
 
 export const CardPost = styled.div`
-  width: 282px;
-  height: 257px;
+  width: 242px;
+  /* height: 257px; */
+  height: 242px;
   border: 1px solid black;
-  border-radius: 20px;
+  border-radius: 180px;
   border: none;
-  box-shadow: 0px 0px 10px gray;
+  /* box-shadow: 0px 0px 8px gray; */
 `;
 
 export const CardImage = styled.img`
-  width: 282px;
-  height: 120px;
-  border-radius: 20px;
+  width: 242px;
+  height: 121px;
+  border-top-left-radius: 180px;
+  border-top-right-radius: 180px;
+  /* border: 3px solid black; */
+  border-bottom: 3px solid black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+`;
+
+export const CardNone = styled.div`
+  width: 242px;
+  height: 121px;
+  border-top-left-radius: 180px;
+  border-top-right-radius: 180px;
+  border-bottom: 3px solid black;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* color: white; */
+  background-color: white;
+  font-size: 30px;
+  font-weight: 700;
+  font-family: "LightBold";
+  padding-top: 28px;
 `;
 
 export const Title = styled.div`
+  text-align: center;
+  width: 160px;
   font-size: 18px;
   font-weight: 500;
   line-height: 26.64px;
-  padding-top: 19.57px;
-  padding-left: 20px;
+  padding-top: 11px;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const CardBottom = styled.div`
+  height: 121px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  padding: 20px;
+  justify-content: space-evenly;
+  background-color: white;
+  border-bottom-left-radius: 180px;
+  border-bottom-right-radius: 180px;
+  border-top: 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 `;
 
-export const AvatarWrapper = styled.div``;
+export const AvatarWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  justify-content: center;
+`;
 
 export const Avatar = styled.img`
   margin-right: 6px;
@@ -80,6 +113,8 @@ export const Avatar = styled.img`
 export const Info = styled.div`
   display: flex;
   flex-direction: row;
+  align-self: center;
+  justify-content: center;
 `;
 
 export const Writer = styled.div`
@@ -91,18 +126,28 @@ export const Writer = styled.div`
 export const CreatedAt = styled.div`
   font-size: 12px;
   font-weight: 400;
-  padding-top: 8px;
+  /* padding-top: 8px; */
   color: #828282;
+  padding-bottom: 10px;
 `;
 
 export const Like = styled.div`
-  display: flex;
+  /* display: flex;
   flex-direction: column;
+  align-items: center; */
+  display: flex;
+  flex-direction: row;
   align-items: center;
+  justify-content: center;
 `;
 
 export const LikeImage = styled.img`
-  padding-bottom: 6px;
+  padding-bottom: 2px;
+  margin-right: 4px;
+  width: 17px;
+  height: 17px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
 `;
 
 export const LikeCount = styled.div`
@@ -110,7 +155,7 @@ export const LikeCount = styled.div`
 `;
 
 export const MiddleWrapper = styled.div`
-  padding-top: 80px;
+  padding-top: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -164,23 +209,21 @@ export const SearchButton = styled.div`
 export const BoardList = styled.div`
   width: 1200px;
   height: 583px;
-  margin-top: 90px;
+  margin-top: 60px;
 `;
 
 export const RowFirst = styled.div`
   display: flex;
-  /* flex-direction: row; */
   height: 52px;
   line-height: 52px;
-  /* border-bottom: 1px solid #bdbdbd; */
   border-bottom: 3px solid black;
   cursor: pointer;
   font-weight: 700;
-
-  :hover {
+  color: #f04237;
+  /* :hover {
     background-color: black;
     color: white;
-  }
+  } */
 `;
 
 export const Row = styled.div`
