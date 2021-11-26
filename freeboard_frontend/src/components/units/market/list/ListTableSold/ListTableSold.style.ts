@@ -35,8 +35,8 @@ export const NoneImage = styled.div`
 `;
 
 export const Info = styled.div`
-  width: 650px;
   /* width: 100%; */
+  width: 650px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;

@@ -1,15 +1,18 @@
-import { useQuery } from "@apollo/client";
+import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import ProductListUI from "./ProductList.presenter";
-import { FETCH_USED_ITEMS } from "./ProductList.queries";
+import { FETCH_USED_ITEMS, TOGGLE_USED_ITEM_PICK } from "./ProductList.queries";
 
 export default function ProductList() {
   const [isVisible, setIsVisible] = useState(false);
+  const [isPicked, setIsPicked] = useState(false);
   const router = useRouter();
   const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
     variables: { page: 0, isSoldout: false },
   });
+
+  const [toggleUseditemPick] = useMutation(TOGGLE_USED_ITEM_PICK);
 
   function onloadMore() {
     if (!data) return;
@@ -33,6 +36,13 @@ export default function ProductList() {
 
   function onClickTablesold() {
     setIsVisible(true);
+  }
+
+  async function onClickPicked() {
+    await toggleUseditemPick({
+      variables: { useditemId: router.query.useditemId },
+    });
+    setIsPicked((prev) => !prev);
   }
 
   // const onClickMoveToPost = (event) => router.push(event.target.id);
@@ -68,6 +78,8 @@ export default function ProductList() {
   return (
     <ProductListUI
       data={data}
+      onClickPicked={onClickPicked}
+      isPicked={isPicked}
       onClickMoveToPost={onClickMoveToPost}
       onClickMoveToProductDetail={onClickMoveToProductDetail}
       onloadMore={onloadMore}

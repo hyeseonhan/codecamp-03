@@ -19,18 +19,9 @@ import {
   HeartButton,
   HeartCount,
 } from "./ListTableSold.style";
-import InfiniteScroll from "react-infinite-scroller";
 
 export default function ListTableSoldUI(props) {
   return (
-    // <div style={{ overflow: "auto", width: "900px", height: "1004px" }}>
-    //   <InfiniteScroll
-    //     pageStart={0}
-    //     loadMore={props.onloadMore}
-    //     hasMore={true}
-    //     useWindow={false}
-    //     // style={{ height: "800px" }}
-    //   >
     <>
       {props.data?.fetchUseditems.map((el) => (
         <TableSold
@@ -75,7 +66,5 @@ export default function ListTableSoldUI(props) {
         </TableSold>
       ))}
     </>
-    //   </InfiniteScroll>
-    // </div>
   );
 }

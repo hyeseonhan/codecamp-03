@@ -61,13 +61,18 @@ export const Sold = styled.div`
 `;
 
 export const TableSell = styled.div`
-  width: 880px;
+  /* width: 880px;
   display: flex;
   flex-direction: row;
-  /* border-top: 1px solid black; */
   border-bottom: 2px solid black;
   padding-top: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 20px; */
+  width: 160px;
+  height: 350px;
+  border: 1px solid lightcoral;
+  display: flex;
+  flex-direction: column;
+  margin-right: 20px;
 `;
 
 export const ProductImage = styled.img`
@@ -95,7 +100,7 @@ export const NoneImage = styled.div`
 `;
 
 export const Info = styled.div`
-  width: 650px;
+  /* width: 650px; */
   /* width: 100%; */
   display: flex;
   flex-direction: row;
@@ -104,6 +109,7 @@ export const Info = styled.div`
 `;
 
 export const Detail = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
 `;
@@ -156,13 +162,18 @@ export const Tags = styled.div`
 `;
 
 export const SellerInfo = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid blue;
 `;
 
 export const AvatarInfo = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-right: 22px;
 `;
 
@@ -191,14 +202,13 @@ export const Seller = styled.div`
 export const HeartInfo = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 export const HeartButton = styled.img`
   width: 20px;
   height: 18.35px;
   margin-right: 6px;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
 `;
 
 export const HeartCount = styled.div`
@@ -226,4 +236,10 @@ export const PostButton = styled.button`
   margin-top: 50px;
   margin-left: 480px;
   margin-bottom: 1000px;
+`;
+
+export const Wrap = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
