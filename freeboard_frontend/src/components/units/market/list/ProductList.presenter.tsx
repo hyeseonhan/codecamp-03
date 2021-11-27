@@ -48,6 +48,12 @@ export default function ProductListtUI(props) {
             <Sold onClick={props.onClickTablesold} isVisible={props.isVisible}>
               판매된상품
             </Sold>
+            <PostButton
+              // id={"/market/product-post"}
+              onClick={props.onClickMoveToPost}
+            >
+              상품 등록하기
+            </PostButton>
           </TableTop>
           <div
             style={
@@ -129,12 +135,12 @@ export default function ProductListtUI(props) {
               </Wrap>
             </InfiniteScroll>
           </div>
-          <PostButton
+          {/* <PostButton
             // id={"/market/product-post"}
             onClick={props.onClickMoveToPost}
           >
             상품 등록하기
-          </PostButton>
+          </PostButton> */}
         </LeftWrapper>
         <RecentlyViewedItems items={props.items} />
       </ListWrapper>

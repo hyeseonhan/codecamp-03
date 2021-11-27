@@ -28,9 +28,12 @@ export const LeftWrapper = styled.div`
 `;
 
 export const TableTop = styled.div`
+  height: 52px;
   display: flex;
   flex-direction: row;
+  align-items: center;
   margin-bottom: 40px;
+  /* border: 1px solid red; */
 `;
 
 interface IProps {
@@ -235,9 +238,9 @@ export const PostButton = styled.button`
   cursor: pointer;
   /* border: 1px solid #f2f2f2; */
   border: 3px solid black;
-  margin-top: 50px;
-  margin-left: 480px;
-  margin-bottom: 1000px;
+  /* margin-top: 50px; */
+  margin-left: 550px;
+  /* margin-bottom: 1000px; */
 `;
 
 export const Wrap = styled.div`

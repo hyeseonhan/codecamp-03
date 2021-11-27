@@ -8,9 +8,9 @@ export const Wrapper = styled.div`
 export const Header = styled.div`
   width: 100%;
   height: 302px;
-  border: 1px solid black;
+  /* border: 1px solid black; */
   display: flex;
-  background-color: black;
+  /* background-color: black; */
   flex-direction: row;
   align-items: center;
   justify-content: space-evenly;
@@ -42,7 +42,7 @@ export const CardImage = styled.img`
   height: 121px;
   border-top-left-radius: 180px;
   border-top-right-radius: 180px;
-  /* border: 3px solid black; */
+  border: 3px solid black;
   border-bottom: 3px solid black;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -67,6 +67,7 @@ export const CardNone = styled.div`
   font-weight: 700;
   font-family: "LightBold";
   padding-top: 28px;
+  border: 3px solid black;
 `;
 
 export const Title = styled.div`
@@ -95,6 +96,7 @@ export const CardBottom = styled.div`
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  border: 3px solid black;
 `;
 
 export const AvatarWrapper = styled.div`
