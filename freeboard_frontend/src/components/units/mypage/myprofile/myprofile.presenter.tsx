@@ -14,7 +14,7 @@ export default function MyProfileUI(props) {
   return (
     <Wrapper>
       <LeftWrapper>
-        <Title>ACCOUNT</Title>
+        <Title>PROFILE</Title>
         <InnerLeftWrapper>
           <MyProfileUploadUI
             // onChange={props.onChangeFile}

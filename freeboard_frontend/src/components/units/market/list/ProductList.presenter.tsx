@@ -98,7 +98,7 @@ export default function ProductListtUI(props) {
                               </AvatarInfo>
                               <HeartInfo>
                                 <HeartButton
-                                  src="/images/heart.png"
+                                  src="/images/grayheart.png"
                                   onClick={props.onClickPicked}
                                   isPicked={props.isPicked}
                                 />

@@ -19,7 +19,7 @@ export default function MyPointUI(props) {
   return (
     <Wrapper>
       <LeftWrapper>
-        <Title>ACCOUNT</Title>
+        <Title>POINT</Title>
         <InnerLeftWrapper>
           <State1
             onClick={props.onClickFullHistory}

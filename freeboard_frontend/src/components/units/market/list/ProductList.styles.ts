@@ -68,8 +68,8 @@ export const TableSell = styled.div`
   padding-top: 20px;
   padding-bottom: 20px; */
   width: 160px;
-  height: 350px;
-  border: 1px solid lightcoral;
+  height: 330px;
+  /* border: 3px solid black; */
   display: flex;
   flex-direction: column;
   margin-right: 20px;
@@ -129,9 +129,9 @@ export const PriceIcon = styled.img`
 `;
 
 export const Price = styled.div`
-  font-weight: 700;
+  font-weight: 500;
   font-style: normal;
-  font-size: 24px;
+  font-size: 16px;
   line-height: 35.52px;
 `;
 
@@ -157,17 +157,18 @@ export const Tags = styled.div`
   font-style: normal;
   font-size: 16px;
   line-height: 23.68px;
-  margin-bottom: 24px;
+  /* margin-bottom: 24px; */
   color: #bdbdbd;
 `;
 
 export const SellerInfo = styled.div`
+  margin-top: 5px;
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 `;
 
 export const AvatarInfo = styled.div`
@@ -206,8 +207,8 @@ export const HeartInfo = styled.div`
 `;
 
 export const HeartButton = styled.img`
-  width: 20px;
-  height: 18.35px;
+  width: 18px;
+  height: 16.35px;
   margin-right: 6px;
 `;
 
@@ -216,6 +217,7 @@ export const HeartCount = styled.div`
   font-style: normal;
   font-size: 16px;
   line-height: 23.68px;
+  color: #c4c4c4;
 `;
 
 export const PostButton = styled.button`

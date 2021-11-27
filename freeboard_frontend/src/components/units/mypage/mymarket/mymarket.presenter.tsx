@@ -26,7 +26,7 @@ export default function MyMarketUI(props) {
   return (
     <Wrapper>
       <LeftWrapper>
-        <Title>ACCOUNT</Title>
+        <Title>MARKET</Title>
         <InnerLeftWrapper>
           <CategoryWrapper>
             <StateMyItem
