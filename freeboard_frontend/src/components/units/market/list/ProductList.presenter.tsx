@@ -103,11 +103,18 @@ export default function ProductListtUI(props) {
                                 <Seller>{el.seller?.name}</Seller>
                               </AvatarInfo>
                               <HeartInfo>
-                                <HeartButton
-                                  src="/images/grayheart.png"
-                                  onClick={props.onClickPicked}
-                                  isPicked={props.isPicked}
-                                />
+                                {!props.isPicked ? (
+                                  <HeartButton
+                                    src="/images/bheart.png"
+                                    onClick={props.onClickPicked}
+                                  />
+                                ) : (
+                                  <HeartButton
+                                    src="/images/pheart.png"
+                                    onClick={props.onClickPicked}
+                                  />
+                                )}
+
                                 <HeartCount>{el.pickedCount}</HeartCount>
                               </HeartInfo>
                             </SellerInfo>
