@@ -35,7 +35,6 @@ import {
 import Dompurify from "dompurify";
 
 export default function ProductDetailUI(props: any) {
-  console.log(props);
   return (
     <Wrapper>
       <CardWrapper>
@@ -67,10 +66,21 @@ export default function ProductDetailUI(props: any) {
               <Name>{props.data?.fetchUseditem.name}</Name>
             </InnerTop>
             <InnerBottom>
-              <HeartButton
+              {/* <HeartButton
                 onClick={props.onClickPicked}
                 src="/images/heart.png"
-              />
+              /> */}
+              {!props.isPicked ? (
+                <HeartButton
+                  src="/images/bheart.png"
+                  onClick={props.onClickPicked}
+                />
+              ) : (
+                <HeartButton
+                  src="/images/pheart.png"
+                  onClick={props.onClickPicked}
+                />
+              )}
               <PickedCount>{props.data?.fetchUseditem.pickedCount}</PickedCount>
             </InnerBottom>
           </Top>

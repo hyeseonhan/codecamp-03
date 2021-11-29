@@ -101,10 +101,7 @@ export const InnerBottom = styled.div`
   align-items: center;
 `;
 
-export const HeartButton = styled.img`
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-`;
+export const HeartButton = styled.img``;
 
 export const PickedCount = styled.div``;
 

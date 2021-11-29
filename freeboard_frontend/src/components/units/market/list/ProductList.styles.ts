@@ -144,6 +144,9 @@ export const Name = styled.div`
   font-size: 24px;
   line-height: 35.52px;
   margin-bottom: 4px;
+  /* border: 1px solid red; */
+  text-overflow: ellipsis;
+  overflow: hidden;
 `;
 
 export const Remarks = styled.div`

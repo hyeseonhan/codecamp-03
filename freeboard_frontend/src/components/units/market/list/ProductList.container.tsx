@@ -1,12 +1,17 @@
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import { useEffect } from "react";
 import { useState } from "react";
 import ProductListUI from "./ProductList.presenter";
-import { FETCH_USED_ITEMS, TOGGLE_USED_ITEM_PICK } from "./ProductList.queries";
+import {
+  FETCH_USED_ITEMS,
+  // FETCH_USED_ITEMS_I_PICKED,
+  TOGGLE_USED_ITEM_PICK,
+} from "./ProductList.queries";
 
 export default function ProductList() {
   const [isVisible, setIsVisible] = useState(false);
-  const [isPicked, setIsPicked] = useState(false);
+  // const [isPicked, setIsPicked] = useState(true);
   const router = useRouter();
   const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
     variables: { page: 0, isSoldout: false },
@@ -38,12 +43,37 @@ export default function ProductList() {
     setIsVisible(true);
   }
 
-  async function onClickPicked() {
-    await toggleUseditemPick({
-      variables: { useditemId: router.query.useditemId },
-    });
-    setIsPicked((prev) => !prev);
-  }
+  // const { data: pickeddata } = useQuery(FETCH_USED_ITEMS_I_PICKED, {
+  //   variables: {
+  //     search: "",
+  //   },
+  // });
+
+  // useEffect(() => {
+  //   for (let i = 0; i < pickeddata?.fetchUseditemsIPicked.length; i++) {
+  //     if (
+  //       pickeddata?.fetchUseditemsIPicked[i]._id === router.query.useditemId
+  //     ) {
+  //       setIsPicked(true);
+  //       break;
+  //     } else {
+  //       setIsPicked(false);
+  //     }
+  //   }
+  // }, [pickeddata]);
+
+  // async function onClickPicked() {
+  //   await toggleUseditemPick({
+  //     variables: { useditemId: router.query.useditemId },
+  //     refetchQueries: [
+  //       {
+  //         query: FETCH_USED_ITEMS,
+  //         variables: { useditemId: router.query.useditemId },
+  //       },
+  //     ],
+  //   });
+  //   setIsPicked((prev) => !prev);
+  // }
 
   // const onClickMoveToPost = (event) => router.push(event.target.id);
   function onClickMoveToPost() {
@@ -54,7 +84,7 @@ export default function ProductList() {
     router.push(`/market/product-detail/${event.currentTarget.id}`);
 
     const baskets = JSON.parse(localStorage.getItem("baskets")) || [];
-    console.log(baskets);
+    // console.log(baskets);
 
     let isExists = false;
     baskets.forEach((basketEl) => {
@@ -78,8 +108,8 @@ export default function ProductList() {
   return (
     <ProductListUI
       data={data}
-      onClickPicked={onClickPicked}
-      isPicked={isPicked}
+      // onClickPicked={onClickPicked}
+      // isPicked={isPicked}
       onClickMoveToPost={onClickMoveToPost}
       onClickMoveToProductDetail={onClickMoveToProductDetail}
       onloadMore={onloadMore}
