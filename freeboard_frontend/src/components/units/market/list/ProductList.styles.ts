@@ -16,15 +16,16 @@ export const BestTitle = styled.div`
 `;
 
 export const ListWrapper = styled.div`
-  width: 100%;
-  /* border: 1px solid red; */
+  width: 1100px;
+  /* border: 1px solid blue; */
   display: flex;
   flex-direction: row;
 `;
 
 export const LeftWrapper = styled.div`
-  width: 900px;
+  /* width: 1100px;
   margin-right: 30px;
+  border: 1px solid red; */
 `;
 
 export const TableTop = styled.div`
@@ -63,19 +64,22 @@ export const Sold = styled.div`
   color: ${(props: IProps) => (props.isVisible === true ? "#f04237" : "black")};
 `;
 
-export const TableSell = styled.div`
-  /* width: 880px;
+export const Wrap = styled.div`
   display: flex;
   flex-direction: row;
-  border-bottom: 2px solid black;
-  padding-top: 20px;
-  padding-bottom: 20px; */
-  width: 160px;
-  height: 330px;
-  /* border: 3px solid black; */
+  flex-wrap: wrap;
+  justify-content: center;
+`;
+
+export const TableSell = styled.div`
+  width: 190px;
+  height: 190px;
+  border: 3px solid black;
   display: flex;
   flex-direction: column;
-  margin-right: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
 `;
 
 export const ProductImage = styled.img`
@@ -83,7 +87,6 @@ export const ProductImage = styled.img`
   height: 160px;
   border: 1px solid black;
   border: none;
-  margin-right: 40px;
 `;
 
 export const NoneImage = styled.div`
@@ -92,7 +95,7 @@ export const NoneImage = styled.div`
   border: 1px solid black;
   border: none;
   /* box-shadow: 1px 1px 1px 1px; */
-  margin-right: 40px;
+  /* margin-right: 40px; */
   color: white;
   background-color: black;
   display: flex;
@@ -103,8 +106,6 @@ export const NoneImage = styled.div`
 `;
 
 export const Info = styled.div`
-  /* width: 650px; */
-  /* width: 100%; */
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -228,7 +229,7 @@ export const HeartCount = styled.div`
 
 export const PostButton = styled.button`
   width: 171px;
-  height: 52px;
+  height: 32px;
   font-size: 17px;
   font-weight: 700;
   background-color: white;
@@ -244,10 +245,4 @@ export const PostButton = styled.button`
   /* margin-top: 50px; */
   margin-left: 550px;
   /* margin-bottom: 1000px; */
-`;
-
-export const Wrap = styled.div`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
 `;

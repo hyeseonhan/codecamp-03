@@ -28,7 +28,7 @@ import {
   PostButton,
   Wrap,
 } from "./ProductList.styles";
-import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
+// import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
 import InfiniteScroll from "react-infinite-scroller";
 import TableSold from "./ListTableSold/ListTableSold.container";
 
@@ -56,22 +56,19 @@ export default function ProductListtUI(props) {
             </PostButton>
           </TableTop>
           <div
-            style={
-              {
-                // overflow: "auto",
-                // width: "900px",
-                // height: "1004px",
-                // borderTop: "3px solid black",
-                // borderBottom: "3px solid black",
-              }
-            }
+            style={{
+              overflow: "auto",
+              // width: "900px",
+              height: "600px",
+              // borderTop: "3px solid black",
+              // borderBottom: "3px solid black",
+            }}
           >
             <InfiniteScroll
               pageStart={0}
               loadMore={props.onloadMore}
               hasMore={true}
               useWindow={false}
-              // style={{ height: "800px" }}
             >
               <Wrap>
                 {props.data?.fetchUseditems.map((el) => (
@@ -89,7 +86,7 @@ export default function ProductListtUI(props) {
                         ) : (
                           <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
                         )}
-                        <Info>
+                        {/* <Info>
                           <Detail>
                             <SellerInfo>
                               <AvatarInfo>
@@ -103,26 +100,15 @@ export default function ProductListtUI(props) {
                                 <Seller>{el.seller?.name}</Seller>
                               </AvatarInfo>
                               <HeartInfo>
-                                {/* {!props.isPicked ? ( */}
                                 <HeartButton
                                   src="/images/bheart.png"
                                   onClick={props.onClickPicked}
                                 />
-                                {/* ) : (
-                                  <HeartButton
-                                    src="/images/pheart.png"
-                                    onClick={props.onClickPicked}
-                                  />
-                                )} */}
                                 <HeartCount>{el.pickedCount}</HeartCount>
                               </HeartInfo>
                             </SellerInfo>
                             <Name>{el.name}</Name>
-                            {/* <Remarks>{el.remarks}</Remarks> */}
-                            {/* <Tags>{el.tags}</Tags> */}
-
                             <PriceInfo>
-                              {/* <PriceIcon src="/images/price.png" /> */}
                               <Price>
                                 {Number(el.price)
                                   .toString()
@@ -131,7 +117,7 @@ export default function ProductListtUI(props) {
                               </Price>
                             </PriceInfo>
                           </Detail>
-                        </Info>
+                        </Info> */}
                       </TableSell>
                     ) : (
                       <TableSold />
@@ -148,7 +134,7 @@ export default function ProductListtUI(props) {
             상품 등록하기
           </PostButton> */}
         </LeftWrapper>
-        <RecentlyViewedItems items={props.items} />
+        {/* <RecentlyViewedItems /> */}
       </ListWrapper>
     </Wrapper>
   );

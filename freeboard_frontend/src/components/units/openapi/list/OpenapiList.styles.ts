@@ -6,8 +6,8 @@ export const Wrapper = styled.div`
   /* margin: 50px; */
   padding-top: 80px;
   padding-bottom: 100px;
-  padding-left: 102px;
-  padding-right: 102px;
+  /* padding-left: 102px;
+  padding-right: 102px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,16 +22,13 @@ export const Search = styled.input`
 `;
 
 export const InputWrapper = styled.div`
-  margin: 40px;
+  /* margin: 40px; */
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
 `;
 
 export const Youtube = styled(ReactPlayer)`
   margin: 30px;
 `;
-
-// export const Youtube = styled.span`
-//   /* display: flex;
-//   justify-content: center; */
-//   margin: 30px;
-//   padding: 30px;
-// `;

@@ -8,7 +8,6 @@ import {
   Headers,
   AvartarWrapper,
   Avatar,
-  Info,
   Seller,
   CreatedAt,
   IconWrapper,
@@ -16,21 +15,18 @@ import {
   MapIcon,
   Remarks,
   ContentsWrapper,
-  Top,
-  InnerTop,
+  InfoWrapper,
   Name,
-  InnerBottom,
+  HeartWrapper,
   HeartButton,
   PickedCount,
   Price,
   ItemImages,
-  ItemImage,
   Contents,
   Tags,
+  BuyButton,
   MapWrapper,
-  Map,
   ButtonWrapper,
-  // Wrapper01,
 } from "./ProductDetail.styles";
 import Dompurify from "dompurify";
 
@@ -38,38 +34,54 @@ export default function ProductDetailUI(props: any) {
   return (
     <Wrapper>
       <CardWrapper>
-        <Headers>
-          <AvartarWrapper>
-            <Avatar
-              src={
-                props.data?.fetchUseditem.seller.picture
-                  ? `https://storage.googleapis.com/${props.data?.fetchUseditem.seller.picture}`
-                  : "/images/you.jpeg"
-              }
-            />
-            <Info>
-              <Seller>{props.data?.fetchUseditem.seller.name}</Seller>
-              <CreatedAt>
-                {props.data?.fetchUseditem.createdAt.slice(0, 10)}
-              </CreatedAt>
-            </Info>
-          </AvartarWrapper>
-          <IconWrapper>
-            <LinkIcon src="/images/link.png" />
-            <MapIcon src="/images/location.png" />
-          </IconWrapper>
-        </Headers>
         <ContentsWrapper>
-          <Top>
-            <InnerTop>
-              <Remarks>{props.data?.fetchUseditem.remarks}</Remarks>
-              <Name>{props.data?.fetchUseditem.name}</Name>
-            </InnerTop>
-            <InnerBottom>
-              {/* <HeartButton
+          <ItemImages>
+            <Carousel01 data={props.data} />
+          </ItemImages>
+          <InfoWrapper>
+            <Headers>
+              <AvartarWrapper>
+                post user:
+                <Avatar
+                  src={
+                    props.data?.fetchUseditem.seller.picture
+                      ? `https://storage.googleapis.com/${props.data?.fetchUseditem.seller.picture}`
+                      : "/images/you.jpeg"
+                  }
+                />
+                <Seller>{props.data?.fetchUseditem.seller.name}</Seller>
+                <CreatedAt>
+                  posted: {props.data?.fetchUseditem.createdAt.slice(0, 10)}
+                </CreatedAt>
+              </AvartarWrapper>
+              <IconWrapper>
+                <LinkIcon src="/images/link.png" />
+                <MapIcon src="/images/location.png" />
+              </IconWrapper>
+            </Headers>
+            <Name>{props.data?.fetchUseditem.name}</Name>
+            <Remarks>{props.data?.fetchUseditem.remarks}</Remarks>
+            <Tags>{props.data?.fetchUseditem.tags}</Tags>
+            {process.browser && (
+              <Contents
+                dangerouslySetInnerHTML={{
+                  __html: Dompurify.sanitize(
+                    props.data?.fetchUseditem.contents
+                  ),
+                }}
+              />
+            )}
+            {/* <HeartButton
                 onClick={props.onClickPicked}
                 src="/images/heart.png"
               /> */}
+            <Price>
+              {props.data?.fetchUseditem.price
+                .toString()
+                .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
+              원
+            </Price>
+            <HeartWrapper>
               {!props.isPicked ? (
                 <HeartButton
                   src="/images/bheart.png"
@@ -82,42 +94,22 @@ export default function ProductDetailUI(props: any) {
                 />
               )}
               <PickedCount>{props.data?.fetchUseditem.pickedCount}</PickedCount>
-            </InnerBottom>
-          </Top>
-          <Price>{props.data?.fetchUseditem.price}</Price>
-          <ItemImages>
-            {/* {props.data?.fetchUseditem.images
-              ?.filter((el: string) => el)
-              .map((el: string) => (
-                <ItemImage
-                  key={el}
-                  src={`https://storage.googleapis.com/${el}`}
-                />
-              ))} */}
-            <Carousel01 data={props.data} />
-          </ItemImages>
-          {process.browser && (
-            <Contents
-              dangerouslySetInnerHTML={{
-                __html: Dompurify.sanitize(props.data?.fetchUseditem.contents),
-              }}
-            />
-          )}
-          <Tags>{props.data?.fetchUseditem.tags}</Tags>
+            </HeartWrapper>
+            <BuyButton onClick={props.onClickBuy}>BUY IT NOW</BuyButton>
+          </InfoWrapper>
         </ContentsWrapper>
         <MapWrapper>
           <KakaoMapDetail data={props.data} />
         </MapWrapper>
       </CardWrapper>
+
       <ButtonWrapper>
-        {/* <Wrapper01 }> */}
         <Button01
           onClick={props.onClickMoveToList}
           name="목록으로"
           type="button"
         />
-        {/* </Wrapper01> */}
-        <Button01 onClick={props.onClickBuy} name="구매하기" type="button" />
+        {/* <Button01 onClick={props.onClickBuy} name="구매하기" type="button" /> */}
         <Button01
           name="수정하기"
           type="button"

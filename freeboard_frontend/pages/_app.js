@@ -17,8 +17,6 @@ import { createContext, useEffect, useState } from "react";
 import { onError } from "@apollo/client/link/error";
 import { getAccessToken } from "../src/commons/libraries/getAccessToken";
 
-// import "flickity/css/flickity.css";
-
 const HIDDEN_Layout = ["/"];
 const HIDDEN_Main = [
   "/boards",

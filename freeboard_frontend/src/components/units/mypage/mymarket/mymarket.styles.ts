@@ -107,7 +107,7 @@ export const ColumnIndex = styled.div`
 
 export const ColumnName = styled.div`
   /* border: 1px solid red; */
-  width: 20%;
+  width: 25%;
   display: flex;
   flex-direction: row;
   justify-content: center;

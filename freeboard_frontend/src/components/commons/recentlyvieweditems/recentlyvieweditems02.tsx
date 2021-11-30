@@ -3,35 +3,18 @@ import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 
 export const Wrapper = styled.div`
-  width: 196px;
-  height: 725px;
-  border: 3px solid black;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 110px;
-`;
-
-export const Title = styled.div`
-  font-weight: 700;
-  font-style: normal;
-  font-size: 18px;
-  line-height: 26.64px;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  flex-direction: row;
+  flex-wrap: wrap;
 `;
 
 const InnerWrapper = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; */
   padding: 10px;
   width: 156px;
   height: 199px;
   /* border: 1px solid #bdbdbd; */
   border: 3px solid black;
-  margin-bottom: 20px;
+  margin: 10px;
 `;
 
 const HeartInfo = styled.div`
@@ -115,16 +98,6 @@ export default function RecentlyViewedItems() {
   const router = useRouter();
   const [basketItems, setBasketItems] = useState([]);
 
-  // useEffect(() => {
-  //   const Items = JSON.parse(localStorage.getItem("baskets")) || [];
-  //   setBasketItems(Items);
-  //   console.log("Items", Items);
-  // }, []);
-
-  // function onClickMoveToProduct(event) {
-  //   router.push(`/market/product-detail/${event.currentTarget.id}`);
-  // }
-
   useEffect(() => {
     const Items = JSON.parse(localStorage.getItem("recentlybasket")) || [];
     setBasketItems(Items);
@@ -137,16 +110,12 @@ export default function RecentlyViewedItems() {
 
   return (
     <Wrapper>
-      <Title>최근 본 상품</Title>
-      {/* basketItems ? 물음표 꼭 써줘야한다. */}
       {basketItems?.map((el: any) => (
         <InnerWrapper key={el._id} id={el._id} onClick={onClickMoveToProduct}>
-          {/* <HeartWrapper> */}
           <HeartInfo>
             <HeartButton src="/images/heart.png" />
             <HeartCount>{el.pickedCount}</HeartCount>
           </HeartInfo>
-          {/* </HeartWrapper> */}
           {el?.images[0] ? (
             <ProductImage
               src={`https://storage.googleapis.com/${el?.images[0]}`}

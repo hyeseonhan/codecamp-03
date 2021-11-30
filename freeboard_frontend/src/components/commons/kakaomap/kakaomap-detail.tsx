@@ -2,13 +2,9 @@ import { useEffect } from "react";
 import styled from "@emotion/styled";
 
 const MapWrapper = styled.div`
-  width: 792px;
-  border-top: 1px solid #bdbdbd;
-  border-bottom: 1px solid #bdbdbd;
+  /* width: 792px; */
   display: flex;
   justify-content: center;
-  padding-top: 80px;
-  padding-bottom: 76px;
 `;
 
 declare const window: typeof globalThis & {
@@ -33,7 +29,7 @@ export default function KakaoMapDetail(props) {
           level: 4,
         };
         const map = new window.kakao.maps.Map(container, options);
-        console.log("kakaomap-detail:", map);
+        // console.log("kakaomap-detail:", map);
 
         const marker = new window.kakao.maps.Marker({
           // 지도 중심좌표에 마커를 생성합니다
@@ -51,7 +47,7 @@ export default function KakaoMapDetail(props) {
   return (
     <>
       <MapWrapper>
-        <div id="map" style={{ width: "792px", height: "360px" }}></div>
+        <div id="map" style={{ width: "592px", height: "260px" }}></div>
       </MapWrapper>
     </>
   );

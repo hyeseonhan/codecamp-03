@@ -12,7 +12,7 @@ export default function ProductDetailPage() {
 
   return (
     <>
-      <ProductDetail />;
+      <ProductDetail />
       <ProductCommentWrite />
       <ProductCommentList
         setIsReplySeller={setIsReplySeller}

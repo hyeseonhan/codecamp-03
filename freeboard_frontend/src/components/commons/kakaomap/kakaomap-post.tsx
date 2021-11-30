@@ -95,7 +95,7 @@ export default function KakaoMapPost(props) {
           };
 
           const map = new window.kakao.maps.Map(container, options); // 지도 생성 및 객체 리턴
-          console.log(map);
+          // console.log(map);
 
           // 지도를 클릭한 위치에 표출할 마커입니다
           const marker = new window.kakao.maps.Marker({
@@ -103,13 +103,13 @@ export default function KakaoMapPost(props) {
             position: map.getCenter(),
           });
 
-          console.log(window.kakao.maps);
+          // console.log(window.kakao.maps);
           // 중요!
           const geocoder = new window.kakao.maps.services.Geocoder();
           // console.log(geocoder);
 
           const coord = new window.kakao.maps.LatLng(lat, lng);
-          console.log("2번", coord);
+          // console.log("2번", coord);
 
           const test = function (coords, callback) {
             geocoder.coord2Address(coords.getLng(), coords.getLat(), callback);
@@ -141,9 +141,9 @@ export default function KakaoMapPost(props) {
               setLat(latlng.getLat());
               setLng(latlng.getLng());
 
-              console.log("aabdsdf", window.kakao.maps);
-              console.log("234234", location);
-              console.log("jhg", lat);
+              // console.log("aabdsdf", window.kakao.maps);
+              // console.log("234234", location);
+              // console.log("jhg", lat);
             }
           );
         }, 200);

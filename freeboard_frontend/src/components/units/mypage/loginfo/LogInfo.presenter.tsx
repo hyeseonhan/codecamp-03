@@ -7,14 +7,16 @@ import {
   StateContent,
 } from "./LogInfo.styles";
 
+import RecentlyViewedItems02 from "../../../commons/recentlyvieweditems/recentlyvieweditems02";
+
 export default function LogInfoUI() {
   return (
     <Wrapper>
       <LeftWrapper>
         <Title>ACCOUNT</Title>
         <InnerLeftWrapper>
-          <State>State</State>
-          <StateContent>You have not placed any orders yet.</StateContent>
+          <State>Recently viewed items</State>
+          <RecentlyViewedItems02 />
         </InnerLeftWrapper>
       </LeftWrapper>
     </Wrapper>

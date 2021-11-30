@@ -1,4 +1,3 @@
-import Column from "antd/lib/table/Column";
 import Searchbar02 from "../../../commons/searchbars/02/Searchbar02.container";
 import {
   Wrapper,
@@ -63,7 +62,9 @@ export default function MyMarketUI(props) {
                 ) : (
                   <ColumnNone />
                 )}
-                <ColumnPrice>{el.price}</ColumnPrice>
+                <ColumnPrice>
+                  {el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
+                </ColumnPrice>
                 <CloumnDate>{el.createdAt.slice(0, 10)}</CloumnDate>
               </Row>
             ))}

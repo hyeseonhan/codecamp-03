@@ -39,7 +39,9 @@ export default function HomeUI(props) {
             <Name>{el.name}</Name>
             {/* <div>{el.remarks}</div> */}
             {/* <div>{el.tags}</div> */}
-            <Name1>₩{el.price}</Name1>
+            <Name1>
+              {el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
+            </Name1>
           </InnerWrapper1>
         ))}
       </RightWrapper>
