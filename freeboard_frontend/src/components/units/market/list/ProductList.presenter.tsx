@@ -4,27 +4,12 @@ import {
   LeftWrapper,
   BestTitle,
   TableTop,
+  Category,
   OnSale,
   Sold,
   TableSell,
   ProductImage,
   NoneImage,
-  Info,
-  Detail,
-  PriceInfo,
-  PriceIcon,
-  Price,
-  Name,
-  Remarks,
-  Tags,
-  SellerInfo,
-  AvatarInfo,
-  Avatar,
-  AvatarNone,
-  Seller,
-  HeartInfo,
-  HeartButton,
-  HeartCount,
   PostButton,
   Wrap,
 } from "./ProductList.styles";
@@ -39,15 +24,20 @@ export default function ProductListtUI(props) {
       <ListWrapper>
         <LeftWrapper>
           <TableTop>
-            <OnSale
-              onClick={props.onClickTablesell}
-              isVisible={props.isVisible}
-            >
-              판매중상품
-            </OnSale>
-            <Sold onClick={props.onClickTablesold} isVisible={props.isVisible}>
-              판매된상품
-            </Sold>
+            <Category>
+              <OnSale
+                onClick={props.onClickTablesell}
+                isVisible={props.isVisible}
+              >
+                판매중상품
+              </OnSale>
+              <Sold
+                onClick={props.onClickTablesold}
+                isVisible={props.isVisible}
+              >
+                판매된상품
+              </Sold>
+            </Category>
             <PostButton
               // id={"/market/product-post"}
               onClick={props.onClickMoveToPost}
@@ -86,38 +76,6 @@ export default function ProductListtUI(props) {
                         ) : (
                           <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
                         )}
-                        {/* <Info>
-                          <Detail>
-                            <SellerInfo>
-                              <AvatarInfo>
-                                {el.seller?.picture ? (
-                                  <Avatar
-                                    src={`https://storage.googleapis.com/${el.seller?.picture}`}
-                                  />
-                                ) : (
-                                  <AvatarNone />
-                                )}
-                                <Seller>{el.seller?.name}</Seller>
-                              </AvatarInfo>
-                              <HeartInfo>
-                                <HeartButton
-                                  src="/images/bheart.png"
-                                  onClick={props.onClickPicked}
-                                />
-                                <HeartCount>{el.pickedCount}</HeartCount>
-                              </HeartInfo>
-                            </SellerInfo>
-                            <Name>{el.name}</Name>
-                            <PriceInfo>
-                              <Price>
-                                {Number(el.price)
-                                  .toString()
-                                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}{" "}
-                                원
-                              </Price>
-                            </PriceInfo>
-                          </Detail>
-                        </Info> */}
                       </TableSell>
                     ) : (
                       <TableSold />

@@ -24,17 +24,24 @@ export const ListWrapper = styled.div`
 
 export const LeftWrapper = styled.div`
   /* width: 1100px;
-  margin-right: 30px;
   border: 1px solid red; */
 `;
 
 export const TableTop = styled.div`
+  width: 100%;
   height: 52px;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
   align-items: center;
+  padding: 0px 10px 0px 10px;
   margin-bottom: 40px;
   /* border: 1px solid red; */
+`;
+
+export const Category = styled.div`
+  display: flex;
+  flex-direction: row;
 `;
 
 interface IProps {
@@ -74,7 +81,7 @@ export const Wrap = styled.div`
 export const TableSell = styled.div`
   width: 190px;
   height: 190px;
-  border: 3px solid black;
+  /* border: 3px solid black; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -83,15 +90,15 @@ export const TableSell = styled.div`
 `;
 
 export const ProductImage = styled.img`
-  width: 160px;
-  height: 160px;
+  width: 190px;
+  height: 190px;
   border: 1px solid black;
   border: none;
 `;
 
 export const NoneImage = styled.div`
-  width: 160px;
-  height: 160px;
+  width: 190px;
+  height: 190px;
   border: 1px solid black;
   border: none;
   /* box-shadow: 1px 1px 1px 1px; */
@@ -105,144 +112,17 @@ export const NoneImage = styled.div`
   font-family: "LightBold";
 `;
 
-export const Info = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-`;
-
-export const Detail = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-`;
-
-export const PriceInfo = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const PriceIcon = styled.img`
-  width: 18px;
-  height: 18px;
-  margin-right: 11px;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-`;
-
-export const Price = styled.div`
-  font-weight: 500;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 35.52px;
-`;
-
-export const Name = styled.div`
-  font-weight: 500;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 35.52px;
-  margin-bottom: 4px;
-  /* border: 1px solid red; */
-  text-overflow: ellipsis;
-  overflow: hidden;
-`;
-
-export const Remarks = styled.div`
-  font-weight: 500;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 23.68px;
-  margin-bottom: 8px;
-  color: #4f4f4f;
-`;
-
-export const Tags = styled.div`
-  font-weight: 500;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 23.68px;
-  /* margin-bottom: 24px; */
-  color: #bdbdbd;
-`;
-
-export const SellerInfo = styled.div`
-  margin-top: 5px;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  /* border: 1px solid blue; */
-`;
-
-export const AvatarInfo = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  margin-right: 22px;
-`;
-
-export const Avatar = styled.img`
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
-  border-radius: 70%;
-`;
-
-export const AvatarNone = styled.div`
-  width: 20px;
-  height: 20px;
-  margin-right: 6px;
-  border-radius: 70%;
-  background-color: black;
-`;
-
-export const Seller = styled.div`
-  font-weight: 500;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 23.68px;
-`;
-
-export const HeartInfo = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-`;
-
-export const HeartButton = styled.img`
-  width: 18px;
-  height: 16.35px;
-  margin-right: 6px;
-`;
-
-export const HeartCount = styled.div`
-  font-weight: 400;
-  font-style: normal;
-  font-size: 16px;
-  line-height: 23.68px;
-  color: #c4c4c4;
-`;
-
 export const PostButton = styled.button`
   width: 171px;
   height: 32px;
-  font-size: 17px;
-  font-weight: 700;
-  background-color: white;
-  color: black;
-  /* border-radius: 15px; */
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  font-size: 17px;
+  font-weight: 700;
+  background-color: white;
+  color: black;
   cursor: pointer;
-  /* border: 1px solid #f2f2f2; */
   border: 3px solid black;
-  /* margin-top: 50px; */
-  margin-left: 550px;
-  /* margin-bottom: 1000px; */
 `;
