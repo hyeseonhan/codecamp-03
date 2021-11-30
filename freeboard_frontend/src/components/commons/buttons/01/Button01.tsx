@@ -14,9 +14,11 @@ const Wrapper = styled.div`
 
 const Button = styled.button`
   width: 179px;
-  height: 52px;
+  height: 30px;
   border: none;
-  background-color: ${(props: IProps) => (props.isValid ? "#f04237" : "")};
+  background-color: black;
+  color: ${(props: IProps) => (props.isValid ? "#f04237" : "white")};
+  cursor: pointer;
 `;
 
 export default function Button01(props) {

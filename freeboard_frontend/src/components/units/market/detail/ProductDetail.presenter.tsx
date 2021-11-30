@@ -1,6 +1,7 @@
 import Button01 from "../../../commons/buttons/01/Button01";
 import KakaoMapDetail from "../../../commons/kakaomap/kakaomap-detail";
 import Carousel01 from "../../../commons/carousel/Carousel01/index";
+import Carousel02 from "../../../commons/carousel/Carousel02";
 
 import {
   Wrapper,
@@ -29,14 +30,29 @@ import {
   ButtonWrapper,
 } from "./ProductDetail.styles";
 import Dompurify from "dompurify";
+import { useEffect, useRef, useState } from "react";
 
 export default function ProductDetailUI(props: any) {
+  const [mainSlick, setMainSlick] = useState(null);
+  const [pagingSlick, setPagingSlick] = useState(null);
+  const mainSlickRef = useRef(null);
+  const pagingSlickRef = useRef(null);
+
+  useEffect(() => {
+    setMainSlick(mainSlickRef.current);
+    setPagingSlick(pagingSlickRef.current);
+  }, []);
+
   return (
     <Wrapper>
       <CardWrapper>
         <ContentsWrapper>
           <ItemImages>
-            <Carousel01 data={props.data} />
+            <Carousel01
+              data={props.data}
+              mainSlickRef={mainSlickRef}
+              pagingSlick={pagingSlick}
+            />
           </ItemImages>
           <InfoWrapper>
             <Headers>
@@ -71,10 +87,11 @@ export default function ProductDetailUI(props: any) {
                 }}
               />
             )}
-            {/* <HeartButton
-                onClick={props.onClickPicked}
-                src="/images/heart.png"
-              /> */}
+            <Carousel02
+              data={props.data}
+              pagingSlickRef={pagingSlickRef}
+              mainSlick={mainSlick}
+            />
             <Price>
               {props.data?.fetchUseditem.price
                 .toString()

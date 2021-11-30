@@ -2,20 +2,23 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   margin: 0px 100px 100px 100px;
 `;
 
 export const CardWrapper = styled.div`
-  width: 1200px;
-  margin: 40px 0px 84px 0px;
+  width: 1190px;
+  margin: 40px 0px 60px 0px;
 `;
 
 export const Headers = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  /* border: 1px solid blue; */
 `;
 
 export const AvartarWrapper = styled.div`
@@ -23,7 +26,6 @@ export const AvartarWrapper = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 10px 0px 10px 0px;
 `;
 
 export const Avatar = styled.img`
@@ -34,7 +36,7 @@ export const Avatar = styled.img`
 `;
 
 export const Seller = styled.div`
-  margin-right: 10px;
+  margin-right: 20px;
 `;
 
 export const CreatedAt = styled.div``;
@@ -55,15 +57,17 @@ export const MapIcon = styled.img`
 `;
 
 export const ContentsWrapper = styled.div`
-  /* border-bottom: 1px solid #bdbdbd; */
-  margin-bottom: 30px;
+  margin-bottom: 50px;
   display: flex;
   flex-direction: row;
   align-items: center;
-  border: 1px solid green;
+  /* border: 1px solid green; */
 `;
 
-export const InfoWrapper = styled.div``;
+export const InfoWrapper = styled.div`
+  width: 100%;
+  margin-left: 10px;
+`;
 
 export const Remarks = styled.div`
   /* margin-bottom: 4px; */
@@ -104,9 +108,6 @@ export const Price = styled.div`
 `;
 
 export const ItemImages = styled.div`
-  /* width: 504px; */
-  height: 402px;
-  /* width: 1200px; */
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -118,6 +119,7 @@ export const Contents = styled.div``;
 
 export const Tags = styled.div`
   color: #bdbdbd;
+  margin: 3px 0px 3px 0px;
 `;
 
 export const BuyButton = styled.button`
@@ -127,7 +129,7 @@ export const BuyButton = styled.button`
   background-color: black;
   border: none;
   cursor: pointer;
-  margin: 10px 0px 0px 0px;
+  margin: 10px 0px 8px 0px;
 `;
 
 export const MapWrapper = styled.div`
@@ -139,5 +141,5 @@ export const ButtonWrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  margin-bottom: 80px;
+  margin: 0px 0px 0px 24px;
 `;
