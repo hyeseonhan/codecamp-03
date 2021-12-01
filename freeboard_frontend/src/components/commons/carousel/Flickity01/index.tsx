@@ -184,7 +184,7 @@ const Img = styled.img`
   border-radius: 50%;
 `;
 
-export default function Flickity01() {
+export default function Flickity01(props) {
   return (
     <Wrapper>
       <Flickity
@@ -195,7 +195,22 @@ export default function Flickity01() {
         reloadOnUpdate // default false
         static // default false
       >
-        <div>
+        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
+          <div key={el._id}>
+            {el?.images[0] && (
+              <Img src={`https://storage.googleapis.com/${el?.images[0]}`} />
+            )}
+          </div>
+        ))}
+        {props.dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el) => (
+          <div key={el._id}>
+            {el?.images[0] && (
+              <Img src={`https://storage.googleapis.com/${el?.images[0]}`} />
+            )}
+          </div>
+        ))}
+
+        {/* <div>
           <Img src="/images/chairs.jpg" />
         </div>
         <div>
@@ -209,7 +224,7 @@ export default function Flickity01() {
         </div>
         <div>
           <Img src="/images/building.jpg" />
-        </div>
+        </div> */}
       </Flickity>
     </Wrapper>
   );

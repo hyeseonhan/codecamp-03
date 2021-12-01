@@ -1,6 +1,11 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { FETCH_BOARDS, FETCH_USED_ITEMS } from "./Home.queries";
+import {
+  FETCH_BOARDS,
+  FETCH_USED_ITEMS,
+  FETCH_BOARDS_OF_THE_BEST,
+  FETCH_USED_ITEMS_OF_THE_BEST,
+} from "./Home.queries";
 import HomeUI from "./Home.presenter";
 
 export default function Home() {
@@ -14,6 +19,9 @@ export default function Home() {
     variables: { page: 1 },
   });
 
+  const { data: dataBoardsOfTheBest } = useQuery(FETCH_BOARDS_OF_THE_BEST);
+
+  const { data: dataMarketsOfTheBest } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
   // function onClickMoveToProductDetail(event) {
   //   router.push(`/market/product-detail/${event.currentTarget.id}`);
   // }
@@ -30,6 +38,8 @@ export default function Home() {
     <HomeUI
       Itemsdata={Itemsdata}
       Boardsdata={Boardsdata}
+      dataBoardsOfTheBest={dataBoardsOfTheBest}
+      dataMarketsOfTheBest={dataMarketsOfTheBest}
       onClickMoveToBoardDetail={onClickMoveToBoardDetail}
       onClickMoveToProductDetail={onClickMoveToProductDetail}
     />

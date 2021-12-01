@@ -23,14 +23,19 @@ export const RightWrapper = styled.div`
 `;
 
 export const InnerWrapper = styled.div`
+  width: 300px;
   cursor: pointer;
+  margin-bottom: 10px;
 `;
 
 export const InnerWrapper1 = styled.div`
+  width: 290px;
+  /* border: 1px solid red; */
   cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  margin-bottom: 10px;
 `;
 
 export const Name = styled.div`
@@ -55,7 +60,8 @@ export const Name1 = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 17x;
-  font-weight: 800;
+  font-size: 25px;
+  font-weight: 700;
   text-decoration: underline 3px;
+  margin-bottom: 15px;
 `;

@@ -1,3 +1,4 @@
+import Dompurify from "dompurify";
 import Flickity01 from "../../commons/carousel/Flickity01";
 import {
   Wrapper,
@@ -15,7 +16,7 @@ export default function HomeUI(props) {
     <Wrapper>
       <LeftWarpper>
         <Title>BOARDS</Title>
-        {props.Boardsdata?.fetchBoards.map((el: any) => (
+        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el: any) => (
           <InnerWrapper
             key={el._id}
             id={el._id}
@@ -23,21 +24,30 @@ export default function HomeUI(props) {
           >
             <Name>{el.title}</Name>
             <Name1>{el.writer}</Name1>
-            {/* <div>{el.createdAt.slice(0, 10)}</div> */}
+            <Name1>{el.contents}</Name1>
           </InnerWrapper>
         ))}
       </LeftWarpper>
-      <Flickity01 />
+      <Flickity01
+        dataBoardsOfTheBest={props.dataBoardsOfTheBest}
+        dataMarketsOfTheBest={props.dataMarketsOfTheBest}
+      />
       <RightWrapper>
         <Title>PRODUCTS</Title>
-        {props.Itemsdata?.fetchUseditems?.map((el: any) => (
+        {props.dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el: any) => (
           <InnerWrapper1
             key={el._id}
             id={el._id}
             onClick={props.onClickMoveToProductDetail(el)}
           >
             <Name>{el.name}</Name>
-            {/* <div>{el.remarks}</div> */}
+            {process.browser && (
+              <Name1
+                dangerouslySetInnerHTML={{
+                  __html: Dompurify.sanitize(el.contents),
+                }}
+              />
+            )}
             {/* <div>{el.tags}</div> */}
             <Name1>
               {el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
