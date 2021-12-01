@@ -2,7 +2,6 @@ import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  padding-top: 80px;
 `;
 
 export const Header = styled.div`
@@ -27,150 +26,12 @@ export const HeaderTitle = styled.div`
   margin-bottom: 20px;
 `;
 
-export const CardPost = styled.div`
-  width: 242px;
-  /* height: 257px; */
-  height: 242px;
-  border: 1px solid black;
-  border-radius: 180px;
-  border: none;
-  /* box-shadow: 0px 0px 8px gray; */
-`;
-
-export const CardImage = styled.img`
-  width: 242px;
-  height: 121px;
-  border-top-left-radius: 180px;
-  border-top-right-radius: 180px;
-  border: 3px solid black;
-  border-bottom: 3px solid black;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-`;
-
-export const CardNone = styled.div`
-  width: 242px;
-  height: 121px;
-  border-top-left-radius: 180px;
-  border-top-right-radius: 180px;
-  border-bottom: 3px solid black;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* color: white; */
-  background-color: white;
-  font-size: 30px;
-  font-weight: 700;
-  font-family: "LightBold";
-  padding-top: 28px;
-  border: 3px solid black;
-`;
-
-export const Title = styled.div`
-  text-align: center;
-  width: 160px;
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 26.64px;
-  padding-top: 11px;
-  display: block;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-`;
-
-export const CardBottom = styled.div`
-  height: 121px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-evenly;
-  background-color: white;
-  border-bottom-left-radius: 180px;
-  border-bottom-right-radius: 180px;
-  border-top: 0;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  border: 3px solid black;
-`;
-
-export const AvatarWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-self: center;
-  justify-content: center;
-`;
-
-export const Avatar = styled.img`
-  margin-right: 6px;
-  width: 20px;
-  height: 20px;
-`;
-
-export const Info = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-self: center;
-  justify-content: center;
-`;
-
-export const Writer = styled.div`
-  font-size: 16px;
-  font-weight: 400;
-  line-height: 23.68px;
-`;
-
-export const CreatedAt = styled.div`
-  font-size: 12px;
-  font-weight: 400;
-  /* padding-top: 8px; */
-  color: #828282;
-  padding-bottom: 10px;
-`;
-
-export const Like = styled.div`
-  /* display: flex;
-  flex-direction: column;
-  align-items: center; */
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-`;
-
-export const LikeImage = styled.img`
-  padding-bottom: 2px;
-  margin-right: 4px;
-  width: 17px;
-  height: 17px;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
-`;
-
-export const LikeCount = styled.div`
-  font-size: 16px;
-`;
-
 export const MiddleWrapper = styled.div`
   padding-top: 70px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-`;
-
-export const SearchTitle = styled.div`
-  border: 1px solid #f2f2f2;
-  width: 776px;
-  height: 52px;
-  background-color: #f2f2f2;
-  border: none;
-  border-radius: 10px;
 `;
 
 export const SearchCreatedAt = styled.input`
@@ -211,7 +72,7 @@ export const SearchButton = styled.div`
 export const BoardList = styled.div`
   width: 1200px;
   height: 583px;
-  margin-top: 60px;
+  margin-top: 50px;
 `;
 
 export const RowFirst = styled.div`

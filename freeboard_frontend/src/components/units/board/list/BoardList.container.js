@@ -2,11 +2,7 @@ import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import BoardListUI from "./Boardlist.presenter";
-import {
-  FETCH_BOARDS,
-  FETCH_BOARDS_COUNT,
-  FETCH_BOARDS_OF_THE_BEST,
-} from "./Boardlist.queries";
+import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./Boardlist.queries";
 
 export default function BoardList(props) {
   const router = useRouter();
@@ -22,8 +18,6 @@ export default function BoardList(props) {
   });
   const lastPage = Math.ceil(dataBoardsCount?.fetchBoardsCount / 10);
   const [current, setCurrent] = useState(1);
-
-  const { data: dataBoardsOfTheBest } = useQuery(FETCH_BOARDS_OF_THE_BEST);
 
   function onClickMoveToBoard() {
     router.push("/boards/board-post");
@@ -57,10 +51,6 @@ export default function BoardList(props) {
     setCurrent(1);
   }
 
-  function onClickBest(event) {
-    router.push(`/boards/${event.currentTarget.id}`);
-  }
-
   return (
     <BoardListUI
       data={data}
@@ -75,8 +65,6 @@ export default function BoardList(props) {
       refetch={refetch}
       onChangeKeyword={onChangeKeyword}
       keyword={keyword}
-      dataBoardsOfTheBest={dataBoardsOfTheBest}
-      onClickBest={onClickBest}
     />
   );
 }

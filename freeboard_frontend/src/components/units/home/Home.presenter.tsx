@@ -9,13 +9,16 @@ import {
   Name,
   Name1,
   Title,
+  Like,
+  LikeImage,
+  LikeCount,
 } from "./Home.styels";
 
-export default function HomeUI(props) {
+export default function HomeUI(props: any) {
   return (
     <Wrapper>
       <LeftWarpper>
-        <Title>BOARDS</Title>
+        <Title>TOP LIKE OF BOARDS</Title>
         {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el: any) => (
           <InnerWrapper
             key={el._id}
@@ -25,15 +28,16 @@ export default function HomeUI(props) {
             <Name>{el.title}</Name>
             <Name1>{el.writer}</Name1>
             <Name1>{el.contents}</Name1>
+            <Like>
+              <LikeImage src="/images/thumb.png" />
+              <LikeCount>{el.likeCount}</LikeCount>
+            </Like>
           </InnerWrapper>
         ))}
       </LeftWarpper>
-      <Flickity01
-        dataBoardsOfTheBest={props.dataBoardsOfTheBest}
-        dataMarketsOfTheBest={props.dataMarketsOfTheBest}
-      />
+      <Flickity01 />
       <RightWrapper>
-        <Title>PRODUCTS</Title>
+        <Title>TOP PICKED PRODUCTS</Title>
         {props.dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el: any) => (
           <InnerWrapper1
             key={el._id}

@@ -1,5 +1,24 @@
+import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
 import flickity from "react-flickity-component";
+
+const FETCH_BOARDS_OF_THE_BEST = gql`
+  query fetchBoardsOfTheBest {
+    fetchBoardsOfTheBest {
+      images
+      _id
+    }
+  }
+`;
+
+const FETCH_USED_ITEMS_OF_THE_BEST = gql`
+  query {
+    fetchUseditemsOfTheBest {
+      _id
+      images
+    }
+  }
+`;
 
 const flickityOptions = {
   initialIndex: 1,
@@ -22,9 +41,7 @@ const Flickity = styled(flickity)`
   .flickity-slider {
     width: 500px;
     height: 500px;
-  
-  }
-}
+  }}
 
   .flickity-enabled {
     position: relative;
@@ -35,10 +52,10 @@ const Flickity = styled(flickity)`
   }
 
   .flickity-viewport {
-     overflow: hidden;
+    overflow: hidden;
     position: relative;
-    height: 100%; 
-  } 
+    height: 100%;
+  }
 
   .flickity-slider {
     position: absolute;
@@ -103,41 +120,6 @@ const Flickity = styled(flickity)`
     fill: #333;
   }
 
-  /* ---- previous/next buttons ---- */
-
-  .flickity-prev-next-button {
-    top: 50%;
-    width: 44px;
-    height: 44px;
-    border-radius: 50%;
-    /* vertically center */
-    transform: translateY(-50%);
-  }
-
-  .flickity-prev-next-button.previous {
-    left: 10px;
-  }
-  .flickity-prev-next-button.next {
-    right: 10px;
-  }
-  /* right to left */
-  .flickity-rtl .flickity-prev-next-button.previous {
-    left: auto;
-    right: 10px;
-  }
-  .flickity-rtl .flickity-prev-next-button.next {
-    right: auto;
-    left: 10px;
-  }
-
-  .flickity-prev-next-button .flickity-button-icon {
-    position: absolute;
-    left: 20%;
-    top: 20%;
-    width: 60%;
-    height: 60%;
-  }
-
   /* ---- page dots ---- */
 
   .flickity-page-dots {
@@ -166,7 +148,6 @@ const Flickity = styled(flickity)`
     cursor: pointer;
   }
 
-
   .flickity-page-dots .dot.is-selected {
     opacity: 1;
   }
@@ -184,7 +165,18 @@ const Img = styled.img`
   border-radius: 50%;
 `;
 
-export default function Flickity01(props) {
+const Img1 = styled.img`
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+`;
+
+const InnerWarpper = styled.div``;
+
+export default function Flickity01() {
+  const { data: dataBoardsOfTheBest } = useQuery(FETCH_BOARDS_OF_THE_BEST);
+  const { data: dataMarketsOfTheBest } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
+
   return (
     <Wrapper>
       <Flickity
@@ -195,36 +187,28 @@ export default function Flickity01(props) {
         reloadOnUpdate // default false
         static // default false
       >
-        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
-          <div key={el._id}>
-            {el?.images[0] && (
-              <Img src={`https://storage.googleapis.com/${el?.images[0]}`} />
-            )}
-          </div>
-        ))}
-        {props.dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el) => (
-          <div key={el._id}>
-            {el?.images[0] && (
-              <Img src={`https://storage.googleapis.com/${el?.images[0]}`} />
-            )}
-          </div>
-        ))}
-
-        {/* <div>
-          <Img src="/images/chairs.jpg" />
-        </div>
-        <div>
-          <Img src="/images/poolblue.jpg" />
-        </div>
-        <div>
-          <Img src="/images/postybangs.png" />
-        </div>
-        <div>
-          <Img src="/images/pool.jpg" />
-        </div>
-        <div>
-          <Img src="/images/building.jpg" />
-        </div> */}
+        <>
+          {dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el: any) => (
+            <InnerWarpper key={el._id}>
+              <Img
+                src={
+                  el.images[0] &&
+                  `https://storage.googleapis.com/${el.images[0]}`
+                }
+              />
+            </InnerWarpper>
+          ))}
+          {dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el: any) => (
+            <InnerWarpper key={el._id}>
+              <Img1
+                src={
+                  el?.images[0] &&
+                  `https://storage.googleapis.com/${el?.images[0]}`
+                }
+              />
+            </InnerWarpper>
+          ))}
+        </>
       </Flickity>
     </Wrapper>
   );

@@ -85,12 +85,6 @@ export default function ProductListtUI(props) {
               </Wrap>
             </InfiniteScroll>
           </div>
-          {/* <PostButton
-            // id={"/market/product-post"}
-            onClick={props.onClickMoveToPost}
-          >
-            상품 등록하기
-          </PostButton> */}
         </LeftWrapper>
         {/* <RecentlyViewedItems /> */}
       </ListWrapper>

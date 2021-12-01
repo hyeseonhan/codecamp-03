@@ -1,7 +1,7 @@
 import styled from "@emotion/styled";
 
 export const Wrapper = styled.div`
-  padding-top: 80px;
+  padding-top: 60px;
 `;
 
 export const BestTitle = styled.div`
@@ -11,7 +11,7 @@ export const BestTitle = styled.div`
   font-weight: 700;
   line-height: 42.19px;
   font-family: "LightBold";
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   font-family: "LightBold";
 `;
 
@@ -34,8 +34,8 @@ export const TableTop = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  padding: 0px 10px 0px 10px;
-  margin-bottom: 40px;
+  padding: 0px 40px 0px 40px;
+  margin-bottom: 10px;
   /* border: 1px solid red; */
 `;
 
@@ -52,7 +52,7 @@ export const OnSale = styled.div`
   margin-right: 20px;
   font-weight: 500;
   font-style: normal;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 26.64px;
   cursor: pointer;
   color: ${(props: IProps) => (props.isVisible === true ? "black" : "#f04237")};
@@ -65,7 +65,7 @@ interface IProps {
 export const Sold = styled.div`
   font-weight: 500;
   font-style: normal;
-  font-size: 18px;
+  font-size: 14px;
   line-height: 26.64px;
   cursor: pointer;
   color: ${(props: IProps) => (props.isVisible === true ? "#f04237" : "black")};

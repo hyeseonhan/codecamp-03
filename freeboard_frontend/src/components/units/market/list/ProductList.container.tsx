@@ -50,38 +50,26 @@ export default function ProductList() {
 
     const recentlybasket =
       JSON.parse(localStorage.getItem("recentlybasket")) || [];
-    recentlybasket.push(el);
+
     // console.log("rr", recentlybasket);
 
-    // let isExists = false;
-    // recentlybasket.forEach((basketEl) => {
-    //   if (el._id === basketEl._id) isExists = true;
-    // });
-    // if (isExists) {
-    //   return;
-    // }
-
-    localStorage.setItem("recentlybasket", JSON.stringify(recentlybasket));
-
-    // const baskets = JSON.parse(localStorage.getItem("baskets")) || [];
-    // console.log(baskets);
-
-    // let isExists = false;
-    // baskets.forEach((basketEl) => {
-    //   if (el._id === basketEl._id) isExists = true;
-    // });
-    // if (isExists) {
-    //   return;
-    // }
+    let isSame = false;
+    recentlybasket.forEach((recentlybasketEl) => {
+      if (el._id === recentlybasketEl._id) isSame = true;
+    });
+    if (isSame) {
+      return;
+    }
 
     // const newEl = { ...el }; // 얕은 복사
     // delete newEl.__typename;
     // baskets.push(newEl);
 
-    // if (baskets.length > 3) baskets.shift();
+    recentlybasket.push(el);
 
-    // localStorage.setItem("baskets", JSON.stringify(baskets));
-    // // console.log("sdfsdf", el);
+    if (recentlybasket.length > 12) recentlybasket.shift();
+
+    localStorage.setItem("recentlybasket", JSON.stringify(recentlybasket));
   };
 
   return (

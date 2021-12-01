@@ -60,8 +60,30 @@ export const Name1 = styled.div`
 `;
 
 export const Title = styled.div`
-  font-size: 25px;
+  width: 265px;
+  /* border: 2px solid red; */
+  font-size: 23px;
   font-weight: 700;
   text-decoration: underline 3px;
   margin-bottom: 15px;
+`;
+
+export const Like = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
+export const LikeImage = styled.img`
+  padding-bottom: 2px;
+  margin-right: 4px;
+  width: 14px;
+  height: 14px;
+  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: grayscale(100%);
+`;
+
+export const LikeCount = styled.div`
+  font-size: 10x;
+  color: #4f4f4f;
 `;

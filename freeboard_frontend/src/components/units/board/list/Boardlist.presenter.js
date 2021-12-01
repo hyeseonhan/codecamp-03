@@ -1,22 +1,7 @@
 import {
   Wrapper,
-  Header,
   HeaderTitle,
-  CardPost,
-  CardImage,
-  CardNone,
-  Title,
-  CardBottom,
-  AvatarWrapper,
-  Avatar,
-  Info,
-  Writer,
-  CreatedAt,
-  Like,
-  LikeImage,
-  LikeCount,
   MiddleWrapper,
-  SearchTitle,
   SearchCreatedAt,
   SearchButton,
   BoardList,
@@ -44,42 +29,8 @@ import { v4 as uuidv4 } from "uuid";
 export default function BoardListUI(props) {
   return (
     <Wrapper>
-      <HeaderTitle>BEST POST</HeaderTitle>
-      <Header>
-        {props.dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el) => (
-          <CardPost key={el._id} id={el.id} onClick={props.onClickBest}>
-            {el?.images[0] ? (
-              <CardImage
-                src={`https://storage.googleapis.com/${el.images[0]}`}
-              />
-            ) : (
-              <CardNone>NO IMAGE</CardNone>
-            )}
-
-            {/* <Title>{el.title}</Title> */}
-            <CardBottom>
-              <Title>{el.title}</Title>
-              <AvatarWrapper>
-                <CreatedAt>{el.createdAt.slice(0, 10)}</CreatedAt>
-                <Info>
-                  <Avatar src="/images/avatar.png" />
-                  <Writer>{el.writer}</Writer>
-                </Info>
-              </AvatarWrapper>
-              <Like>
-                <LikeImage src="/images/thumb.png" />
-                <LikeCount>{el.likeCount}</LikeCount>
-              </Like>
-            </CardBottom>
-          </CardPost>
-        ))}
-      </Header>
+      {/* <HeaderTitle>BOARDS</HeaderTitle> */}
       <MiddleWrapper>
-        {/* <SearchTitle
-          name="title"
-          type="text"
-          placeholder="제목을 검색해주세요."
-        /> */}
         <Searchbarcs01
           refetch={props.refetch}
           onChangeKeyword={props.onChangeKeyword}

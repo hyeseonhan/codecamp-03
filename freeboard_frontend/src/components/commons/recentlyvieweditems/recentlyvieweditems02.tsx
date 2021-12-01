@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 export const Wrapper = styled.div`
   width: 100%;
-  height: 630px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
