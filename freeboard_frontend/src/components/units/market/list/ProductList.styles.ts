@@ -28,7 +28,7 @@ export const LeftWrapper = styled.div`
 `;
 
 export const TableTop = styled.div`
-  width: 100%;
+  width: 1100px;
   height: 52px;
   display: flex;
   flex-direction: row;
@@ -75,7 +75,6 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
 `;
 
 export const TableSell = styled.div`

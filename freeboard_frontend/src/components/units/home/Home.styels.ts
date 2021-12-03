@@ -39,10 +39,10 @@ export const InnerWrapper1 = styled.div`
 `;
 
 export const Name = styled.div`
+  width: 290px;
   font-size: 15x;
   font-weight: 700;
   color: #4f4f4f;
-  /* width: 280px; */
   display: block;
   white-space: nowrap;
   overflow: hidden;
@@ -50,13 +50,39 @@ export const Name = styled.div`
 `;
 
 export const Name1 = styled.div`
+  width: 290px;
+  /* border: 1px solid blue; */
   font-size: 15x;
-  /* font-weight: 700; */
   color: #4f4f4f;
   display: block;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+`;
+
+export const ProductName = styled.div`
+  width: 290px;
+  font-size: 15x;
+  font-weight: 700;
+  color: #4f4f4f;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: end;
+`;
+
+export const Name2 = styled.div`
+  width: 290px;
+  /* border: 1px solid red; */
+  font-size: 15x;
+  color: #4f4f4f;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-align: end;
 `;
 
 export const Title = styled.div`

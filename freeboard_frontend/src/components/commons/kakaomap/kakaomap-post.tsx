@@ -79,7 +79,7 @@ export default function KakaoMapPost(props) {
   useEffect(() => {
     const script = document.createElement("script"); // script 태그를 만든다.
     script.src =
-      "//dapi.kakao.com/v2/maps/sdk.js?appkey=5c3f3b5fa1a016d4a491f6dc430152fe&autoload=false&libraries=services";
+      "//dapi.kakao.com/v2/maps/sdk.js?autoload=false&appkey=d413392d970e522589477751811cc993&libraries=services";
     document.head.appendChild(script); // appendChild 자식으로 추가
     script.onload = () => {
       window.kakao.maps.load(function () {

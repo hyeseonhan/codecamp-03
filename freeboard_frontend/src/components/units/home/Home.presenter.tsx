@@ -8,6 +8,8 @@ import {
   InnerWrapper1,
   Name,
   Name1,
+  ProductName,
+  Name2,
   Title,
   Like,
   LikeImage,
@@ -44,18 +46,17 @@ export default function HomeUI(props: any) {
             id={el._id}
             onClick={props.onClickMoveToProductDetail(el)}
           >
-            <Name>{el.name}</Name>
+            <ProductName>{el.name}</ProductName>
             {process.browser && (
-              <Name1
+              <Name2
                 dangerouslySetInnerHTML={{
                   __html: Dompurify.sanitize(el.contents),
                 }}
               />
             )}
-            {/* <div>{el.tags}</div> */}
-            <Name1>
+            <Name2>
               {el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
-            </Name1>
+            </Name2>
           </InnerWrapper1>
         ))}
       </RightWrapper>

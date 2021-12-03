@@ -188,7 +188,7 @@ export default function Flickity01() {
         static // default false
       >
         <>
-          {dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el: any) => (
+          {/* {dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el: any) => (
             <InnerWarpper key={el._id}>
               <Img
                 src={
@@ -197,7 +197,7 @@ export default function Flickity01() {
                 }
               />
             </InnerWarpper>
-          ))}
+          ))} */}
           {dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el: any) => (
             <InnerWarpper key={el._id}>
               <Img1
