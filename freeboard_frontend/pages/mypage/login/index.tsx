@@ -159,19 +159,25 @@ export default function LoginPage() {
   }
 
   async function onClickSign() {
-    const result = await loginUser({
-      variables: {
-        email: myEmail,
-        password: myPassword,
-      },
-    });
-    // console.log(result.data?.loginUser.accessToken);
-    // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
-    localStorage.setItem("refreshToken", "true");
-    // console.log("login:", accessToken);
-    setAccessToken(result.data?.loginUser.accessToken);
-    // location.reload();
-    router.push("/mypage/loginfo");
+    try {
+      const result = await loginUser({
+        variables: {
+          email: myEmail,
+          password: myPassword,
+        },
+      });
+      // console.log(result.data?.loginUser.accessToken);
+      // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+      localStorage.setItem("refreshToken", "true");
+      // console.log("login:", accessToken);
+      setAccessToken(result.data?.loginUser.accessToken);
+      // location.reload();
+      router.push("/mypage/loginfo");
+    } catch (error) {
+      alert(
+        "아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요."
+      );
+    }
   }
 
   return (

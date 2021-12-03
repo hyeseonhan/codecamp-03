@@ -72,6 +72,7 @@ export const LogoutButton = styled.div`
   align-items: center;
   background-color: black;
   color: #f04237;
+  cursor: pointer;
   /* margin-bottom: 20px; */
 `;
 

@@ -23,8 +23,7 @@ export const ListWrapper = styled.div`
 `;
 
 export const LeftWrapper = styled.div`
-  /* width: 1100px;
-  border: 1px solid red; */
+  /* border: 1px solid red; */
 `;
 
 export const TableTop = styled.div`
@@ -75,6 +74,7 @@ export const Wrap = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  /* border: 1px solid blue; */
 `;
 
 export const TableSell = styled.div`
@@ -85,7 +85,7 @@ export const TableSell = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin: 10px;
+  margin: 13px;
 `;
 
 export const ProductImage = styled.img`
@@ -100,8 +100,6 @@ export const NoneImage = styled.div`
   height: 190px;
   border: 1px solid black;
   border: none;
-  /* box-shadow: 1px 1px 1px 1px; */
-  /* margin-right: 40px; */
   color: white;
   background-color: black;
   display: flex;

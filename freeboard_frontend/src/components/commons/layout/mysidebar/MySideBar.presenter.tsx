@@ -28,7 +28,7 @@ export default function MySideBarUI(props) {
             <EmailInfo>{props.data?.fetchUserLoggedIn.email}</EmailInfo>
           </InnerWrapper1>
           <InnerWrapper3>
-            <LogoutButton>LOG OUT</LogoutButton>
+            <LogoutButton onClick={props.onClickLogout}>LOG OUT</LogoutButton>
             <Avatar
               src={
                 props.data?.fetchUserLoggedIn.picture

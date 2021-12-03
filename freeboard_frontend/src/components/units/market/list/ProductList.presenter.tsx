@@ -13,7 +13,6 @@ import {
   PostButton,
   Wrap,
 } from "./ProductList.styles";
-// import RecentlyViewedItems from "../../../commons/recentlyvieweditems/recentlyvieweditems";
 import InfiniteScroll from "react-infinite-scroller";
 import TableSold from "./ListTableSold/ListTableSold.container";
 
@@ -86,7 +85,6 @@ export default function ProductListtUI(props) {
             </InfiniteScroll>
           </div>
         </LeftWrapper>
-        {/* <RecentlyViewedItems /> */}
       </ListWrapper>
     </Wrapper>
   );
