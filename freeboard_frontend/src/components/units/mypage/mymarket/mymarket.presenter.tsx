@@ -13,6 +13,7 @@ import {
   RowCategory,
   ColumnIndex,
   ColumnName,
+  ColumnInnerName,
   ColumnSold,
   ColumnNone,
   ColumnPrice,
@@ -56,7 +57,9 @@ export default function MyMarketUI(props) {
             {props.data?.fetchUseditemsISold.map((el, index) => (
               <Row key={el._id}>
                 <ColumnIndex>{10 - index}</ColumnIndex>
-                <ColumnName>{el.name}</ColumnName>
+                <ColumnName>
+                  <ColumnInnerName>{el.name}</ColumnInnerName>
+                </ColumnName>
                 {el.buyer?.name ? (
                   <ColumnSold>{el.buyer?.name && "SOLD OUT"}</ColumnSold>
                 ) : (
@@ -82,13 +85,17 @@ export default function MyMarketUI(props) {
             {props.Ipickedata?.fetchUseditemsIPicked.map((el, index) => (
               <Row key={el._id}>
                 <ColumnIndex>{10 - index}</ColumnIndex>
-                <ColumnName>{el.name}</ColumnName>
+                <ColumnName>
+                  <ColumnInnerName>{el.name}</ColumnInnerName>
+                </ColumnName>
                 {el.buyer?.name ? (
                   <ColumnSold>{el.buyer?.name && "SOLD OUT"}</ColumnSold>
                 ) : (
                   <ColumnNone />
                 )}
-                <ColumnPrice>{el.price}</ColumnPrice>
+                <ColumnPrice>
+                  {el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
+                </ColumnPrice>
                 <ColumnSeller>{el.seller?.name}</ColumnSeller>
                 <CloumnDate>{el.createdAt.slice(0, 10)}</CloumnDate>
               </Row>

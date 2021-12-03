@@ -88,15 +88,19 @@ export default function PointFullHistory() {
           {el.amount < 0 ? (
             <>
               <ColumnStatus>{el.status}</ColumnStatus>
-              <ColumnHistory>{el.amount.toLocaleString("ko-KR")}</ColumnHistory>
+              <ColumnHistory>
+                {el.amount.toLocaleString("ko-KR")} 원
+              </ColumnHistory>
             </>
           ) : (
             <>
               <ColumnStatus>{el.status}</ColumnStatus>
-              <ColumnHistory>{el.amount.toLocaleString("ko-KR")}</ColumnHistory>
+              <ColumnHistory>
+                +{el.amount.toLocaleString("ko-KR")} 원
+              </ColumnHistory>
             </>
           )}
-          <ClounmBalance>₩{el.balance.toLocaleString("ko-KR")}</ClounmBalance>
+          <ClounmBalance>{el.balance.toLocaleString("ko-KR")} 원</ClounmBalance>
         </Row>
       ))}
     </Wrapper>

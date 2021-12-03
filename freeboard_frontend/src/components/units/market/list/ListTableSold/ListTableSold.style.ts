@@ -1,13 +1,15 @@
 import styled from "@emotion/styled";
 
 export const TableSold = styled.div`
-  width: 880px;
+  width: 1010px;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   /* border-top: 1px solid black; */
   border-bottom: 2px solid black;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin: 0px 30px 0px 60px;
 `;
 
 export const ProductImage = styled.img`
@@ -15,7 +17,7 @@ export const ProductImage = styled.img`
   height: 160px;
   border: 1px solid black;
   border: none;
-  margin-right: 40px;
+  margin-right: 70px;
 `;
 
 export const NoneImage = styled.div`
@@ -24,7 +26,7 @@ export const NoneImage = styled.div`
   border: 1px solid black;
   border: none;
   /* box-shadow: 1px 1px 1px 1px; */
-  margin-right: 40px;
+  margin-right: 70px;
   color: white;
   background-color: black;
   display: flex;
@@ -41,6 +43,7 @@ export const Info = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  /* border: 1px solid red; */
 `;
 
 export const Detail = styled.div`
@@ -52,14 +55,6 @@ export const PriceInfo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-`;
-
-export const PriceIcon = styled.img`
-  width: 18px;
-  height: 18px;
-  margin-right: 11px;
-  -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
-  filter: grayscale(100%);
 `;
 
 export const Price = styled.div`
@@ -131,6 +126,7 @@ export const Seller = styled.div`
 export const HeartInfo = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 
 export const HeartButton = styled.img`

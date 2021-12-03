@@ -12,8 +12,16 @@ export const TopWrapper = styled.div`
   margin-bottom: 20px;
 `;
 
+export const CommentWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`;
+
 export const CommentIcon = styled.img`
-  padding-right: 14px;
+  width: 30px;
+  height: 18px;
+  padding-right: 12px;
   -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
   filter: grayscale(100%);
 `;
@@ -66,15 +74,17 @@ export const Contents = styled.textarea`
 `;
 
 export const ContentsBottom = styled.div`
+  height: 42px;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
   border-top: 1px solid lightgray;
 `;
 
 export const ContentsLength = styled.div`
   width: 100%;
-  height: 51x;
+  height: 41x;
   line-height: 52px;
   padding-left: 20px;
   color: gray;
@@ -82,7 +92,8 @@ export const ContentsLength = styled.div`
 
 export const Button = styled.button`
   width: 91px;
-  height: 52px;
+  height: 42px;
+  border: none;
   background-color: black;
   color: white;
   cursor: pointer;

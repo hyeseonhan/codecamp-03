@@ -36,11 +36,17 @@ const ColumnDate = styled.div`
   /* border: 1px solid red; */
 `;
 const ColumnStatus = styled.div`
-  width: 12%;
+  width: 30%;
   display: flex;
   flex-direction: row;
   justify-content: center;
   /* border: 1px solid red; */
+`;
+
+const ColumnInnerStatus = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const ColumnList = styled.div`
@@ -104,9 +110,11 @@ export default function PointPurchaseDetails() {
       {data?.fetchPointTransactionsOfBuying.map((el) => (
         <Row key={el._id}>
           <ColumnDate>{el.createdAt.slice(0, 10)}</ColumnDate>
-          <ColumnStatus>{el.useditem.name}</ColumnStatus>
-          <ColumnList>{el.amount.toLocaleString("ko-KR")}</ColumnList>
-          <ColumnHistory>₩{el.balance.toLocaleString("ko-KR")}</ColumnHistory>
+          <ColumnStatus>
+            <ColumnInnerStatus>{el.useditem.name}</ColumnInnerStatus>
+          </ColumnStatus>
+          <ColumnList>{el.amount.toLocaleString("ko-KR")} 원</ColumnList>
+          <ColumnHistory>{el.balance.toLocaleString("ko-KR")} 원</ColumnHistory>
           <ClounmSeller></ClounmSeller>
         </Row>
       ))}

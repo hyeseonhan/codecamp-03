@@ -15,7 +15,7 @@ export const Wrapper = styled.div`
 `;
 
 export const Content = styled.div`
-  margin: 8px 18px;
+  margin: 8px 13px 5px 13px;
   font-weight: 900;
   font-size: 14px;
 `;
@@ -33,10 +33,10 @@ export const UnderButton = styled.div`
   margin: 10px;
   padding: 4px 22px;
   border: 1px solid black;
+  border: none;
   border-radius: 4px;
   cursor: pointer;
   :hover {
-    opacity: 0.4;
     background-color: #f04237;
   }
 `;

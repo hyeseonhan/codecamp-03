@@ -10,15 +10,16 @@ export default function LayoutFooterUI(props) {
   return (
     <Wrapper>
       <Content>
-        We are passionate about music. To help us share that passion we'd like
-        to use cookies and similar technologies to personalize your experiences
-        on our sites and to advertise on other sites. For more information and
-        additional choices click Cookie Choices below.
+        Hello, I am Front end Engineer and passionate about coding. The current
+        website is my first project. This project is in the form of a bulletin
+        board and a used market. The overall concept is to sell used items
+        related to my favorite singer or freely write posts. If you are curious
+        about me or my other projects, please press the button below.
       </Content>
       <ButtonWrapper>
-        <UnderButton onClick={props.onClickDecline}>Decline All</UnderButton>
-        <UnderButton onClick={props.onClickAccept}>Accept All</UnderButton>
-        <UnderButton onClick={props.onClickCookie}>Cookie Choices</UnderButton>
+        <UnderButton onClick={props.onClickGithub}>GITHUB</UnderButton>
+        <UnderButton onClick={props.onClickVelog}>VELOG</UnderButton>
+        <UnderButton onClick={props.onClickNotion}>RESUME</UnderButton>
       </ButtonWrapper>
     </Wrapper>
   );

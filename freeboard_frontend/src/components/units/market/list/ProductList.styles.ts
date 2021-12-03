@@ -49,9 +49,9 @@ interface IProps {
 
 export const OnSale = styled.div`
   margin-right: 20px;
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 26.64px;
   cursor: pointer;
   color: ${(props: IProps) => (props.isVisible === true ? "black" : "#f04237")};
@@ -62,9 +62,9 @@ interface IProps {
 }
 
 export const Sold = styled.div`
-  font-weight: 500;
+  font-weight: 600;
   font-style: normal;
-  font-size: 14px;
+  font-size: 17px;
   line-height: 26.64px;
   cursor: pointer;
   color: ${(props: IProps) => (props.isVisible === true ? "#f04237" : "black")};

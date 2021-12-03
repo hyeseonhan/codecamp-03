@@ -111,7 +111,12 @@ export const ColumnName = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* padding: 5px; */
+`;
+
+export const ColumnInnerName = styled.div`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 export const ColumnSold = styled.div`

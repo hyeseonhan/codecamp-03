@@ -59,7 +59,8 @@ export default function MySideBarUI(props) {
               <PointInfo>
                 {props.data?.fetchUserLoggedIn.userPoint?.amount.toLocaleString(
                   "ko-KR"
-                )}
+                )}{" "}
+                원
               </PointInfo>
             </div>
             <State onClick={props.onClickMovetoMyProfile}>Profile</State>

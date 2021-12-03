@@ -14,7 +14,7 @@ const MySideBar = () => {
 
   function onClickLogout() {
     localStorage.removeItem("refreshToken");
-    alert("로그아웃이 되었습니다");
+    alert("로그아웃이 되었습니다.");
     router.push("/mypage/login");
   }
 

@@ -28,20 +28,20 @@ export default function ProductListtUI(props) {
                 onClick={props.onClickTablesell}
                 isVisible={props.isVisible}
               >
-                판매중상품
+                FOR SALE
               </OnSale>
               <Sold
                 onClick={props.onClickTablesold}
                 isVisible={props.isVisible}
               >
-                판매된상품
+                SOLD OUT
               </Sold>
             </Category>
             <PostButton
               // id={"/market/product-post"}
               onClick={props.onClickMoveToPost}
             >
-              상품 등록하기
+              POST
             </PostButton>
           </TableTop>
           <div

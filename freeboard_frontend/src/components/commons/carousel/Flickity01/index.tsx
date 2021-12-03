@@ -156,7 +156,6 @@ const Flickity = styled(flickity)`
 const Wrapper = styled.div`
   /* border: 1px solid black; */
   padding-top: 50px;
-  padding-bottom: 100px;
 `;
 
 const Img = styled.img`

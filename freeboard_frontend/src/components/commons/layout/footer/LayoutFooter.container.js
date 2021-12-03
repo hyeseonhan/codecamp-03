@@ -1,27 +1,24 @@
-import { useRouter } from "next/router";
-
 import LayoutFooterUI from "./LayoutFooter.presenter";
 
 export default function LayoutFooter() {
-  const router = useRouter();
-
-  function onClickDecline() {
-    router.push("/");
+  function onClickGithub() {
+    window.location.href = "https://github.com/hyeseonhan";
   }
 
-  function onClickAccept() {
-    router.push("/");
+  function onClickVelog() {
+    window.location.href = "https://velog.io/@h1225hs";
   }
 
-  function onClickCookie() {
-    router.push("/");
+  function onClickNotion() {
+    window.location.href =
+      "https://geode-pond-981.notion.site/ce46a83fe19a4fc7b462bd50640bf210";
   }
 
   return (
     <LayoutFooterUI
-      onClickDecline={onClickDecline}
-      onClickAccept={onClickAccept}
-      onClickCookie={onClickCookie}
+      onClickGithub={onClickGithub}
+      onClickVelog={onClickVelog}
+      onClickNotion={onClickNotion}
     />
   );
 }

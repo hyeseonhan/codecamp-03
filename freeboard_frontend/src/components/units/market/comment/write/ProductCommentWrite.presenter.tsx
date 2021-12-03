@@ -1,6 +1,7 @@
 import {
   Wrapper,
   TopWrapper,
+  CommentWrapper,
   CommentIcon,
   Titlename,
   InnerWrapper,
@@ -19,10 +20,10 @@ export default function ProductCommentWriteUI(props) {
     <Wrapper>
       <TopWrapper>
         {!props.isEdit && (
-          <>
+          <CommentWrapper>
             <CommentIcon src="/images/comment.png" />
             <Titlename> 문의하기</Titlename>
-          </>
+          </CommentWrapper>
         )}
       </TopWrapper>
       <InnerWrapper>

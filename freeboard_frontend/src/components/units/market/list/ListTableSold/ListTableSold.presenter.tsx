@@ -5,7 +5,6 @@ import {
   Info,
   Detail,
   PriceInfo,
-  PriceIcon,
   Price,
   Name,
   Remarks,
@@ -34,7 +33,7 @@ export default function ListTableSoldUI(props) {
               src={`https://storage.googleapis.com/${el?.images[0]}`}
             />
           ) : (
-            <NoneImage>NO IMAGE</NoneImage> //src="/images/pm-logo.png"
+            <NoneImage>NO IMAGE</NoneImage>
           )}
           <Info>
             <Detail>
@@ -53,14 +52,15 @@ export default function ListTableSoldUI(props) {
                   <Seller>{el.seller?.name}</Seller>
                 </AvatarInfo>
                 <HeartInfo>
-                  <HeartButton src="/images/heart.png" />
+                  <HeartButton src="/images/bheart.png" />
                   <HeartCount>{el.pickedCount}</HeartCount>
                 </HeartInfo>
               </SellerInfo>
             </Detail>
             <PriceInfo>
-              <PriceIcon src="/images/price.png" />
-              <Price>{el.price}</Price>
+              <Price>
+                {el.price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")} 원
+              </Price>
             </PriceInfo>
           </Info>
         </TableSold>

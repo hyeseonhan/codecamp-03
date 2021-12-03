@@ -85,8 +85,8 @@ export default function PointChargingDetails() {
         <Row key={el._id}>
           <ColumnDate>{el.createdAt.slice(0, 10)}</ColumnDate>
           <ColumnStatus>{el.impUid}</ColumnStatus>
-          <ColumnHistory>+{el.amount.toLocaleString("ko-KR")}</ColumnHistory>
-          <ClounmBalance>₩{el.balance.toLocaleString("ko-KR")}</ClounmBalance>
+          <ColumnHistory>+{el.amount.toLocaleString("ko-KR")} 원</ColumnHistory>
+          <ClounmBalance>{el.balance.toLocaleString("ko-KR")} 원</ClounmBalance>
         </Row>
       ))}
     </Wrapper>

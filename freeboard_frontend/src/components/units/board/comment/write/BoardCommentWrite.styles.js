@@ -9,11 +9,14 @@ export const Wrapper = styled.div`
 export const LabelWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
   padding-top: 40px;
 `;
 
 export const TitleIcon = styled.img`
-  padding-right: 14px;
+  width: 30px;
+  height: 18px;
+  padding-right: 12px;
 `;
 
 export const Title = styled.div`
@@ -41,7 +44,7 @@ export const WriterInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
-  /* padding-left: 20px; */
+  padding-left: 20px;
   margin-right: 24px;
 `;
 
@@ -55,35 +58,31 @@ export const PasswordInput = styled.input`
   display: flex;
   flex-direction: row;
   align-items: center;
+  padding-left: 20px;
   margin-right: 26px;
 `;
 
 export const MiddleLine = styled.div`
+  border: 1px solid #bdbdbd;
   margin-top: 20px;
 `;
 
 export const ContentInput = styled.textarea`
-  border-left: 1px solid #bdbdbd;
-  border-right: 1px solid #bdbdbd;
-  border-top: 1px solid #bdbdbd;
-  border-bottom: 1px solid #f2f2f2;
-  width: 1200px;
-  height: 161px;
+  width: 100%;
+  height: 108px;
+  resize: none;
+  border: none;
   font-size: 16px;
   font-weight: 500;
   line-height: 23.68px;
-  /* padding-left: 20px; */
-  margin-right: 24px;
-  resize: none;
+  padding: 20px 0px 0px 20px;
 `;
 
 export const LowerLine = styled.div`
-  border-left: 1px solid #bdbdbd;
-  border-right: 1px solid #bdbdbd;
-  border-bottom: 1px solid #bdbdbd;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  border-top: 1px solid lightgray;
 `;
 
 export const WordCount = styled.div`
@@ -117,5 +116,5 @@ export const Star = styled(Rate)`
   display: flex;
   flex-direction: row;
   justify-content: center;
-  /* align-items: center; */
+  align-items: center;
 `;

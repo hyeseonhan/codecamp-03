@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
 export const LeftWarpper = styled.div`
   margin-top: 50px;
   width: 220px;
-  height: 100px;
+  /* border: 1px solid red; */
 `;
 
 export const RightWrapper = styled.div`
@@ -19,7 +19,7 @@ export const RightWrapper = styled.div`
   align-items: flex-end;
   margin-top: 50px;
   width: 210px;
-  height: 100px;
+  /* border: 1px solid red; */
 `;
 
 export const InnerWrapper = styled.div`
