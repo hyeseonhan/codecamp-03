@@ -12,6 +12,7 @@ export const Wrapper = styled.div`
   font-family: "NB";
   text-align: center;
   border-top: 1px solid rgb(170, 170, 170);
+  /* margin-bottom: 10px; */
 `;
 
 export const Content = styled.div`

@@ -17,9 +17,15 @@ export default function LayoutFooterUI(props) {
         about me or my other projects, please press the button below.
       </Content>
       <ButtonWrapper>
-        <UnderButton onClick={props.onClickGithub}>GITHUB</UnderButton>
-        <UnderButton onClick={props.onClickVelog}>VELOG</UnderButton>
-        <UnderButton onClick={props.onClickNotion}>RESUME</UnderButton>
+        <a href="https://github.com/hyeseonhan">
+          <UnderButton>GITHUB</UnderButton>
+        </a>
+        <a href="https://velog.io/@h1225hs">
+          <UnderButton>VELOG</UnderButton>
+        </a>
+        <a href="https://geode-pond-981.notion.site/ce46a83fe19a4fc7b462bd50640bf210">
+          <UnderButton>RESUME</UnderButton>
+        </a>
       </ButtonWrapper>
     </Wrapper>
   );
