@@ -1,5 +1,6 @@
 
 # 개인 프로젝트
+![무제](https://user-images.githubusercontent.com/68494080/145347601-d61435b9-d7ac-4887-a6ae-282253502b7b.gif)
 
 >Postmalone ( https://postmalone.shop )
 ```
