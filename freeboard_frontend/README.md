@@ -103,7 +103,7 @@
 - React.js
 - Next.js
 - Apollo-Client, Apollo-Server
-- GraphQL,
+- GraphQL
 - axios
 - Rest-API
 ### 백엔드 (코드캠프 자체 제공)
