@@ -4,7 +4,6 @@ import BoardCommentList from "../../../src/components/units/board/comment/list/B
 import Head from "next/head";
 import { gql, request } from "graphql-request";
 
-// ssr
 export default function BoardDetailPage(props: any) {
   return (
     <>
@@ -35,6 +34,7 @@ export const FETCH_BOARD = gql`
   }
 `;
 
+// ssr
 export const getServerSideProps = async (context: any) => {
   // 1. graphql 데이터를 요청
   const result = await request(

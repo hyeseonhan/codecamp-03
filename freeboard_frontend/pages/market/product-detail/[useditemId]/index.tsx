@@ -44,6 +44,7 @@ const FETCH_USEDITEM = gql`
   }
 `;
 
+// ssr
 export const getServerSideProps = async (context: any) => {
   const result = await request(
     "https://backend03.codebootcamp.co.kr/graphql08",
