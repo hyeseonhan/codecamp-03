@@ -16,8 +16,13 @@ export default function ProductDetailPage(props: any) {
     <>
       <Head>
         <meta property="og:title" content={props.fetchUseditem.name} />
-        <meta property="og:description" content={props.fetchUseditem.remarks} />
-        <meta property="og:description" content={props.fetchUseditem.price} />
+        <meta
+          property="og:description"
+          content={props.fetchUseditem.price
+            .toString()
+            .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
+        />
+        원
         <meta
           property="og:image"
           content={`https://storage.googleapis.com/${props.fetchUseditem.images[0]}`}
