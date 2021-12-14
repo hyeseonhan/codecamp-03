@@ -9,6 +9,7 @@ export default function BoardDetailPage(props: any) {
     <>
       <Head>
         <meta property="og:title" content={props.fetchBoard.name} />
+        <meta property="og:description" content={props.fetchBoard.title} />
         <meta property="og:description" content={props.fetchBoard.writer} />
         <meta
           property="og:image"

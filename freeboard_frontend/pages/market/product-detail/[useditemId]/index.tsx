@@ -17,6 +17,7 @@ export default function ProductDetailPage(props: any) {
       <Head>
         <meta property="og:title" content={props.fetchUseditem.name} />
         <meta property="og:description" content={props.fetchUseditem.remarks} />
+        <meta property="og:description" content={props.fetchUseditem.price} />
         <meta
           property="og:image"
           content={`https://storage.googleapis.com/${props.fetchUseditem.images[0]}`}
@@ -39,6 +40,8 @@ const FETCH_USEDITEM = gql`
     fetchUseditem(useditemId: $useditemId) {
       name
       remarks
+      contents
+      price
       images
     }
   }
