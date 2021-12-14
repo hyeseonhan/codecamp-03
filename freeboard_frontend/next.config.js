@@ -11,5 +11,7 @@ module.exports = {
     "/images": { page: "/images" },
     "/main": { page: "/main" },
     "/mypage": { page: "/mypage" },
+    "/market": { page: "/market" },
+    "/boards": { page: "/boards" },
   }),
 };
