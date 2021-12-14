@@ -4,6 +4,7 @@ import BoardCommentList from "../../../src/components/units/board/comment/list/B
 import Head from "next/head";
 import { gql, request } from "graphql-request";
 
+// ssr
 export default function BoardDetailPage(props: any) {
   return (
     <>
