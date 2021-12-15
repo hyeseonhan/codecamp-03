@@ -211,28 +211,28 @@ export default function Flickity01() {
             </InnerWarpper>;
           })} */}
         <InnerWarpper>
-          <Img src={BestData?.[0]} />
+          <Img src={`${BestData?.[0]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[1]} />
+          <Img src={`${BestData?.[1]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[2]} />
+          <Img src={`${BestData?.[2]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[3]} />
+          <Img src={`${BestData?.[3]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[4]} />
+          <Img src={`${BestData?.[4]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[5]} />
+          <Img src={`${BestData?.[5]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[6]} />
+          <Img src={`${BestData?.[6]}`} />
         </InnerWarpper>
         <InnerWarpper>
-          <Img src={BestData?.[7]} />
+          <Img src={`${BestData?.[7]}`} />
         </InnerWarpper>
       </Flickity>
     </Wrapper>
