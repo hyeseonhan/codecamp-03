@@ -6,6 +6,7 @@ module.exports = {
     "/": { page: "/" },
     "/404": { page: "/404" },
 
+    "/boards/[board_post_detail]": { page: "/boards/[board_post_detail]" },
     "/boards/[board_post_detail]/edit": {
       page: "/boards/[board_post_detail]/edit",
     },
