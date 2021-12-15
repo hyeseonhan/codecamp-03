@@ -14,7 +14,7 @@ export default function ProductDetailPage(props: any) {
 
   return (
     <>
-      {/* <Head>
+      <Head>
         <meta property="og:title" content={props.fetchUseditem.name} />
         <meta
           property="og:description"
@@ -27,7 +27,7 @@ export default function ProductDetailPage(props: any) {
           property="og:image"
           content={`https://storage.googleapis.com/${props.fetchUseditem.images[0]}`}
         />
-      </Head> */}
+      </Head>
       <ProductDetail />
       <ProductCommentWrite />
       <ProductCommentList
@@ -53,18 +53,18 @@ const FETCH_USEDITEM = gql`
 `;
 
 // ssr
-// export const getServerSideProps = async (context: any) => {
-//   const result = await request(
-//     "https://backend03.codebootcamp.co.kr/graphql08",
-//     FETCH_USEDITEM,
-//     {
-//       useditemId: context.query.useditemId,
-//     }
-//   );
+export const getServerSideProps = async (context: any) => {
+  const result = await request(
+    "https://backend03.codebootcamp.co.kr/graphql08",
+    FETCH_USEDITEM,
+    {
+      useditemId: context.query.useditemId,
+    }
+  );
 
-//   return {
-//     props: {
-//       fetchUseditem: result.fetchUseditem,
-//     },
-//   };
-// };
+  return {
+    props: {
+      fetchUseditem: result.fetchUseditem,
+    },
+  };
+};

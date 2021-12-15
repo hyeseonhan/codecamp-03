@@ -164,17 +164,36 @@ const Img = styled.img`
   border-radius: 50%;
 `;
 
-const Img1 = styled.img`
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-`;
-
 const InnerWarpper = styled.div``;
 
 export default function Flickity01() {
   const { data: dataBoardsOfTheBest } = useQuery(FETCH_BOARDS_OF_THE_BEST);
   const { data: dataMarketsOfTheBest } = useQuery(FETCH_USED_ITEMS_OF_THE_BEST);
+
+  const BestBoards = dataBoardsOfTheBest?.fetchBoardsOfTheBest?.map(
+    (el: any) =>
+      el?.images[0] && `https://storage.googleapis.com/${el.images[0]}`
+  );
+
+  const bb = Object.assign({}, BestBoards);
+  const bbb = Object.values(bb);
+
+  // console.log("bbb", bbb);
+
+  const BestMarkets = dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map(
+    (el: any) =>
+      el?.images[0] && `https://storage.googleapis.com/${el.images[0]}`
+  );
+
+  const cc = Object.assign({}, BestMarkets);
+  const ccc = Object.values(cc);
+
+  // console.log("ccc", ccc);
+
+  // var obj3 = {...obj1, ...obj2};
+  const BestData = [...bbb, ...ccc];
+
+  console.log("BestData", BestData);
 
   return (
     <Wrapper>
@@ -186,28 +205,35 @@ export default function Flickity01() {
         reloadOnUpdate // default false
         static // default false
       >
-        <>
-          {dataBoardsOfTheBest?.fetchBoardsOfTheBest.map((el: any) => (
-            <InnerWarpper key={el._id}>
-              <Img
-                src={
-                  el.images[0] &&
-                  `https://storage.googleapis.com/${el.images[0]}`
-                }
-              />
-            </InnerWarpper>
-          ))}
-          {dataMarketsOfTheBest?.fetchUseditemsOfTheBest?.map((el: any) => (
-            <InnerWarpper key={el._id}>
-              <Img1
-                src={
-                  el?.images[0] &&
-                  `https://storage.googleapis.com/${el?.images[0]}`
-                }
-              />
-            </InnerWarpper>
-          ))}
-        </>
+        {/* {BestData?.filter((el) => el).map((el: any) => {
+            <InnerWarpper key={el}>
+              <Img src={`${el}`} />
+            </InnerWarpper>;
+          })} */}
+        <InnerWarpper>
+          <Img src={BestData?.[0]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[1]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[2]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[3]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[4]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[5]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[6]} />
+        </InnerWarpper>
+        <InnerWarpper>
+          <Img src={BestData?.[7]} />
+        </InnerWarpper>
       </Flickity>
     </Wrapper>
   );
