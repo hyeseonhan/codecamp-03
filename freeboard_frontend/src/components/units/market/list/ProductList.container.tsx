@@ -1,12 +1,10 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useContext, useState } from "react";
-import { GlobalContext } from "../../../../../pages/_app";
+import { useState } from "react";
 import ProductListUI from "./ProductList.presenter";
 import { FETCH_USED_ITEMS } from "./ProductList.queries";
 
 export default function ProductList() {
-  const { setUserInfo } = useContext(GlobalContext);
   const [isVisible, setIsVisible] = useState(false);
   const router = useRouter();
   const { data, fetchMore } = useQuery(FETCH_USED_ITEMS, {
@@ -66,9 +64,7 @@ export default function ProductList() {
 
     if (recentlybasket.length > 12) recentlybasket.shift();
 
-    setUserInfo(
-      localStorage.setItem("recentlybasket", JSON.stringify(recentlybasket))
-    );
+    localStorage.setItem("recentlybasket", JSON.stringify(recentlybasket));
   };
 
   return (
