@@ -56,8 +56,10 @@ export default function BoardListUI(props) {
             id={el._id}
             onClick={props.onClickMoveToBoardDetail}
           >
-            <ColumnBasic>{10 - index}</ColumnBasic>
-            <ColumnTitle>
+            <ColumnBasic onClick={props.onClickMoveToBoardDetail}>
+              {10 - index}
+            </ColumnBasic>
+            <ColumnTitle onClick={props.onClickMoveToBoardDetail}>
               {el.title
                 .replaceAll(props.keyword, `#$%${props.keyword}#$%`)
                 .split("#$%")
@@ -67,8 +69,12 @@ export default function BoardListUI(props) {
                   </Word>
                 ))}
             </ColumnTitle>
-            <ColumnBasic>{el.writer}</ColumnBasic>
-            <ColumnBasic>{el.createdAt.slice(0, 10)}</ColumnBasic>
+            <ColumnBasic onClick={props.onClickMoveToBoardDetail}>
+              {el.writer}
+            </ColumnBasic>
+            <ColumnBasic onClick={props.onClickMoveToBoardDetail}>
+              {el.createdAt.slice(0, 10)}
+            </ColumnBasic>
           </Row>
         ))}
         <ListBottom />

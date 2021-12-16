@@ -24,7 +24,7 @@ export default function BoardList(props) {
   }
 
   function onClickMoveToBoardDetail(event) {
-    router.push(`/boards/${event.target.id}`);
+    router.push(`/boards/${event.currentTarget.id}`);
   }
 
   function onClickPrevPage() {
