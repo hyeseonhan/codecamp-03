@@ -1,7 +1,6 @@
 module.exports = {
   reactStrictMode: true,
   trailingSlash: true,
-  assetPrefix: "/ssr",
   generateBuildId: () => "freeboard_frontend",
   exportPathMap: () => ({
     "/": { page: "/" },
@@ -15,7 +14,6 @@ module.exports = {
     "/boards/openapi": { page: "/boards/openapi" },
 
     "/home": { page: "/home" },
-    "/main": { page: "/main" },
 
     "/market/product-detail/[useditemId]/edit": {
       page: "/market/product-detail/[useditemId]/edit",
@@ -24,11 +22,12 @@ module.exports = {
     "/market/product-list": { page: "/market/product-list" },
     "/market/product-post": { page: "/market/product-post" },
 
-    "/mypage/createacc": { page: "/mypage" },
-    "/mypage/login": { page: "/mypage" },
-    "/mypage/loginfo": { page: "/mypage" },
-    "/mypage/mymarket": { page: "/mypage" },
-    "/mypage/mypoint": { page: "/mypage" },
-    "/mypage/myprofile": { page: "/mypage" },
+    // "/mypage/createacc": { page: "/mypage" },
+    // "/mypage/login": { page: "/mypage" },
+    // "/mypage/loginfo": { page: "/mypage" },
+    // "/mypage/mymarket": { page: "/mypage" },
+    // "/mypage/mypoint": { page: "/mypage" },
+    // "/mypage/myprofile": { page: "/mypage" },
   }),
+  // assetPrefix: "/ssr",
 };

@@ -6,7 +6,7 @@ import {
   ApolloLink,
 } from "@apollo/client";
 import Layout from "../src/components/commons/layout";
-import Main from "./main";
+import Main from ".";
 import { Global } from "@emotion/react";
 import { globalStyles } from "../src/commons/styles/globalStyles";
 import "slick-carousel/slick/slick.css";
