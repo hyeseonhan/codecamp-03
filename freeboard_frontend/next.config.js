@@ -29,5 +29,5 @@ module.exports = {
     // "/mypage/mypoint": { page: "/mypage" },
     // "/mypage/myprofile": { page: "/mypage" },
   }),
-  // assetPrefix: "/ssr",
+  assetPrefix: "/ssr",
 };
