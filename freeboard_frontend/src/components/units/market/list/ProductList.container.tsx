@@ -66,7 +66,9 @@ export default function ProductList() {
 
     if (recentlybasket.length > 12) recentlybasket.shift();
 
-    setUserInfo(localStorage.setItem("recentlybasket", JSON.stringify(recentlybasket));)
+    setUserInfo(
+      localStorage.setItem("recentlybasket", JSON.stringify(recentlybasket))
+    );
   };
 
   return (
