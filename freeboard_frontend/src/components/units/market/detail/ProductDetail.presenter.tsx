@@ -31,6 +31,7 @@ import {
 } from "./ProductDetail.styles";
 import Dompurify from "dompurify";
 import { useEffect, useRef, useState } from "react";
+import { Tooltip } from "antd";
 
 export default function ProductDetailUI(props: any) {
   const [mainSlick, setMainSlick] = useState(null);
@@ -72,7 +73,12 @@ export default function ProductDetailUI(props: any) {
               </AvartarWrapper>
               <IconWrapper>
                 <LinkIcon src="/images/link.png" />
-                <MapIcon src="/images/location.png" />
+                <Tooltip
+                  placement="topRight"
+                  title={`${props.data?.fetchUseditem.useditemAddress?.address} ${props.data?.fetchUseditem.useditemAddress?.addressDetail}`}
+                >
+                  <MapIcon src="/images/location.png" />
+                </Tooltip>
               </IconWrapper>
             </Headers>
             <Name>{props.data?.fetchUseditem.name}</Name>

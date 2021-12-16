@@ -11,7 +11,7 @@ import {
 import MyProfileUploadUI from "./myprofileupload.presenter";
 
 export default function MyProfileUpload(props) {
-  const { setUserInfo, userInfo } = useContext(GlobalContext);
+  const { setUserInfo } = useContext(GlobalContext);
   const fileRef = useRef(null);
   const [fileUrl, setFileUrl] = useState("");
   const [updateUser] = useMutation(UPDATE_USER);

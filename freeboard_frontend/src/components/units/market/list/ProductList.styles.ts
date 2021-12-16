@@ -86,6 +86,7 @@ export const TableSell = styled.div`
   justify-content: center;
   align-items: center;
   margin: 13px;
+  cursor: pointer;
 `;
 
 export const ProductImage = styled.img`
