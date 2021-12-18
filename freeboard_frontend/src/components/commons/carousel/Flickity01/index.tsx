@@ -1,6 +1,7 @@
 import { gql, useQuery } from "@apollo/client";
 import styled from "@emotion/styled";
 import flickity from "react-flickity-component";
+import { breakPoints } from "../../../../commons/styles/media";
 
 const FETCH_BOARDS_OF_THE_BEST = gql`
   query fetchBoardsOfTheBest {
@@ -36,11 +37,21 @@ const Flickity = styled(flickity)`
     width: 500px;
     height: 500px;
     /* height: 200px !important; */
+
+    @media ${breakPoints.phone} {
+    width: 350px;
+    height: 350px;
+  }
   }
 
   .flickity-slider {
     width: 500px;
     height: 500px;
+    
+    @media ${breakPoints.phone} {
+    width: 350px;
+    height: 350px;
+  }
   }}
 
   .flickity-enabled {
@@ -156,12 +167,29 @@ const Flickity = styled(flickity)`
 const Wrapper = styled.div`
   /* border: 1px solid black; */
   padding-top: 50px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding-top: 0px;
+    /* background-color: orange; */
+  }
+
+  @media ${breakPoints.phone} {
+    width: 100%;
+    padding-top: 0px;
+    /* background-color: orange; */
+  }
 `;
 
 const Img = styled.img`
   width: 500px;
   height: 500px;
   border-radius: 50%;
+
+  @media ${breakPoints.phone} {
+    width: 350px;
+    height: 350px;
+  }
 `;
 
 const InnerWarpper = styled.div``;

@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   /* background-color: #f04237; */
@@ -8,6 +9,35 @@ export const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 10px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    margin: 0px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 350px;
+    display: flex;
+    justify-content: space-between;
+    margin: 0px;
+  }
+`;
+
+export const CategoryBtn = styled.img`
+  display: none;
+  @media ${breakPoints.mobile} {
+    width: 30px;
+    margin-left: 20px;
+    display: initial;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 30px;
+    display: initial;
+  }
 `;
 
 export const Home = styled.img`
@@ -17,5 +47,21 @@ export const Home = styled.img`
   cursor: pointer;
   :hover {
     opacity: 0.4;
+  }
+`;
+
+export const Fake = styled.div`
+  @media ${breakPoints.mobile} {
+    width: 47px;
+    height: 30px;
+    border: 1px solid black;
+    border: none;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 30px;
+    height: 30px;
+    border: 1px solid black;
+    border: none;
   }
 `;

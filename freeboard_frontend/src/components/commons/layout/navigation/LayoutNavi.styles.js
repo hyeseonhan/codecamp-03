@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   /* background-color: #f04237; */
@@ -11,6 +12,14 @@ export const Wrapper = styled.div`
   border-bottom: 5px solid black;
   width: 1200px;
   padding: 30px;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
 `;
 
 export const MenuSome = styled.div`

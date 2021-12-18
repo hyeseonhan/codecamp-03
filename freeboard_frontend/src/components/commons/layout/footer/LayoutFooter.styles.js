@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   background-color: white;
@@ -13,6 +14,15 @@ export const Wrapper = styled.div`
   text-align: center;
   border-top: 1px solid rgb(170, 170, 170);
   /* margin-bottom: 10px; */
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+    background-color: purple;
+  }
 `;
 
 export const Content = styled.div`

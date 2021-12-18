@@ -1,15 +1,10 @@
 import {
   Wrapper,
-  Head,
-  Home,
-  MainImg,
   Song,
   StreamButton,
   Sub,
   SubWrapper,
-  SelectYear,
-  SelectMonth,
-  SelectDate,
+  Select,
   EnterButton,
   SliderWrapper,
   SliderAlbum,
@@ -20,7 +15,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 const settings = {
-  // dots: true,
+  dots: false,
   autoplay: true,
   infinite: true,
   speed: 2000,
@@ -35,12 +30,11 @@ const settings = {
 export default function MainPageUI(props) {
   return (
     <Wrapper>
-      {/* <Head>
-        <Home src="./images/pm-logo.png" />
-      </Head> */}
-      {/* <MainImg src="/images/MotleyCrewMain.png" /> */}
       <SliderWrapper>
         <Slider {...settings}>
+          <div>
+            <SliderAlbum src="/images/onerightnow.webp" />
+          </div>
           <div>
             <SliderAlbum src="/images/motleycrew.png" />
           </div>
@@ -55,33 +49,33 @@ export default function MainPageUI(props) {
           </div>
         </Slider>
       </SliderWrapper>
-      <Song>motley crew</Song>
-      <a href="https://postmalone.lnk.to/motleycrew">
+      <Song>one right now</Song>
+      <a href="https://music.apple.com/us/album/1593056776?ign-itscg=30440&ign-itsct=catchall_p1">
         <StreamButton>STREAM / DOWNLOAD</StreamButton>
       </a>
       <Sub>DATE OF BIRTH</Sub>
       <SubWrapper>
-        <SelectYear onChange={props.onChangehandleSelect}>
+        <Select onChange={props.onChangehandleSelect}>
           {props.selectYear.map((item) => (
             <option value={item.value} key={item.value}>
               {item.name}
             </option>
           ))}
-        </SelectYear>
-        <SelectMonth>
+        </Select>
+        <Select>
           {props.selectMonth.map((item) => (
             <option value={item.value} key={item.value}>
               {item.name}
             </option>
           ))}
-        </SelectMonth>
-        <SelectDate>
+        </Select>
+        <Select>
           {props.selectDate.map((item) => (
             <option value={item.value} key={item.value}>
               {item.name}
             </option>
           ))}
-        </SelectDate>
+        </Select>
       </SubWrapper>
       <EnterButton onClick={props.onClickMoveList}>ENTRY</EnterButton>
     </Wrapper>

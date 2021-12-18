@@ -22,5 +22,5 @@ module.exports = {
   //   "/market/product-list": { page: "/market/product-list" },
   //   "/market/product-post": { page: "/market/product-post" },
   // }),
-  assetPrefix: "/ssr",
+  // assetPrefix: "/ssr",
 };
