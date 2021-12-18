@@ -45,6 +45,9 @@
   * 댓글 작성 컴포넌트를 이용하여 댓글 수정
   * AntDesign 별점 라이브러리를 이용한 평점 매기기
 
+- ssr(서버사이드렌더링)
+<img width="387" alt="스크린샷 2021-12-17 오후 7 11 23" src="https://user-images.githubusercontent.com/68494080/146528716-f0aab7ee-7567-41eb-a6a3-14378b569f17.png">
+
 ### 중고마켓 (페이지 이름: MERCH)
 - 상품 리스트 페이지
     - react-infinite-scroller 라이브러리 사용하여 무한 스크롤
@@ -64,6 +67,9 @@
 - 댓글 컴포넌트
   - 댓글 등록, 수정 및 삭제 
   - 대댓글 등록, 수정 및 삭제
+
+- ssr(서버사이드렌더링)
+<img width="387" alt="스크린샷 2021-12-17 오후 7 11 05" src="https://user-images.githubusercontent.com/68494080/146529029-ebfa5092-e9bf-4a9d-b5cc-e9ef1a24e2f9.png">
 
 ### 로그인/회원가입 페이지 (페이지 이름: LOGIN)
 - 로그인 페이지
