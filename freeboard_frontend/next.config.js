@@ -21,13 +21,6 @@ module.exports = {
     "/market/flickity": { page: "/market/flickity" },
     "/market/product-list": { page: "/market/product-list" },
     "/market/product-post": { page: "/market/product-post" },
-
-    // "/mypage/createacc": { page: "/mypage" },
-    // "/mypage/login": { page: "/mypage" },
-    // "/mypage/loginfo": { page: "/mypage" },
-    // "/mypage/mymarket": { page: "/mypage" },
-    // "/mypage/mypoint": { page: "/mypage" },
-    // "/mypage/myprofile": { page: "/mypage" },
   }),
   assetPrefix: "/ssr",
 };
