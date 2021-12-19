@@ -9,12 +9,12 @@ export const breakPoints = {
 //     background-color: green;
 //   }
 
-//   @media ${breakPoints.mobile} {
-//     width: 100%;
-//     /* height: 100px; */
-//     background-color: blue;
-//     // display: none; 숨기고 싶을 때
-//   }
+// @media ${breakPoints.mobile} {
+//   width: 100%;
+//   /* height: 100px; */
+//   background-color: blue;
+//   // display: none; 숨기고 싶을 때
+// }
 
 //   @media ${breakPoints.phone} {
 //     width: 100%;

@@ -32,12 +32,48 @@ export const CategoryBtn = styled.img`
     width: 30px;
     margin-left: 20px;
     display: initial;
+    cursor: pointer;
   }
 
   @media ${breakPoints.phone} {
     width: 30px;
     display: initial;
+    cursor: pointer;
   }
+`;
+
+export const Category = styled.div`
+  width: 300px;
+  height: 100vh;
+  background-color: white;
+  z-index: 1;
+  transition: all 0.35s;
+  position: fixed;
+  top: 0;
+  left: ${(props) => (props.isOpen ? 0 : "-300px")};
+`;
+
+export const CloseBtn = styled.img`
+  width: 20px;
+  margin: 14px;
+  cursor: pointer;
+`;
+
+export const CateNameWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+`;
+
+export const CateName = styled.div`
+  font-family: "LightBold";
+  font-size: 21px;
+  font-weight: 900;
+  color: #979293;
+  cursor: pointer;
+  margin-bottom: 10px;
 `;
 
 export const Home = styled.img`

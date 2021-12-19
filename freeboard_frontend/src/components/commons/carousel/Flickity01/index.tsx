@@ -38,6 +38,11 @@ const Flickity = styled(flickity)`
     height: 500px;
     /* height: 200px !important; */
 
+    @media ${breakPoints.mobile} {
+    width: 400px;
+    height: 400px;
+  }
+
     @media ${breakPoints.phone} {
     width: 350px;
     height: 350px;
@@ -48,6 +53,11 @@ const Flickity = styled(flickity)`
     width: 500px;
     height: 500px;
     
+    @media ${breakPoints.mobile} {
+    width: 400px;
+    height: 400px;
+  }
+
     @media ${breakPoints.phone} {
     width: 350px;
     height: 350px;
@@ -185,6 +195,11 @@ const Img = styled.img`
   width: 500px;
   height: 500px;
   border-radius: 50%;
+
+  @media ${breakPoints.mobile} {
+    width: 400px;
+    height: 400px;
+  }
 
   @media ${breakPoints.phone} {
     width: 350px;
