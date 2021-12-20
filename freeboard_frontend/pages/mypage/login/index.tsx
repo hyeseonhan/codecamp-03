@@ -5,17 +5,36 @@ import { gql, useMutation } from "@apollo/client";
 import { useState } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../_app";
+import { breakPoints } from "../../../src/commons/styles/media";
 
 const Wrapper = styled.div`
-  /* margin: 50px 100px 100px 100px; */
   width: 1200px;
-  /* border-top: 7px solid black; */
   padding-top: 80px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: flex-start;
   /* padding-right: 20px; */
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: green; */
+    padding-top: 0px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+    padding-top: 0px;
+  }
 `;
 
 const LoginWrapper = styled.div`
@@ -26,6 +45,16 @@ const LoginWrapper = styled.div`
   justify-content: center;
   align-items: center;
   margin: 18px;
+
+  @media ${breakPoints.mobile} {
+    border-right: none;
+    padding: 0px;
+  }
+
+  @media ${breakPoints.phone} {
+    border-right: none;
+    padding: 0px;
+  }
 `;
 
 const TitleLogin = styled.div`
@@ -36,6 +65,14 @@ const TitleLogin = styled.div`
   font-weight: 800;
 `;
 
+const Error = styled.div`
+  color: #f04237;
+  font-size: 10px;
+  margin-bottom: 15px;
+  /* padding-left: 7px;
+  height: 8px; */
+`;
+
 const Email = styled.input`
   width: 300px;
   padding-left: 10px;
@@ -43,7 +80,7 @@ const Email = styled.input`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-family: "LightBold";
   font-weight: 700;
 `;
@@ -55,7 +92,7 @@ const Password = styled.input`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: 5px;
   font-family: "LightBold";
   font-weight: 700;
 `;
@@ -92,6 +129,18 @@ const CreatedWrppaer = styled.div`
   justify-content: center;
   align-items: center;
   padding-top: 35px;
+
+  @media ${breakPoints.mobile} {
+    border-right: none;
+    padding: 20px 0px 0px 0px;
+    border-top: 2px dotted black;
+  }
+
+  @media ${breakPoints.phone} {
+    border-right: none;
+    padding: 25px 0px 0px 0px;
+    border-top: 2px dotted black;
+  }
 `;
 
 const TitleCreate = styled.div`
@@ -108,6 +157,11 @@ const Lyrics = styled.div`
   font-size: 13px;
   margin-bottom: 20px;
   color: gray;
+
+  @media ${breakPoints.phone} {
+    width: 373px;
+    font-size: 10px;
+  }
 `;
 
 const CreateAccountbutton = styled.button`
@@ -147,36 +201,68 @@ export default function LoginPage() {
   const [myEmail, setMyEmail] = useState("");
   const [myPassword, setMyPassword] = useState("");
 
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
   const [loginUser] = useMutation(LOGIN_USER);
   // const { data } = useQuery(FETCH_USER_LOGGED_IN);
 
   function onChangeEmail(event) {
     setMyEmail(event.target.value);
+    if (
+      /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9-]+/.test(myEmail) === false
+    ) {
+      setEmailError("이메일 형식이 적합하지 않습니다");
+    } else {
+      setEmailError("");
+    }
   }
 
   function onChangePassword(event) {
     setMyPassword(event.target.value);
+    if (myPassword.length < 0) {
+      setPasswordError("비밀번호는 최소 1자리 이상입니다.");
+    } else {
+      setPasswordError("");
+    }
   }
 
   async function onClickSign() {
-    try {
-      const result = await loginUser({
-        variables: {
-          email: myEmail,
-          password: myPassword,
-        },
-      });
-      // console.log(result.data?.loginUser.accessToken);
-      // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
-      localStorage.setItem("refreshToken", "true");
-      // console.log("login:", accessToken);
-      setAccessToken(result.data?.loginUser.accessToken);
-      // location.reload();
-      router.push("/mypage/loginfo");
-    } catch (error) {
-      alert(
-        "아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요."
-      );
+    if (myEmail === "") {
+      setEmailError("필수입력사항입니다.");
+    }
+    if (myPassword === "") {
+      setPasswordError("필수입력사항입니다.");
+    }
+    if (
+      /^[A-Za-z0-9_.-]+@[A-Za-z0-9-]+\.[A-Za-z0-9-]+/.test(myEmail) === false &&
+      myEmail !== ""
+    ) {
+      setEmailError("이메일 형식이 적합하지 않습니다.");
+    }
+    if (passwordError.length > 1 && myPassword.length < 0) {
+      setPasswordError("비밀번호는 최소 1자리 이상입니다.");
+    }
+    if (myEmail !== "" && myPassword !== "") {
+      try {
+        const result = await loginUser({
+          variables: {
+            email: myEmail,
+            password: myPassword,
+          },
+        });
+        // console.log(result.data?.loginUser.accessToken);
+        // localStorage.setItem("accessToken", result.data?.loginUser.accessToken);
+        localStorage.setItem("refreshToken", "true");
+        // console.log("login:", accessToken);
+        setAccessToken(result.data?.loginUser.accessToken);
+        // location.reload();
+        router.push("/mypage/loginfo");
+      } catch (error) {
+        alert(
+          "아이디 또는 비밀번호가 잘못 입력 되었습니다.\n아이디와 비밀번호를 정확히 입력해 주세요."
+        );
+      }
     }
   }
 
@@ -190,12 +276,14 @@ export default function LoginPage() {
           placeholder="EMAIL"
           onChange={onChangeEmail}
         ></Email>
+        <Error>{emailError}</Error>
         <Password
           name="password"
           type="password"
           placeholder="PASSWORD"
           onChange={onChangePassword}
         ></Password>
+        <Error>{passwordError}</Error>
         <Signbutton onClick={onClickSign}>SIGN IN</Signbutton>
         <Forgot>FORGOT YOUR PASSWORD?</Forgot>
       </LoginWrapper>

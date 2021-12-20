@@ -9,9 +9,11 @@ import {
   Row,
   ListTop,
   HeaderName,
+  HeaderWriter,
   TitleName,
   ColumnBasic,
   ColumnTitle,
+  ColumnWriter,
   Word,
   ListBottom,
   Footer,
@@ -47,7 +49,7 @@ export default function BoardListUI(props) {
         <RowFirst>
           <HeaderName>번호</HeaderName>
           <TitleName>제목</TitleName>
-          <HeaderName>작성자</HeaderName>
+          <HeaderWriter>작성자</HeaderWriter>
           <HeaderName>날짜</HeaderName>
         </RowFirst>
         {props.data?.fetchBoards.map((el, index) => (
@@ -67,7 +69,7 @@ export default function BoardListUI(props) {
                   </Word>
                 ))}
             </ColumnTitle>
-            <ColumnBasic>{el.writer}</ColumnBasic>
+            <ColumnWriter>{el.writer}</ColumnWriter>
             <ColumnBasic>{el.createdAt.slice(0, 10)}</ColumnBasic>
           </Row>
         ))}

@@ -1,6 +1,6 @@
 export const breakPoints = {
-  tablet: "(min-width: 768px) and (max-width: 1199px)",
-  mobile: "(min-width: 376px) and (max-width: 767px)",
+  tablet: "(min-width: 769px) and (max-width: 1199px)",
+  mobile: "(min-width: 376px) and (max-width: 768px)",
   phone: "(max-width: 375px)",
 };
 

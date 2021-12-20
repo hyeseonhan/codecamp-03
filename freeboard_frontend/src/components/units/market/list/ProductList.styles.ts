@@ -1,7 +1,16 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   padding-top: 60px;
+
+  @media ${breakPoints.mobile} {
+    padding-top: 20px;
+  }
+
+  @media ${breakPoints.phone} {
+    padding-top: 5px;
+  }
 `;
 
 export const BestTitle = styled.div`
@@ -13,6 +22,10 @@ export const BestTitle = styled.div`
   font-family: "LightBold";
   margin-bottom: 20px;
   font-family: "LightBold";
+
+  @media ${breakPoints.phone} {
+    font-size: 30px;
+  }
 `;
 
 export const ListWrapper = styled.div`
@@ -20,6 +33,14 @@ export const ListWrapper = styled.div`
   /* border: 1px solid blue; */
   display: flex;
   flex-direction: row;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const LeftWrapper = styled.div`
@@ -36,6 +57,15 @@ export const TableTop = styled.div`
   padding: 0px 40px 0px 40px;
   margin-bottom: 10px;
   /* border: 1px solid red; */
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    margin-bottom: 0px;
+  }
 `;
 
 export const Category = styled.div`
@@ -75,6 +105,10 @@ export const Wrap = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   /* border: 1px solid blue; */
+
+  @media ${breakPoints.phone} {
+    justify-content: center;
+  }
 `;
 
 export const TableSell = styled.div`
@@ -87,6 +121,11 @@ export const TableSell = styled.div`
   align-items: center;
   margin: 13px;
   cursor: pointer;
+
+  @media ${breakPoints.phone} {
+    width: 320px;
+    height: 320px;
+  }
 `;
 
 export const ProductImage = styled.img`
@@ -94,6 +133,11 @@ export const ProductImage = styled.img`
   height: 190px;
   border: 1px solid black;
   border: none;
+
+  @media ${breakPoints.phone} {
+    width: 320px;
+    height: 320px;
+  }
 `;
 
 export const NoneImage = styled.div`
@@ -108,6 +152,11 @@ export const NoneImage = styled.div`
   align-items: center;
   font-size: 20px;
   font-family: "LightBold";
+
+  @media ${breakPoints.phone} {
+    width: 320px;
+    height: 320px;
+  }
 `;
 
 export const PostButton = styled.button`
@@ -123,4 +172,10 @@ export const PostButton = styled.button`
   color: black;
   cursor: pointer;
   border: 3px solid black;
+
+  @media ${breakPoints.phone} {
+    width: 85px;
+    height: 24px;
+    font-size: 15px;
+  }
 `;

@@ -1,13 +1,29 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1200px;
-  border-top: 7px solid black;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   padding-top: 80px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    border-top: none;
+    padding-top: 20px;
+    /* background-color: green; */
+    /* padding-top: 0px; */
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    border-top: none;
+    padding-top: 20px;
+    /* background-color: blue; */
+    /* padding-top: 0px; */
+  }
 `;
 
 export const Title = styled.div`

@@ -1,9 +1,18 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 export const OutWrapper = styled.div`
   margin: 0px 100px;
   width: 1200px;
   /* border: 1px solid red; */
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const Wrapper = styled.div`
@@ -12,6 +21,14 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -78,6 +95,14 @@ export const Line = styled.div`
   margin-left: 100px;
   margin-bottom: 40px;
   border-bottom: 1px solid lightgray;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const ComponentWrpper2 = styled.div`

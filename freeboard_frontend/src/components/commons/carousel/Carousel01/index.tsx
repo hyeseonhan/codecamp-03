@@ -20,6 +20,20 @@ const SliderItem = styled.img`
   width: 360px;
 `;
 
+const NoneImage = styled.div`
+  height: 360px;
+  width: 360px;
+  border: 1px solid black;
+  border: none;
+  color: white;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  font-family: "LightBold";
+`;
+
 const MySlider = styled(Slider)`
   .slick-list {
     width: 370px;

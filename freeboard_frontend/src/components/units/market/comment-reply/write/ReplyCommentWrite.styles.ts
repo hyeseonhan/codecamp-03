@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 export const OutWrapper = styled.div`
   display: flex;
@@ -41,6 +42,14 @@ export const InnerWrapper = styled.div`
   /* width: 1095px; */
   border: 1px solid lightgray;
   margin-bottom: 40px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const Writer = styled.div`
@@ -58,6 +67,14 @@ export const Contents = styled.textarea`
   border: none;
   /* border-bottom: 1px solid lightgray; */
   padding: 20px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const ContentsBottom = styled.div`

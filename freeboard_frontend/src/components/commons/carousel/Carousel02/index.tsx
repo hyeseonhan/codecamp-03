@@ -2,6 +2,7 @@ import styled from "@emotion/styled";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { breakPoints } from "../../../../commons/styles/media";
 
 const Wrapper = styled.div`
   /* width: 200px;

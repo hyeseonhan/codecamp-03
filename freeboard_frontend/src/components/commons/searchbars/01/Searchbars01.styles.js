@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Searchbar = styled.div`
   width: 776px;
@@ -12,7 +13,15 @@ export const Searchbar = styled.div`
   color: black;
   border: 2px solid black;
 
-  /* border: none; */
+  @media ${breakPoints.mobile} {
+    width: 476px;
+    height: 42px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 346px;
+    height: 32px;
+  }
 `;
 
 export const SearchbarInput = styled.input`

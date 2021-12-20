@@ -1,6 +1,13 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+export const InnerWrapper = styled.div`
   width: 1200px;
   border: 1px solid black;
   margin: 100px 100px 0px 100px;
@@ -13,6 +20,37 @@ export const Wrapper = styled.div`
   align-items: center;
   border: none;
   box-shadow: 0px 0px 10px gray;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    border: 1px solid black;
+    margin: 0px 0px 0px 0px;
+    padding-top: 20px;
+    padding-bottom: 80px;
+    padding-left: 102px;
+    padding-right: 102px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: 0px 0px 10px gray;
+    /* background-color: blue; */
+  }
+
+  @media ${breakPoints.phone} {
+    width: 355px;
+    border: 1px solid #bdbdbd;
+    margin: 0px 0px 0px 0px;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 00px;
+    padding-right: 00px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: none;
+  }
 `;
 
 export const WriterWrapper = styled.div`
@@ -21,14 +59,40 @@ export const WriterWrapper = styled.div`
   display: flex;
   flex-direction: row;
   padding-bottom: 20px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+  }
 `;
+
 export const WriterWrapperLeft = styled.div`
   width: 614px;
   padding-top: 60px;
   display: flex;
   flex-direction: row;
   align-items: center;
+
+  @media ${breakPoints.mobile} {
+    width: 400px;
+    padding-top: 10px;
+    justify-content: center;
+    /* border: 1px solid red; */
+  }
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+    padding-top: 10px;
+    justify-content: center;
+  }
 `;
+
 export const WriterWrapperRight = styled.div`
   width: 382px;
   padding-left: 15px;
@@ -37,7 +101,23 @@ export const WriterWrapperRight = styled.div`
   justify-content: flex-end;
   align-items: center;
   padding-top: 60px;
+
+  @media ${breakPoints.mobile} {
+    width: 160px;
+    padding-top: 0px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0px;
+    padding-left: 0px;
+  }
 `;
+
 export const ProfilImage = styled.img`
   margin-right: 16.67px;
   width: 50px;
@@ -46,35 +126,6 @@ export const ProfilImage = styled.img`
 export const WriterDate = styled.div`
   /* padding-left: 16.67px; */
 `;
-// export const Location = styled.div`
-//   width: 368px;
-//   height: 64px;
-//   border: 1px solid #898989;
-//   /* background-color: #898989; */
-//   color: black;
-//   padding-left: 16px;
-//   padding-top: 8px;
-//   padding-right: 16px;
-//   padding-bottom: 8px;
-//   display: flex;
-//   flex-direction: column;
-//   align-items: flex-end;
-//   font-size: 16px;
-//   font-weight: 400;
-//   font-style: normal;
-//   line-height: 23.68px;
-// `;
-// export const Triangle = styled.div`
-//   width: 0px;
-//   height: 0px;
-//   /* border-top: 6px solid #898989; */
-//   border-right: 15px solid #898989;
-//   border-bottom: 15px solid transparent;
-//   /* border-left: 8px solid transparent; */
-//   margin-left: 353px;
-
-// `;
-// export const Tooltip = styled.div``;
 
 export const Icon = styled.div`
   /* padding-top: 19.33px;
@@ -110,6 +161,20 @@ export const Date = styled.div`
 
 export const InputWrapper = styled.div`
   width: 100%;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const Title = styled.div`
@@ -131,6 +196,14 @@ export const Image = styled.img`
   width: 796px;
   height: 440px;
   margin-bottom: 30px;
+
+  @media ${breakPoints.mobile} {
+    width: 400px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 200px;
+  }
 `;
 
 export const Contents = styled.div`
@@ -139,11 +212,19 @@ export const Contents = styled.div`
   font-weight: 400;
   line-height: 23.68px;
   ${(props) => (props.color === true ? "yellow" : "gray")}
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+  }
 `;
 export const Youtube = styled.div`
   display: flex;
   justify-content: center;
   padding-top: 120px;
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+  }
 `;
 
 export const LikeWrapper = styled.div`
@@ -204,6 +285,17 @@ export const ButtonWrapper = styled.div`
   margin-left: 100px;
   padding-bottom: 87px;
   border-bottom: 1px solid #bdbdbd;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    margin-left: 20px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 345px;
+    margin-left: 20px;
+    padding-bottom: 47px;
+  }
 `;
 
 export const Button = styled.div`

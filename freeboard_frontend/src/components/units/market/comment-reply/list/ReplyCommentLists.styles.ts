@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1144px;
@@ -8,6 +9,14 @@ export const Wrapper = styled.div`
   flex-direction: row;
   align-items: baseline;
   justify-content: space-between;
+
+  @media ${breakPoints.mobile} {
+    width: 607px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 305px;
+  }
 `;
 
 export const InnerWrapper = styled.div`

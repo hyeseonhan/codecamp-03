@@ -1,7 +1,25 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1200px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* background-color: green; */
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: blue; */
+  }
 `;
 
 export const Header = styled.div`
@@ -32,6 +50,21 @@ export const MiddleWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+
+  @media ${breakPoints.mobile} {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+    /* background-color: green; */
+  }
+
+  @media ${breakPoints.phone} {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 20px;
+  }
 `;
 
 export const SearchCreatedAt = styled.input`
@@ -52,6 +85,14 @@ export const SearchCreatedAt = styled.input`
     font-weight: 600;
     font-family: "LightBold";
   }
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
 `;
 
 export const SearchButton = styled.div`
@@ -67,12 +108,33 @@ export const SearchButton = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
 `;
 
 export const BoardList = styled.div`
-  width: 1200px;
+  width: 100%;
   height: 583px;
   margin-top: 50px;
+
+  @media ${breakPoints.mobile} {
+    /* display: initial; */
+    width: 667px;
+    height: 483px;
+    /* background-color: green; */
+  }
+
+  @media ${breakPoints.phone} {
+    width: 355px;
+    height: 370px;
+    margin-top: 50px;
+  }
 `;
 
 export const RowFirst = styled.div`
@@ -87,6 +149,16 @@ export const RowFirst = styled.div`
     background-color: black;
     color: white;
   } */
+
+  @media ${breakPoints.mobile} {
+    height: 42px;
+    line-height: 42px;
+  }
+
+  @media ${breakPoints.phone} {
+    height: 32px;
+    line-height: 32px;
+  }
 `;
 
 export const Row = styled.div`
@@ -102,6 +174,16 @@ export const Row = styled.div`
     background-color: black;
     color: white;
   }
+
+  @media ${breakPoints.mobile} {
+    height: 42px;
+    line-height: 42px;
+  }
+
+  @media ${breakPoints.phone} {
+    height: 32px;
+    line-height: 32px;
+  }
 `;
 
 export const ListTop = styled.div`
@@ -111,16 +193,62 @@ export const ListTop = styled.div`
 export const HeaderName = styled.div`
   width: 10%;
   text-align: center;
+
+  @media ${breakPoints.mobile} {
+    width: 20%;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
+`;
+
+export const HeaderWriter = styled.div`
+  width: 10%;
+  text-align: center;
+
+  @media ${breakPoints.mobile} {
+    width: 20%;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 15%;
+  }
 `;
 
 export const TitleName = styled.div`
   width: 70%;
   text-align: center;
+
+  @media ${breakPoints.mobile} {
+    width: 50%;
+  }
 `;
 
 export const ColumnBasic = styled.div`
   width: 10%;
   text-align: center;
+
+  @media ${breakPoints.mobile} {
+    width: 20%;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
+`;
+
+export const ColumnWriter = styled.div`
+  width: 10%;
+  text-align: center;
+
+  @media ${breakPoints.mobile} {
+    width: 20%;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 15%;
+  }
 `;
 
 export const ColumnTitle = styled.div`
@@ -131,6 +259,10 @@ export const ColumnTitle = styled.div`
     background-color: black;
     color: white;
   } */
+
+  @media ${breakPoints.mobile} {
+    width: 50%;
+  }
 `;
 
 export const ListBottom = styled.div`
@@ -142,6 +274,22 @@ export const Footer = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding-top: 50px;
+
+  @media ${breakPoints.mobile} {
+    width: 100%;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 100%;
+    padding-top: 0px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 export const PageNumber = styled.div`
@@ -149,10 +297,26 @@ export const PageNumber = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+
+  @media ${breakPoints.mobile} {
+    order: 2;
+  }
+
+  @media ${breakPoints.phone} {
+    order: 2;
+  }
 `;
 
 export const Fake = styled.div`
   color: white;
+
+  @media ${breakPoints.mobile} {
+    display: none;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
 `;
 
 export const Page = styled.div`
@@ -183,11 +347,40 @@ export const PostButton = styled.div`
   align-items: center;
   cursor: pointer;
   border: 1px solid #f2f2f2;
+
+  @media ${breakPoints.mobile} {
+    order: 1;
+    width: 130px;
+    height: 26px;
+    border-radius: 10px;
+    font-size: 10px;
+    /* margin-left: 300px; */
+    margin-bottom: 10px;
+  }
+
+  @media ${breakPoints.phone} {
+    order: 1;
+    width: 110px;
+    height: 26px;
+    border-radius: 10px;
+    font-size: 10px;
+    /* margin-left: 300px; */
+    margin-bottom: 8px;
+  }
 `;
 
 export const PencilIcon = styled.img`
   filter: invert(100%);
   -webkit-filter: invert(100%);
+
+  @media ${breakPoints.mobile} {
+    width: 13px;
+    height: 13px;
+  }
+
+  @media ${breakPoints.phone} {
+    display: none;
+  }
 `;
 
 export const Word = styled.span`

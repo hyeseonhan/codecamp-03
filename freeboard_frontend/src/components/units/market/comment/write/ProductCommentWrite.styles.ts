@@ -1,9 +1,18 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   /* width: 1200px; */
   margin: 0px 100px 40px;
   /* margin-bottom: 40px; */
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const TopWrapper = styled.div`
@@ -54,6 +63,14 @@ export const InputWrapper = styled.div`
   width: ${(props: IProps) => (props.isEdit === true ? "1143px" : "1200px")};
   /* width: 1200px; */
   border: 1px solid lightgray;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const Writer = styled.div`
@@ -71,6 +88,14 @@ export const Contents = styled.textarea`
   border: none;
   /* border-bottom: 1px solid lightgray; */
   padding: 20px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const ContentsBottom = styled.div`
@@ -88,6 +113,14 @@ export const ContentsLength = styled.div`
   line-height: 52px;
   padding-left: 20px;
   color: gray;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const Button = styled.button`

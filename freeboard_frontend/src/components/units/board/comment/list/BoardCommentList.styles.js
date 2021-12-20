@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { Rate } from "antd";
+import { breakPoints } from "../../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   /* margin: 0px 100px; */
@@ -15,6 +16,16 @@ export const CommentWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   margin: 0px 100px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    margin: none;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    margin: none;
+  }
 `;
 
 export const Avatar = styled.img`
@@ -25,6 +36,14 @@ export const Avatar = styled.img`
 
 export const Info = styled.div`
   width: 1087px;
+
+  @media ${breakPoints.mobile} {
+    width: 520px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 260px;
+  }
 `;
 
 export const WriterWrapper = styled.div`

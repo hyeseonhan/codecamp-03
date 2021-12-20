@@ -133,8 +133,9 @@ export const Home = styled.img`
 
 export const Fake = styled.div`
   @media ${breakPoints.mobile} {
-    width: 47px;
+    width: 30px;
     height: 30px;
+    margin-left: 24px;
     border: 1px solid black;
     border: none;
   }

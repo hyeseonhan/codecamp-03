@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { breakPoints } from "../../../../commons/styles/media";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -6,11 +7,29 @@ export const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   margin: 0px 100px 100px 100px;
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    /* margin: 0px 50px 50px 50px;
+    border: 1px solid red; */
+  }
 `;
 
 export const CardWrapper = styled.div`
   width: 1190px;
   margin: 40px 0px 60px 0px;
+
+  @media ${breakPoints.mobile} {
+    width: 627px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 325px;
+  }
 `;
 
 export const Headers = styled.div`
@@ -62,11 +81,35 @@ export const ContentsWrapper = styled.div`
   flex-direction: row;
   align-items: center;
   /* border: 1px solid green; */
+
+  @media ${breakPoints.mobile} {
+    width: 667px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 export const InfoWrapper = styled.div`
   width: 100%;
   margin-left: 10px;
+
+  @media ${breakPoints.mobile} {
+    width: 430px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 375px;
+  }
 `;
 
 export const Remarks = styled.div`
@@ -135,6 +178,14 @@ export const BuyButton = styled.button`
 export const MapWrapper = styled.div`
   display: flex;
   justify-content: center;
+
+  @media ${breakPoints.mobile} {
+    width: 627px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 325px;
+  }
 `;
 
 export const ButtonWrapper = styled.div`
@@ -142,4 +193,12 @@ export const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: center;
   margin: 0px 0px 0px 24px;
+
+  @media ${breakPoints.mobile} {
+    width: 627px;
+  }
+
+  @media ${breakPoints.phone} {
+    width: 325px;
+  }
 `;
