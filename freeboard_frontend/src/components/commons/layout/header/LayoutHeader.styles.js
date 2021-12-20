@@ -43,14 +43,59 @@ export const CategoryBtn = styled.img`
 `;
 
 export const Category = styled.div`
-  width: 300px;
-  height: 100vh;
-  background-color: white;
-  z-index: 1;
-  transition: all 0.35s;
-  position: fixed;
-  top: 0;
-  left: ${(props) => (props.isOpen ? 0 : "-300px")};
+  display: none;
+
+  @media ${breakPoints.mobile} {
+    display: initial;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: all 0.35s;
+    position: fixed;
+    top: 0;
+    left: ${(props) => (props.isOpen ? 0 : "-100%")};
+  }
+
+  @media ${breakPoints.phone} {
+    display: initial;
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    transition: all 0.35s;
+    position: fixed;
+    top: 0;
+    left: ${(props) => (props.isOpen ? 0 : "-100%")};
+  }
+`;
+
+export const CategoryBack = styled.div`
+  display: none;
+
+  @media ${breakPoints.mobile} {
+    display: initial;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    z-index: 2;
+    transition: all 0.35s;
+    position: fixed;
+    top: 0;
+    left: ${(props) => (props.isOpen ? 0 : "-300px")};
+  }
+
+  @media ${breakPoints.phone} {
+    display: initial;
+    width: 300px;
+    height: 100vh;
+    background-color: white;
+    z-index: 99;
+    transition: all 0.35s;
+    position: fixed;
+    top: 0;
+    left: ${(props) => (props.isOpen ? 0 : "-300px")};
+  }
 `;
 
 export const CloseBtn = styled.img`

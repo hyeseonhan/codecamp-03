@@ -6,6 +6,7 @@ export const Wrapper = styled.div`
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  /* border: 1px solid red; */
 
   @media ${breakPoints.tablet} {
     width: 100%;
