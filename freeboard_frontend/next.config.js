@@ -1,6 +1,7 @@
 module.exports = {
   reactStrictMode: true,
   trailingSlash: true,
+  assetPrefix: "/ssr",
   // generateBuildId: () => "freeboard_frontend",
   // exportPathMap: () => ({
   //   "/": { page: "/" },
@@ -22,5 +23,4 @@ module.exports = {
   //   "/market/product-list": { page: "/market/product-list" },
   //   "/market/product-post": { page: "/market/product-post" },
   // }),
-  assetPrefix: "/ssr",
 };
