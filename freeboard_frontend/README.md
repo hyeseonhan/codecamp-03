@@ -101,15 +101,12 @@
 - Next.js
 - Apollo-Client, Apollo-Server
 - GraphQL
-- axios
-- Rest-API
 ### 백엔드 (코드캠프 자체 제공)
 - Node.js
-- typeORM
 - Nest.js
-- Postgres
 - JWT
 ### 배포 및 개발 버전 관리 시스템
+- Git
 - Github
 - Google Cloud Platform
 - Docker
