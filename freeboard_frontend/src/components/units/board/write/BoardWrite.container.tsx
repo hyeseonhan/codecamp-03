@@ -5,8 +5,8 @@ import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
 import {
   IBoardWriteProps,
-  IMyBoardAddress,
   IUpdateBoardInput,
+  IMyBoardAddress,
 } from "./BoardWrite.types";
 import { IMutation } from "../../../../commons/types/generated.types";
 
