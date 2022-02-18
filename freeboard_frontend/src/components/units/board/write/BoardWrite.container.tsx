@@ -3,12 +3,20 @@ import { useState, useRef, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
+import {
+  IBoardWriteProps,
+  IMyBoardAddress,
+  IUpdateBoardInput,
+} from "./BoardWrite.types";
+import { IMutation } from "../../../../commons/types/generated.types";
 
-export default function BoardWrite(props) {
+export default function BoardWrite(props: IBoardWriteProps) {
   const router = useRouter();
 
-  const [createBoard] = useMutation(CREATE_BOARD);
-  const [updateBoard] = useMutation(UPDATE_BOARD);
+  const [createBoard] =
+    useMutation<Pick<IMutation, "createBoard">>(CREATE_BOARD);
+  const [updateBoard] =
+    useMutation<Pick<IMutation, "updateBoard">>(UPDATE_BOARD);
   const [uploadFile] = useMutation(UPLOAD_FILE);
 
   const [writer, setWriter] = useState("");
@@ -190,7 +198,11 @@ export default function BoardWrite(props) {
       return;
     }
 
-    const updateboardInput = {};
+    const boardAddress: IMyBoardAddress = {};
+
+    const updateboardInput: IUpdateBoardInput = {
+      boardAddress: boardAddress,
+    };
     if (title) updateboardInput.title = title;
     if (contents) updateboardInput.contents = contents;
     if (youtubeUrl) updateboardInput.youtubeUrl = youtubeUrl;
