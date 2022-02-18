@@ -2,6 +2,7 @@ import { Maybe } from "../../../../commons/types/generated.types";
 
 export interface IBoardWriteProps {
   isEdit?: boolean;
+  color?: boolean;
   data?: any;
 }
 
