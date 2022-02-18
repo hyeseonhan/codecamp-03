@@ -11,6 +11,7 @@
 자유게시판, 중고마켓, 마이페이지, 유튜브검색, 홈페이지를 구현한 웹 페이지 
 ```
 ## 기능 소개
+- 반응형 웹 디자인 적용
 ### 랜딩 페이지
 - React-Slick 라이브러리 사용
 - SelectBox 직접 구현
@@ -100,15 +101,12 @@
 - Next.js
 - Apollo-Client, Apollo-Server
 - GraphQL
-- axios
-- Rest-API
 ### 백엔드 (코드캠프 자체 제공)
 - Node.js
-- typeORM
 - Nest.js
-- Postgres
 - JWT
 ### 배포 및 개발 버전 관리 시스템
+- Git
 - Github
 - Google Cloud Platform
 - Docker
