@@ -1,5 +1,5 @@
 import BoardWriteUI from "./BoardWrite.presenter";
-import { useState, useRef, useEffect } from "react";
+import { ChangeEvent, useState, useRef, useEffect } from "react";
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
 import { CREATE_BOARD, UPDATE_BOARD, UPLOAD_FILE } from "./BoardWrite.queries";
@@ -40,7 +40,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   // const [fileUrls, setFileUrls] = useState(["", "", ""]);  // 1차 이미지 실습
   const [files, setFiles] = useState([null, null, null]);
 
-  function onChangeWriter(event) {
+  function onChangeWriter(event: ChangeEvent<HTMLInputElement>) {
     setWriter(event.target.value);
     if (
       event.target.value !== "" &&
@@ -104,11 +104,11 @@ export default function BoardWrite(props: IBoardWriteProps) {
     setYoutubeUrl(event.target.value);
   }
 
-  const handleComplete = (data) => {
+  const handleComplete = (data: any) => {
     setZipcode(data.zonecode);
     setAddress(data.address);
-    console.log(data.zonecode);
-    console.log(data.address);
+    // console.log(data.zonecode);
+    // console.log(data.address);
 
     setIsOpen((prev) => !prev);
   };
@@ -269,7 +269,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   // }
 
   // 2차 이미지 실습
-  function onChangeFiles(file, index) {
+  function onChangeFiles(file: string, index: number) {
     const newFiles = [...files];
     newFiles[index] = file;
     setFiles(newFiles);

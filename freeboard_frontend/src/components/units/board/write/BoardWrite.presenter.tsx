@@ -25,12 +25,13 @@ import {
   ZipcodeWrapper,
   EditButton,
 } from "./BoardWrite.styles";
+import { IBoardlWriteUIProps } from "./BoardWrite.types";
 
 import { Modal } from "antd";
 import DaumPostcode from "react-daum-postcode";
 import Uploads01 from "../../../commons/uploads/01/Uploads01.container";
 
-export default function BoardlWriteUI(props) {
+export default function BoardlWriteUI(props: IBoardlWriteUIProps) {
   return (
     <Wrapper>
       <Title>{props.isEdit ? "수정페이지" : "REGISTRATION"}</Title>

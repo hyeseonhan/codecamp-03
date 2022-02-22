@@ -1,4 +1,5 @@
 import { Maybe } from "../../../../commons/types/generated.types";
+import { ChangeEvent, MouseEvent } from "react";
 
 export interface IBoardWriteProps {
   isEdit?: boolean;
@@ -24,4 +25,29 @@ export interface IMyVariables {
   updateBoardInput: IUpdateBoardInput;
   password: string;
   boardId: string;
+}
+
+export interface IBoardlWriteUIProps {
+  isEdit?: boolean;
+  isOpen: boolean;
+  data?: any;
+  color?: boolean;
+  onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeContents: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
+  writerError: string;
+  passwordError: string;
+  titleError: string;
+  contentsError: string;
+  zipcode: string;
+  address: string;
+  addressDetail: string;
+  onTogleAddress: () => void;
+  handleComplete: (data: any) => void;
+  onChangeFiles: (idx: number, url: string) => void;
+  onClickSubmit: () => void;
+  onClickEdit: () => void;
 }
