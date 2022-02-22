@@ -1,4 +1,5 @@
 import styled from "@emotion/styled";
+import { IBoardWriteEmotion } from "./BoardWrite.types";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -167,7 +168,8 @@ export const CancelButton = styled.button`
 export const SubmitButton = styled.button`
   width: 179px;
   height: 52px;
-  background-color: ${(props) => (props.color === true ? "yellow" : "gray")};
+  background-color: ${(props: IBoardWriteEmotion) =>
+    props.color === true ? "yellow" : "gray"};
   border: none;
   font-size: 16px;
   font-weight: 500;
@@ -185,7 +187,8 @@ export const Error = styled.div`
 export const EditButton = styled.button`
   width: 179px;
   height: 52px;
-  background-color: ${(props) => (props.color === true ? "yellow" : "gray")};
+  background-color: ${(props: IBoardWriteEmotion) =>
+    props.color === true ? "yellow" : "gray"};
   border: none;
   font-size: 16px;
   font-weight: 500;

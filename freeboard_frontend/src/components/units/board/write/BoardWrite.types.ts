@@ -31,11 +31,11 @@ export interface IBoardlWriteUIProps {
   isEdit?: boolean;
   isOpen: boolean;
   data?: any;
-  color?: boolean;
+  color?: boolean | string;
   onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;
-  onChangeContents: (event: ChangeEvent<HTMLInputElement>) => void;
+  onChangeContents: (event: ChangeEvent<HTMLTextAreaElement>) => void;
   onChangeAddressDetail: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeYoutubeUrl: (event: ChangeEvent<HTMLInputElement>) => void;
   writerError: string;
@@ -45,9 +45,15 @@ export interface IBoardlWriteUIProps {
   zipcode: string;
   address: string;
   addressDetail: string;
+  files: string[];
+  onCompleteAddressSearch: (data: any) => void;
   onTogleAddress: () => void;
   handleComplete: (data: any) => void;
-  onChangeFiles: (idx: number, url: string) => void;
+  onChangeFiles: (file: string, index: number) => void;
   onClickSubmit: () => void;
   onClickEdit: () => void;
+}
+
+export interface IBoardWriteEmotion {
+  color?: boolean;
 }

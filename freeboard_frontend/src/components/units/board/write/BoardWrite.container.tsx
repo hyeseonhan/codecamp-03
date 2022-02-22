@@ -114,7 +114,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   };
 
   // 상세주소 입력
-  function onChangeAddressDetail(event) {
+  function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
     setAddressDetail(event.target.value);
   }
 
@@ -124,7 +124,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
   }
 
   // 주소 다 쓰면 누르는 버튼
-  function onCompleteAddressSearch(data) {
+  function onCompleteAddressSearch(data: any) {
     setAddress(data.address);
     setZipcode(data.zonecode);
     setIsOpen(false);
