@@ -52,6 +52,8 @@ export type IMutation = {
   updateBoard?: Maybe<IReturn>;
   updateProduct?: Maybe<IReturn>;
   updateProfile?: Maybe<IReturn>;
+  likeBoard: Scalars["Int"];
+  dislikeBoard: Scalars["Int"];
 };
 
 export type IMutationCreateBoardArgs = {

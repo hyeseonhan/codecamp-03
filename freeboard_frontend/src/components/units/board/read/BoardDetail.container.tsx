@@ -7,14 +7,17 @@ import {
   LIKE_BOARD,
   DISLIKE_BOARD,
 } from "./BoardDetail.queries";
+import { IMutation, IQuery } from "../../../../commons/types/generated.types";
 
 export default function BoardDetail() {
   const router = useRouter();
-  const [deleteBoard] = useMutation(DELETE_BOARD);
-  const [likeBoard] = useMutation(LIKE_BOARD);
-  const [dislikeBoard] = useMutation(DISLIKE_BOARD);
+  const [deleteBoard] =
+    useMutation<Pick<IMutation, "deleteBoard">>(DELETE_BOARD);
+  const [likeBoard] = useMutation<Pick<IMutation, "likeBoard">>(LIKE_BOARD);
+  const [dislikeBoard] =
+    useMutation<Pick<IMutation, "dislikeBoard">>(DISLIKE_BOARD);
 
-  const { data } = useQuery(FETCH_BOARD, {
+  const { data } = useQuery<Pick<IQuery, "fetchBoard">>(FETCH_BOARD, {
     variables: { boardId: router.query.board_post_detail },
   });
 
@@ -67,7 +70,6 @@ export default function BoardDetail() {
   return (
     <BoardDetailUI
       data={data}
-      router={router}
       onClickMoveToList={onClickMoveToList}
       onClickDelete={onClickDelete}
       onClickMoveToEdit={onClickMoveToEdit}

@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { IBoardDetailEmotion } from "./BoardDetail.types";
 
 export const Wrapper = styled.div`
   display: flex;
@@ -149,7 +150,7 @@ export const Writer = styled.div`
   font-weight: 500;
   line-height: 35.52px;
   font-style: normal;
-  ${(props) => (props.color === true ? "yellow" : "gray")}
+  ${(props: IBoardDetailEmotion) => (props.color === true ? "yellow" : "gray")}
 `;
 
 export const Date = styled.div`
@@ -183,7 +184,7 @@ export const Title = styled.div`
   font-weight: 700;
   padding-top: 80px;
   padding-bottom: 40px;
-  ${(props) => (props.color === true ? "yellow" : "gray")}
+  ${(props: IBoardDetailEmotion) => (props.color === true ? "yellow" : "gray")}
 `;
 
 export const ContentsImage = styled.div`
@@ -211,7 +212,7 @@ export const Contents = styled.div`
   font-size: 16px;
   font-weight: 400;
   line-height: 23.68px;
-  ${(props) => (props.color === true ? "yellow" : "gray")}
+  ${(props: IBoardDetailEmotion) => (props.color === true ? "yellow" : "gray")}
 
   @media ${breakPoints.phone} {
     width: 345px;

@@ -31,13 +31,14 @@ import {
   DislikeImage,
   DislikeCount,
 } from "./BoardDetail.styles";
+import { IBoardDetailUIProps } from "./BoardDetail.types";
 
 import ReactPlayer from "react-player";
 import { Tooltip } from "antd";
 
 // import BoardComment from "../comment/BoardComment.container";
 
-export default function BoardDetailUI(props) {
+export default function BoardDetailUI(props: IBoardDetailUIProps) {
   return (
     <>
       <Wrapper>
@@ -74,7 +75,7 @@ export default function BoardDetailUI(props) {
             ))} */}
               {/* <img width="996" height="480" src="/images/posty.jpeg" /> */}
               {props.data?.fetchBoard.images
-                ?.filter((el) => el)
+                ?.filter((el: any) => el)
                 .map((el) => (
                   <Image
                     key={el}
