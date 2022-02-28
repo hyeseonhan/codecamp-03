@@ -141,6 +141,7 @@ export type IQueryFetchBoardArgs = {
 
 export type IQueryFetchBoardsArgs = {
   page?: Maybe<Scalars["Int"]>;
+  search?: Maybe<Scalars["String"]>;
 };
 
 export type IQueryFetchProductArgs = {
