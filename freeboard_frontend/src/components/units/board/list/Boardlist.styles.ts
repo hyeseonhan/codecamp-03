@@ -1,5 +1,6 @@
 import styled from "@emotion/styled";
 import { breakPoints } from "../../../../commons/styles/media";
+import { IBoardListEmotion } from "./Boardlist.types";
 
 export const Wrapper = styled.div`
   width: 1200px;
@@ -322,7 +323,8 @@ export const Fake = styled.div`
 export const Page = styled.div`
   padding-right: 20px;
   cursor: pointer;
-  color: ${(props) => (props.current === true ? "#f04237" : "black")};
+  color: ${(props: IBoardListEmotion) =>
+    props.current === true ? "#f04237" : "black"};
 `;
 
 export const LeftIcon = styled.img`
@@ -384,5 +386,5 @@ export const PencilIcon = styled.img`
 `;
 
 export const Word = styled.span`
-  color: ${(props) => props.isMatched && "red"};
+  color: ${(props: IBoardListEmotion) => props.isMatched && "red"};
 `;

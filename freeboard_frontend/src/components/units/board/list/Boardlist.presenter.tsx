@@ -27,8 +27,9 @@ import {
 } from "./Boardlist.styles";
 import Searchbarcs01 from "../../../commons/searchbars/01/Searchbars01.container";
 import { v4 as uuidv4 } from "uuid";
+import { IBoardListUIProps } from "./Boardlist.types";
 
-export default function BoardListUI(props) {
+export default function BoardListUI(props: IBoardListUIProps) {
   return (
     <Wrapper>
       {/* <HeaderTitle>BOARDS</HeaderTitle> */}

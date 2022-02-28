@@ -1,6 +1,6 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 import BoardListUI from "./Boardlist.presenter";
 import { FETCH_BOARDS, FETCH_BOARDS_COUNT } from "./Boardlist.queries";
 
@@ -23,7 +23,7 @@ export default function BoardList(props) {
     router.push("/boards/board-post");
   }
 
-  function onClickMoveToBoardDetail(event) {
+  function onClickMoveToBoardDetail(event: MouseEvent<HTMLDivElement>) {
     router.push(`/boards/${event.currentTarget.id}`);
   }
 
@@ -39,7 +39,8 @@ export default function BoardList(props) {
     setCurrent(startPage + 10);
   }
 
-  function onClickPage(event) {
+  function onClickPage(event: MouseEvent<HTMLElement>) {
+    if (!(event.target instanceof Element)) return;
     refetch({
       page: Number(event.target.id),
     });

@@ -22,6 +22,7 @@ export type Scalars = {
 
 export type IBoardReturn = {
   __typename?: "BoardReturn";
+  _id: Scalars["ID"];
   contents?: Maybe<Scalars["String"]>;
   createdAt?: Maybe<Scalars["Date"]>;
   like?: Maybe<Scalars["Int"]>;
