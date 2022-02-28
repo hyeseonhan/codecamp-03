@@ -1,9 +1,10 @@
 import { Maybe } from "../../../../commons/types/generated.types";
 import { ChangeEvent, MouseEvent } from "react";
+import { IQuery } from "../../../../commons/types/generated.types";
 
 export interface IBoardWriteProps {
   isEdit?: boolean;
-  color?: boolean;
+  // color?: boolean;
   data?: any;
 }
 
@@ -30,8 +31,8 @@ export interface IMyVariables {
 export interface IBoardlWriteUIProps {
   isEdit?: boolean;
   isOpen: boolean;
-  data?: any;
-  color?: boolean | string;
+  data?: Pick<IQuery, "fetchBoard">;
+  color?: boolean;
   onChangeWriter: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangePassword: (event: ChangeEvent<HTMLInputElement>) => void;
   onChangeTitle: (event: ChangeEvent<HTMLInputElement>) => void;

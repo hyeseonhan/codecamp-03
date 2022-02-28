@@ -7,6 +7,7 @@ import {
   IBoardWriteProps,
   IUpdateBoardInput,
   IMyBoardAddress,
+  IMyVariables,
 } from "./BoardWrite.types";
 import { IMutation } from "../../../../commons/types/generated.types";
 
@@ -55,7 +56,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
-  function onChangePassword(event) {
+  function onChangePassword(event: ChangeEvent<HTMLInputElement>) {
     setPassword(event.target.value);
     if (
       writer !== "" &&
@@ -70,7 +71,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
-  function onChangeTitle(event) {
+  function onChangeTitle(event: ChangeEvent<HTMLInputElement>) {
     setTitle(event.target.value);
     if (
       writer !== "" &&
@@ -85,7 +86,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
-  function onChangeContents(event) {
+  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
     setContents(event.target.value);
     if (
       writer !== "" &&
@@ -100,7 +101,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     }
   }
 
-  function onChangeYoutubeUrl(event) {
+  function onChangeYoutubeUrl(event: ChangeEvent<HTMLInputElement>) {
     setYoutubeUrl(event.target.value);
   }
 
@@ -203,6 +204,7 @@ export default function BoardWrite(props: IBoardWriteProps) {
     const updateboardInput: IUpdateBoardInput = {
       boardAddress: boardAddress,
     };
+
     if (title) updateboardInput.title = title;
     if (contents) updateboardInput.contents = contents;
     if (youtubeUrl) updateboardInput.youtubeUrl = youtubeUrl;
@@ -238,16 +240,13 @@ export default function BoardWrite(props: IBoardWriteProps) {
           updateBoardInput: updateboardInput,
         },
       });
-      // const myVariables = {
-      //   updateboardInput: {
-      //     title: data.fetchBoard.title,
-      //     contents: data.fetchBoard.contents,
-      //   },
+      // const myVariables: IMyVariables = {
+      //   updateBoardInput: updateboardInput,
       //   password: password,
-      //   boardId: router.query.board_post_detail,
+      //   boardId: String(router.query.board_post_detail),
       // };
-      // if (title) myVariables.updateboardInput.title = title;
-      // if (contents) myVariables.updateboardInput.contents = contents;
+      // if (title) myVariables.updateBoardInput.title = title;
+      // if (contents) myVariables.updateBoardInput.contents = contents;
 
       // console.log(myVariables);
 

@@ -14,8 +14,9 @@ import {
   PostButton,
   Star,
 } from "./BoardCommentWrite.styles";
+import { IBoardCommentWriteUIProps } from "./BoardCommentWrite.types";
 
-export default function BoardCommentUI(props) {
+export default function BoardCommentUI(props: IBoardCommentWriteUIProps) {
   return (
     <Wrapper>
       {/* 수정댓글에서는 true 일때  댓글 글씨가 안보이게  */}

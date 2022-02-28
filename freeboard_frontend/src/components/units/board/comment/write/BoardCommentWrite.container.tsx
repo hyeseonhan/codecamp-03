@@ -1,5 +1,5 @@
 import BoardCommentUI from "./BoardCommentWrite.presenter";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useRouter } from "next/router";
 import { useMutation } from "@apollo/client";
 import {
@@ -7,10 +7,16 @@ import {
   UPDATE_BOARD_COMMENT,
 } from "./BoardCommentWrite.queries";
 import { FETCH_BOARD_COMMENTS } from "../list/BoardCommentList.queries";
+import { IBoardCommentWriteProps } from "./BoardCommentWrite.types";
+import {
+  IMutation,
+  IMutationCreateBoardCommentArgs,
+  IMutationUpdateBoardCommentArgs,
+} from "../../../../../commons/types/generated.types";
 
 // props 가 fasle 일 때 등록페이지 1개 /  true 일때 수정 페이지 10개 총 11개
 
-export default function BoardCommentWrite(props) {
+export default function BoardCommentWrite(props: IBoardCommentWriteProps) {
   const router = useRouter();
 
   const [WriterInput, setWriterInput] = useState("");
@@ -19,28 +25,34 @@ export default function BoardCommentWrite(props) {
   const [myStar, setMyStar] = useState(0);
   const [isEdit, setIsEdit] = useState(false);
 
-  const [createBoardComment] = useMutation(CREATE_BOARD_COMMENT);
+  const [createBoardComment] = useMutation<
+    Pick<IMutation, "createBoardComment">,
+    IMutationCreateBoardCommentArgs
+  >(CREATE_BOARD_COMMENT);
 
-  const [updateBoardComment] = useMutation(UPDATE_BOARD_COMMENT);
+  const [updateBoardComment] = useMutation<
+    Pick<IMutation, "updateBoardComment">,
+    IMutationUpdateBoardCommentArgs
+  >(UPDATE_BOARD_COMMENT);
 
   // function onClickUpdate() {
   //   // setIsEdit(event.target.id);
   //   setIsEdit(props.id);
   // }
 
-  function onChangeWriterInput(event) {
+  function onChangeWriterInput(event: ChangeEvent<HTMLInputElement>) {
     setWriterInput(event.target.value);
   }
 
-  function onChangePasswordInput(event) {
+  function onChangePasswordInput(event: ChangeEvent<HTMLInputElement>) {
     setPasswordInput(event.target.value);
   }
 
-  function onChangeContentInput(event) {
+  function onChangeContentInput(event: ChangeEvent<HTMLTextAreaElement>) {
     setContentInput(event.target.value);
   }
 
-  function onChangeStar(value) {
+  function onChangeStar(value: number) {
     setMyStar(value);
   }
 
@@ -68,9 +80,9 @@ export default function BoardCommentWrite(props) {
     }
   }
 
-  async function onClickUpdate(event) {
-    console.log(props.el);
-    console.log(ContentInput);
+  async function onClickUpdate() {
+    // console.log(props.el);
+    // console.log(ContentInput);
     // console.log(.id);
     // setIsEdit(true);
     if (!ContentInput) {
@@ -87,7 +99,8 @@ export default function BoardCommentWrite(props) {
         variables: {
           updateBoardCommentInput: { contents: ContentInput, rating: myStar },
           password: PasswordInput,
-          boardCommentId: props.id,
+          boardCommentId: props.el?._id,
+          // boardCommentId: props.id,
         },
         refetchQueries: [
           {

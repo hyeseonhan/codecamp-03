@@ -24,7 +24,7 @@
     "pages/boards/zbefore/router_detail/index.js",
     "pages/boards/zbefore/new/index.js",
     "pages/boards/zbefore/mutation/index.js",
-    "pages/_app.js"
+    "pages/_app.tsx"
   ],
   "exclude": ["node_modules"]
 }
