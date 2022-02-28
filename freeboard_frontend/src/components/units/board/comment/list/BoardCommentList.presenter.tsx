@@ -2,6 +2,7 @@ import { useRouter } from "next/router";
 import BoardCommentWrite from "../write/BoardCommentWrite.container";
 import { Modal } from "antd";
 import InfiniteScroll from "react-infinite-scroller";
+import { IBoardCommentListUIProps } from "./BoardCommentList.types";
 
 // import { FETCH_BOARD_COMMENTS } from "./BoardCommentList.queries";
 // import { DELETE_BOARD_COMMENT } from "./BoardCommentList.queries";
@@ -24,7 +25,7 @@ import {
   Star,
 } from "./BoardCommentList.styles";
 
-export default function BoardCommentListUI(props) {
+export default function BoardCommentListUI(props: IBoardCommentListUIProps) {
   const router = useRouter();
 
   // const [isEditedId, setIsEditedId] = useState("");

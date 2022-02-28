@@ -14,8 +14,11 @@ import {
   ContentsLength,
   Button,
 } from "./ProductCommentWrite.styles";
+import { ProductCommentWriteUIProps } from "./ProductCommentWrite.types";
 
-export default function ProductCommentWriteUI(props) {
+export default function ProductCommentWriteUI(
+  props: ProductCommentWriteUIProps
+) {
   return (
     <Wrapper>
       <TopWrapper>

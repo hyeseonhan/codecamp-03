@@ -6,17 +6,26 @@ import {
   FETCH_BOARD_COMMENTS,
   DELETE_BOARD_COMMENT,
 } from "./BoardCommentList.queries";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
+import { IBoardCommentListProps } from "./BoardCommentList.types";
+import {
+  IQuery,
+  IQueryFetchBoardCommentsArgs,
+} from "../../../../../commons/types/generated.types";
+import { MouseEvent } from "react";
 
-export default function BoardCommentList(props) {
+export default function BoardCommentList(props: IBoardCommentListProps) {
   const router = useRouter();
-  const { data, fetchMore } = useQuery(FETCH_BOARD_COMMENTS, {
-    variables: { boardId: router.query.board_post_detail },
+  const { data, fetchMore } = useQuery<
+    Pick<IQuery, "fetchBoardComments">,
+    IQueryFetchBoardCommentsArgs
+  >(FETCH_BOARD_COMMENTS, {
+    variables: { boardId: String(router.query.board_post_detail) },
   });
 
   const [isActive, setIsActive] = useState("");
 
-  function onClickActive(event) {
+  function onClickActive(event: MouseEvent<HTMLElement>) {
     setIsActive(event.target.id);
   }
 
@@ -29,7 +38,7 @@ export default function BoardCommentList(props) {
 
   const [deleteBoardComment] = useMutation(DELETE_BOARD_COMMENT);
 
-  function onChangePasswordInput(event) {
+  function onChangePasswordInput(event: ChangeEvent<HTMLInputElement>) {
     setPasswordInput(event.target.value);
   }
 

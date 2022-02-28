@@ -1,22 +1,34 @@
 import { useMutation } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, MouseEvent, useState } from "react";
 import ProductCommentWriteUI from "./ProductCommentWrite.presenter";
 import {
   CREATE_USED_ITEM_QUESTION,
   UPDATE_USED_ITEM_QUESTION,
 } from "./ProductCommentWrite.queries";
 import { FETCH_USED_ITEM_QUESTIONS } from "../list/ProductCommentlist.queries";
+import { ProductCommentWriteProps } from "./ProductCommentWrite.types";
+import {
+  IMutation,
+  IMutationCreateUseditemQuestionArgs,
+  IMutationUpdateUseditemQuestionArgs,
+} from "../../../../../commons/types/generated.types";
 
-export default function ProductCommentWrite(props) {
+export default function ProductCommentWrite(props: ProductCommentWriteProps) {
   const router = useRouter();
   const [contents, setContensts] = useState("");
   const [changeEidtForm, setChangeEditForm] = useState(false);
 
-  const [createUseditemQuestion] = useMutation(CREATE_USED_ITEM_QUESTION);
-  const [updateUseditemQuestion] = useMutation(UPDATE_USED_ITEM_QUESTION);
+  const [createUseditemQuestion] = useMutation<
+    Pick<IMutation, "createUseditemQuestion">,
+    IMutationCreateUseditemQuestionArgs
+  >(CREATE_USED_ITEM_QUESTION);
+  const [updateUseditemQuestion] = useMutation<
+    Pick<IMutation, "updateUseditemQuestion">,
+    IMutationUpdateUseditemQuestionArgs
+  >(UPDATE_USED_ITEM_QUESTION);
 
-  function onChangeContents(event) {
+  function onChangeContents(event: ChangeEvent<HTMLTextAreaElement>) {
     setContensts(event.target.value);
   }
 
@@ -29,7 +41,7 @@ export default function ProductCommentWrite(props) {
           createUseditemQuestionInput: {
             contents: contents,
           },
-          useditemId: router.query.useditemId,
+          useditemId: String(router.query.useditemId),
         },
         refetchQueries: [
           {
@@ -43,7 +55,8 @@ export default function ProductCommentWrite(props) {
     }
   }
 
-  async function onClickUpdate(event) {
+  async function onClickUpdate(event: MouseEvent<HTMLElement>) {
+    if (!(event.target instanceof Element)) return;
     setChangeEditForm(false);
     try {
       await updateUseditemQuestion({
