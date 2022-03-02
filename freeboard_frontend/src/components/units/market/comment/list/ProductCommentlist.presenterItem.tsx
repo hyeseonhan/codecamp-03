@@ -22,18 +22,30 @@ import {
 import { FETCH_USER_LOGGED_IN } from "../../comment-reply/list/ReplyCommentList.queries";
 import { DELETE_USED_ITEM_QUESTION } from "./ProductCommentlist.queries";
 import { useMutation, useQuery } from "@apollo/client";
+import { IProdectCommentlistUIItemProps } from "./ProductCommentlist.types";
+import {
+  IMutation,
+  IMutationDeleteUseditemQuestionArgs,
+  IQuery,
+} from "../../../../../commons/types/generated.types";
 
-export default function ProductCommentListUIItem(props) {
+export default function ProductCommentListUIItem(
+  props: IProdectCommentlistUIItemProps
+) {
   const [isEdit, setIsEdit] = useState(false);
   const [isReply, setIsReply] = useState(false);
 
-  const { data: fetchUserLoggedIndata } = useQuery(FETCH_USER_LOGGED_IN);
+  const { data: fetchUserLoggedIndata } =
+    useQuery<Pick<IQuery, "fetchUserLoggedIn">>(FETCH_USER_LOGGED_IN);
 
   const CommentCompare =
     fetchUserLoggedIndata?.fetchUserLoggedIn.email === props.el?.user?.email;
   props.setIsCommentSeller(CommentCompare);
 
-  const [deleteUseditemQuestion] = useMutation(DELETE_USED_ITEM_QUESTION);
+  const [deleteUseditemQuestion] = useMutation<
+    Pick<IMutation, "deleteUseditemQuestion">,
+    IMutationDeleteUseditemQuestionArgs
+  >(DELETE_USED_ITEM_QUESTION);
 
   function onClickUpdate() {
     setIsEdit(true);

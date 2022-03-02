@@ -1,6 +1,9 @@
 import ProductCommentListUIItem from "./ProductCommentlist.presenterItem";
+import { IProdectCommentlistUIProps } from "./ProductCommentlist.types";
 
-export default function ProductCommentListUI(props) {
+export default function ProductCommentListUI(
+  props: IProdectCommentlistUIProps
+) {
   return (
     <>
       {props.data?.fetchUseditemQuestions.map((el) => (

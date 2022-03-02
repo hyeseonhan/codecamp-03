@@ -1,12 +1,19 @@
 import { useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
+import {
+  IQuery,
+  IQueryFetchUseditemQuestionsArgs,
+} from "../../../../../commons/types/generated.types";
 import ProductCommentListUI from "./ProductCommentlist.presenter";
 import { FETCH_USED_ITEM_QUESTIONS } from "./ProductCommentlist.queries";
 
 export default function ProductCommentList(props) {
   const router = useRouter();
-  const { data } = useQuery(FETCH_USED_ITEM_QUESTIONS, {
-    variables: { useditemId: router.query.useditemId },
+  const { data } = useQuery<
+    Pick<IQuery, "fetchUseditemQuestions">,
+    IQueryFetchUseditemQuestionsArgs
+  >(FETCH_USED_ITEM_QUESTIONS, {
+    variables: { useditemId: String(router.query.useditemId) },
   });
 
   return (
