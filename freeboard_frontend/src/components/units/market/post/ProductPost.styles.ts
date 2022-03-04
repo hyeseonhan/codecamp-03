@@ -1,5 +1,4 @@
 import styled from "@emotion/styled";
-import { IProps } from "./ProductPost.types";
 
 export const Wrapper = styled.form`
   width: 1200px;

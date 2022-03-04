@@ -21,8 +21,9 @@ import {
 import dynamic from "next/dynamic";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 import "react-quill/dist/quill.snow.css";
+import { IProductPostUIProps } from "./ProductPost.types";
 
-export default function ProductPostUI(props: any) {
+export default function ProductPostUI(props: IProductPostUIProps) {
   return (
     <Wrapper
       onSubmit={props.handleSubmit(

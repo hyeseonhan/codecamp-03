@@ -10,12 +10,13 @@ import {
 } from "./ProductPost.queries";
 import { useMutation, useQuery } from "@apollo/client";
 import { useRouter } from "next/router";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { useEffect } from "react";
 import { useContext } from "react";
 import { GlobalContext } from "../../../../../pages/_app";
+import { IProductPostProps } from "./ProductPost.types";
 
-export default function ProductPost(props) {
+export default function ProductPost(props: IProductPostProps) {
   const router = useRouter();
   const { handleSubmit, register, formState, setValue, trigger } = useForm({
     mode: "onChange",
@@ -73,7 +74,7 @@ export default function ProductPost(props) {
   }
 
   // web editor
-  function onChangeEditior(value) {
+  function onChangeEditior(value: string) {
     // console.log(value);
     // register로 등록하지 않고, 강제로 값을 넣어주는 기능
     setValue("contents", value === "<p><br></p>" ? "" : value);
@@ -83,8 +84,8 @@ export default function ProductPost(props) {
   }
 
   // kakaomap-post
-  function onChangeAddressDetail(event) {
-    setAddressDetail(event.target.vaule);
+  function onChangeAddressDetail(event: ChangeEvent<HTMLInputElement>) {
+    setAddressDetail(event.target.value);
   }
 
   function onClickCancelUpdate() {
